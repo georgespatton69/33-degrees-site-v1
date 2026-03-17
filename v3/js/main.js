@@ -1,6 +1,5 @@
 /* ============================================
-   33 DEGREES V3 — JS
-   Mobile nav, scroll reveal, smooth scroll
+   33 DEGREES V3 — IM8-style JS
    ============================================ */
 
 // ---------- MOBILE NAV ----------
@@ -8,13 +7,11 @@
     const toggle = document.querySelector('.mobile-menu-toggle');
     const overlay = document.querySelector('.mobile-menu-overlay');
     if (!toggle || !overlay) return;
-
     toggle.addEventListener('click', () => {
         toggle.classList.toggle('active');
         overlay.classList.toggle('active');
         document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
     });
-
     overlay.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             toggle.classList.remove('active');
@@ -37,12 +34,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 // ---------- SCROLL REVEAL ----------
 (function() {
     const els = document.querySelectorAll(
-        '.compound-card, .catalog-card, .process-card, .glass-card, .stat-item, .testimonial-glass'
+        '.showcase-card, .catalog-card, .glass-card, .stat-item, .step, .testimonial-glass'
     );
     els.forEach(el => {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        el.style.transform = 'translateY(24px)';
+        el.style.transition = 'opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1)';
     });
 
     const obs = new IntersectionObserver((entries) => {
@@ -51,11 +48,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
                 setTimeout(() => {
                     entry.target.style.opacity = '1';
                     entry.target.style.transform = 'translateY(0)';
-                }, i * 60);
+                }, i * 80);
                 obs.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     els.forEach(el => obs.observe(el));
 })();
@@ -75,24 +72,17 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
                 const target = parseFloat(match[0]);
                 const suffix = text.replace(match[0], '');
-                const duration = 1500;
+                const duration = 1800;
                 const start = performance.now();
 
                 function tick(now) {
-                    const progress = Math.min((now - start) / duration, 1);
-                    const eased = 1 - Math.pow(1 - progress, 3);
-                    const current = target * eased;
-
-                    if (text.includes('.')) {
-                        el.textContent = current.toFixed(1) + suffix;
-                    } else {
-                        el.textContent = Math.round(current) + suffix;
-                    }
-
-                    if (progress < 1) requestAnimationFrame(tick);
+                    const p = Math.min((now - start) / duration, 1);
+                    const eased = 1 - Math.pow(1 - p, 4);
+                    const val = target * eased;
+                    el.textContent = (text.includes('.') ? val.toFixed(1) : Math.round(val)) + suffix;
+                    if (p < 1) requestAnimationFrame(tick);
                     else el.textContent = text;
                 }
-
                 requestAnimationFrame(tick);
                 obs.unobserve(el);
             }
@@ -100,4 +90,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }, { threshold: 0.5 });
 
     stats.forEach(s => obs.observe(s));
+})();
+
+// ---------- PARALLAX HERO GLOW ----------
+(function() {
+    const glows = document.querySelectorAll('.hero-glow');
+    if (!glows.length) return;
+
+    window.addEventListener('mousemove', (e) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+        glows.forEach((g, i) => {
+            const factor = i === 0 ? 1 : -0.7;
+            g.style.transform = `translate(${x * factor}px, ${y * factor}px) scale(${1 + Math.abs(x) * 0.002})`;
+        });
+    });
 })();

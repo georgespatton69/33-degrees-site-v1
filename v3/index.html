@@ -7,16 +7,18 @@
     <meta name="description" content="Science-driven healing compounds backed by research. Premium peptides for recovery, longevity, and regeneration.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=1">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
 
     <!-- ========== ANNOUNCEMENT BAR ========== -->
     <div class="announce-bar">
         <div class="container announce-inner">
+            <div class="announce-shimmer"></div>
             <span class="announce-dot"></span>
-            <span>RESEARCH GRADE &middot; Third-Party Lab Tested &middot; Certificate of Analysis with Every Order</span>
+            <span class="announce-text">RESEARCH GRADE &middot; Third-Party Lab Tested &middot; Certificate of Analysis with Every Order</span>
+            <a href="#compounds" class="announce-cta">Get Started &rarr;</a>
         </div>
     </div>
 
@@ -30,26 +32,27 @@
                 <img src="assets/images/logo-transparent.png" alt="33 Degrees of Healing">
             </a>
             <ul class="nav-menu">
-                <li><a href="#compounds">Compounds</a></li>
+                <li><a href="#compounds">Shop</a></li>
                 <li><a href="#science">Science</a></li>
-                <li><a href="#catalog">Full Catalog</a></li>
+                <li><a href="#catalog">All Compounds</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
             <div class="nav-actions">
                 <button class="nav-icon" aria-label="Search">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
                 </button>
+                <a href="#" class="nav-link-login">Log in</a>
                 <button class="nav-icon cart-icon" aria-label="Cart">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-                    <span class="cart-count">0</span>
+                    <span class="cart-count">00</span>
                 </button>
             </div>
         </nav>
         <div class="mobile-menu-overlay">
             <ul class="mobile-nav-menu">
-                <li><a href="#compounds">Compounds</a></li>
+                <li><a href="#compounds">Shop</a></li>
                 <li><a href="#science">Science</a></li>
-                <li><a href="#catalog">Full Catalog</a></li>
+                <li><a href="#catalog">All Compounds</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
         </div>
@@ -57,39 +60,158 @@
 
     <!-- ========== HERO ========== -->
     <section class="hero">
+        <div class="hero-bg-img" style="background-image: url('assets/images/hero-bg.jpg')"></div>
         <div class="hero-glow hero-glow-1"></div>
         <div class="hero-glow hero-glow-2"></div>
         <div class="hero-noise"></div>
+        <div class="hero-scrim"></div>
         <div class="container hero-inner">
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="live-dot"></span>
                     <span>Science-Driven Healing</span>
                 </div>
-                <h1>Restore Balance.<br><em>Rebuild Health.</em><br>Elevate Life.</h1>
-                <p>Premium research-grade peptides backed by clinical data. Every compound third-party tested, every batch verified with a certificate of analysis.</p>
+                <h1>The New Standard<br>in <em>Regenerative</em><br><em>Healing</em></h1>
+                <p class="hero-sub">Premium research-grade peptides backed by clinical data. Every compound third-party tested, every batch verified with a certificate of analysis.</p>
                 <div class="hero-ctas">
-                    <a href="#compounds" class="btn btn-glow">Explore Compounds</a>
+                    <a href="#compounds" class="btn btn-glow">Get Started</a>
                     <a href="#science" class="btn btn-ghost">View the Science</a>
                 </div>
                 <div class="hero-proof">
                     <div class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-                    <span>Trusted by researchers &amp; clinics nationwide</span>
+                    <span>Trusted by researchers &amp; clinics</span>
+                    <span class="proof-badge">COA Included</span>
                 </div>
             </div>
             <div class="hero-stats-col">
                 <div class="glass-card">
                     <span class="glass-number">13</span>
                     <span class="glass-label">Research Compounds</span>
+                    <span class="glass-sub">Curated catalog</span>
                 </div>
                 <div class="glass-card">
                     <span class="glass-number">99.1%</span>
                     <span class="glass-label">Purity Verified</span>
+                    <span class="glass-sub">Every batch tested</span>
                 </div>
                 <div class="glass-card">
-                    <span class="glass-number">3rd Party</span>
-                    <span class="glass-label">Lab Tested</span>
+                    <span class="glass-number">87.5%</span>
+                    <span class="glass-label">Patient Relief</span>
+                    <span class="glass-sub">BPC-157 human trials</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PRODUCT SHOWCASE (IM8-style horizontal cards) ========== -->
+    <section class="showcase-section" id="compounds">
+        <div class="container">
+            <div class="section-head">
+                <span class="section-tag">Featured Compounds</span>
+                <h2>Backed by Research.<br><em>Built for Results.</em></h2>
+            </div>
+            <div class="showcase-grid">
+
+                <div class="showcase-card">
+                    <div class="sc-image">
+                        <img src="assets/images/bottle-bpc157.png" alt="BPC-157">
+                        <span class="sc-tag">Recovery</span>
+                    </div>
+                    <div class="sc-body">
+                        <h3>BPC-157</h3>
+                        <p>Gastric pentadecapeptide that accelerates healing of muscles, tendons, and gut tissue via VEGFR2 pathway activation.</p>
+                        <div class="sc-stat-row">
+                            <div class="sc-stat">
+                                <span class="sc-stat-num">87.5%</span>
+                                <span class="sc-stat-label">patient relief in human knee trials</span>
+                            </div>
+                            <div class="sc-stat">
+                                <span class="sc-stat-num">36</span>
+                                <span class="sc-stat-label">studies confirming tissue repair</span>
+                            </div>
+                        </div>
+                        <div class="sc-bottom">
+                            <span class="sc-price">$79</span>
+                            <a href="#" class="btn btn-glow btn-sm">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="showcase-card reverse">
+                    <div class="sc-image">
+                        <img src="assets/images/bottle-tb500.png" alt="TB-500">
+                        <span class="sc-tag">Recovery</span>
+                    </div>
+                    <div class="sc-body">
+                        <h3>TB-500</h3>
+                        <p>Synthetic Thymosin Beta-4 fragment promoting cell migration, angiogenesis, and tissue repair via Akt pathway activation.</p>
+                        <div class="sc-stat-row">
+                            <div class="sc-stat">
+                                <span class="sc-stat-num">61%</span>
+                                <span class="sc-stat-label">improved healing by day 7 vs. control</span>
+                            </div>
+                            <div class="sc-stat">
+                                <span class="sc-stat-num">42%</span>
+                                <span class="sc-stat-label">improvement by day 4</span>
+                            </div>
+                        </div>
+                        <div class="sc-bottom">
+                            <span class="sc-price">$89</span>
+                            <a href="#" class="btn btn-glow btn-sm">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="showcase-card">
+                    <div class="sc-image">
+                        <img src="assets/images/bottle-wolverine.png" alt="Wolverine Stack">
+                        <span class="sc-tag best">Best Seller</span>
+                    </div>
+                    <div class="sc-body">
+                        <h3>Wolverine Stack</h3>
+                        <p>BPC-157 &amp; TB-500 combined — dual-pathway recovery targeting structural repair and vascular regeneration simultaneously.</p>
+                        <div class="sc-stat-row">
+                            <div class="sc-stat">
+                                <span class="sc-stat-num">2x</span>
+                                <span class="sc-stat-label">complementary repair pathways</span>
+                            </div>
+                            <div class="sc-stat">
+                                <span class="sc-stat-num">10mg</span>
+                                <span class="sc-stat-label">optimized blend dosage</span>
+                            </div>
+                        </div>
+                        <div class="sc-bottom">
+                            <span class="sc-price">$149</span>
+                            <a href="#" class="btn btn-glow btn-sm">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="showcase-card reverse">
+                    <div class="sc-image">
+                        <img src="assets/images/bottle-retatrutide.png" alt="Retatrutide">
+                        <span class="sc-tag weight">Weight</span>
+                    </div>
+                    <div class="sc-body">
+                        <h3>Retatrutide</h3>
+                        <p>Triple-receptor agonist (GIP + GLP-1 + glucagon) targeting three metabolic pathways for significant weight reduction.</p>
+                        <div class="sc-stat-row">
+                            <div class="sc-stat">
+                                <span class="sc-stat-num">23.7%</span>
+                                <span class="sc-stat-label">body weight reduction in Phase 3</span>
+                            </div>
+                            <div class="sc-stat">
+                                <span class="sc-stat-num">100%</span>
+                                <span class="sc-stat-label">of patients lost 5%+ at 12mg dose</span>
+                            </div>
+                        </div>
+                        <div class="sc-bottom">
+                            <span class="sc-price">From $99</span>
+                            <a href="#" class="btn btn-glow btn-sm">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -99,142 +221,63 @@
         <div class="container stats-grid">
             <div class="stat-item">
                 <span class="stat-big">87.5%</span>
-                <span class="stat-desc">of patients reported significant relief in BPC-157 human trials</span>
+                <span class="stat-desc">patient relief rate in BPC-157 human trials</span>
             </div>
             <div class="stat-item">
                 <span class="stat-big">23.7%</span>
-                <span class="stat-desc">body weight reduction achieved with Retatrutide in Phase 3 trials</span>
+                <span class="stat-desc">weight reduction in Retatrutide Phase 3 trials</span>
             </div>
             <div class="stat-item">
                 <span class="stat-big">18%</span>
-                <span class="stat-desc">visceral fat decrease in 12-month Tesamorelin clinical study</span>
+                <span class="stat-desc">visceral fat decrease in Tesamorelin studies</span>
             </div>
             <div class="stat-item">
-                <span class="stat-big">42-61%</span>
-                <span class="stat-desc">improved wound healing with TB-500 vs. control groups</span>
+                <span class="stat-big">40-50%</span>
+                <span class="stat-desc">faster wound closure with GHK-CU peptide</span>
             </div>
         </div>
     </section>
 
-    <!-- ========== FEATURED COMPOUNDS ========== -->
-    <section class="compounds-section" id="compounds">
-        <div class="container">
-            <div class="section-head">
-                <span class="section-tag">Featured Compounds</span>
-                <h2>Backed by Research.<br>Built for Results.</h2>
-            </div>
-            <div class="compound-grid">
-
-                <div class="compound-card">
-                    <div class="compound-img">
-                        <span class="compound-ph">&#9883;</span>
-                        <span class="card-tag">Recovery</span>
-                    </div>
-                    <div class="compound-body">
-                        <h3>BPC-157</h3>
-                        <p class="compound-desc">Gastric pentadecapeptide that accelerates healing of muscles, tendons, and gut tissue via VEGFR2 pathway activation.</p>
-                        <div class="compound-stat">
-                            <span class="cs-number">87.5%</span>
-                            <span class="cs-text">patient relief rate in human knee trials</span>
-                        </div>
-                        <div class="compound-bottom">
-                            <span class="compound-price">$79</span>
-                            <a href="#" class="btn btn-card">Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="compound-card">
-                    <div class="compound-img">
-                        <span class="compound-ph">&#9883;</span>
-                        <span class="card-tag">Recovery</span>
-                    </div>
-                    <div class="compound-body">
-                        <h3>TB-500</h3>
-                        <p class="compound-desc">Synthetic Thymosin Beta-4 fragment promoting cell migration, angiogenesis, and tissue repair via Akt pathway activation.</p>
-                        <div class="compound-stat">
-                            <span class="cs-number">61%</span>
-                            <span class="cs-text">improved healing by day 7 vs. control</span>
-                        </div>
-                        <div class="compound-bottom">
-                            <span class="compound-price">$89</span>
-                            <a href="#" class="btn btn-card">Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="compound-card featured">
-                    <div class="compound-img">
-                        <span class="compound-ph">&#9883;</span>
-                        <span class="card-tag best">Best Seller</span>
-                    </div>
-                    <div class="compound-body">
-                        <h3>Wolverine Stack</h3>
-                        <p class="compound-desc">BPC-157 &amp; TB-500 combined — dual-pathway recovery targeting structural repair and vascular regeneration simultaneously.</p>
-                        <div class="compound-stat">
-                            <span class="cs-number">2x</span>
-                            <span class="cs-text">complementary repair pathways in one compound</span>
-                        </div>
-                        <div class="compound-bottom">
-                            <span class="compound-price">$149</span>
-                            <a href="#" class="btn btn-card">Details</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="compound-card">
-                    <div class="compound-img">
-                        <span class="compound-ph">&#9883;</span>
-                        <span class="card-tag weight">Weight</span>
-                    </div>
-                    <div class="compound-body">
-                        <h3>Retatrutide</h3>
-                        <p class="compound-desc">Triple-receptor agonist (GIP + GLP-1 + glucagon) targeting three metabolic pathways for significant weight reduction.</p>
-                        <div class="compound-stat">
-                            <span class="cs-number">23.7%</span>
-                            <span class="cs-text">body weight reduction in Phase 3 trials</span>
-                        </div>
-                        <div class="compound-bottom">
-                            <span class="compound-price">From $99</span>
-                            <a href="#" class="btn btn-card">Details</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== SCIENCE PROCESS ========== -->
+    <!-- ========== SCIENCE SECTION ========== -->
     <section class="science-section" id="science">
-        <div class="container">
-            <div class="section-head">
+        <div class="container science-inner">
+            <div class="science-img">
+                <img src="assets/images/lab-science.jpg" alt="Laboratory testing">
+            </div>
+            <div class="science-text">
                 <span class="section-tag">Our Process</span>
-                <h2>Four Steps to <em>Verified Purity</em></h2>
-            </div>
-            <div class="process-grid">
-                <div class="process-card">
-                    <span class="process-num">01</span>
-                    <h4>Purification</h4>
-                    <p>Raw materials refined to pharmaceutical-grade standards through multi-stage filtration.</p>
+                <h2>Four Steps to<br><em>Verified Purity</em></h2>
+                <p>Every compound undergoes a rigorous four-step quality process. We partner with independent laboratories to verify purity, potency, and safety at every stage.</p>
+                <div class="process-steps">
+                    <div class="step">
+                        <span class="step-num">01</span>
+                        <div>
+                            <strong>Purification</strong>
+                            <p>Raw materials refined to pharmaceutical standards</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">02</span>
+                        <div>
+                            <strong>Synthesis</strong>
+                            <p>Precision peptide assembly with quality controls</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">03</span>
+                        <div>
+                            <strong>Testing</strong>
+                            <p>Independent third-party laboratory analysis</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num">04</span>
+                        <div>
+                            <strong>Verification</strong>
+                            <p>Certificate of analysis issued with every order</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="process-card">
-                    <span class="process-num">02</span>
-                    <h4>Synthesis</h4>
-                    <p>Precision peptide assembly with real-time quality controls at every step.</p>
-                </div>
-                <div class="process-card">
-                    <span class="process-num">03</span>
-                    <h4>Testing</h4>
-                    <p>Independent third-party laboratory analysis for identity, purity, and concentration.</p>
-                </div>
-                <div class="process-card">
-                    <span class="process-num">04</span>
-                    <h4>Verification</h4>
-                    <p>Certificate of analysis issued and included with every single order.</p>
-                </div>
-            </div>
-            <div class="science-cta">
                 <a href="#" class="btn btn-glow">View Lab Results</a>
             </div>
         </div>
@@ -245,140 +288,22 @@
         <div class="container">
             <div class="section-head">
                 <span class="section-tag">Full Catalog</span>
-                <h2>13 Research-Grade Compounds</h2>
+                <h2>13 Research-Grade <em>Compounds</em></h2>
             </div>
             <div class="catalog-grid">
-
-                <div class="catalog-card">
-                    <div class="cc-top">
-                        <span class="cc-cat">Recovery</span>
-                        <span class="cc-price">$79</span>
-                    </div>
-                    <h4>BPC-157</h4>
-                    <p>Accelerated tissue repair</p>
-                    <div class="cc-stat">87.5% relief rate in human trials</div>
-                </div>
-
-                <div class="catalog-card">
-                    <div class="cc-top">
-                        <span class="cc-cat">Recovery</span>
-                        <span class="cc-price">$89</span>
-                    </div>
-                    <h4>TB-500</h4>
-                    <p>Cellular regeneration</p>
-                    <div class="cc-stat">61% improved healing by day 7</div>
-                </div>
-
-                <div class="catalog-card">
-                    <div class="cc-top">
-                        <span class="cc-cat">Recovery</span>
-                        <span class="cc-price">$149</span>
-                    </div>
-                    <h4>Wolverine Stack</h4>
-                    <p>BPC-157 &amp; TB-500 blend</p>
-                    <div class="cc-stat">Dual-pathway synergistic repair</div>
-                </div>
-
-                <div class="catalog-card">
-                    <div class="cc-top">
-                        <span class="cc-cat">Weight</span>
-                        <span class="cc-price">From $99</span>
-                    </div>
-                    <h4>Retatrutide</h4>
-                    <p>Triple-receptor metabolic agonist</p>
-                    <div class="cc-stat">23.7% weight reduction in Phase 3</div>
-                </div>
-
-                <div class="catalog-card">
-                    <div class="cc-top">
-                        <span class="cc-cat">Longevity</span>
-                        <span class="cc-price">From $69</span>
-                    </div>
-                    <h4>MOTS-c</h4>
-                    <p>Mitochondrial exercise mimetic</p>
-                    <div class="cc-stat">Enhanced physical performance across all ages</div>
-                </div>
-
-                <div class="catalog-card">
-                    <div class="cc-top">
-                        <span class="cc-cat">Longevity</span>
-                        <span class="cc-price">$199</span>
-                    </div>
-                    <h4>NAD+ 1000mg</h4>
-                    <p>Cellular energy &amp; DNA repair</p>
-                    <div class="cc-stat">Levels decline ~30% between ages 45-60</div>
-                </div>
-
-                <div class="catalog-card">
-                    <div class="cc-top">
-                        <span class="cc-cat">Longevity</span>
-                        <span class="cc-price">$59</span>
-                    </div>
-                    <h4>Epithalon</h4>
-                    <p>Telomerase activator</p>
-                    <div class="cc-stat">Increased telomere length in human studies</div>
-                </div>
-
-                <div class="catalog-card">
-                    <div class="cc-top">
-                        <span class="cc-cat">Skin</span>
-                        <span class="cc-price">$199</span>
-                    </div>
-                    <h4>Glow Blend</h4>
-                    <p>BPC-157 + TB-500 + GHK-CU</p>
-                    <div class="cc-stat">Triple-peptide skin rejuvenation</div>
-                </div>
-
-                <div class="catalog-card">
-                    <div class="cc-top">
-                        <span class="cc-cat">Hormone</span>
-                        <span class="cc-price">$69</span>
-                    </div>
-                    <h4>Ipamorelin</h4>
-                    <p>Selective GH secretagogue</p>
-                    <div class="cc-stat">Clean GH release without cortisol spike</div>
-                </div>
-
-                <div class="catalog-card">
-                    <div class="cc-top">
-                        <span class="cc-cat">Skin</span>
-                        <span class="cc-price">$89</span>
-                    </div>
-                    <h4>GHK-CU</h4>
-                    <p>Copper peptide complex</p>
-                    <div class="cc-stat">40-50% faster wound closure vs. control</div>
-                </div>
-
-                <div class="catalog-card">
-                    <div class="cc-top">
-                        <span class="cc-cat">Weight</span>
-                        <span class="cc-price">$119</span>
-                    </div>
-                    <h4>Tesamorelin</h4>
-                    <p>FDA-approved GHRH analog</p>
-                    <div class="cc-stat">18% visceral fat decrease in 12 months</div>
-                </div>
-
-                <div class="catalog-card">
-                    <div class="cc-top">
-                        <span class="cc-cat">Longevity</span>
-                        <span class="cc-price">$79</span>
-                    </div>
-                    <h4>SS-31</h4>
-                    <p>Mitochondria-targeting peptide</p>
-                    <div class="cc-stat">First FDA-approved mito-targeted therapy</div>
-                </div>
-
-                <div class="catalog-card">
-                    <div class="cc-top">
-                        <span class="cc-cat">Weight</span>
-                        <span class="cc-price">$69</span>
-                    </div>
-                    <h4>AOD 9604</h4>
-                    <p>HGH fat-burning fragment</p>
-                    <div class="cc-stat">3x more weight loss than placebo in trials</div>
-                </div>
-
+                <div class="catalog-card"><div class="cc-top"><span class="cc-cat recovery">Recovery</span><span class="cc-price">$79</span></div><h4>BPC-157</h4><p>Accelerated tissue repair</p><div class="cc-stat">87.5% relief rate in human trials</div></div>
+                <div class="catalog-card"><div class="cc-top"><span class="cc-cat recovery">Recovery</span><span class="cc-price">$89</span></div><h4>TB-500</h4><p>Cellular regeneration</p><div class="cc-stat">61% improved healing by day 7</div></div>
+                <div class="catalog-card"><div class="cc-top"><span class="cc-cat recovery">Recovery</span><span class="cc-price">$149</span></div><h4>Wolverine Stack</h4><p>BPC-157 &amp; TB-500 blend</p><div class="cc-stat">Dual-pathway synergistic repair</div></div>
+                <div class="catalog-card"><div class="cc-top"><span class="cc-cat weight">Weight</span><span class="cc-price">From $99</span></div><h4>Retatrutide</h4><p>Triple-receptor agonist</p><div class="cc-stat">23.7% weight reduction in Phase 3</div></div>
+                <div class="catalog-card"><div class="cc-top"><span class="cc-cat longevity">Longevity</span><span class="cc-price">From $69</span></div><h4>MOTS-c</h4><p>Mitochondrial exercise mimetic</p><div class="cc-stat">Enhanced performance across all ages</div></div>
+                <div class="catalog-card"><div class="cc-top"><span class="cc-cat longevity">Longevity</span><span class="cc-price">$199</span></div><h4>NAD+ 1000mg</h4><p>Cellular energy &amp; DNA repair</p><div class="cc-stat">Levels decline ~30% between 45-60</div></div>
+                <div class="catalog-card"><div class="cc-top"><span class="cc-cat longevity">Longevity</span><span class="cc-price">$59</span></div><h4>Epithalon</h4><p>Telomerase activator</p><div class="cc-stat">Increased telomere length in humans</div></div>
+                <div class="catalog-card"><div class="cc-top"><span class="cc-cat skin">Skin</span><span class="cc-price">$199</span></div><h4>Glow Blend</h4><p>BPC-157 + TB-500 + GHK-CU</p><div class="cc-stat">Triple-peptide skin rejuvenation</div></div>
+                <div class="catalog-card"><div class="cc-top"><span class="cc-cat hormone">Hormone</span><span class="cc-price">$69</span></div><h4>Ipamorelin</h4><p>Selective GH secretagogue</p><div class="cc-stat">Clean GH release, no cortisol spike</div></div>
+                <div class="catalog-card"><div class="cc-top"><span class="cc-cat skin">Skin</span><span class="cc-price">$89</span></div><h4>GHK-CU</h4><p>Copper peptide complex</p><div class="cc-stat">40-50% faster wound closure</div></div>
+                <div class="catalog-card"><div class="cc-top"><span class="cc-cat weight">Weight</span><span class="cc-price">$119</span></div><h4>Tesamorelin</h4><p>FDA-approved GHRH analog</p><div class="cc-stat">18% visceral fat decrease in 12mo</div></div>
+                <div class="catalog-card"><div class="cc-top"><span class="cc-cat longevity">Longevity</span><span class="cc-price">$79</span></div><h4>SS-31</h4><p>Mitochondria-targeting peptide</p><div class="cc-stat">First FDA-approved mito therapy</div></div>
+                <div class="catalog-card"><div class="cc-top"><span class="cc-cat weight">Weight</span><span class="cc-price">$69</span></div><h4>AOD 9604</h4><p>HGH fat-burning fragment</p><div class="cc-stat">3x more weight loss than placebo</div></div>
             </div>
         </div>
     </section>
@@ -404,7 +329,7 @@
     <section class="about-section" id="about">
         <div class="container about-inner">
             <div class="about-img">
-                <img src="assets/images/logo-transparent.png" alt="33 Degrees of Healing">
+                <img src="assets/images/philosophy-tree.jpg" alt="33 Degrees Tree of Life">
             </div>
             <div class="about-text">
                 <span class="section-tag">Our Philosophy</span>
@@ -436,16 +361,16 @@
                     <p>Restore Balance &middot; Rebuild Health &middot; Elevate Life</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Navigate</h4>
-                    <ul><li><a href="#">Home</a></li><li><a href="#compounds">Compounds</a></li><li><a href="#science">Science</a></li><li><a href="#about">About</a></li><li><a href="#">Blog</a></li></ul>
+                    <h4>Shop</h4>
+                    <ul><li><a href="#compounds">Featured</a></li><li><a href="#catalog">All Compounds</a></li><li><a href="#">Lab Testing</a></li><li><a href="#">Blog</a></li></ul>
                 </div>
                 <div class="footer-col">
-                    <h4>Policies</h4>
+                    <h4>Company</h4>
+                    <ul><li><a href="#about">About</a></li><li><a href="#science">Science</a></li><li><a href="#">Quality Standards</a></li><li><a href="#">Contact</a></li></ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
                     <ul><li><a href="#">Shipping</a></li><li><a href="#">Returns</a></li><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Connect</h4>
-                    <ul><li><a href="#">Contact</a></li><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">TikTok</a></li></ul>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -455,6 +380,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=1"></script>
+    <script src="js/main.js?v=2"></script>
 </body>
 </html>
