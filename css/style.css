@@ -1016,6 +1016,7 @@ img {
 
     .product-card.featured-extra {
         display: none;
+        order: 3;
     }
 
     .product-grid.show-extra .product-card.featured-extra {
@@ -1024,16 +1025,10 @@ img {
 
     .show-more-btn {
         display: inline-flex;
-    }
-
-    .featured-products .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .featured-products .product-grid {
-        width: 100%;
+        order: 2;
+        grid-column: 1 / -1;
+        justify-self: center;
+        margin: 16px 0;
     }
 
     .products-full-grid {
