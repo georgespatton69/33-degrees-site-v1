@@ -1010,8 +1010,18 @@ img {
         display: flex;
     }
 
+    .nav-container {
+        justify-content: space-between;
+    }
+
+    .nav-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     .nav-logo img {
-        height: 40px;
+        height: 48px;
     }
 
     /* Hero */
