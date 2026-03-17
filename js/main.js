@@ -87,6 +87,22 @@
 })();
 
 
+// ---------- SHOW MORE FEATURED PRODUCTS (MOBILE) ----------
+(function initShowMore() {
+    const btn = document.getElementById('show-more-featured');
+    if (!btn) return;
+
+    const grid = btn.previousElementSibling;
+    const textEl = btn.querySelector('.show-more-text');
+
+    btn.addEventListener('click', () => {
+        const expanded = grid.classList.toggle('expanded');
+        btn.classList.toggle('expanded');
+        textEl.textContent = expanded ? 'Show Less' : 'Show More';
+    });
+})();
+
+
 // ---------- MOBILE NAVIGATION ----------
 (function initMobileNav() {
     const toggle = document.querySelector('.mobile-menu-toggle');
