@@ -578,6 +578,19 @@ img {
 .shop-all-btn {
     display: none;
     margin: 32px auto 0;
+    text-align: center;
+}
+
+.all-products .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.all-products .products-full-grid,
+.all-products .section-title,
+.all-products .section-subtitle {
+    width: 100%;
 }
 
 .product-card-sm:hover {
