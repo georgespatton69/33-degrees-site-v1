@@ -22,6 +22,15 @@
     --glass-bg: rgba(255,255,255,0.04);
     --glass-border: rgba(255,255,255,0.07);
     --glass-blur: blur(24px);
+    /* Light section vars */
+    --light-bg: #ffffff;
+    --light-bg-alt: #f8f7f5;
+    --light-text: #1a1a2e;
+    --light-text-sec: #4a5568;
+    --light-text-muted: #718096;
+    --light-border: #e8e4df;
+    --light-card-bg: #ffffff;
+    --light-card-shadow: 0 2px 12px rgba(0,0,0,0.06);
     --font-display: 'Playfair Display', Georgia, serif;
     --font-body: 'Inter', -apple-system, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
@@ -560,7 +569,7 @@ h2 em {
    ============================================ */
 .science-section {
     padding: 120px 0;
-    background: var(--bg-section);
+    background: var(--light-bg);
 }
 
 .science-inner {
@@ -583,16 +592,20 @@ h2 em {
 
 .science-text { flex: 1; }
 
+.science-section .section-tag { color: var(--crimson); }
+
 .science-text h2 {
     font-family: var(--font-display);
     font-size: 2.2rem; font-weight: 400;
-    color: var(--text-primary);
+    color: var(--light-text);
     margin-bottom: 16px;
     line-height: 1.2;
 }
 
+.science-text h2 em { color: var(--crimson); }
+
 .science-text > p {
-    color: var(--text-secondary);
+    color: var(--light-text-sec);
     margin-bottom: 36px;
     line-height: 1.8;
 }
@@ -605,30 +618,35 @@ h2 em {
 .step {
     display: flex; align-items: flex-start; gap: 16px;
     padding: 16px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: var(--light-bg-alt);
+    border: 1px solid var(--light-border);
     border-radius: 10px;
     transition: all var(--transition);
 }
-.step:hover { border-color: rgba(212,168,75,0.12); }
+.step:hover { border-color: var(--crimson); box-shadow: var(--light-card-shadow); }
 
 .step-num {
     font-family: var(--font-mono);
     font-size: 0.85rem; font-weight: 500;
-    color: var(--gold); opacity: 0.6;
+    color: var(--crimson); opacity: 0.7;
     flex-shrink: 0; width: 28px;
     padding-top: 2px;
 }
 
-.step strong { display: block; font-size: 0.88rem; color: var(--text-primary); margin-bottom: 2px; }
-.step p { font-size: 0.78rem; color: var(--text-muted); margin: 0; line-height: 1.4; }
+.step strong { display: block; font-size: 0.88rem; color: var(--light-text); margin-bottom: 2px; }
+.step p { font-size: 0.78rem; color: var(--light-text-muted); margin: 0; line-height: 1.4; }
 
 /* ============================================
    CATALOG
    ============================================ */
 .catalog-section {
     padding: 120px 0;
+    background: var(--light-bg-alt);
 }
+
+.catalog-section .section-head h2 { color: var(--light-text); }
+.catalog-section .section-head h2 em { color: var(--crimson); }
+.catalog-section .section-tag { color: var(--crimson); }
 
 .catalog-grid {
     display: grid;
@@ -637,17 +655,17 @@ h2 em {
 }
 
 .catalog-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: var(--light-card-bg);
+    border: 1px solid var(--light-border);
     border-radius: var(--radius);
     padding: 20px;
     transition: all var(--transition);
     cursor: pointer;
 }
 .catalog-card:hover {
-    border-color: rgba(212,168,75,0.15);
+    border-color: var(--burgundy-mid);
     transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 }
 
 .cc-top {
@@ -669,25 +687,25 @@ h2 em {
 .cc-price {
     font-family: var(--font-mono);
     font-size: 0.82rem; font-weight: 500;
-    color: var(--text-primary);
+    color: var(--light-text);
 }
 
 .catalog-card h4 {
     font-family: var(--font-display);
-    font-size: 1rem; color: var(--text-primary);
+    font-size: 1rem; color: var(--light-text);
     margin-bottom: 2px;
 }
 
 .catalog-card > p {
-    font-size: 0.75rem; color: var(--text-muted);
+    font-size: 0.75rem; color: var(--light-text-muted);
     margin-bottom: 12px;
 }
 
 .cc-stat {
     font-size: 0.65rem;
-    color: var(--gold); opacity: 0.75;
+    color: var(--burgundy-mid);
     padding-top: 10px;
-    border-top: 1px solid rgba(255,255,255,0.04);
+    border-top: 1px solid var(--light-border);
     font-family: var(--font-mono);
     line-height: 1.4;
 }
@@ -738,7 +756,8 @@ h2 em {
 /* ============================================
    ABOUT
    ============================================ */
-.about-section { padding: 120px 0; background: var(--bg-section); }
+.about-section { padding: 120px 0; background: var(--light-bg); }
+.about-section .section-tag { color: var(--crimson); }
 
 .about-inner {
     display: flex; align-items: center; gap: 60px;
@@ -760,21 +779,23 @@ h2 em {
 .about-text h2 {
     font-family: var(--font-display);
     font-size: 2.2rem; font-weight: 400;
-    color: var(--text-primary);
+    color: var(--light-text);
     margin-bottom: 16px;
 }
 
+.about-text h2 em { color: var(--crimson); }
+
 .about-text p {
-    color: var(--text-secondary); line-height: 1.8;
+    color: var(--light-text-sec); line-height: 1.8;
     margin-bottom: 16px;
 }
 
 .about-mission {
-    color: var(--gold) !important;
+    color: var(--burgundy-mid) !important;
     font-family: var(--font-display);
     font-style: italic;
     font-size: 1.05rem;
-    border-left: 2px solid rgba(212,168,75,0.3);
+    border-left: 2px solid var(--crimson);
     padding-left: 20px;
 }
 
