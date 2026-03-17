@@ -565,6 +565,13 @@ img {
     margin-top: 32px;
 }
 
+@media (max-width: 768px) {
+    .products-full-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px;
+    }
+}
+
 .product-card-sm {
     background: var(--bg-card);
     border: 1px solid var(--border-subtle);
