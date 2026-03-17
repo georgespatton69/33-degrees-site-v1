@@ -752,7 +752,8 @@ img {
 
 .story-logo {
     width: 280px;
-    filter: drop-shadow(0 0 40px rgba(212, 168, 67, 0.2));
+    filter: drop-shadow(0 0 60px rgba(212, 168, 67, 0.3));
+    animation: logoGlow 4s ease-in-out infinite alternate;
 }
 
 /* ============================================
