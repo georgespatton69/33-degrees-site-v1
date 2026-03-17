@@ -575,6 +575,11 @@ img {
     cursor: pointer;
 }
 
+.shop-all-btn {
+    display: none;
+    margin: 32px auto 0;
+}
+
 .product-card-sm:hover {
     border-color: var(--border-gold);
     transform: translateY(-2px);
@@ -1051,6 +1056,14 @@ img {
     .products-full-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
+    }
+
+    .products-full-grid .product-card-sm:nth-child(n+5) {
+        display: none;
+    }
+
+    .shop-all-btn {
+        display: inline-block;
     }
 
     /* Categories */
