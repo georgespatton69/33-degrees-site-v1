@@ -90,13 +90,13 @@
 // ---------- SHOW MORE FEATURED PRODUCTS (MOBILE) ----------
 (function initShowMore() {
     const btn = document.getElementById('show-more-featured');
-    if (!btn) return;
+    const extraGrid = document.getElementById('featured-extra');
+    if (!btn || !extraGrid) return;
 
-    const grid = btn.previousElementSibling;
     const textEl = btn.querySelector('.show-more-text');
 
     btn.addEventListener('click', () => {
-        const expanded = grid.classList.toggle('expanded');
+        const expanded = extraGrid.classList.toggle('expanded');
         btn.classList.toggle('expanded');
         textEl.textContent = expanded ? 'Show Less' : 'Show More';
     });

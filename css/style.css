@@ -479,7 +479,7 @@ img {
 /* Show More button (mobile only) */
 .show-more-btn {
     display: none;
-    margin: 24px auto 0;
+    margin: 32px auto;
     background: transparent;
     border: 1px solid var(--border-gold);
     color: var(--gold);
@@ -493,7 +493,14 @@ img {
     cursor: pointer;
     transition: all var(--transition);
     align-items: center;
+    justify-content: center;
     gap: 8px;
+}
+
+.featured-products .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .show-more-btn:hover {
@@ -1012,12 +1019,12 @@ img {
         margin: 48px auto 0;
     }
 
-    .product-grid .product-card:nth-child(n+3) {
+    .product-grid-extra {
         display: none;
     }
 
-    .product-grid.expanded .product-card:nth-child(n+3) {
-        display: block;
+    .product-grid-extra.expanded {
+        display: grid;
     }
 
     .show-more-btn {
