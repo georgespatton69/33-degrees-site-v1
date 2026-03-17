@@ -579,10 +579,13 @@ img {
 }
 
 /* ============================================
-   CATEGORY ICONS
+   SOCIAL PROOF (CATEGORIES + TESTIMONIAL)
    ============================================ */
-.categories {
-    padding: 60px 0;
+.social-proof-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #0e0c05 0%, #141008 50%, #0e0c05 100%);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
 }
 
 .category-grid {
@@ -675,11 +678,8 @@ img {
 /* ============================================
    TESTIMONIAL
    ============================================ */
-.testimonial-section {
-    padding: var(--section-padding);
-}
-
 .testimonial-card {
+    margin-top: 60px;
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
