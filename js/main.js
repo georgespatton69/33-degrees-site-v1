@@ -149,8 +149,32 @@
         card.addEventListener('mouseleave', () => { paused = false; });
     });
 
-    // Start auto-rotation
-    intervalId = setInterval(tick, TICK);
+    // Start auto-rotation on desktop only
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    if (!isMobile()) {
+        intervalId = setInterval(tick, TICK);
+    }
+
+    // Hide progress bar on mobile
+    if (isMobile() && progressBar) {
+        progressBar.parentElement.style.display = 'none';
+    }
+
+    // Handle resize
+    window.addEventListener('resize', () => {
+        if (isMobile()) {
+            clearInterval(intervalId);
+            intervalId = null;
+            if (progressBar) progressBar.parentElement.style.display = 'none';
+        } else if (!intervalId) {
+            if (progressBar) progressBar.parentElement.style.display = '';
+            elapsed = 0;
+            intervalId = setInterval(tick, TICK);
+        }
+    });
 
     // Initialize first panel
     switchTo(0);
