@@ -334,6 +334,17 @@
 })();
 
 
+// ---------- MOBILE REDIRECT FOR NAV LINKS ----------
+document.querySelectorAll('[data-mobile-href]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+            e.preventDefault();
+            window.location.href = this.dataset.mobileHref;
+        }
+    });
+});
+
+
 // ---------- SMOOTH SCROLL FOR ANCHOR LINKS ----------
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
