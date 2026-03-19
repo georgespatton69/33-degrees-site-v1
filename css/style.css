@@ -1207,15 +1207,13 @@ img {
         justify-content: center;
     }
 
-    .featured-products::after {
+    .featured-products .section-title::before {
         content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        display: block;
         width: 25vw;
         height: 1px;
         background: var(--gold);
+        margin: 0 auto 16px;
     }
 
     .hero-logo {
