@@ -353,14 +353,40 @@
                 });
 
                 setTimeout(() => {
-                    // Get the first cat-section currently in the DOM
                     const currentFirst = parent.querySelector('.cat-section');
-
-                    // Move target to top (before the current first)
                     parent.insertBefore(targetSection, currentFirst);
 
-                    // Fade all back in
+                    // Reset all sections: scroll to first card & restore default content
                     parent.querySelectorAll('.cat-section').forEach(s => {
+                        const row = s.querySelector('.cat-products');
+                        const cards = s.querySelectorAll('.cat-product');
+                        const desc = s.querySelector('.cat-desc');
+                        const stats = s.querySelector('.cat-stats');
+
+                        // Scroll back to first card
+                        if (row) row.scrollLeft = 0;
+
+                        // Activate first card and restore its content
+                        if (cards.length) {
+                            cards.forEach(c => c.classList.remove('active'));
+                            cards[0].classList.add('active');
+
+                            if (desc && cards[0].dataset.desc) {
+                                desc.textContent = cards[0].dataset.desc;
+                            }
+                            if (stats && cards[0].dataset.stat1) {
+                                const statEls = stats.querySelectorAll('.cat-stat');
+                                if (statEls[0]) {
+                                    statEls[0].querySelector('.cat-stat-num').innerHTML = cards[0].dataset.stat1;
+                                    statEls[0].querySelector('.cat-stat-label').textContent = cards[0].dataset.stat1Label;
+                                }
+                                if (statEls[1]) {
+                                    statEls[1].querySelector('.cat-stat-num').innerHTML = cards[0].dataset.stat2;
+                                    statEls[1].querySelector('.cat-stat-label').textContent = cards[0].dataset.stat2Label;
+                                }
+                            }
+                        }
+
                         s.style.opacity = '1';
                     });
                 }, 300);
