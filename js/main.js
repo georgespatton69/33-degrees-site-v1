@@ -110,13 +110,13 @@
     const section = document.querySelector('.featured-products');
     if (!tabs.length || !panels.length || !section) return;
 
-    const HALF_CYCLE = 5000; // 5 seconds bright-to-dim or dim-to-bright
+    const CYCLE = 5000; // 5 seconds per category
     const TICK = 30;
     const GLOW_MIN = 0.07;
     const GLOW_MAX = 0.5;
     let currentIndex = 0;
     let elapsed = 0;
-    let goingBright = true; // true = dimming to bright, false = bright to dim
+    let goingBright = true; // first category: dim→bright, next: bright→dim, alternating
     let intervalId = null;
     let paused = false;
 
@@ -133,12 +133,10 @@
     }
 
     function switchTo(index, animated) {
-        // Clean up all panels
         panels.forEach(p => {
             p.classList.remove('active', 'fading-out');
         });
 
-        // Activate target
         tabs.forEach(t => t.classList.remove('active'));
         tabs[index].classList.add('active');
         panels[index].classList.add('active');
@@ -151,36 +149,30 @@
         if (paused) return;
         elapsed += TICK;
 
-        const progress = Math.min(elapsed / HALF_CYCLE, 1);
-        // Smooth sine ease for organic feel
+        const progress = Math.min(elapsed / CYCLE, 1);
         const eased = (1 - Math.cos(progress * Math.PI)) / 2;
 
         let glowValue;
         if (goingBright) {
-            // Dim → Bright
+            // Dim → Bright over 5s
             glowValue = GLOW_MIN + (GLOW_MAX - GLOW_MIN) * eased;
         } else {
-            // Bright → Dim
+            // Bright → Dim over 5s
             glowValue = GLOW_MAX - (GLOW_MAX - GLOW_MIN) * eased;
         }
         setGlow(glowValue);
 
-        // Start fading out content 1s before dimmest point
-        if (!goingBright && !fadeOutStarted && elapsed >= HALF_CYCLE - 1000) {
+        // Start fading out content 1s before swap
+        if (!fadeOutStarted && elapsed >= CYCLE - 1000) {
             fadeOutCurrent();
         }
 
-        if (elapsed >= HALF_CYCLE) {
+        if (elapsed >= CYCLE) {
             elapsed = 0;
-            if (goingBright) {
-                // Hit peak brightness — now start dimming
-                goingBright = false;
-            } else {
-                // Hit dimmest point — shuffle and start brightening
-                goingBright = true;
-                const next = (currentIndex + 1) % tabs.length;
-                switchTo(next, true);
-            }
+            // Swap content and flip glow direction
+            goingBright = !goingBright;
+            const next = (currentIndex + 1) % tabs.length;
+            switchTo(next, true);
         }
     }
 
