@@ -97,7 +97,7 @@
     const DURATION = 5000; // 5 seconds per category
     const TICK = 30; // glow update interval
     const GLOW_MIN = 0.05;
-    const GLOW_MAX = 0.35;
+    const GLOW_MAX = 0.70;
     let currentIndex = 0;
     let elapsed = 0;
     let intervalId = null;
