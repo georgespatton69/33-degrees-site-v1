@@ -1681,10 +1681,11 @@ img {
     /* Mobile swipe row for category products */
     .cat-products {
         display: flex;
+        flex-wrap: nowrap !important;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
-        gap: 12px;
+        gap: 16px;
         padding: 4px 0 12px;
         scrollbar-width: none;
         touch-action: pan-x pan-y;
