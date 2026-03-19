@@ -91,15 +91,21 @@
 (function initCarousel() {
     const tabs = document.querySelectorAll('.carousel-tab');
     const panels = document.querySelectorAll('.carousel-panel');
-    const progressBar = document.querySelector('.carousel-progress-bar');
-    if (!tabs.length || !panels.length) return;
+    const section = document.querySelector('.featured-products');
+    if (!tabs.length || !panels.length || !section) return;
 
     const DURATION = 5000; // 5 seconds per category
-    const TICK = 30; // progress update interval
+    const TICK = 30; // glow update interval
+    const GLOW_MIN = 0.03;
+    const GLOW_MAX = 0.18;
     let currentIndex = 0;
     let elapsed = 0;
     let intervalId = null;
     let paused = false;
+
+    function setGlow(opacity) {
+        section.style.setProperty('--glow-opacity', opacity.toFixed(4));
+    }
 
     function switchTo(index) {
         // Deactivate all
@@ -120,14 +126,18 @@
 
         currentIndex = index;
         elapsed = 0;
-        if (progressBar) progressBar.style.width = '0%';
+        setGlow(GLOW_MIN);
     }
 
     function tick() {
         if (paused) return;
         elapsed += TICK;
-        const pct = Math.min((elapsed / DURATION) * 100, 100);
-        if (progressBar) progressBar.style.width = pct + '%';
+
+        // Ease-in glow: slow start, accelerates toward peak
+        const progress = Math.min(elapsed / DURATION, 1);
+        const eased = progress * progress; // quadratic ease-in
+        const glowValue = GLOW_MIN + (GLOW_MAX - GLOW_MIN) * eased;
+        setGlow(glowValue);
 
         if (elapsed >= DURATION) {
             const next = (currentIndex + 1) % tabs.length;
@@ -158,9 +168,9 @@
         intervalId = setInterval(tick, TICK);
     }
 
-    // Hide progress bar on mobile
-    if (isMobile() && progressBar) {
-        progressBar.parentElement.style.display = 'none';
+    // No glow animation on mobile
+    if (isMobile()) {
+        setGlow(GLOW_MIN);
     }
 
     // Handle resize
@@ -168,9 +178,8 @@
         if (isMobile()) {
             clearInterval(intervalId);
             intervalId = null;
-            if (progressBar) progressBar.parentElement.style.display = 'none';
+            setGlow(GLOW_MIN);
         } else if (!intervalId) {
-            if (progressBar) progressBar.parentElement.style.display = '';
             elapsed = 0;
             intervalId = setInterval(tick, TICK);
         }

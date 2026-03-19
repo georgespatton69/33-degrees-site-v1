@@ -450,22 +450,33 @@ img {
     color: var(--black);
 }
 
-/* Progress Bar */
+/* Ambient Glow (replaces progress bar) */
 .carousel-progress {
-    max-width: 400px;
-    margin: 20px auto 0;
-    height: 2px;
-    background: var(--border-subtle);
-    border-radius: 1px;
+    display: none;
+}
+
+.featured-products {
+    position: relative;
     overflow: hidden;
 }
 
-.carousel-progress-bar {
-    height: 100%;
-    width: 0%;
-    background: var(--gold);
-    border-radius: 1px;
-    transition: width 0.1s linear;
+.featured-products::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 70%;
+    background: radial-gradient(ellipse at center, rgba(212, 168, 67, var(--glow-opacity, 0.03)) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    transition: none;
+}
+
+.featured-products > .container {
+    position: relative;
+    z-index: 1;
 }
 
 /* Panels */
