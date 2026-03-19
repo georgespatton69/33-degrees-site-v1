@@ -483,29 +483,36 @@ img {
 .carousel-panels {
     position: relative;
     margin-top: 40px;
-    min-height: 420px;
+    overflow: hidden;
 }
 
 .carousel-panel {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     opacity: 0;
     transition: opacity 1s ease;
     pointer-events: none;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
 }
 
 .carousel-panel.active {
     opacity: 1;
-    position: relative;
     pointer-events: auto;
+    visibility: visible;
+    height: auto;
+    overflow: visible;
 }
 
 .carousel-panel.fading-out {
     opacity: 0;
-    position: absolute;
     pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: visible;
+    height: auto;
+    overflow: visible;
 }
 
 .carousel-grid {
