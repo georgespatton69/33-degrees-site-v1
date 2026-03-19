@@ -375,7 +375,7 @@ img {
 }
 
 /* ============================================
-   TRUST BADGES
+   TRUST BADGES (desktop: overlap strip)
    ============================================ */
 .trust-badges {
     position: relative;
@@ -387,6 +387,11 @@ img {
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
     padding: 20px 0;
+}
+
+/* Inline badges (mobile only, inside hero) */
+.hero-inline-badges {
+    display: none;
 }
 
 .badge-grid {
@@ -1165,11 +1170,20 @@ img {
         height: 48px;
     }
 
-    /* Hero — badges below hero on mobile, no overlap */
+    /* Hero — hide strip badges, show inline in hero */
     .trust-badges {
-        margin-top: 0;
-        background: var(--bg-card);
-        backdrop-filter: none;
+        display: none;
+    }
+
+    .hero-inline-badges {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 32px;
+    }
+
+    .hero-inline-badges .badge-item {
+        justify-content: center;
     }
 
     .hero-logo {
