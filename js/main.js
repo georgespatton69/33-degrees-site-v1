@@ -96,8 +96,8 @@
 
     const HALF_CYCLE = 5000; // 5 seconds bright-to-dim or dim-to-bright
     const TICK = 30;
-    const GLOW_MIN = 0.05;
-    const GLOW_MAX = 0.70;
+    const GLOW_MIN = 0.07;
+    const GLOW_MAX = 0.5;
     let currentIndex = 0;
     let elapsed = 0;
     let goingBright = true; // true = dimming to bright, false = bright to dim
