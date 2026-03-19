@@ -1394,14 +1394,9 @@ img {
         gap: 12px;
     }
 
-    /* Match carousel cards to healing body card size on mobile */
+    /* Taller product images on mobile carousel */
     .carousel-grid .product-card .product-image {
-        height: 100px;
-    }
-
-    .carousel-grid .product-card .product-image-placeholder {
-        width: 60px;
-        height: 80px;
+        height: 180px;
     }
 
     .carousel-grid .product-card .product-info {
