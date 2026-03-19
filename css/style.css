@@ -981,6 +981,8 @@ img {
     min-width: 140px;
     transition: all var(--transition);
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
 }
 
 .cat-product:hover {
@@ -1032,6 +1034,7 @@ img {
     text-align: center;
     padding: 8px 0;
     font-size: 0.65rem;
+    margin-top: auto;
 }
 
 .cat-img {
