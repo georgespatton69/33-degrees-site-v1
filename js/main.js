@@ -211,7 +211,8 @@
         }
     });
 
-    // Initialize first panel
+    // Initialize first panel at minimum glow
+    setGlow(GLOW_MIN);
     switchTo(0);
 })();
 

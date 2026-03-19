@@ -468,7 +468,7 @@ img {
     transform: translate(-50%, -50%);
     width: 80%;
     height: 70%;
-    background: radial-gradient(ellipse at center, rgba(212, 168, 67, var(--glow-opacity, 0.03)) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(212, 168, 67, var(--glow-opacity, 0.05)) 0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
     transition: none;
