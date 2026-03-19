@@ -375,18 +375,17 @@ img {
 }
 
 /* ============================================
-   TRUST BADGES (inside hero)
+   TRUST BADGES
    ============================================ */
-.hero-badges {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
+.trust-badges {
+    position: relative;
+    z-index: 10;
+    margin-top: -64px;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
     padding: 20px 0;
 }
 
@@ -1166,12 +1165,10 @@ img {
         height: 48px;
     }
 
-    /* Hero — badges below viewport on mobile */
-    .hero-badges {
-        position: relative;
+    /* Hero — badges below hero on mobile, no overlap */
+    .trust-badges {
+        margin-top: 0;
         background: var(--bg-card);
-        border-top: 1px solid var(--border-subtle);
-        border-bottom: 1px solid var(--border-subtle);
         backdrop-filter: none;
     }
 
