@@ -604,6 +604,89 @@ img {
 }
 
 /* ============================================
+   WHAT ARE PEPTIDES
+   ============================================ */
+.what-are-peptides {
+    padding: var(--section-padding);
+    background: linear-gradient(180deg, #0f0d05 0%, var(--bg-primary) 50%, #0f0d05 100%);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    text-align: center;
+}
+
+.peptides-intro {
+    max-width: 700px;
+    margin: 0 auto 48px;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.peptides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+.peptide-benefit {
+    padding: 28px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 4px;
+    transition: all var(--transition);
+}
+
+.peptide-benefit:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(212, 168, 67, 0.08);
+}
+
+.peptide-benefit-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    border: 1px solid var(--border-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+}
+
+.peptide-benefit-icon svg {
+    color: var(--gold);
+}
+
+.peptide-benefit h4 {
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.peptide-benefit p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.peptides-closing {
+    max-width: 700px;
+    margin: 0 auto 32px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.peptides-closing strong {
+    color: var(--gold);
+}
+
+/* ============================================
    ALL PRODUCTS GRID
    ============================================ */
 .all-products {
@@ -1204,6 +1287,12 @@ img {
     .category-icon svg {
         width: 24px;
         height: 24px;
+    }
+
+    /* What Are Peptides */
+    .peptides-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
 
     /* Science */
