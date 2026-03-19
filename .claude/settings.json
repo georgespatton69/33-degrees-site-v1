@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python3 .tmp/generate_images.py)"
+      "Bash(python3 .tmp/generate_images.py)",
+      "Bash(python3 tools/generate_bottles_ai.py)"
     ]
   }
 }
