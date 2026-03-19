@@ -289,6 +289,58 @@
 })();
 
 
+// ---------- CATEGORY PRODUCT SELECTION (Desktop) ----------
+(function initCatProducts() {
+    document.querySelectorAll('.cat-section').forEach(section => {
+        const desc = section.querySelector('.cat-desc');
+        const stats = section.querySelector('.cat-stats');
+        const img = section.querySelector('.cat-img img');
+        const products = section.querySelectorAll('.cat-product');
+        if (!desc || !img || !products.length) return;
+
+        products.forEach(product => {
+            product.addEventListener('click', () => {
+                // Skip if already active
+                if (product.classList.contains('active')) return;
+
+                // Fade out
+                desc.style.opacity = '0';
+                stats.style.opacity = '0';
+                img.style.opacity = '0';
+
+                setTimeout(() => {
+                    // Update active state
+                    products.forEach(p => p.classList.remove('active'));
+                    product.classList.add('active');
+
+                    // Update content
+                    desc.textContent = product.dataset.desc;
+                    img.src = product.dataset.img;
+
+                    // Update stats
+                    const statEls = stats.querySelectorAll('.cat-stat');
+                    if (statEls[0]) {
+                        statEls[0].querySelector('.cat-stat-num').innerHTML = product.dataset.stat1;
+                        statEls[0].querySelector('.cat-stat-label').textContent = product.dataset.stat1Label;
+                    }
+                    if (statEls[1]) {
+                        statEls[1].querySelector('.cat-stat-num').innerHTML = product.dataset.stat2;
+                        statEls[1].querySelector('.cat-stat-label').textContent = product.dataset.stat2Label;
+                    }
+
+                    // Fade in
+                    requestAnimationFrame(() => {
+                        desc.style.opacity = '1';
+                        stats.style.opacity = '1';
+                        img.style.opacity = '1';
+                    });
+                }, 300);
+            });
+        });
+    });
+})();
+
+
 // ---------- SMOOTH SCROLL FOR ANCHOR LINKS ----------
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {

@@ -911,6 +911,18 @@ img {
     background: rgba(212, 168, 67, 0.05);
 }
 
+.cat-product.active {
+    border-color: var(--gold);
+    background: rgba(212, 168, 67, 0.08);
+    box-shadow: 0 0 12px rgba(212, 168, 67, 0.1);
+}
+
+.cat-desc,
+.cat-stats,
+.cat-img img {
+    transition: opacity 0.4s ease;
+}
+
 .cat-product h4 {
     font-family: var(--font-heading);
     font-size: 0.85rem;
