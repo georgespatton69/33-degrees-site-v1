@@ -507,6 +507,7 @@ img {
     display: inline-flex;
     align-items: center;
     animation: ticker-scroll 12s linear infinite;
+    padding-top: 4px;
 }
 
 .ticker-item {
