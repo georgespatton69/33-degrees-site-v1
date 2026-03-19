@@ -40,17 +40,28 @@
         }
     }
 
-    // ---------- DNA HELIX STRANDS (3D) ----------
+    // ---------- DNA HELIX STRANDS (3D Tubular) ----------
     const dnaStrands = [
-        { x: 0.15, y: 0.5, scale: 1.2, opacity: 0.10, speed: 0.0003, phase: 0, tilt: 0.15 },
-        { x: 0.82, y: 0.45, scale: 1.4, opacity: 0.07, speed: 0.00025, phase: Math.PI * 0.7, tilt: -0.12 },
-        { x: 0.48, y: 0.55, scale: 0.9, opacity: 0.05, speed: 0.00035, phase: Math.PI * 1.3, tilt: 0.08 },
+        { x: 0.13, y: 0.5, scale: 1.3, opacity: 0.12, speed: 0.0003, phase: 0, tilt: 0.18 },
+        { x: 0.85, y: 0.45, scale: 1.5, opacity: 0.08, speed: 0.00022, phase: Math.PI * 0.7, tilt: -0.14 },
+        { x: 0.50, y: 0.55, scale: 0.9, opacity: 0.05, speed: 0.00035, phase: Math.PI * 1.3, tilt: 0.06 },
     ];
 
     let dnaTime = 0;
-    const HELIX_SEGMENTS = 120; // smooth curves
-    const HELIX_TWISTS = 4; // number of full rotations
-    const RUNG_COUNT = 28;
+    const SEGMENTS = 150;
+    const TWISTS = 4.5;
+    const RUNG_COUNT = 36;
+    const TUBE_RADIUS = 6; // base tube thickness
+
+    function getHelixPoint(t, twist, offset, amplitude, cx, startY, strandHeight, strand, h) {
+        const angle = t * Math.PI * 2 * TWISTS + twist + offset;
+        const drift = Math.sin(t * Math.PI * 1.8 + strand.phase) * 40 * strand.scale;
+        const y = startY + t * strandHeight;
+        const tiltOff = strand.tilt * (y - h * 0.5);
+        const x = cx + Math.sin(angle) * amplitude + drift + tiltOff;
+        const depth = Math.cos(angle); // -1 (back) to 1 (front)
+        return { x, y, depth, angle };
+    }
 
     function drawDNA() {
         const w = canvas.offsetWidth;
@@ -58,124 +69,108 @@
 
         dnaStrands.forEach(strand => {
             const cx = w * strand.x;
-            const strandHeight = h * 0.85;
+            const strandHeight = h * 0.9;
             const startY = h * strand.y - strandHeight / 2;
-            const amplitude = 55 * strand.scale;
+            const amplitude = 70 * strand.scale;
             const twist = dnaTime * strand.speed + strand.phase;
+            const tubeR = TUBE_RADIUS * strand.scale;
 
             ctx.save();
 
-            // Draw two backbone strands with 3D shading
+            // --- BACKBONES (Tubular with glow layers) ---
             for (let s = 0; s < 2; s++) {
                 const offset = s * Math.PI;
 
-                // Draw strand as series of short segments with varying thickness/opacity
-                for (let i = 0; i < HELIX_SEGMENTS; i++) {
-                    const t0 = i / HELIX_SEGMENTS;
-                    const t1 = (i + 1) / HELIX_SEGMENTS;
-                    const y0 = startY + t0 * strandHeight;
-                    const y1 = startY + t1 * strandHeight;
-                    const angle0 = t0 * Math.PI * 2 * HELIX_TWISTS + twist + offset;
-                    const angle1 = t1 * Math.PI * 2 * HELIX_TWISTS + twist + offset;
+                // Multiple passes: outer glow, mid glow, core, highlight
+                const passes = [
+                    { widthMul: 5.0, alphaMul: 0.12, color: [212, 168, 67] },  // outer glow
+                    { widthMul: 3.0, alphaMul: 0.20, color: [212, 168, 67] },  // mid glow
+                    { widthMul: 1.6, alphaMul: 0.45, color: [200, 160, 60] },  // core
+                    { widthMul: 0.6, alphaMul: 0.7,  color: [232, 210, 130] }, // bright center
+                    { widthMul: 0.2, alphaMul: 0.9,  color: [255, 240, 180] }, // hot highlight
+                ];
 
-                    // Slight horizontal drift for organic curvature
-                    const drift = Math.sin(t0 * Math.PI * 1.5 + strand.phase) * 30 * strand.scale;
-                    const drift1 = Math.sin(t1 * Math.PI * 1.5 + strand.phase) * 30 * strand.scale;
+                for (const pass of passes) {
+                    for (let i = 0; i < SEGMENTS; i++) {
+                        const t0 = i / SEGMENTS;
+                        const t1 = (i + 1) / SEGMENTS;
+                        const p0 = getHelixPoint(t0, twist, offset, amplitude, cx, startY, strandHeight, strand, h);
+                        const p1 = getHelixPoint(t1, twist, offset, amplitude, cx, startY, strandHeight, strand, h);
 
-                    const x0 = cx + Math.sin(angle0) * amplitude + drift + strand.tilt * (y0 - h * 0.5);
-                    const x1 = cx + Math.sin(angle1) * amplitude + drift1 + strand.tilt * (y1 - h * 0.5);
+                        const avgDepth = (p0.depth + p1.depth) / 2;
+                        const depthFactor = 0.2 + 0.8 * ((avgDepth + 1) / 2);
+                        const segAlpha = strand.opacity * pass.alphaMul * depthFactor;
+                        const lw = tubeR * pass.widthMul * (0.5 + 0.5 * depthFactor);
 
-                    // Depth: cos gives us front/back position
-                    const depth0 = Math.cos(angle0);
-                    const depth1 = Math.cos(angle1);
-                    const avgDepth = (depth0 + depth1) / 2;
-
-                    // 3D: front strands brighter/thicker, back strands dimmer/thinner
-                    const depthBrightness = 0.3 + 0.7 * ((avgDepth + 1) / 2); // 0.3 to 1.0
-                    const lineWidth = (1.5 + 2.5 * ((avgDepth + 1) / 2)) * strand.scale;
-                    const segAlpha = strand.opacity * depthBrightness;
-
-                    ctx.beginPath();
-                    ctx.moveTo(x0, y0);
-                    ctx.lineTo(x1, y1);
-                    ctx.strokeStyle = `rgba(212, 168, 67, ${segAlpha})`;
-                    ctx.lineWidth = lineWidth;
-                    ctx.lineCap = 'round';
-                    ctx.stroke();
-
-                    // Glow on front-facing segments
-                    if (avgDepth > 0.5) {
                         ctx.beginPath();
-                        ctx.moveTo(x0, y0);
-                        ctx.lineTo(x1, y1);
-                        ctx.strokeStyle = `rgba(232, 201, 106, ${segAlpha * 0.3})`;
-                        ctx.lineWidth = lineWidth + 4 * strand.scale;
+                        ctx.moveTo(p0.x, p0.y);
+                        ctx.lineTo(p1.x, p1.y);
+                        ctx.strokeStyle = `rgba(${pass.color.join(',')}, ${segAlpha})`;
+                        ctx.lineWidth = lw;
+                        ctx.lineCap = 'round';
                         ctx.stroke();
                     }
                 }
             }
 
-            // Draw rungs with 3D depth
+            // --- RUNGS (wireframe mesh style) ---
             for (let i = 0; i < RUNG_COUNT; i++) {
                 const t = i / RUNG_COUNT;
-                const y = startY + t * strandHeight;
-                const angle = t * Math.PI * 2 * HELIX_TWISTS + twist;
-                const drift = Math.sin(t * Math.PI * 1.5 + strand.phase) * 30 * strand.scale;
-                const tiltOffset = strand.tilt * (y - h * 0.5);
+                const p1 = getHelixPoint(t, twist, 0, amplitude, cx, startY, strandHeight, strand, h);
+                const p2 = getHelixPoint(t, twist, Math.PI, amplitude, cx, startY, strandHeight, strand, h);
+                const depth = Math.cos(t * Math.PI * 2 * TWISTS + twist);
 
-                const x1 = cx + Math.sin(angle) * amplitude + drift + tiltOffset;
-                const x2 = cx + Math.sin(angle + Math.PI) * amplitude + drift + tiltOffset;
-                const depth = Math.cos(angle);
+                if (Math.abs(depth) > 0.15) {
+                    const depthFactor = Math.abs(depth);
+                    const rungAlpha = strand.opacity * 0.5 * depthFactor;
 
-                // Only draw rungs clearly facing the viewer
-                if (Math.abs(depth) > 0.2) {
-                    const rungAlpha = strand.opacity * 0.6 * Math.abs(depth);
-                    const rungWidth = (1 + 1.5 * Math.abs(depth)) * strand.scale;
+                    // Wireframe cross-links (3 parallel lines for mesh look)
+                    for (let line = -1; line <= 1; line++) {
+                        const yOff = line * 2 * strand.scale;
+                        const alpha = rungAlpha * (line === 0 ? 1 : 0.4);
 
-                    // Draw rung as two halves with a gap in the middle (base pairs)
-                    const midX = (x1 + x2) / 2;
-                    const midY = y;
-                    const gap = 3 * strand.scale;
-
-                    // Left half
-                    ctx.beginPath();
-                    ctx.moveTo(x1, y);
-                    ctx.lineTo(midX - gap, midY);
-                    ctx.strokeStyle = `rgba(180, 140, 60, ${rungAlpha})`;
-                    ctx.lineWidth = rungWidth;
-                    ctx.lineCap = 'round';
-                    ctx.stroke();
-
-                    // Right half (slightly different color for base pair effect)
-                    ctx.beginPath();
-                    ctx.moveTo(midX + gap, midY);
-                    ctx.lineTo(x2, y);
-                    ctx.strokeStyle = `rgba(212, 168, 67, ${rungAlpha})`;
-                    ctx.lineWidth = rungWidth;
-                    ctx.lineCap = 'round';
-                    ctx.stroke();
-
-                    // Dots at backbone connection points
-                    const dotSize = (2.5 + 1.5 * Math.abs(depth)) * strand.scale;
-                    [x1, x2].forEach(x => {
-                        const dotGrad = ctx.createRadialGradient(x, y, 0, x, y, dotSize);
-                        dotGrad.addColorStop(0, `rgba(232, 201, 106, ${rungAlpha * 1.2})`);
-                        dotGrad.addColorStop(1, `rgba(212, 168, 67, 0)`);
                         ctx.beginPath();
-                        ctx.arc(x, y, dotSize, 0, Math.PI * 2);
-                        ctx.fillStyle = dotGrad;
+                        ctx.moveTo(p1.x, p1.y + yOff);
+                        ctx.lineTo(p2.x, p2.y + yOff);
+                        ctx.strokeStyle = `rgba(212, 168, 67, ${alpha})`;
+                        ctx.lineWidth = (0.8 + depthFactor) * strand.scale;
+                        ctx.stroke();
+                    }
+
+                    // Glowing nodes at backbone intersections
+                    [p1, p2].forEach(p => {
+                        const nodeR = (4 + 4 * depthFactor) * strand.scale;
+                        const nodeGrad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, nodeR);
+                        nodeGrad.addColorStop(0, `rgba(255, 240, 180, ${rungAlpha * 1.5})`);
+                        nodeGrad.addColorStop(0.3, `rgba(232, 201, 106, ${rungAlpha * 0.8})`);
+                        nodeGrad.addColorStop(1, `rgba(212, 168, 67, 0)`);
+                        ctx.beginPath();
+                        ctx.arc(p.x, p.y, nodeR, 0, Math.PI * 2);
+                        ctx.fillStyle = nodeGrad;
                         ctx.fill();
                     });
 
-                    // Center hydrogen bond dots
-                    ctx.beginPath();
-                    ctx.arc(midX - gap, midY, 1.5 * strand.scale, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(232, 201, 106, ${rungAlpha * 0.8})`;
-                    ctx.fill();
-                    ctx.beginPath();
-                    ctx.arc(midX + gap, midY, 1.5 * strand.scale, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(232, 201, 106, ${rungAlpha * 0.8})`;
-                    ctx.fill();
+                    // Diagonal wireframe lines to next rung (mesh effect)
+                    if (i < RUNG_COUNT - 1) {
+                        const tNext = (i + 1) / RUNG_COUNT;
+                        const pn1 = getHelixPoint(tNext, twist, 0, amplitude, cx, startY, strandHeight, strand, h);
+                        const pn2 = getHelixPoint(tNext, twist, Math.PI, amplitude, cx, startY, strandHeight, strand, h);
+                        const meshAlpha = rungAlpha * 0.25;
+
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(pn2.x, pn2.y);
+                        ctx.strokeStyle = `rgba(212, 168, 67, ${meshAlpha})`;
+                        ctx.lineWidth = 0.5 * strand.scale;
+                        ctx.stroke();
+
+                        ctx.beginPath();
+                        ctx.moveTo(p2.x, p2.y);
+                        ctx.lineTo(pn1.x, pn1.y);
+                        ctx.strokeStyle = `rgba(212, 168, 67, ${meshAlpha})`;
+                        ctx.lineWidth = 0.5 * strand.scale;
+                        ctx.stroke();
+                    }
                 }
             }
 
