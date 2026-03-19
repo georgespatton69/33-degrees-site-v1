@@ -356,7 +356,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ---------- SCROLL REVEAL ANIMATIONS ----------
 (function initScrollReveal() {
     const revealElements = document.querySelectorAll(
-        '.product-card, .product-card-sm, .category-item, .testimonial-card, .story-content, .science-section .container'
+        '.product-card, .product-card-sm, .category-item, .testimonial-card, .story-content, .science-section .container, .peptide-benefit'
     );
 
     if (!revealElements.length) return;
