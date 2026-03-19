@@ -94,12 +94,13 @@
     const section = document.querySelector('.featured-products');
     if (!tabs.length || !panels.length || !section) return;
 
-    const DURATION = 5000; // 5 seconds per category
-    const TICK = 30; // glow update interval
+    const HALF_CYCLE = 5000; // 5 seconds bright-to-dim or dim-to-bright
+    const TICK = 30;
     const GLOW_MIN = 0.05;
     const GLOW_MAX = 0.70;
     let currentIndex = 0;
     let elapsed = 0;
+    let goingBright = true; // true = dimming to bright, false = bright to dim
     let intervalId = null;
     let paused = false;
 
@@ -107,7 +108,7 @@
         section.style.setProperty('--glow-opacity', opacity.toFixed(4));
     }
 
-    function switchTo(index) {
+    function switchTo(index, skipGlowReset) {
         // Deactivate all
         tabs.forEach(t => t.classList.remove('active'));
         panels.forEach(p => {
@@ -125,23 +126,37 @@
         });
 
         currentIndex = index;
-        elapsed = 0;
-        setGlow(GLOW_MIN);
     }
 
     function tick() {
         if (paused) return;
         elapsed += TICK;
 
-        // Ease-in glow: slow start, accelerates toward peak
-        const progress = Math.min(elapsed / DURATION, 1);
-        const eased = progress * progress; // quadratic ease-in
-        const glowValue = GLOW_MIN + (GLOW_MAX - GLOW_MIN) * eased;
+        const progress = Math.min(elapsed / HALF_CYCLE, 1);
+        // Smooth sine ease for organic feel
+        const eased = (1 - Math.cos(progress * Math.PI)) / 2;
+
+        let glowValue;
+        if (goingBright) {
+            // Dim → Bright
+            glowValue = GLOW_MIN + (GLOW_MAX - GLOW_MIN) * eased;
+        } else {
+            // Bright → Dim
+            glowValue = GLOW_MAX - (GLOW_MAX - GLOW_MIN) * eased;
+        }
         setGlow(glowValue);
 
-        if (elapsed >= DURATION) {
-            const next = (currentIndex + 1) % tabs.length;
-            switchTo(next);
+        if (elapsed >= HALF_CYCLE) {
+            elapsed = 0;
+            if (goingBright) {
+                // Hit peak brightness — now start dimming
+                goingBright = false;
+            } else {
+                // Hit dimmest point — shuffle and start brightening
+                goingBright = true;
+                const next = (currentIndex + 1) % tabs.length;
+                switchTo(next, true);
+            }
         }
     }
 
