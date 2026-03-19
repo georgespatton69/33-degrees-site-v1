@@ -1659,7 +1659,16 @@ img {
     .cat-inner {
         grid-template-columns: 1fr !important;
         gap: 24px;
+    }
+
+    .cat-section {
         overflow: hidden;
+    }
+
+    .cat-text {
+        max-width: 100%;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
     }
 
     .cat-inner.cat-reverse .cat-text,
