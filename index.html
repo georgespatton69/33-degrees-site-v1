@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=49">
+    <link rel="stylesheet" href="css/style.css?v=50">
 </head>
 <body>
 
@@ -45,18 +45,18 @@
                 </button>
             </div>
         </nav>
-        <!-- Mobile menu overlay -->
-        <div class="mobile-menu-overlay">
-            <ul class="mobile-nav-menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#products">Healing Compounds</a></li>
-                <li><a href="#science">Research</a></li>
-                <li><a href="#brand-story">Philosophy</a></li>
-                <li><a href="#">Lab Testing</a></li>
-                <li><a href="#">Blog</a></li>
-            </ul>
-        </div>
     </header>
+    <!-- Mobile menu overlay (outside header to avoid backdrop-filter clipping) -->
+    <div class="mobile-menu-overlay">
+        <ul class="mobile-nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#products">Healing Compounds</a></li>
+            <li><a href="#science">Research</a></li>
+            <li><a href="#brand-story">Philosophy</a></li>
+            <li><a href="#">Lab Testing</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+    </div>
 
     <!-- ========== HERO SECTION ========== -->
     <section class="hero" id="hero">
@@ -907,6 +907,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=32"></script>
+    <script src="js/main.js?v=33"></script>
 </body>
 </html>
