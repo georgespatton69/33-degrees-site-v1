@@ -1176,7 +1176,9 @@ img {
     }
 
     .hero {
-        padding-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 24px;
     }
 
     .hero-content {
@@ -1185,13 +1187,18 @@ img {
         align-items: center;
         flex: 1;
         justify-content: center;
+        width: 100%;
     }
 
     .hero-inline-badges {
         display: flex;
         flex-direction: column;
         gap: 12px;
-        margin-top: auto;
+        position: absolute;
+        bottom: 24px;
+        left: 0;
+        right: 0;
+        align-items: center;
     }
 
     .hero-inline-badges .badge-item {
