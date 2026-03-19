@@ -498,16 +498,14 @@ img {
     border-bottom: 1px solid var(--border-subtle);
     overflow: hidden;
     height: 44px;
-    display: flex;
-    align-items: center;
     white-space: nowrap;
 }
 
 .ticker-track {
     display: inline-flex;
     align-items: center;
+    height: 100%;
     animation: ticker-scroll 12s linear infinite;
-    padding-top: 4px;
 }
 
 .ticker-item {
