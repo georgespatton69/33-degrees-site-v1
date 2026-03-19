@@ -490,6 +490,49 @@ img {
 }
 
 /* ============================================
+   TRUST TICKER (Mobile marquee)
+   ============================================ */
+.trust-ticker {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    overflow: hidden;
+    padding: 14px 0;
+    white-space: nowrap;
+}
+
+.ticker-track {
+    display: inline-flex;
+    animation: ticker-scroll 25s linear infinite;
+}
+
+.ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    padding: 0 24px;
+}
+
+.ticker-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+}
+
+@keyframes ticker-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ============================================
    FEATURED PRODUCTS CAROUSEL
    ============================================ */
 .featured-products {
@@ -1440,12 +1483,6 @@ img {
         height: 48px;
     }
 
-    /* Trust badges — normal section on mobile */
-    .trust-badges {
-        margin-top: 0;
-        background: var(--bg-card);
-        backdrop-filter: none;
-    }
 
 
     .hero-logo {
