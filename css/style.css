@@ -503,7 +503,7 @@ img {
 
 .ticker-track {
     display: inline-flex;
-    animation: ticker-scroll 25s linear infinite;
+    animation: ticker-scroll 12s linear infinite;
 }
 
 .ticker-item {
