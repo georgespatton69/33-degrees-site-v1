@@ -1662,12 +1662,7 @@ img {
     }
 
     .cat-img {
-        order: -1;
-    }
-
-    .cat-img img {
-        max-width: 280px;
-        margin: 0 auto;
+        display: none;
     }
 
     .cat-heading {
@@ -1678,12 +1673,44 @@ img {
         font-size: 0.85rem;
     }
 
+    /* Mobile swipe row for category products */
     .cat-products {
-        flex-direction: column;
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 12px;
+        padding: 4px 0 12px;
+        scrollbar-width: none;
+        touch-action: pan-x pan-y;
+        margin-left: -24px;
+        margin-right: -24px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .cat-products::-webkit-scrollbar {
+        display: none;
     }
 
     .cat-product {
+        flex: 0 0 65vw;
+        max-width: 260px;
         min-width: unset;
+        scroll-snap-align: center;
+        padding: 16px;
+    }
+
+    .cat-product h4 {
+        font-size: 1rem;
+    }
+
+    .cat-product p {
+        font-size: 0.8rem;
+    }
+
+    .cat-price {
+        font-size: 1rem;
     }
 
     /* What Are Peptides */

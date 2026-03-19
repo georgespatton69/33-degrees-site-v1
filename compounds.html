@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=68">
+    <link rel="stylesheet" href="css/style.css?v=69">
 </head>
 <body>
 
@@ -364,6 +364,77 @@
                         s.style.opacity = '1';
                     });
                 }, 300);
+            });
+        });
+    })();
+
+    // Mobile swipe: update section content based on centered product card
+    (function() {
+        if (window.innerWidth > 768) return;
+
+        document.querySelectorAll('.cat-section').forEach(section => {
+            const desc = section.querySelector('.cat-desc');
+            const stats = section.querySelector('.cat-stats');
+            const products = section.querySelector('.cat-products');
+            const cards = section.querySelectorAll('.cat-product');
+            if (!desc || !stats || !products || cards.length < 2) return;
+
+            let activeIndex = 0;
+
+            function updateContent(card) {
+                if (!card.dataset.desc) return;
+
+                // Update active styling
+                cards.forEach(c => c.classList.remove('active'));
+                card.classList.add('active');
+
+                // Fade out
+                desc.style.transition = 'opacity 0.25s ease';
+                stats.style.transition = 'opacity 0.25s ease';
+                desc.style.opacity = '0';
+                stats.style.opacity = '0';
+
+                setTimeout(() => {
+                    desc.textContent = card.dataset.desc;
+
+                    const statEls = stats.querySelectorAll('.cat-stat');
+                    if (statEls[0]) {
+                        statEls[0].querySelector('.cat-stat-num').innerHTML = card.dataset.stat1;
+                        statEls[0].querySelector('.cat-stat-label').textContent = card.dataset.stat1Label;
+                    }
+                    if (statEls[1]) {
+                        statEls[1].querySelector('.cat-stat-num').innerHTML = card.dataset.stat2;
+                        statEls[1].querySelector('.cat-stat-label').textContent = card.dataset.stat2Label;
+                    }
+
+                    desc.style.opacity = '1';
+                    stats.style.opacity = '1';
+                }, 250);
+            }
+
+            // Detect centered card on scroll end
+            let scrollTimeout;
+            products.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    const containerCenter = products.scrollLeft + products.offsetWidth / 2;
+                    let closest = cards[0];
+                    let closestDist = Infinity;
+
+                    cards.forEach((card, i) => {
+                        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+                        const dist = Math.abs(containerCenter - cardCenter);
+                        if (dist < closestDist) {
+                            closestDist = dist;
+                            closest = card;
+                            activeIndex = i;
+                        }
+                    });
+
+                    if (!closest.classList.contains('active')) {
+                        updateContent(closest);
+                    }
+                }, 100);
             });
         });
     })();
