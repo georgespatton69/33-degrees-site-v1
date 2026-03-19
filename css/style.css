@@ -792,6 +792,33 @@ img {
 }
 
 /* ============================================
+   MOBILE SWIPE ROW
+   ============================================ */
+.mobile-swipe-row {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 24px 16px;
+    scrollbar-width: none;
+}
+
+.mobile-swipe-row::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile-swipe-row .product-card {
+    flex: 0 0 70vw;
+    max-width: 280px;
+    scroll-snap-align: center;
+}
+
+.mobile-swipe-row .product-card .product-image {
+    height: 180px;
+}
+
+/* ============================================
    CATEGORY STORYTELLING SECTIONS (Desktop)
    ============================================ */
 .desktop-only { display: block; }
@@ -1439,15 +1466,6 @@ img {
 
     .carousel-grid .product-card .product-info .btn-secondary {
         margin-top: auto;
-    }
-
-    .products-full-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-
-    .products-full-grid .product-card-sm:nth-child(n+5) {
-        display: none;
     }
 
     .shop-all-btn {
