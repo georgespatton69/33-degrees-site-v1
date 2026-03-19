@@ -40,8 +40,92 @@
         }
     }
 
+    // ---------- DNA HELIX STRANDS ----------
+    const dnaStrands = [
+        { x: 0.15, y: 0.5, scale: 0.9, opacity: 0.08, speed: 0.0003, phase: 0 },
+        { x: 0.82, y: 0.45, scale: 1.1, opacity: 0.06, speed: 0.00025, phase: Math.PI * 0.7 },
+        { x: 0.48, y: 0.55, scale: 0.7, opacity: 0.04, speed: 0.00035, phase: Math.PI * 1.3 },
+    ];
+
+    let dnaTime = 0;
+
+    function drawDNA() {
+        const w = canvas.offsetWidth;
+        const h = canvas.offsetHeight;
+
+        dnaStrands.forEach(strand => {
+            const cx = w * strand.x;
+            const strandHeight = h * 0.8;
+            const startY = h * strand.y - strandHeight / 2;
+            const amplitude = 40 * strand.scale;
+            const rungs = 20;
+            const rungSpacing = strandHeight / rungs;
+            const twist = dnaTime * strand.speed + strand.phase;
+
+            ctx.save();
+            ctx.globalAlpha = strand.opacity;
+
+            // Draw two backbone strands
+            for (let s = 0; s < 2; s++) {
+                const offset = s * Math.PI; // second strand is 180deg offset
+                ctx.beginPath();
+                for (let i = 0; i <= rungs * 4; i++) {
+                    const t = i / (rungs * 4);
+                    const y = startY + t * strandHeight;
+                    const angle = t * Math.PI * 6 + twist + offset;
+                    const x = cx + Math.sin(angle) * amplitude;
+                    const depth = Math.cos(angle); // -1 to 1, simulates 3D
+
+                    if (i === 0) {
+                        ctx.moveTo(x, y);
+                    } else {
+                        ctx.lineTo(x, y);
+                    }
+                }
+                ctx.strokeStyle = `rgba(212, 168, 67, ${0.6 + Math.sin(twist) * 0.2})`;
+                ctx.lineWidth = 2 * strand.scale;
+                ctx.stroke();
+            }
+
+            // Draw rungs connecting the two strands
+            for (let i = 0; i <= rungs; i++) {
+                const t = i / rungs;
+                const y = startY + t * strandHeight;
+                const angle = t * Math.PI * 6 + twist;
+                const x1 = cx + Math.sin(angle) * amplitude;
+                const x2 = cx + Math.sin(angle + Math.PI) * amplitude;
+                const depth = Math.cos(angle);
+
+                // Only draw rungs that face the viewer (depth > 0)
+                if (Math.abs(depth) > 0.3) {
+                    ctx.beginPath();
+                    ctx.moveTo(x1, y);
+                    ctx.lineTo(x2, y);
+                    ctx.strokeStyle = `rgba(212, 168, 67, ${0.3 * Math.abs(depth)})`;
+                    ctx.lineWidth = 1 * strand.scale;
+                    ctx.stroke();
+
+                    // Small dots at connection points
+                    [x1, x2].forEach(x => {
+                        ctx.beginPath();
+                        ctx.arc(x, y, 2 * strand.scale, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(232, 201, 106, ${0.4 * Math.abs(depth)})`;
+                        ctx.fill();
+                    });
+                }
+            }
+
+            ctx.restore();
+        });
+
+        dnaTime++;
+    }
+
     function draw() {
         ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+
+        // Draw DNA behind particles
+        drawDNA();
 
         particles.forEach(p => {
             p.x += p.speedX;
