@@ -353,26 +353,34 @@
                 });
 
                 setTimeout(() => {
+                    // Lock swipe detection during reset
+                    window._swipeLocked = true;
+
                     const currentFirst = parent.querySelector('.cat-section');
                     parent.insertBefore(targetSection, currentFirst);
 
-                    // Reset all sections: scroll to first card & restore default content
+                    // Reset all sections
                     parent.querySelectorAll('.cat-section').forEach(s => {
                         const row = s.querySelector('.cat-products');
                         const cards = s.querySelectorAll('.cat-product');
                         const desc = s.querySelector('.cat-desc');
                         const stats = s.querySelector('.cat-stats');
 
-                        // Scroll back to first card
-                        if (row) row.scrollLeft = 0;
+                        // Reset scroll position
+                        if (row) {
+                            row.style.scrollBehavior = 'auto';
+                            row.scrollLeft = 0;
+                            row.style.scrollBehavior = '';
+                        }
 
-                        // Activate first card and restore its content
+                        // Activate first card
                         if (cards.length) {
                             cards.forEach(c => c.classList.remove('active'));
                             cards[0].classList.add('active');
 
                             if (desc && cards[0].dataset.desc) {
                                 desc.textContent = cards[0].dataset.desc;
+                                desc.style.opacity = '1';
                             }
                             if (stats && cards[0].dataset.stat1) {
                                 const statEls = stats.querySelectorAll('.cat-stat');
@@ -384,17 +392,23 @@
                                     statEls[1].querySelector('.cat-stat-num').innerHTML = cards[0].dataset.stat2;
                                     statEls[1].querySelector('.cat-stat-label').textContent = cards[0].dataset.stat2Label;
                                 }
+                                stats.style.opacity = '1';
                             }
                         }
 
                         s.style.opacity = '1';
                     });
+
+                    // Unlock after scroll events settle
+                    setTimeout(() => { window._swipeLocked = false; }, 500);
                 }, 300);
             });
         });
     })();
 
     // Mobile swipe: update section content based on centered product card
+    window._swipeLocked = false;
+
     (function() {
         if (window.innerWidth > 768) return;
 
@@ -405,16 +419,12 @@
             const cards = section.querySelectorAll('.cat-product');
             if (!desc || !stats || !products || cards.length < 2) return;
 
-            let activeIndex = 0;
-
             function updateContent(card) {
                 if (!card.dataset.desc) return;
 
-                // Update active styling
                 cards.forEach(c => c.classList.remove('active'));
                 card.classList.add('active');
 
-                // Fade out
                 desc.style.transition = 'opacity 0.25s ease';
                 stats.style.transition = 'opacity 0.25s ease';
                 desc.style.opacity = '0';
@@ -438,22 +448,22 @@
                 }, 250);
             }
 
-            // Detect centered card on scroll end
             let scrollTimeout;
             products.addEventListener('scroll', () => {
+                if (window._swipeLocked) return;
                 clearTimeout(scrollTimeout);
                 scrollTimeout = setTimeout(() => {
+                    if (window._swipeLocked) return;
                     const containerCenter = products.scrollLeft + products.offsetWidth / 2;
                     let closest = cards[0];
                     let closestDist = Infinity;
 
-                    cards.forEach((card, i) => {
+                    cards.forEach((card) => {
                         const cardCenter = card.offsetLeft + card.offsetWidth / 2;
                         const dist = Math.abs(containerCenter - cardCenter);
                         if (dist < closestDist) {
                             closestDist = dist;
                             closest = card;
-                            activeIndex = i;
                         }
                     });
 
