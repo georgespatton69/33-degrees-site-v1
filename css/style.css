@@ -520,6 +520,12 @@ img {
     text-transform: uppercase;
     color: var(--text-secondary);
     padding: 0 24px;
+    line-height: 1;
+}
+
+.ticker-item svg {
+    vertical-align: middle;
+    margin-top: -1px;
 }
 
 .ticker-item svg {
