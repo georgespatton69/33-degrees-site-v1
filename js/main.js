@@ -110,13 +110,13 @@
     const section = document.querySelector('.featured-products');
     if (!tabs.length || !panels.length || !section) return;
 
-    const CYCLE = 5000; // 5 seconds per category
+    const HALF_CYCLE = 3500; // 3.5s each way = 7s total per category
     const TICK = 30;
     const GLOW_MIN = 0.07;
     const GLOW_MAX = 0.5;
     let currentIndex = 0;
     let elapsed = 0;
-    let goingBright = true; // first category: dim→bright, next: bright→dim, alternating
+    let goingBright = true;
     let intervalId = null;
     let paused = false;
 
@@ -149,35 +149,31 @@
         if (paused) return;
         elapsed += TICK;
 
-        const progress = Math.min(elapsed / CYCLE, 1);
+        const progress = Math.min(elapsed / HALF_CYCLE, 1);
         const eased = (1 - Math.cos(progress * Math.PI)) / 2;
 
         let glowValue;
         if (goingBright) {
-            // Dim → Bright over 5s
             glowValue = GLOW_MIN + (GLOW_MAX - GLOW_MIN) * eased;
         } else {
-            // Bright → Dim over 5s
             glowValue = GLOW_MAX - (GLOW_MAX - GLOW_MIN) * eased;
         }
         setGlow(glowValue);
 
-        // Last 1s: fade out content AND glow together
-        if (elapsed >= CYCLE - 1000) {
-            if (!fadeOutStarted) fadeOutCurrent();
-            // Override glow to fade to min during last 1s
-            const fadeProgress = (elapsed - (CYCLE - 1000)) / 1000;
-            const fadeEased = fadeProgress * fadeProgress;
-            const currentGlow = goingBright ? GLOW_MAX : GLOW_MIN;
-            setGlow(currentGlow + (GLOW_MIN - currentGlow) * fadeEased);
+        // Start fading out content 1s before dimmest point
+        if (!goingBright && !fadeOutStarted && elapsed >= HALF_CYCLE - 1000) {
+            fadeOutCurrent();
         }
 
-        if (elapsed >= CYCLE) {
+        if (elapsed >= HALF_CYCLE) {
             elapsed = 0;
-            goingBright = !goingBright;
-            setGlow(GLOW_MIN);
-            const next = (currentIndex + 1) % tabs.length;
-            switchTo(next, true);
+            if (goingBright) {
+                goingBright = false;
+            } else {
+                goingBright = true;
+                const next = (currentIndex + 1) % tabs.length;
+                switchTo(next, true);
+            }
         }
     }
 
