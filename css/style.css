@@ -798,10 +798,12 @@ img {
     display: flex;
     gap: 16px;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     padding: 0 24px 16px;
     scrollbar-width: none;
+    touch-action: pan-x;
 }
 
 .mobile-swipe-row::-webkit-scrollbar {
