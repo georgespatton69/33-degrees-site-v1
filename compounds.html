@@ -326,10 +326,12 @@
     <script>
     (function() {
         const btns = document.querySelectorAll('.compounds-nav-btn');
-        const sections = document.querySelectorAll('.cat-section');
-        if (!btns.length || !sections.length) return;
+        if (!btns.length) return;
 
-        const parent = sections[0].parentElement;
+        // Get the parent that holds all cat-sections
+        const firstSection = document.querySelector('.cat-section');
+        if (!firstSection) return;
+        const parent = firstSection.parentElement;
 
         btns.forEach(btn => {
             btn.addEventListener('click', function(e) {
@@ -342,25 +344,25 @@
                 btns.forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
 
-                // Fade out all sections
-                sections.forEach(s => {
-                    s.style.opacity = '0';
+                // Get fresh list of all sections in current order
+                const allSections = parent.querySelectorAll('.cat-section');
+
+                // Fade out
+                allSections.forEach(s => {
                     s.style.transition = 'opacity 0.3s ease';
+                    s.style.opacity = '0';
                 });
 
                 setTimeout(() => {
-                    // Move target section to top
-                    parent.insertBefore(targetSection, sections[0]);
+                    // Get the first cat-section currently in the DOM
+                    const currentFirst = parent.querySelector('.cat-section');
+
+                    // Move target to top (before the current first)
+                    parent.insertBefore(targetSection, currentFirst);
 
                     // Fade all back in
-                    document.querySelectorAll('.cat-section').forEach(s => {
+                    parent.querySelectorAll('.cat-section').forEach(s => {
                         s.style.opacity = '1';
-                    });
-
-                    // Scroll to top of sections
-                    window.scrollTo({
-                        top: targetSection.offsetTop - 80,
-                        behavior: 'smooth'
                     });
                 }, 300);
             });
