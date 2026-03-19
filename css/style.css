@@ -1696,13 +1696,11 @@ img {
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         gap: 16px;
-        padding: 4px 0 12px;
+        padding: 6px 24px 16px;
         scrollbar-width: none;
         touch-action: pan-x pan-y;
         margin-left: -24px;
         margin-right: -24px;
-        padding-left: 24px;
-        padding-right: 24px;
     }
 
     .cat-products::-webkit-scrollbar {
