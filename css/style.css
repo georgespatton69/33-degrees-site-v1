@@ -497,7 +497,7 @@ img {
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
     overflow: hidden;
-    padding: 10px 0 14px;
+    padding: 12px 0;
     white-space: nowrap;
 }
 
