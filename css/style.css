@@ -1148,6 +1148,22 @@ img {
     .carousel-grid .product-card .btn-secondary {
         padding: 8px 16px;
         font-size: 0.65rem;
+        white-space: nowrap;
+    }
+
+    .carousel-grid .product-card {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .carousel-grid .product-card .product-info {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    .carousel-grid .product-card .product-info .btn-secondary {
+        margin-top: auto;
     }
 
     .products-full-grid {
