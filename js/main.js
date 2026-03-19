@@ -31,14 +31,25 @@
         };
     }
 
+    const isMobileDevice = window.innerWidth <= 768;
+
     function init() {
         resize();
-        const count = Math.min(Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 8000), 150);
+        const maxParticles = isMobileDevice ? 40 : 150;
+        const count = Math.min(Math.floor((canvas.offsetWidth * canvas.offsetHeight) / 8000), maxParticles);
         particles = [];
         for (let i = 0; i < count; i++) {
             particles.push(createParticle());
         }
     }
+
+    // Pause animation when hero is off-screen
+    let heroVisible = true;
+    const heroObserver = new IntersectionObserver((entries) => {
+        heroVisible = entries[0].isIntersecting;
+        if (heroVisible && !animationId) draw();
+    }, { threshold: 0 });
+    heroObserver.observe(canvas.parentElement);
 
     function draw() {
         ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
@@ -50,13 +61,11 @@
 
             const currentOpacity = p.opacity * (0.5 + 0.5 * Math.sin(p.pulse));
 
-            // Wrap around
             if (p.x < -10) p.x = canvas.offsetWidth + 10;
             if (p.x > canvas.offsetWidth + 10) p.x = -10;
             if (p.y < -10) p.y = canvas.offsetHeight + 10;
             if (p.y > canvas.offsetHeight + 10) p.y = -10;
 
-            // Draw glow
             const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 3);
             gradient.addColorStop(0, `rgba(212, 168, 67, ${currentOpacity})`);
             gradient.addColorStop(1, 'rgba(212, 168, 67, 0)');
@@ -66,24 +75,26 @@
             ctx.fillStyle = gradient;
             ctx.fill();
 
-            // Draw core
             ctx.beginPath();
             ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
             ctx.fillStyle = `rgba(232, 201, 106, ${currentOpacity})`;
             ctx.fill();
         });
 
-        animationId = requestAnimationFrame(draw);
+        if (heroVisible) {
+            animationId = requestAnimationFrame(draw);
+        } else {
+            animationId = null;
+        }
     }
 
     window.addEventListener('resize', () => {
         cancelAnimationFrame(animationId);
         init();
-        draw();
+        if (heroVisible) draw();
     });
 
     init();
-    draw();
 })();
 
 
