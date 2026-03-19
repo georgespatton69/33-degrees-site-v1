@@ -1662,13 +1662,22 @@ img {
     }
 
     .cat-section {
-        overflow: hidden;
+        overflow-x: clip;
+        overflow-y: visible;
     }
 
     .cat-text {
         max-width: 100%;
         overflow-wrap: break-word;
         word-wrap: break-word;
+    }
+
+    .cat-desc {
+        min-height: 120px;
+    }
+
+    .cat-stats {
+        min-height: 80px;
     }
 
     .cat-inner.cat-reverse .cat-text,
