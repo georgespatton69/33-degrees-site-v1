@@ -391,10 +391,6 @@ img {
     padding: 20px 0;
 }
 
-/* Inline badges (mobile only, inside hero) */
-.hero-inline-badges {
-    display: none;
-}
 
 .badge-grid {
     display: flex;
@@ -1172,40 +1168,11 @@ img {
         height: 48px;
     }
 
-    /* Hero — hide strip badges, show inline in hero */
+    /* Trust badges — normal section on mobile */
     .trust-badges {
-        display: none;
-    }
-
-    .hero {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 24px;
-    }
-
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex: 1;
-        justify-content: center;
-        width: 100%;
-        margin-top: -12vh;
-    }
-
-    .hero-inline-badges {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        position: absolute;
-        bottom: 12px;
-        left: 0;
-        right: 0;
-        align-items: center;
-    }
-
-    .hero-inline-badges .badge-item {
-        justify-content: center;
+        margin-top: 0;
+        background: var(--bg-card);
+        backdrop-filter: none;
     }
 
     .featured-products::after {
