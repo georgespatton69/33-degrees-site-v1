@@ -1168,7 +1168,8 @@ img {
 
     /* Hero */
     .hero-content {
-        padding-bottom: 80px;
+        padding-bottom: 100px;
+        margin-top: -40px;
     }
 
     .hero-logo {
