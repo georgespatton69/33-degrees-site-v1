@@ -333,6 +333,28 @@
         if (!firstSection) return;
         const parent = firstSection.parentElement;
 
+        // Set first button active on load
+        btns[0].classList.add('active');
+
+        // Map section IDs to buttons
+        const btnMap = {};
+        btns.forEach(btn => { btnMap[btn.dataset.target] = btn; });
+
+        // Track which section is in view and update active button
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                    const id = entry.target.id;
+                    if (btnMap[id]) {
+                        btns.forEach(b => b.classList.remove('active'));
+                        btnMap[id].classList.add('active');
+                    }
+                }
+            });
+        }, { threshold: 0.3, rootMargin: '-80px 0px 0px 0px' });
+
+        document.querySelectorAll('.cat-section[id]').forEach(s => sectionObserver.observe(s));
+
         btns.forEach(btn => {
             btn.addEventListener('click', function() {
                 const targetId = this.dataset.target;
