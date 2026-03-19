@@ -519,11 +519,8 @@ img {
     padding: 0 24px;
 }
 
-.ticker-dot {
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: var(--gold);
+.ticker-item svg {
+    color: var(--gold);
     flex-shrink: 0;
 }
 
