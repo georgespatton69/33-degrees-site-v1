@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=66">
+    <link rel="stylesheet" href="css/style.css?v=67">
 </head>
 <body>
 
@@ -323,5 +323,49 @@
     </footer>
 
     <script src="js/main.js?v=34"></script>
+    <script>
+    (function() {
+        const btns = document.querySelectorAll('.compounds-nav-btn');
+        const sections = document.querySelectorAll('.cat-section');
+        if (!btns.length || !sections.length) return;
+
+        const parent = sections[0].parentElement;
+
+        btns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').replace('#', '');
+                const targetSection = document.getElementById(targetId);
+                if (!targetSection) return;
+
+                // Mark active button
+                btns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Fade out all sections
+                sections.forEach(s => {
+                    s.style.opacity = '0';
+                    s.style.transition = 'opacity 0.3s ease';
+                });
+
+                setTimeout(() => {
+                    // Move target section to top
+                    parent.insertBefore(targetSection, sections[0]);
+
+                    // Fade all back in
+                    document.querySelectorAll('.cat-section').forEach(s => {
+                        s.style.opacity = '1';
+                    });
+
+                    // Scroll to top of sections
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }, 300);
+            });
+        });
+    })();
+    </script>
 </body>
 </html>

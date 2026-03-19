@@ -528,6 +528,12 @@ img {
     background: rgba(212, 168, 67, 0.05);
 }
 
+.compounds-nav-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--black);
+}
+
 /* ============================================
    TRUST TICKER (Mobile marquee)
    ============================================ */
