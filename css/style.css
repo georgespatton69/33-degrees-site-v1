@@ -1175,20 +1175,6 @@ img {
         backdrop-filter: none;
     }
 
-    .featured-products::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 25vw;
-        height: 1px;
-        background: var(--gold);
-    }
-
-    .featured-products {
-        padding-top: 24px;
-    }
 
     .hero-logo {
         width: 220px;
