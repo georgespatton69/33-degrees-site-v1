@@ -1167,6 +1167,10 @@ img {
     }
 
     /* Hero */
+    .hero-content {
+        padding-bottom: 80px;
+    }
+
     .hero-logo {
         width: 220px;
     }
