@@ -111,6 +111,28 @@
     let fadeOutStarted = false;
     const panelsContainer = document.querySelector('.carousel-panels');
 
+    // Measure tallest panel and lock container height
+    function setContainerHeight() {
+        let maxH = 0;
+        panels.forEach(p => {
+            p.style.position = 'relative';
+            p.style.opacity = '1';
+            p.style.pointerEvents = 'none';
+            const h = p.offsetHeight;
+            if (h > maxH) maxH = h;
+        });
+        // Reset all panels
+        panels.forEach(p => {
+            p.style.position = '';
+            p.style.opacity = '';
+            p.style.pointerEvents = '';
+        });
+        panelsContainer.style.height = maxH + 'px';
+    }
+
+    setContainerHeight();
+    window.addEventListener('resize', setContainerHeight);
+
     function fadeOutCurrent() {
         const current = panels[currentIndex];
         current.classList.add('fading-out');
@@ -118,9 +140,6 @@
     }
 
     function switchTo(index, animated) {
-        // Lock container height before switching
-        panelsContainer.style.height = panelsContainer.offsetHeight + 'px';
-
         // Clean up all panels
         panels.forEach(p => {
             p.classList.remove('active', 'fading-out');
@@ -133,11 +152,6 @@
 
         currentIndex = index;
         fadeOutStarted = false;
-
-        // Release height lock after transition completes
-        setTimeout(() => {
-            panelsContainer.style.height = '';
-        }, 1100);
     }
 
     function tick() {

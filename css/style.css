@@ -479,40 +479,30 @@ img {
     z-index: 1;
 }
 
-/* Panels */
+/* Panels — all panels stacked absolutely, container holds fixed height */
 .carousel-panels {
     position: relative;
     margin-top: 40px;
-    overflow: hidden;
 }
 
 .carousel-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     opacity: 0;
     transition: opacity 1s ease;
     pointer-events: none;
-    visibility: hidden;
-    height: 0;
-    overflow: hidden;
 }
 
 .carousel-panel.active {
     opacity: 1;
     pointer-events: auto;
-    visibility: visible;
-    height: auto;
-    overflow: visible;
 }
 
 .carousel-panel.fading-out {
     opacity: 0;
     pointer-events: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    visibility: visible;
-    height: auto;
-    overflow: visible;
 }
 
 .carousel-grid {
