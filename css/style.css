@@ -1659,6 +1659,7 @@ img {
     .cat-inner {
         grid-template-columns: 1fr !important;
         gap: 24px;
+        overflow: hidden;
     }
 
     .cat-inner.cat-reverse .cat-text,
