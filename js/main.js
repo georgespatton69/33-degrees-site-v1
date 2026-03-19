@@ -94,7 +94,7 @@
     const progressBar = document.querySelector('.carousel-progress-bar');
     if (!tabs.length || !panels.length) return;
 
-    const DURATION = 3000; // 3 seconds per category
+    const DURATION = 5000; // 5 seconds per category
     const TICK = 30; // progress update interval
     let currentIndex = 0;
     let elapsed = 0;
@@ -142,12 +142,12 @@
         });
     });
 
-    // Pause on hover
-    const section = document.querySelector('.featured-products');
-    if (section) {
-        section.addEventListener('mouseenter', () => { paused = true; });
-        section.addEventListener('mouseleave', () => { paused = false; });
-    }
+    // Pause on hover over product cards only
+    const cards = document.querySelectorAll('.featured-products .product-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => { paused = true; });
+        card.addEventListener('mouseleave', () => { paused = false; });
+    });
 
     // Start auto-rotation
     intervalId = setInterval(tick, TICK);
