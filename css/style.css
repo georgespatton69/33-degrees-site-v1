@@ -409,23 +409,87 @@ img {
 }
 
 /* ============================================
-   FEATURED PRODUCTS
+   FEATURED PRODUCTS CAROUSEL
    ============================================ */
 .featured-products {
     padding: var(--section-padding);
 }
 
-/* Desktop: wrapper is a 4-col grid, inner groups vanish via display:contents */
-.product-grid-wrapper {
+/* Category Tabs */
+.carousel-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+}
+
+.carousel-tab {
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.carousel-tab:hover {
+    border-color: var(--border-gold);
+    color: var(--gold);
+}
+
+.carousel-tab.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--black);
+}
+
+/* Progress Bar */
+.carousel-progress {
+    max-width: 400px;
+    margin: 20px auto 0;
+    height: 2px;
+    background: var(--border-subtle);
+    border-radius: 1px;
+    overflow: hidden;
+}
+
+.carousel-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--gold);
+    border-radius: 1px;
+    transition: width 0.1s linear;
+}
+
+/* Panels */
+.carousel-panels {
+    position: relative;
+    margin-top: 40px;
+    min-height: 420px;
+}
+
+.carousel-panel {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.carousel-panel.active {
+    display: block;
+    opacity: 1;
+}
+
+.carousel-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
-    margin-top: 48px;
-}
-
-.product-group-first,
-.product-group-second {
-    display: contents;
 }
 
 .product-card {
@@ -482,40 +546,7 @@ img {
     border-radius: 2px;
 }
 
-/* Show More button (mobile only) */
-.show-more-btn {
-    display: none;
-    margin: 32px auto;
-    background: transparent;
-    border: 1px solid var(--border-gold);
-    color: var(--gold);
-    font-family: var(--font-body);
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 12px 32px;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: all var(--transition);
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-
-.show-more-btn:hover {
-    background: rgba(212, 168, 67, 0.1);
-    border-color: var(--gold);
-}
-
-.show-more-arrow {
-    transition: transform var(--transition);
-}
-
-.show-more-btn.expanded .show-more-arrow {
-    transform: rotate(180deg);
-}
+/* (Show More removed — replaced by carousel tabs) */
 
 .product-info {
     padding: 20px;
@@ -962,7 +993,7 @@ img {
 
 /* Tablet */
 @media (max-width: 1024px) {
-    .product-grid-wrapper {
+    .carousel-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1045,35 +1076,24 @@ img {
         align-items: center;
     }
 
-    /* Products */
-    .product-grid-wrapper {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        margin: 48px auto 0;
+    /* Carousel */
+    .carousel-tabs {
+        gap: 6px;
     }
 
-    .product-group-first {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
+    .carousel-tab {
+        font-size: 0.65rem;
+        padding: 8px 12px;
+        letter-spacing: 1px;
     }
 
-    .product-group-second {
-        display: none !important;
-        flex-direction: column;
-        gap: 24px;
-        margin-top: 24px;
+    .carousel-panels {
+        min-height: auto;
     }
 
-    .product-group-second.show {
-        display: flex !important;
-    }
-
-    .show-more-btn {
-        display: inline-flex;
-        margin: 24px auto 0;
-        align-self: center;
+    .carousel-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
 
     .products-full-grid {

@@ -87,19 +87,73 @@
 })();
 
 
-// ---------- SHOW MORE FEATURED PRODUCTS (MOBILE) ----------
-(function initShowMore() {
-    const btn = document.getElementById('show-more-featured');
-    const extra = document.getElementById('featured-extra');
-    if (!btn || !extra) return;
+// ---------- FEATURED PRODUCTS CATEGORY CAROUSEL ----------
+(function initCarousel() {
+    const tabs = document.querySelectorAll('.carousel-tab');
+    const panels = document.querySelectorAll('.carousel-panel');
+    const progressBar = document.querySelector('.carousel-progress-bar');
+    if (!tabs.length || !panels.length) return;
 
-    const textEl = btn.querySelector('.show-more-text');
+    const DURATION = 3000; // 3 seconds per category
+    const TICK = 30; // progress update interval
+    let currentIndex = 0;
+    let elapsed = 0;
+    let intervalId = null;
+    let paused = false;
 
-    btn.addEventListener('click', () => {
-        const expanded = extra.classList.toggle('show');
-        btn.classList.toggle('expanded');
-        textEl.textContent = expanded ? 'Show Less' : 'Show More';
+    function switchTo(index) {
+        // Deactivate all
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => {
+            p.classList.remove('active');
+            p.style.opacity = '0';
+        });
+
+        // Activate target
+        tabs[index].classList.add('active');
+        panels[index].classList.add('active');
+
+        // Fade in
+        requestAnimationFrame(() => {
+            panels[index].style.opacity = '1';
+        });
+
+        currentIndex = index;
+        elapsed = 0;
+        if (progressBar) progressBar.style.width = '0%';
+    }
+
+    function tick() {
+        if (paused) return;
+        elapsed += TICK;
+        const pct = Math.min((elapsed / DURATION) * 100, 100);
+        if (progressBar) progressBar.style.width = pct + '%';
+
+        if (elapsed >= DURATION) {
+            const next = (currentIndex + 1) % tabs.length;
+            switchTo(next);
+        }
+    }
+
+    // Tab clicks
+    tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => {
+            switchTo(i);
+        });
     });
+
+    // Pause on hover
+    const section = document.querySelector('.featured-products');
+    if (section) {
+        section.addEventListener('mouseenter', () => { paused = true; });
+        section.addEventListener('mouseleave', () => { paused = false; });
+    }
+
+    // Start auto-rotation
+    intervalId = setInterval(tick, TICK);
+
+    // Initialize first panel
+    switchTo(0);
 })();
 
 
