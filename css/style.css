@@ -565,21 +565,11 @@ img {
     justify-content: center;
 }
 
-.product-image-placeholder {
-    width: 120px;
-    height: 160px;
-    background: linear-gradient(180deg, #2a1f00, #1a1200);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--border-subtle);
-}
-
-.product-icon {
-    font-size: 2.5rem;
-    color: var(--gold);
-    opacity: 0.5;
+.product-bottle-img {
+    height: 200px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(212, 168, 67, 0.15));
 }
 
 .product-badge {
@@ -775,10 +765,11 @@ img {
     border: 1px solid var(--border-subtle);
 }
 
-.product-icon-sm {
-    font-size: 1.5rem;
-    color: var(--gold);
-    opacity: 0.4;
+.product-bottle-img-sm {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(212, 168, 67, 0.12));
 }
 
 .product-card-sm h4 {
