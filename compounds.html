@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=67">
+    <link rel="stylesheet" href="css/style.css?v=68">
 </head>
 <body>
 
@@ -64,11 +64,11 @@
             <h1 class="section-title">Healing Compounds</h1>
             <p class="section-subtitle">Explore our complete catalog of research-grade peptides, organized by your health goals</p>
             <div class="compounds-nav">
-                <a href="#cat-recovery" class="compounds-nav-btn">Recovery &amp; Repair</a>
-                <a href="#cat-longevity" class="compounds-nav-btn">Longevity &amp; Anti-Aging</a>
-                <a href="#cat-weight" class="compounds-nav-btn">Weight Management</a>
-                <a href="#cat-skin" class="compounds-nav-btn">Skin &amp; Rejuvenation</a>
-                <a href="#cat-performance" class="compounds-nav-btn">Performance &amp; Vitality</a>
+                <button class="compounds-nav-btn" data-target="cat-recovery">Recovery &amp; Repair</button>
+                <button class="compounds-nav-btn" data-target="cat-longevity">Longevity &amp; Anti-Aging</button>
+                <button class="compounds-nav-btn" data-target="cat-weight">Weight Management</button>
+                <button class="compounds-nav-btn" data-target="cat-skin">Skin &amp; Rejuvenation</button>
+                <button class="compounds-nav-btn" data-target="cat-performance">Performance &amp; Vitality</button>
             </div>
         </div>
     </section>
@@ -334,9 +334,8 @@
         const parent = firstSection.parentElement;
 
         btns.forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').replace('#', '');
+            btn.addEventListener('click', function() {
+                const targetId = this.dataset.target;
                 const targetSection = document.getElementById(targetId);
                 if (!targetSection) return;
 

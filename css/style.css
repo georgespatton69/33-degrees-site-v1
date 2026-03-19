@@ -520,6 +520,7 @@ img {
     border-radius: 2px;
     transition: all var(--transition);
     text-decoration: none;
+    cursor: pointer;
 }
 
 .compounds-nav-btn:hover {
