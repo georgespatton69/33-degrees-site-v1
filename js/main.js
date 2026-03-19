@@ -88,10 +88,15 @@
         }
     }
 
+    // Only reinit on actual width changes (ignore mobile URL bar height changes)
+    let lastWidth = window.innerWidth;
     window.addEventListener('resize', () => {
-        cancelAnimationFrame(animationId);
-        init();
-        if (heroVisible) draw();
+        if (window.innerWidth !== lastWidth) {
+            lastWidth = window.innerWidth;
+            cancelAnimationFrame(animationId);
+            init();
+            if (heroVisible) draw();
+        }
     });
 
     init();
