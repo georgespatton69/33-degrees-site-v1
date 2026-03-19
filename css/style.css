@@ -499,6 +499,35 @@ img {
     border-bottom: 1px solid var(--border-subtle);
 }
 
+.compounds-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 32px;
+}
+
+.compounds-nav-btn {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    padding: 10px 20px;
+    border-radius: 2px;
+    transition: all var(--transition);
+    text-decoration: none;
+}
+
+.compounds-nav-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    background: rgba(212, 168, 67, 0.05);
+}
+
 /* ============================================
    TRUST TICKER (Mobile marquee)
    ============================================ */
