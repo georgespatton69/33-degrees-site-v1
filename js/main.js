@@ -162,15 +162,20 @@
         }
         setGlow(glowValue);
 
-        // Start fading out content 1s before swap
-        if (!fadeOutStarted && elapsed >= CYCLE - 1000) {
-            fadeOutCurrent();
+        // Last 1s: fade out content AND glow together
+        if (elapsed >= CYCLE - 1000) {
+            if (!fadeOutStarted) fadeOutCurrent();
+            // Override glow to fade to min during last 1s
+            const fadeProgress = (elapsed - (CYCLE - 1000)) / 1000;
+            const fadeEased = fadeProgress * fadeProgress;
+            const currentGlow = goingBright ? GLOW_MAX : GLOW_MIN;
+            setGlow(currentGlow + (GLOW_MIN - currentGlow) * fadeEased);
         }
 
         if (elapsed >= CYCLE) {
             elapsed = 0;
-            // Swap content and flip glow direction
             goingBright = !goingBright;
+            setGlow(GLOW_MIN);
             const next = (currentIndex + 1) % tabs.length;
             switchTo(next, true);
         }
