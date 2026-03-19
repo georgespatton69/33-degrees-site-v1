@@ -1166,10 +1166,13 @@ img {
         height: 48px;
     }
 
-    /* Hero */
-    .hero-content {
-        padding-bottom: 100px;
-        margin-top: -40px;
+    /* Hero — badges below viewport on mobile */
+    .hero-badges {
+        position: relative;
+        background: var(--bg-card);
+        border-top: 1px solid var(--border-subtle);
+        border-bottom: 1px solid var(--border-subtle);
+        backdrop-filter: none;
     }
 
     .hero-logo {
