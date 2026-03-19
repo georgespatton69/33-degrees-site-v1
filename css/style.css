@@ -497,12 +497,15 @@ img {
     border-top: 1px solid var(--border-subtle);
     border-bottom: 1px solid var(--border-subtle);
     overflow: hidden;
-    padding: 8px 0 16px;
+    height: 44px;
+    display: flex;
+    align-items: center;
     white-space: nowrap;
 }
 
 .ticker-track {
     display: inline-flex;
+    align-items: center;
     animation: ticker-scroll 12s linear infinite;
 }
 
