@@ -185,14 +185,30 @@
         card.addEventListener('mouseleave', () => { paused = false; });
     });
 
-    // Start auto-rotation on desktop only
     function isMobile() {
         return window.innerWidth <= 768;
     }
 
-    if (!isMobile()) {
-        intervalId = setInterval(tick, TICK);
-    }
+    // Initialize at minimum glow
+    setGlow(GLOW_MIN);
+    switchTo(0);
+
+    // Only start auto-rotation when section is visible
+    let started = false;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !started && !isMobile()) {
+                started = true;
+                elapsed = 0;
+                goingBright = true;
+                setGlow(GLOW_MIN);
+                intervalId = setInterval(tick, TICK);
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.2 });
+
+    observer.observe(section);
 
     // No glow animation on mobile
     if (isMobile()) {
@@ -205,15 +221,11 @@
             clearInterval(intervalId);
             intervalId = null;
             setGlow(GLOW_MIN);
-        } else if (!intervalId) {
+        } else if (!intervalId && started) {
             elapsed = 0;
             intervalId = setInterval(tick, TICK);
         }
     });
-
-    // Initialize first panel at minimum glow
-    setGlow(GLOW_MIN);
-    switchTo(0);
 })();
 
 
