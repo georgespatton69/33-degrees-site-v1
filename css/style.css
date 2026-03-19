@@ -1192,7 +1192,6 @@ img {
         flex-direction: column;
         gap: 12px;
         margin-top: auto;
-        padding-top: 32px;
     }
 
     .hero-inline-badges .badge-item {
