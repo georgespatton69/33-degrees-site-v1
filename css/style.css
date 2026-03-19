@@ -1151,6 +1151,10 @@ img {
         white-space: nowrap;
     }
 
+    .carousel-grid .product-card .product-badge {
+        display: none;
+    }
+
     .carousel-grid .product-card {
         display: flex;
         flex-direction: column;
