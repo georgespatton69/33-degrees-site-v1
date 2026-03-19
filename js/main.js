@@ -109,6 +109,7 @@
     }
 
     let fadeOutStarted = false;
+    const panelsContainer = document.querySelector('.carousel-panels');
 
     function fadeOutCurrent() {
         const current = panels[currentIndex];
@@ -117,6 +118,9 @@
     }
 
     function switchTo(index, animated) {
+        // Lock container height before switching
+        panelsContainer.style.height = panelsContainer.offsetHeight + 'px';
+
         // Clean up all panels
         panels.forEach(p => {
             p.classList.remove('active', 'fading-out');
@@ -129,6 +133,11 @@
 
         currentIndex = index;
         fadeOutStarted = false;
+
+        // Release height lock after transition completes
+        setTimeout(() => {
+            panelsContainer.style.height = '';
+        }, 1100);
     }
 
     function tick() {
