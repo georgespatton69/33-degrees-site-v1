@@ -1604,6 +1604,42 @@ img {
         height: 24px;
     }
 
+    /* Category sections — mobile stacked layout */
+    .cat-inner {
+        grid-template-columns: 1fr !important;
+        gap: 24px;
+    }
+
+    .cat-inner.cat-reverse .cat-text,
+    .cat-inner.cat-reverse .cat-img {
+        order: unset;
+    }
+
+    .cat-img {
+        order: -1;
+    }
+
+    .cat-img img {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .cat-heading {
+        font-size: 1.5rem;
+    }
+
+    .cat-desc {
+        font-size: 0.85rem;
+    }
+
+    .cat-products {
+        flex-direction: column;
+    }
+
+    .cat-product {
+        min-width: unset;
+    }
+
     /* What Are Peptides */
     .peptides-grid {
         grid-template-columns: repeat(2, 1fr);
