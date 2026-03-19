@@ -108,24 +108,27 @@
         section.style.setProperty('--glow-opacity', opacity.toFixed(4));
     }
 
-    function switchTo(index, skipGlowReset) {
-        // Deactivate all
-        tabs.forEach(t => t.classList.remove('active'));
+    let fadeOutStarted = false;
+
+    function fadeOutCurrent() {
+        const current = panels[currentIndex];
+        current.classList.add('fading-out');
+        fadeOutStarted = true;
+    }
+
+    function switchTo(index, animated) {
+        // Clean up all panels
         panels.forEach(p => {
-            p.classList.remove('active');
-            p.style.opacity = '0';
+            p.classList.remove('active', 'fading-out');
         });
 
         // Activate target
+        tabs.forEach(t => t.classList.remove('active'));
         tabs[index].classList.add('active');
         panels[index].classList.add('active');
 
-        // Fade in
-        requestAnimationFrame(() => {
-            panels[index].style.opacity = '1';
-        });
-
         currentIndex = index;
+        fadeOutStarted = false;
     }
 
     function tick() {
@@ -146,6 +149,11 @@
         }
         setGlow(glowValue);
 
+        // Start fading out content 1s before dimmest point
+        if (!goingBright && !fadeOutStarted && elapsed >= HALF_CYCLE - 1000) {
+            fadeOutCurrent();
+        }
+
         if (elapsed >= HALF_CYCLE) {
             elapsed = 0;
             if (goingBright) {
@@ -160,10 +168,13 @@
         }
     }
 
-    // Tab clicks
+    // Tab clicks — reset glow cycle
     tabs.forEach((tab, i) => {
         tab.addEventListener('click', () => {
-            switchTo(i);
+            switchTo(i, false);
+            elapsed = 0;
+            goingBright = true;
+            setGlow(GLOW_MIN);
         });
     });
 

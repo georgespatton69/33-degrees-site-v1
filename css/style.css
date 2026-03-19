@@ -487,14 +487,25 @@ img {
 }
 
 .carousel-panel {
-    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 1s ease;
+    pointer-events: none;
 }
 
 .carousel-panel.active {
-    display: block;
     opacity: 1;
+    position: relative;
+    pointer-events: auto;
+}
+
+.carousel-panel.fading-out {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
 }
 
 .carousel-grid {
