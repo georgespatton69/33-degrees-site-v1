@@ -306,6 +306,10 @@
     transform: translateX(-50%);
 }
 
+.related-products-grid .product-info {
+    padding-bottom: 24px;
+}
+
 @media (max-width: 768px) {
     .related-products-grid {
         grid-template-columns: repeat(2, 1fr);
