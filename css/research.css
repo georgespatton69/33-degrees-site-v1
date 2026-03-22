@@ -535,6 +535,27 @@
     color: rgba(255, 255, 255, 0.65);
 }
 
+.btn-view-labs {
+    display: inline-block;
+    margin-top: 1rem;
+    margin-left: 0.75rem;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid rgba(212, 168, 67, 0.4);
+    border-radius: 50px;
+    color: #d4a843;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-view-labs:hover {
+    background: rgba(212, 168, 67, 0.1);
+    border-color: #d4a843;
+    box-shadow: 0 0 20px rgba(212, 168, 67, 0.15);
+}
+
 /* ---------- Section 2: Articles ---------- */
 .research-articles {
     background: #0f0f0f;
