@@ -231,6 +231,60 @@
     flex: 1;
 }
 
+/* Result article cards */
+.result-articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.result-article-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 168, 67, 0.12);
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.result-article-card:hover {
+    border-color: rgba(212, 168, 67, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 168, 67, 0.08);
+}
+
+.result-article-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.result-article-card p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.45);
+    flex: 1;
+}
+
+.result-article-cta {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: #d4a843;
+    margin-top: 0.75rem;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.result-article-card:hover .result-article-cta {
+    opacity: 1;
+}
+
 .btn-learn-more {
     display: inline-block;
     margin-top: 1rem;

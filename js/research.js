@@ -188,6 +188,26 @@
 
     let showLearnMore = false;
 
+    // Map categories to relevant blog articles
+    const categoryArticles = {
+        recovery: [
+            { tag: 'Tissue Biology', title: 'Recovery Peptides Explained: BPC-157, TB-500 & GHK-Cu', url: 'blog/tissue-response-guide.html', desc: 'Plain-language guide to how recovery peptides work, with visual diagrams and research applications.' },
+            { tag: 'Immunology', title: 'Immune & Recovery Peptides Explained: BPC-157 & TB-500', url: 'blog/immune-signaling-guide.html', desc: 'How BPC-157 and TB-500 modulate immune signaling and the science behind the Wolverine Stack.' }
+        ],
+        longevity: [
+            { tag: 'Cell Biology', title: 'Longevity Peptides Explained: NAD+, SS-31, MOTS-c & Epithalon', url: 'blog/mitochondrial-function-guide.html', desc: 'A guide to mitochondrial peptides, cellular energy, and what researchers study them for in aging science.' }
+        ],
+        weight: [
+            { tag: 'Endocrinology', title: 'Metabolic Peptides Explained: Retatrutide, Tesamorelin & AOD 9604', url: 'blog/endocrine-pathways-guide.html', desc: 'How GLP-1 agonists and metabolic peptides work, Phase 3 trial data, and common research applications.' }
+        ],
+        skin: [
+            { tag: 'Dermatology', title: 'Collagen & Skin Peptides Explained: GHK-Cu & Glow Blend', url: 'blog/collagen-synthesis-guide.html', desc: 'How copper peptides activate collagen production and the science behind multi-peptide blends.' }
+        ],
+        performance: [
+            { tag: 'Endocrinology', title: 'Growth Hormone Peptides Explained: Ipamorelin & Tesamorelin', url: 'blog/gh-signaling-guide.html', desc: 'How GH secretagogues work, what sets Ipamorelin apart, and common research protocols.' }
+        ]
+    };
+
     function renderCategory(cat) {
         const data = categoryData[cat];
         if (!data) return;
@@ -201,6 +221,25 @@
             </div>
         `).join('');
 
+        // Build related articles HTML
+        const articles = categoryArticles[cat] || [];
+        let articlesHTML = '';
+        if (articles.length > 0) {
+            articlesHTML = `
+                <h3 class="result-subtitle" style="margin-top: 2.5rem;">Related Research Articles</h3>
+                <div class="result-articles">
+                    ${articles.map(a => `
+                        <a href="${a.url}" class="result-article-card">
+                            <span class="peptide-tag">${a.tag}</span>
+                            <h4>${a.title}</h4>
+                            <p>${a.desc}</p>
+                            <span class="result-article-cta">Read Guide →</span>
+                        </a>
+                    `).join('')}
+                </div>
+            `;
+        }
+
         resultArea.innerHTML = `
             <div class="result-content">
                 <p class="result-desc">${data.desc}</p>
@@ -208,6 +247,7 @@
                 <div class="result-peptides">
                     ${peptidesHTML}
                 </div>
+                ${articlesHTML}
             </div>
         `;
     }
