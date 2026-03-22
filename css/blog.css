@@ -288,6 +288,66 @@
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 
+/* ---------- Glossary Tooltips ---------- */
+.glossary-term {
+    color: #d4a843;
+    border-bottom: 1px dotted rgba(212,168,67,0.4);
+    cursor: help;
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+.glossary-term:hover {
+    border-color: #d4a843;
+}
+
+.glossary-tooltip {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1a1a1a;
+    border: 1px solid rgba(212,168,67,0.3);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    width: 280px;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+.glossary-tooltip.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.glossary-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: rgba(212,168,67,0.3);
+}
+
+.glossary-tooltip-term {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    color: #d4a843;
+    margin-bottom: 0.4rem;
+    display: block;
+}
+
+.glossary-tooltip-def {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
+}
+
 /* ---------- Mobile ---------- */
 @media (max-width: 768px) {
     .blog-hero {
