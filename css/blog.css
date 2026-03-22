@@ -316,7 +316,7 @@
     min-width: 200px;
     display: flex;
     flex-direction: column;
-    overflow: visible;
+    overflow: visible !important;
 }
 
 .related-products-grid .product-image {
@@ -324,8 +324,7 @@
 }
 
 .related-products-grid .product-info {
-    padding: 20px;
-    padding-bottom: 24px;
+    padding: 20px 20px 28px;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -333,7 +332,6 @@
 
 .related-products-grid .product-info .btn-secondary {
     margin-top: auto;
-    margin-bottom: 4px;
 }
 
 @media (max-width: 768px) {
