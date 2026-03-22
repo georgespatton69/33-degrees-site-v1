@@ -316,6 +316,7 @@
     min-width: 200px;
     display: flex;
     flex-direction: column;
+    overflow: visible;
 }
 
 .related-products-grid .product-image {
