@@ -1,0 +1,541 @@
+/* ========== RESEARCH PAGE STYLES ========== */
+
+/* ---------- Section 1: Research Hero ---------- */
+.research-hero {
+    min-height: 66vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 2rem 3rem;
+    background: #0a0a0a;
+    position: relative;
+}
+
+.research-container {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* ---------- View Transitions ---------- */
+.research-view {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.research-view.active {
+    display: block;
+    opacity: 1;
+}
+
+.research-view.fading-out {
+    opacity: 0;
+}
+
+.research-view.fading-in {
+    display: block;
+    opacity: 0;
+}
+
+/* ---------- Typography ---------- */
+.research-eyebrow {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.research-title {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: #d4a843;
+    margin-bottom: 2rem;
+}
+
+/* ---------- Back Button ---------- */
+.research-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.research-back:hover {
+    color: #d4a843;
+}
+
+/* ---------- Category Pills ---------- */
+.category-pills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.cat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.3rem;
+    border: 1px solid rgba(212, 168, 67, 0.25);
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.7);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.cat-pill:hover {
+    border-color: rgba(212, 168, 67, 0.5);
+    color: #fff;
+    background: rgba(212, 168, 67, 0.08);
+}
+
+.cat-pill.selected {
+    border-color: #d4a843;
+    color: #d4a843;
+    background: rgba(212, 168, 67, 0.12);
+    box-shadow: 0 0 20px rgba(212, 168, 67, 0.15), inset 0 0 20px rgba(212, 168, 67, 0.05);
+}
+
+.cat-pill svg {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.cat-pill.selected svg,
+.cat-pill:hover svg {
+    opacity: 1;
+}
+
+/* ---------- Category Result ---------- */
+.category-result {
+    min-height: 200px;
+    transition: opacity 0.4s ease;
+}
+
+.category-result.fading {
+    opacity: 0;
+}
+
+.result-placeholder {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.result-placeholder p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.35);
+    font-style: italic;
+}
+
+/* Result content */
+.result-content {
+    padding: 0 0.5rem;
+}
+
+.result-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.result-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: #d4a843;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    letter-spacing: 1px;
+}
+
+.result-peptides {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.result-peptide-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 168, 67, 0.12);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+}
+
+.result-peptide-card:hover {
+    border-color: rgba(212, 168, 67, 0.3);
+    background: rgba(212, 168, 67, 0.05);
+    transform: translateY(-2px);
+}
+
+.result-peptide-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.result-peptide-card .peptide-tag {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #d4a843;
+    background: rgba(212, 168, 67, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    margin-bottom: 0.6rem;
+}
+
+.result-peptide-card p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* ---------- What Are Peptides Button ---------- */
+.btn-what-are-peptides {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 0.9rem 2.5rem;
+    background: transparent;
+    border: 1px solid rgba(212, 168, 67, 0.4);
+    border-radius: 50px;
+    color: #d4a843;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.btn-what-are-peptides:hover {
+    background: rgba(212, 168, 67, 0.1);
+    border-color: #d4a843;
+    box-shadow: 0 0 25px rgba(212, 168, 67, 0.15);
+}
+
+/* ---------- What Are Peptides View ---------- */
+.peptide-info-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.peptide-lead {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.peptide-analogy {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #d4a843;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    opacity: 0.8;
+}
+
+.peptide-capabilities h3,
+.peptide-strengths h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.capability-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.capability-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 168, 67, 0.1);
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.capability-card:hover {
+    border-color: rgba(212, 168, 67, 0.3);
+    transform: translateY(-2px);
+}
+
+.capability-card svg {
+    color: #d4a843;
+    opacity: 0.7;
+}
+
+.capability-card span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.5;
+}
+
+/* Strengths */
+.peptide-strengths {
+    margin-bottom: 2rem;
+}
+
+.strength-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.strength-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.strength-label {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: #d4a843;
+}
+
+.strength-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Peptides in 2026 button */
+.btn-peptides-2026 {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 0.9rem 2.5rem;
+    background: transparent;
+    border: 1px solid rgba(212, 168, 67, 0.4);
+    border-radius: 50px;
+    color: #d4a843;
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.btn-peptides-2026:hover {
+    background: rgba(212, 168, 67, 0.1);
+    border-color: #d4a843;
+    box-shadow: 0 0 25px rgba(212, 168, 67, 0.15);
+}
+
+/* ---------- Peptides in 2026 View ---------- */
+.timeline-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(212, 168, 67, 0.12);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.timeline-card:hover {
+    border-color: rgba(212, 168, 67, 0.3);
+    transform: translateY(-2px);
+}
+
+.timeline-year {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #d4a843;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.timeline-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.6rem;
+}
+
+.timeline-card p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* ---------- Section 2: Articles ---------- */
+.research-articles {
+    background: #0f0f0f;
+    padding: 3rem 2rem 4rem;
+    border-top: 1px solid rgba(212, 168, 67, 0.08);
+}
+
+.articles-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.articles-heading {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    color: #d4a843;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.article-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.article-card:hover {
+    border-color: rgba(212, 168, 67, 0.2);
+    transform: translateY(-3px);
+}
+
+.article-img {
+    height: 140px;
+    width: 100%;
+}
+
+.article-content {
+    padding: 1.25rem;
+}
+
+.article-tag {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #d4a843;
+    background: rgba(212, 168, 67, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    margin-bottom: 0.6rem;
+}
+
+.article-content h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.article-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.75rem;
+}
+
+.article-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    color: rgba(212, 168, 67, 0.5);
+    font-style: italic;
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 768px) {
+    .research-hero {
+        min-height: 66vh;
+        padding: 100px 1.25rem 2rem;
+    }
+
+    .category-pills {
+        gap: 0.5rem;
+    }
+
+    .cat-pill {
+        font-size: 0.75rem;
+        padding: 0.55rem 1rem;
+    }
+
+    .result-peptides {
+        grid-template-columns: 1fr;
+    }
+
+    .capability-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .timeline-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .article-img {
+        height: 100px;
+    }
+
+    .strength-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+    }
+}

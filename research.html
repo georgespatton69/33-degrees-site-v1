@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Research — 33 Degrees of Healing</title>
+    <meta name="description" content="Explore the science behind healing peptides. Research-backed information on recovery, longevity, weight management, and more.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=77">
+    <link rel="stylesheet" href="css/research.css?v=1">
+</head>
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <header class="site-header">
+        <nav class="nav-container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="index.html" class="nav-logo">
+                <span class="nav-logo-text">33 Degrees<span class="nav-logo-sub">of Healing</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="compounds.html" class="nav-link">Healing Compounds</a></li>
+                <li><a href="research.html" class="nav-link active">Research</a></li>
+                <li><a href="index.html#brand-story" class="nav-link">Philosophy</a></li>
+                <li><a href="#" class="nav-link">Lab Testing</a></li>
+                <li><a href="#" class="nav-link">Blog</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-icon" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </button>
+                <button class="nav-icon cart-icon" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <div class="mobile-menu-overlay">
+        <ul class="mobile-nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="compounds.html">Healing Compounds</a></li>
+            <li><a href="research.html" class="active">Research</a></li>
+            <li><a href="index.html#brand-story">Philosophy</a></li>
+            <li><a href="#">Lab Testing</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+    </div>
+
+    <!-- ========== SECTION 1: RESEARCH WALKTHROUGH ========== -->
+    <section class="research-hero">
+        <div class="research-container">
+
+            <!-- VIEW 1: Category Selector (default) -->
+            <div class="research-view active" id="view-selector">
+                <p class="research-eyebrow">Not sure where to start?</p>
+                <h1 class="research-title">Choose a Category</h1>
+
+                <div class="category-pills">
+                    <button class="cat-pill" data-category="recovery">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        Recovery &amp; Repair
+                    </button>
+                    <button class="cat-pill" data-category="longevity">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        Longevity &amp; Anti-Aging
+                    </button>
+                    <button class="cat-pill" data-category="weight">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                        Weight Management
+                    </button>
+                    <button class="cat-pill" data-category="skin">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+                        Skin &amp; Rejuvenation
+                    </button>
+                    <button class="cat-pill" data-category="performance">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        Performance &amp; Vitality
+                    </button>
+                </div>
+
+                <!-- Category result area -->
+                <div class="category-result" id="category-result">
+                    <div class="result-placeholder">
+                        <p>Select a category above to explore peptides tailored to your goals</p>
+                    </div>
+                </div>
+
+                <button class="btn-what-are-peptides" id="btn-what-peptides">
+                    What Are Peptides?
+                </button>
+            </div>
+
+            <!-- VIEW 2: What Are Peptides (replaces view 1) -->
+            <div class="research-view" id="view-peptides">
+                <button class="research-back" id="back-to-selector">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+                    Back to Categories
+                </button>
+                <h1 class="research-title">What Are Peptides?</h1>
+                <div class="peptide-info-content">
+                    <p class="peptide-lead">A peptide is a short chain of amino acids — the same building blocks that make up proteins. Peptides act like biological signals or messengers that tell the body to do very specific things at the cellular level.</p>
+                    <p class="peptide-analogy">Think of them like a text message between cells telling your body what to do.</p>
+
+                    <div class="peptide-capabilities">
+                        <h3>Depending on the peptide, they can:</h3>
+                        <div class="capability-grid">
+                            <div class="capability-card">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                                <span>Help with healing and tissue repair</span>
+                            </div>
+                            <div class="capability-card">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-4"/></svg>
+                                <span>Support muscle growth</span>
+                            </div>
+                            <div class="capability-card">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+                                <span>Improve skin, collagen, and anti-aging</span>
+                            </div>
+                            <div class="capability-card">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                                <span>Regulate hormones</span>
+                            </div>
+                            <div class="capability-card">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                                <span>Assist with fat loss and metabolism</span>
+                            </div>
+                            <div class="capability-card">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                <span>Influence immune function</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="peptide-strengths">
+                        <h3>What makes peptides powerful:</h3>
+                        <div class="strength-list">
+                            <div class="strength-item">
+                                <span class="strength-label">Targeted</span>
+                                <span class="strength-desc">They do one specific job</span>
+                            </div>
+                            <div class="strength-item">
+                                <span class="strength-label">Efficient</span>
+                                <span class="strength-desc">Small and easily used by the body</span>
+                            </div>
+                            <div class="strength-item">
+                                <span class="strength-label">Natural</span>
+                                <span class="strength-desc">Mimic what your body already produces</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-peptides-2026" id="btn-peptides-2026">
+                        Peptides in 2026
+                    </button>
+                </div>
+            </div>
+
+            <!-- VIEW 3: Peptides in 2026 (replaces view 2) -->
+            <div class="research-view" id="view-2026">
+                <button class="research-back" id="back-to-peptides">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+                    Back to What Are Peptides
+                </button>
+                <h1 class="research-title">Peptides in 2026</h1>
+                <div class="peptide-info-content">
+                    <p class="peptide-lead">The peptide landscape is evolving rapidly. Here's where the science stands and what's driving the industry forward.</p>
+
+                    <div class="timeline-grid">
+                        <div class="timeline-card">
+                            <span class="timeline-year">Regulatory Shifts</span>
+                            <h4>FDA & Research Framework</h4>
+                            <p>The regulatory environment continues to evolve as research peptides gain mainstream attention. Compounding pharmacies and research suppliers are adapting to new compliance frameworks while maintaining accessibility for qualified research.</p>
+                        </div>
+                        <div class="timeline-card">
+                            <span class="timeline-year">Clinical Progress</span>
+                            <h4>From Lab to Application</h4>
+                            <p>Retatrutide completed Phase 3 trials showing 23.7% body weight reduction — the most effective GLP-1 receptor agonist to date. BPC-157 and TB-500 continue to accumulate evidence for tissue repair applications.</p>
+                        </div>
+                        <div class="timeline-card">
+                            <span class="timeline-year">Longevity Science</span>
+                            <h4>The Anti-Aging Frontier</h4>
+                            <p>NAD+ precursors and mitochondrial peptides like SS-31 and MOTS-c are at the forefront of aging research. Epithalon's telomere-supporting properties continue to attract serious scientific interest.</p>
+                        </div>
+                        <div class="timeline-card">
+                            <span class="timeline-year">What's Next</span>
+                            <h4>The Road Ahead</h4>
+                            <p>Combination therapies (like the Wolverine Stack) represent the future — targeted peptide blends designed for synergistic effects. Personalized peptide protocols based on biomarkers are emerging as the next evolution.</p>
+                        </div>
+                    </div>
+
+                    <button class="research-back" id="back-to-selector-2" style="margin-top: 2rem;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+                        Start Over
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== SECTION 2: ARTICLES ========== -->
+    <section class="research-articles">
+        <div class="articles-container">
+            <h2 class="articles-heading">Latest Research</h2>
+            <div class="articles-grid">
+                <article class="article-card">
+                    <div class="article-img" style="background: linear-gradient(135deg, #1a1a2e, #16213e);"></div>
+                    <div class="article-content">
+                        <span class="article-tag">Recovery</span>
+                        <h3>Understanding BPC-157: The Body's Repair Signal</h3>
+                        <p>How this gastric peptide is changing the way researchers think about tissue regeneration and gut health.</p>
+                        <span class="article-date">Coming Soon</span>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <div class="article-img" style="background: linear-gradient(135deg, #0f3460, #1a1a2e);"></div>
+                    <div class="article-content">
+                        <span class="article-tag">Weight Loss</span>
+                        <h3>Retatrutide: The Next Generation of GLP-1 Agonists</h3>
+                        <p>Phase 3 trial results and what they mean for the future of metabolic research.</p>
+                        <span class="article-date">Coming Soon</span>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <div class="article-img" style="background: linear-gradient(135deg, #1a1a2e, #2d132c);"></div>
+                    <div class="article-content">
+                        <span class="article-tag">Longevity</span>
+                        <h3>NAD+ Decline and Cellular Aging: What the Research Shows</h3>
+                        <p>Exploring the relationship between NAD+ levels, mitochondrial function, and the aging process.</p>
+                        <span class="article-date">Coming Soon</span>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <div class="article-img" style="background: linear-gradient(135deg, #2d132c, #0f3460);"></div>
+                    <div class="article-content">
+                        <span class="article-tag">Performance</span>
+                        <h3>The Wolverine Stack: Why Researchers Combine BPC-157 &amp; TB-500</h3>
+                        <p>The science behind peptide stacking and synergistic recovery compounds.</p>
+                        <span class="article-date">Coming Soon</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="nav-logo-text" style="font-size:1.2rem;">33 Degrees<span class="nav-logo-sub">of Healing</span></span>
+                <p class="footer-tagline">Restore Balance · Rebuild Health · Elevate Life</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="compounds.html">Healing Compounds</a>
+                <a href="research.html">Research</a>
+                <a href="#">Lab Testing</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-disclaimer">
+                <p>For research purposes only. Not intended for consumption, clinical application, or diagnostic use.</p>
+            </div>
+            <p class="footer-copy">&copy; 2026 33 Degrees of Healing. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/research.js?v=1"></script>
+</body>
+</html>
