@@ -332,6 +332,8 @@
 
 .related-products-grid .product-info .btn-secondary {
     margin-top: auto;
+    border-bottom: 2px solid var(--gold, #d4a843) !important;
+    box-shadow: 0 1px 0 0 #d4a843;
 }
 
 @media (max-width: 768px) {
