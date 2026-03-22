@@ -17,7 +17,7 @@
             <a href="../index.html" class="nav-logo"><span class="nav-logo-text">33 Degrees<span class="nav-logo-sub">of Healing</span></span></a>
             <ul class="nav-menu">
                 <li><a href="../index.html" class="nav-link">Home</a></li>
-                <li><a href="../compounds.html" class="nav-link active">Research Compounds</a></li>
+                <li><a href="../index.html#catalog" class="nav-link active" data-mobile-href="../compounds.html">Research Compounds</a></li>
                 <li><a href="../research.html" class="nav-link">Research</a></li>
                 <li><a href="../index.html#brand-story" class="nav-link">Philosophy</a></li>
                 <li><a href="#" class="nav-link">Lab Testing</a></li>
@@ -73,6 +73,16 @@
     <script>
     const t=document.querySelector('.mobile-menu-toggle'),o=document.querySelector('.mobile-menu-overlay');
     if(t&&o){t.addEventListener('click',()=>{t.classList.toggle('active');o.classList.toggle('active');document.body.style.overflow=o.classList.contains('active')?'hidden':'';});};
+    
+    // Mobile redirect for Research Compounds link
+    document.querySelectorAll('[data-mobile-href]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                window.location.href = this.dataset.mobileHref;
+            }
+        });
+    });
     </script>
 </body>
 </html>
