@@ -6,107 +6,107 @@
     // ---------- Category Data (our 13 products only) ----------
     const categoryData = {
         recovery: {
-            desc: "Recovery peptides work by accelerating the body's natural tissue repair processes. They signal cells to migrate to damaged areas, reduce inflammation, and promote regeneration of muscles, tendons, ligaments, and gut lining.",
+            desc: "These peptides modulate tissue response signaling. Research investigates cell migration patterns, inflammatory response pathways, and regenerative signaling in muscle, tendon, ligament, and gastrointestinal tissue models.",
             subtitle: "Most Popular for Recovery",
             peptides: [
                 {
                     name: "BPC-157",
                     tag: "Most Popular",
-                    desc: "Derived from a protein found in the stomach. Accelerates muscle, tendon, and ligament repair. Known for healing gut lining and improving blood flow to injured areas."
+                    desc: "Derived from a gastric protein. Research investigates mechanisms in muscle, tendon, and ligament pathways, gastrointestinal function, and vascular signaling."
                 },
                 {
                     name: "TB-500",
                     tag: "Systemic Recovery",
-                    desc: "Works throughout the entire body to promote cell migration and tissue regeneration. Speeds healing of muscles and soft tissue. Often combined with BPC-157."
+                    desc: "Modulates cell migration signaling across tissue systems. Investigated for tissue regeneration mechanisms. Often studied in combination with BPC-157."
                 },
                 {
                     name: "Wolverine Stack",
                     tag: "Best Combo",
-                    desc: "BPC-157 + TB-500 combined for synergistic recovery. The most popular peptide stack for comprehensive tissue repair and injury recovery."
+                    desc: "BPC-157 + TB-500 combined for research on synergistic tissue signaling mechanisms. Studied for comprehensive tissue regeneration pathways."
                 },
                 {
                     name: "GHK-Cu",
                     tag: "Wound Repair",
-                    desc: "Copper peptide shown to accelerate wound closure by 40–50% in published studies. Supports skin healing, collagen production, and tissue remodeling."
+                    desc: "Copper peptide with published data on wound closure mechanisms in research models. Influences collagen production signaling and tissue remodeling pathways."
                 }
             ]
         },
         longevity: {
-            desc: "Longevity peptides target the fundamental mechanisms of aging — mitochondrial decline, NAD+ depletion, telomere shortening, and cellular damage. They support the body's ability to repair, protect, and regenerate at the cellular level.",
+            desc: "These peptides modulate cellular aging pathways — mitochondrial function, NAD+ metabolism, telomere dynamics, and oxidative stress responses. Research investigates cellular repair and protective mechanisms in experimental models.",
             subtitle: "Most Popular for Longevity",
             peptides: [
                 {
                     name: "NAD+",
                     tag: "Cellular Energy",
-                    desc: "NAD+ levels decline approximately 30% between ages 45–60. Supplementation supports mitochondrial function, DNA repair, and cellular energy production."
+                    desc: "NAD+ levels decline approximately 30% between ages 45–60. Research investigates NAD+ effects on mitochondrial function, DNA repair signaling, and cellular energy pathways."
                 },
                 {
                     name: "Epithalon",
                     tag: "Telomere Support",
-                    desc: "Studied for its ability to support telomere length — the protective caps on chromosomes associated with biological aging. One of the most researched anti-aging peptides."
+                    desc: "Investigated for effects on telomere dynamics — the protective chromosome structures relevant to cellular aging models. One of the most studied peptides in longevity research."
                 },
                 {
                     name: "SS-31",
                     tag: "Mitochondrial",
-                    desc: "Targets the inner mitochondrial membrane directly. Supports energy production at the cellular level and helps protect against oxidative damage."
+                    desc: "Targets the inner mitochondrial membrane. Research investigates energy production mechanisms at the cellular level and oxidative stress response."
                 },
                 {
                     name: "MOTS-c",
                     tag: "Metabolic Aging",
-                    desc: "A mitochondrial-derived peptide that improves metabolic efficiency and exercise capacity. Works at the cellular level to support metabolic health as you age."
+                    desc: "A mitochondrial-derived peptide that influences metabolic efficiency and exercise response in research models. Investigated at the cellular level for metabolic pathway mechanisms."
                 }
             ]
         },
         weight: {
-            desc: "Weight management peptides work through multiple pathways — appetite regulation, fat metabolism, visceral fat reduction, and improved metabolic efficiency. From powerful GLP-1 receptor agonists to targeted fat-burning compounds.",
+            desc: "These peptides modulate metabolic pathways — appetite signaling, lipid metabolism, visceral adiposity mechanisms, and metabolic efficiency. Including GLP-1 receptor agonists and lipid metabolism-targeted compounds.",
             subtitle: "Most Popular for Weight Management",
             peptides: [
                 {
                     name: "Retatrutide",
                     tag: "Most Effective",
-                    desc: "The most effective GLP-1 receptor agonist studied to date. Phase 3 trials published in the New England Journal of Medicine showed 23.7% body weight reduction."
+                    desc: "A potent GLP-1 receptor agonist. Phase 3 trials published in the New England Journal of Medicine documented 23.7% body weight changes in study participants."
                 },
                 {
                     name: "Tesamorelin",
                     tag: "Visceral Fat",
-                    desc: "Specifically targets visceral (belly) fat. A 404-patient clinical trial demonstrated an 18% decrease in visceral fat. Boosts natural growth hormone production."
+                    desc: "Investigated for mechanisms in visceral adiposity. A 404-patient clinical trial documented 18% visceral fat changes. Influences growth hormone signaling."
                 },
                 {
                     name: "AOD 9604",
                     tag: "Fat Metabolism",
-                    desc: "Derived from growth hormone, targets fat burning directly through lipolysis. Helps reduce stubborn fat without affecting blood sugar levels."
+                    desc: "Derived from growth hormone, investigated for mechanisms in lipolysis and fat metabolism. Research examines lipid utilization without significant glucose homeostasis effects."
                 }
             ]
         },
         skin: {
-            desc: "Skin and rejuvenation peptides stimulate collagen synthesis, accelerate wound healing, and support the body's natural repair mechanisms for healthier, more resilient skin and tissue.",
+            desc: "These peptides influence collagen synthesis, wound healing signaling, and tissue repair mechanisms in cellular and tissue models.",
             subtitle: "Most Popular for Skin & Rejuvenation",
             peptides: [
                 {
                     name: "GHK-Cu",
                     tag: "Collagen & Anti-Aging",
-                    desc: "Powerful copper peptide for skin healing and anti-aging. Stimulates collagen production, supports hair growth, and accelerates wound repair. GHK-Cu plasma levels decline from 200 ng/mL at age 20 to 80 ng/mL by age 60."
+                    desc: "Copper peptide with collagen synthesis activity. Influences fibroblast signaling, hair follicle signaling, and wound repair mechanisms. GHK-Cu plasma levels decline from 200 ng/mL at age 20 to 80 ng/mL by age 60."
                 },
                 {
                     name: "Glow Blend",
                     tag: "Comprehensive Blend",
-                    desc: "Our proprietary blend of BPC-157 + TB-500 + GHK-Cu (50mg). Combines tissue repair peptides with collagen-boosting copper peptide for comprehensive skin and tissue rejuvenation."
+                    desc: "Research blend of BPC-157 + TB-500 + GHK-Cu (50mg). Combines tissue signaling peptides with collagen synthesis-influencing copper peptide for multi-pathway tissue research."
                 }
             ]
         },
         performance: {
-            desc: "Performance peptides optimize the body's natural growth hormone release, enhance recovery between training sessions, and improve metabolic efficiency — allowing you to train harder and recover faster.",
+            desc: "These peptides modulate growth hormone signaling, influence recovery mechanisms, and affect metabolic efficiency in research models.",
             subtitle: "Most Popular for Performance",
             peptides: [
                 {
                     name: "Ipamorelin",
                     tag: "GH Release",
-                    desc: "Selectively stimulates growth hormone release without raising cortisol levels. Supports lean muscle gain, faster recovery, improved sleep, and fat loss alongside muscle building."
+                    desc: "Selectively influences growth hormone signaling without significant cortisol elevation. Research examines effects on muscle protein synthesis, recovery, sleep-related signaling, and lipid metabolism."
                 },
                 {
                     name: "MOTS-c",
                     tag: "Endurance",
-                    desc: "Works at the mitochondrial level to increase endurance, improve metabolic efficiency, and build fatigue resistance. One of the closest things to a true 'energy peptide.'"
+                    desc: "Investigated at the mitochondrial level for mechanisms in endurance, metabolic efficiency, and fatigue response. A significant mitochondrial function modulator in research."
                 }
             ]
         }
