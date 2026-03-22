@@ -7,11 +7,11 @@
     const categoryData = {
         recovery: {
             desc: "These peptides modulate tissue response signaling. Research investigates cell migration patterns, inflammatory response pathways, and regenerative signaling in muscle, tendon, ligament, and gastrointestinal tissue models.",
-            subtitle: "Most Popular for Recovery",
+            subtitle: "Primary Compounds in Recovery Research",
             peptides: [
                 {
                     name: "BPC-157",
-                    tag: "Most Popular",
+                    tag: "Primary Compound",
                     desc: "Derived from a gastric protein. Research investigates mechanisms in muscle, tendon, and ligament pathways, gastrointestinal function, and vascular signaling."
                 },
                 {
@@ -33,7 +33,7 @@
         },
         longevity: {
             desc: "These peptides modulate cellular aging pathways. mitochondrial function, NAD+ metabolism, telomere dynamics, and oxidative stress responses. Research investigates cellular repair and protective mechanisms in experimental models.",
-            subtitle: "Most Popular for Longevity",
+            subtitle: "Primary Compounds in Longevity Research",
             peptides: [
                 {
                     name: "NAD+",
@@ -59,7 +59,7 @@
         },
         weight: {
             desc: "These peptides modulate metabolic pathways. appetite signaling, lipid metabolism, visceral adiposity mechanisms, and metabolic efficiency. Including GLP-1 receptor agonists and lipid metabolism-targeted compounds.",
-            subtitle: "Most Popular for Weight Management",
+            subtitle: "Primary Compounds in Weight Management Research",
             peptides: [
                 {
                     name: "Retatrutide",
@@ -80,7 +80,7 @@
         },
         skin: {
             desc: "These peptides influence collagen synthesis, wound healing signaling, and tissue repair mechanisms in cellular and tissue models.",
-            subtitle: "Most Popular for Skin & Rejuvenation",
+            subtitle: "Primary Compounds in Skin & Rejuvenation Research",
             peptides: [
                 {
                     name: "GHK-Cu",
@@ -96,7 +96,7 @@
         },
         performance: {
             desc: "These peptides modulate growth hormone signaling, influence recovery mechanisms, and affect metabolic efficiency in research models.",
-            subtitle: "Most Popular for Performance",
+            subtitle: "Primary Compounds in Performance Research",
             peptides: [
                 {
                     name: "Ipamorelin",
