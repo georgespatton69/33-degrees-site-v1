@@ -253,13 +253,15 @@
             });
             btnWhatPeptides.classList.remove('hidden');
             renderCategory(selectedCategory);
-            // Scroll to the result subtitle after transition
+            // Scroll to the result subtitle after transition completes
             setTimeout(() => {
                 const subtitle = document.querySelector('.result-subtitle');
                 if (subtitle) {
-                    subtitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const navHeight = document.querySelector('.site-header')?.offsetHeight || 0;
+                    const subtitleTop = subtitle.getBoundingClientRect().top + window.scrollY - navHeight - 20;
+                    window.scrollTo({ top: subtitleTop, behavior: 'smooth' });
                 }
-            }, 550);
+            }, 600);
         }
     });
 
