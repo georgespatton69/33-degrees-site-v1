@@ -123,6 +123,10 @@
     const backToSelector = document.getElementById('back-to-selector');
     const backToPeptides = document.getElementById('back-to-peptides');
     const backToSelector2 = document.getElementById('back-to-selector-2');
+    const viewSafety = document.getElementById('view-safety');
+    const btnSafety = document.getElementById('btn-safety');
+    const backTo2026 = document.getElementById('back-to-2026');
+    const backToSelector3 = document.getElementById('back-to-selector-3');
 
     // ---------- Category Selection ----------
     let selectedCategory = null;
@@ -209,7 +213,15 @@
     backToPeptides.addEventListener('click', () => switchView(view2026, viewPeptides));
     backToSelector2.addEventListener('click', () => {
         switchView(view2026, viewSelector);
-        // Reset category selection
+        pills.forEach(p => p.classList.remove('selected'));
+        selectedCategory = null;
+        renderPlaceholder();
+    });
+
+    btnSafety.addEventListener('click', () => switchView(view2026, viewSafety));
+    backTo2026.addEventListener('click', () => switchView(viewSafety, view2026));
+    backToSelector3.addEventListener('click', () => {
+        switchView(viewSafety, viewSelector);
         pills.forEach(p => p.classList.remove('selected'));
         selectedCategory = null;
         renderPlaceholder();

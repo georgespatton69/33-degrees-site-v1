@@ -412,6 +412,129 @@
     color: rgba(255, 255, 255, 0.55);
 }
 
+/* ---------- Are Peptides Safe View ---------- */
+.safety-section {
+    margin-bottom: 2.5rem;
+}
+
+.safety-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.safety-cards {
+    display: grid;
+    gap: 1rem;
+}
+
+.safety-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    position: relative;
+    padding-left: 2rem;
+    transition: all 0.3s ease;
+}
+
+.safety-card:hover {
+    transform: translateY(-2px);
+}
+
+.safety-icon {
+    position: absolute;
+    left: 1.5rem;
+    top: 1.6rem;
+    font-size: 0.5rem;
+}
+
+.safety-card h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    color: #fff;
+    margin-bottom: 0.6rem;
+    padding-left: 0.75rem;
+}
+
+.safety-card p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.55);
+    padding-left: 0.75rem;
+}
+
+.safety-card p strong {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* Safety card color coding */
+.safety-card.safe {
+    border-color: rgba(76, 175, 80, 0.2);
+}
+.safety-card.safe .safety-icon {
+    color: #4caf50;
+}
+.safety-card.safe:hover {
+    border-color: rgba(76, 175, 80, 0.4);
+}
+
+.safety-card.caution {
+    border-color: rgba(212, 168, 67, 0.2);
+}
+.safety-card.caution .safety-icon {
+    color: #d4a843;
+}
+.safety-card.caution:hover {
+    border-color: rgba(212, 168, 67, 0.4);
+}
+
+.safety-card.info {
+    border-color: rgba(100, 149, 237, 0.2);
+}
+.safety-card.info .safety-icon {
+    color: #6495ed;
+}
+.safety-card.info:hover {
+    border-color: rgba(100, 149, 237, 0.4);
+}
+
+.safety-card.warning {
+    border-color: rgba(255, 152, 0, 0.2);
+}
+.safety-card.warning .safety-icon {
+    color: #ff9800;
+}
+.safety-card.warning:hover {
+    border-color: rgba(255, 152, 0, 0.4);
+}
+
+.safety-bottom-line {
+    background: rgba(212, 168, 67, 0.06);
+    border: 1px solid rgba(212, 168, 67, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.safety-bottom-line h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    color: #d4a843;
+    margin-bottom: 0.75rem;
+}
+
+.safety-bottom-line p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.65);
+}
+
 /* ---------- Section 2: Articles ---------- */
 .research-articles {
     background: #0f0f0f;
