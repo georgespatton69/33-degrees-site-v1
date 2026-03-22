@@ -174,6 +174,8 @@
         `;
     }
 
+    let showLearnMore = false;
+
     function renderCategory(cat) {
         const data = categoryData[cat];
         if (!data) return;
@@ -183,7 +185,7 @@
                 <span class="peptide-tag">${p.tag}</span>
                 <h4>${p.name}</h4>
                 <p>${p.desc}</p>
-                <a href="compounds.html" class="btn-learn-more">Learn More</a>
+                ${showLearnMore ? '<a href="compounds.html" class="btn-learn-more">Learn More</a>' : ''}
             </div>
         `).join('');
 
@@ -218,6 +220,7 @@
     backToSelector.addEventListener('click', () => switchView(viewPeptides, viewSelector));
     backToPeptides.addEventListener('click', () => switchView(view2026, viewPeptides));
     backToSelector2.addEventListener('click', () => {
+        showLearnMore = false;
         switchView(view2026, viewSelector);
         pills.forEach(p => p.classList.remove('selected'));
         selectedCategory = null;
@@ -228,6 +231,7 @@
     btnSafety.addEventListener('click', () => switchView(view2026, viewSafety));
     backTo2026.addEventListener('click', () => switchView(viewSafety, view2026));
     backToSelector3.addEventListener('click', () => {
+        showLearnMore = false;
         switchView(viewSafety, viewSelector);
         pills.forEach(p => p.classList.remove('selected'));
         selectedCategory = null;
@@ -235,10 +239,10 @@
         renderPlaceholder();
     });
 
-    // Explore More — go back to selector with their category pre-selected and results shown
+    // Explore More — go back to selector with their category pre-selected and Learn More buttons
     btnExploreMore.addEventListener('click', () => {
+        showLearnMore = true;
         switchView(viewSafety, viewSelector);
-        // Re-render their selected category
         if (selectedCategory) {
             pills.forEach(p => {
                 if (p.dataset.category === selectedCategory) {
