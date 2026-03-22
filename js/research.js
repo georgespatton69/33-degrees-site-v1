@@ -11,21 +11,25 @@
             peptides: [
                 {
                     name: "BPC-157",
+                    slug: "bpc-157",
                     tag: "Primary Compound",
                     desc: "Derived from a gastric protein. Research investigates mechanisms in muscle, tendon, and ligament pathways, gastrointestinal function, and vascular signaling. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 },
                 {
                     name: "TB-500",
+                    slug: "tb-500",
                     tag: "Systemic Recovery",
                     desc: "Modulates cell migration signaling across tissue systems. Investigated for tissue regeneration mechanisms. Often studied in combination with BPC-157. <a href=\"https://pubmed.ncbi.nlm.nih.gov/10469335/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 },
                 {
                     name: "Wolverine Stack",
+                    slug: "wolverine-stack",
                     tag: "Best Combo",
                     desc: "BPC-157 + TB-500 combined for research on synergistic tissue signaling mechanisms. Studied for comprehensive tissue regeneration pathways. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">BPC-157</a> <a href=\"https://pubmed.ncbi.nlm.nih.gov/10469335/\" target=\"_blank\" class=\"citation-link\">TB-500</a>"
                 },
                 {
                     name: "GHK-Cu",
+                    slug: "ghk-cu",
                     tag: "Wound Repair",
                     desc: "Copper peptide with published data on wound closure mechanisms in research models. Influences collagen production signaling and tissue remodeling pathways. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC6073405/\" target=\"_blank\" class=\"citation-link\">PMC</a>"
                 }
@@ -37,21 +41,25 @@
             peptides: [
                 {
                     name: "NAD+",
+                    slug: "nad-plus",
                     tag: "Cellular Energy",
                     desc: "NAD+ levels decline approximately 30% between ages 45–60. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC7442590/\" target=\"_blank\" class=\"citation-link\">PMC Review</a> Research investigates NAD+ effects on mitochondrial function, DNA repair signaling, and cellular energy pathways."
                 },
                 {
                     name: "Epithalon",
+                    slug: "epithalon",
                     tag: "Telomere Support",
                     desc: "Investigated for effects on telomere dynamics. the protective chromosome structures relevant to cellular aging models. One of the most studied peptides in longevity research. <a href=\"https://pubmed.ncbi.nlm.nih.gov/12937682/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 },
                 {
                     name: "SS-31",
+                    slug: "ss-31",
                     tag: "Mitochondrial",
                     desc: "Targets the inner mitochondrial membrane. Research investigates energy production mechanisms at the cellular level and oxidative stress response. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC11816484/\" target=\"_blank\" class=\"citation-link\">PMC</a>"
                 },
                 {
                     name: "MOTS-c",
+                    slug: "mots-c",
                     tag: "Metabolic Aging",
                     desc: "A mitochondrial-derived peptide that influences metabolic efficiency and exercise response in research models. Investigated at the cellular level for metabolic pathway mechanisms. <a href=\"https://pubmed.ncbi.nlm.nih.gov/25738459/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 }
@@ -63,16 +71,19 @@
             peptides: [
                 {
                     name: "Retatrutide",
+                    slug: "retatrutide",
                     tag: "Most Effective",
                     desc: "A potent GLP-1 receptor agonist. Phase 3 trials documented 23.7% body weight changes in study participants. <a href=\"https://clinicaltrials.gov/study/NCT05931367\" target=\"_blank\" class=\"citation-link\">ClinicalTrials.gov</a>"
                 },
                 {
                     name: "Tesamorelin",
+                    slug: "tesamorelin",
                     tag: "Visceral Fat",
                     desc: "Investigated for mechanisms in visceral adiposity. A 404-patient clinical trial documented 18% visceral fat changes. <a href=\"https://pubmed.ncbi.nlm.nih.gov/20101189/\" target=\"_blank\" class=\"citation-link\">PubMed</a> Influences growth hormone signaling."
                 },
                 {
                     name: "AOD 9604",
+                    slug: "aod-9604",
                     tag: "Fat Metabolism",
                     desc: "Derived from growth hormone, investigated for mechanisms in lipolysis and fat metabolism. Research examines lipid utilization without significant glucose homeostasis effects. <a href=\"https://pubmed.ncbi.nlm.nih.gov/11713213/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 }
@@ -84,11 +95,13 @@
             peptides: [
                 {
                     name: "GHK-Cu",
+                    slug: "ghk-cu",
                     tag: "Collagen & Anti-Aging",
                     desc: "Copper peptide with collagen synthesis activity. Influences fibroblast signaling, hair follicle signaling, and wound repair mechanisms. GHK-Cu plasma levels decline from 200 ng/mL at age 20 to 80 ng/mL by age 60. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC4508379/\" target=\"_blank\" class=\"citation-link\">PMC</a>"
                 },
                 {
                     name: "Glow Blend",
+                    slug: "glow-blend",
                     tag: "Comprehensive Blend",
                     desc: "Research blend of BPC-157 + TB-500 + GHK-Cu (50mg). Combines tissue signaling peptides with collagen synthesis-influencing copper peptide for multi-pathway tissue research. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">BPC-157</a> <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC4508379/\" target=\"_blank\" class=\"citation-link\">GHK-Cu</a>"
                 }
@@ -100,11 +113,13 @@
             peptides: [
                 {
                     name: "Ipamorelin",
+                    slug: "ipamorelin",
                     tag: "GH Release",
                     desc: "Selectively influences growth hormone signaling without significant cortisol elevation. Research examines effects on muscle protein synthesis, recovery, sleep-related signaling, and lipid metabolism. <a href=\"https://pubmed.ncbi.nlm.nih.gov/9849822/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 },
                 {
                     name: "MOTS-c",
+                    slug: "mots-c",
                     tag: "Endurance",
                     desc: "Investigated at the mitochondrial level for mechanisms in endurance, metabolic efficiency, and fatigue response. A significant mitochondrial function modulator in research. <a href=\"https://pubmed.ncbi.nlm.nih.gov/25738459/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 }
@@ -186,7 +201,6 @@
         `;
     }
 
-    let showLearnMore = false;
 
     // Map categories to relevant blog articles
     const categoryArticles = {
@@ -217,7 +231,7 @@
                 <span class="peptide-tag">${p.tag}</span>
                 <h4>${p.name}</h4>
                 <p>${p.desc}</p>
-                ${showLearnMore ? '<a href="compounds.html" class="btn-learn-more">Learn More</a>' : ''}
+                <a href="products/${p.slug}.html" class="btn-learn-more">Learn More</a>
             </div>
         `).join('');
 
@@ -278,7 +292,6 @@
     backToSelector.addEventListener('click', () => switchView(viewPeptides, viewSelector));
     backToPeptides.addEventListener('click', () => switchView(view2026, viewPeptides));
     backToSelector2.addEventListener('click', () => {
-        showLearnMore = false;
         switchView(view2026, viewSelector);
         pills.forEach(p => p.classList.remove('selected'));
         selectedCategory = null;
@@ -289,7 +302,6 @@
     btnSafety.addEventListener('click', () => switchView(view2026, viewSafety));
     backTo2026.addEventListener('click', () => switchView(viewSafety, view2026));
     backToSelector3.addEventListener('click', () => {
-        showLearnMore = false;
         switchView(viewSafety, viewSelector);
         pills.forEach(p => p.classList.remove('selected'));
         selectedCategory = null;
@@ -299,7 +311,6 @@
 
     // Explore More. go back to selector with their category pre-selected and Learn More buttons
     btnExploreMore.addEventListener('click', () => {
-        showLearnMore = true;
         switchView(viewSafety, viewSelector);
         if (selectedCategory) {
             pills.forEach(p => {
