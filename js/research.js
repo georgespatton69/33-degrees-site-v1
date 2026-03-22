@@ -12,22 +12,22 @@
                 {
                     name: "BPC-157",
                     tag: "Primary Compound",
-                    desc: "Derived from a gastric protein. Research investigates mechanisms in muscle, tendon, and ligament pathways, gastrointestinal function, and vascular signaling."
+                    desc: "Derived from a gastric protein. Research investigates mechanisms in muscle, tendon, and ligament pathways, gastrointestinal function, and vascular signaling. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 },
                 {
                     name: "TB-500",
                     tag: "Systemic Recovery",
-                    desc: "Modulates cell migration signaling across tissue systems. Investigated for tissue regeneration mechanisms. Often studied in combination with BPC-157."
+                    desc: "Modulates cell migration signaling across tissue systems. Investigated for tissue regeneration mechanisms. Often studied in combination with BPC-157. <a href=\"https://pubmed.ncbi.nlm.nih.gov/10469335/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 },
                 {
                     name: "Wolverine Stack",
                     tag: "Best Combo",
-                    desc: "BPC-157 + TB-500 combined for research on synergistic tissue signaling mechanisms. Studied for comprehensive tissue regeneration pathways."
+                    desc: "BPC-157 + TB-500 combined for research on synergistic tissue signaling mechanisms. Studied for comprehensive tissue regeneration pathways. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">BPC-157</a> <a href=\"https://pubmed.ncbi.nlm.nih.gov/10469335/\" target=\"_blank\" class=\"citation-link\">TB-500</a>"
                 },
                 {
                     name: "GHK-Cu",
                     tag: "Wound Repair",
-                    desc: "Copper peptide with published data on wound closure mechanisms in research models. Influences collagen production signaling and tissue remodeling pathways."
+                    desc: "Copper peptide with published data on wound closure mechanisms in research models. Influences collagen production signaling and tissue remodeling pathways. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC6073405/\" target=\"_blank\" class=\"citation-link\">PMC</a>"
                 }
             ]
         },
@@ -43,17 +43,17 @@
                 {
                     name: "Epithalon",
                     tag: "Telomere Support",
-                    desc: "Investigated for effects on telomere dynamics. the protective chromosome structures relevant to cellular aging models. One of the most studied peptides in longevity research."
+                    desc: "Investigated for effects on telomere dynamics. the protective chromosome structures relevant to cellular aging models. One of the most studied peptides in longevity research. <a href=\"https://pubmed.ncbi.nlm.nih.gov/12937682/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 },
                 {
                     name: "SS-31",
                     tag: "Mitochondrial",
-                    desc: "Targets the inner mitochondrial membrane. Research investigates energy production mechanisms at the cellular level and oxidative stress response."
+                    desc: "Targets the inner mitochondrial membrane. Research investigates energy production mechanisms at the cellular level and oxidative stress response. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC11816484/\" target=\"_blank\" class=\"citation-link\">PMC</a>"
                 },
                 {
                     name: "MOTS-c",
                     tag: "Metabolic Aging",
-                    desc: "A mitochondrial-derived peptide that influences metabolic efficiency and exercise response in research models. Investigated at the cellular level for metabolic pathway mechanisms."
+                    desc: "A mitochondrial-derived peptide that influences metabolic efficiency and exercise response in research models. Investigated at the cellular level for metabolic pathway mechanisms. <a href=\"https://pubmed.ncbi.nlm.nih.gov/25738459/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 }
             ]
         },
@@ -74,7 +74,7 @@
                 {
                     name: "AOD 9604",
                     tag: "Fat Metabolism",
-                    desc: "Derived from growth hormone, investigated for mechanisms in lipolysis and fat metabolism. Research examines lipid utilization without significant glucose homeostasis effects."
+                    desc: "Derived from growth hormone, investigated for mechanisms in lipolysis and fat metabolism. Research examines lipid utilization without significant glucose homeostasis effects. <a href=\"https://pubmed.ncbi.nlm.nih.gov/11713213/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 }
             ]
         },
@@ -90,7 +90,7 @@
                 {
                     name: "Glow Blend",
                     tag: "Comprehensive Blend",
-                    desc: "Research blend of BPC-157 + TB-500 + GHK-Cu (50mg). Combines tissue signaling peptides with collagen synthesis-influencing copper peptide for multi-pathway tissue research."
+                    desc: "Research blend of BPC-157 + TB-500 + GHK-Cu (50mg). Combines tissue signaling peptides with collagen synthesis-influencing copper peptide for multi-pathway tissue research. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">BPC-157</a> <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC4508379/\" target=\"_blank\" class=\"citation-link\">GHK-Cu</a>"
                 }
             ]
         },
@@ -101,12 +101,12 @@
                 {
                     name: "Ipamorelin",
                     tag: "GH Release",
-                    desc: "Selectively influences growth hormone signaling without significant cortisol elevation. Research examines effects on muscle protein synthesis, recovery, sleep-related signaling, and lipid metabolism."
+                    desc: "Selectively influences growth hormone signaling without significant cortisol elevation. Research examines effects on muscle protein synthesis, recovery, sleep-related signaling, and lipid metabolism. <a href=\"https://pubmed.ncbi.nlm.nih.gov/9849822/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 },
                 {
                     name: "MOTS-c",
                     tag: "Endurance",
-                    desc: "Investigated at the mitochondrial level for mechanisms in endurance, metabolic efficiency, and fatigue response. A significant mitochondrial function modulator in research."
+                    desc: "Investigated at the mitochondrial level for mechanisms in endurance, metabolic efficiency, and fatigue response. A significant mitochondrial function modulator in research. <a href=\"https://pubmed.ncbi.nlm.nih.gov/25738459/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 }
             ]
         }
