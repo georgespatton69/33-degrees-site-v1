@@ -57,6 +57,11 @@
     transition: all 0.3s ease;
 }
 
+.blog-card-featured {
+    border-color: rgba(212,168,67,0.15);
+    background: rgba(212,168,67,0.03);
+}
+
 .blog-card:hover {
     border-color: rgba(212,168,67,0.3);
     transform: translateY(-4px);
@@ -286,6 +291,201 @@
     margin-top: 3rem;
     padding-top: 1.5rem;
     border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ---------- Mechanism Visual ---------- */
+.mechanism-visual {
+    background: rgba(212,168,67,0.04);
+    border: 1px solid rgba(212,168,67,0.12);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1.5rem 0 2rem;
+}
+
+.mechanism-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: #d4a843;
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.mechanism-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.mechanism-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 140px;
+}
+
+.mechanism-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(212,168,67,0.15);
+    border: 1px solid rgba(212,168,67,0.3);
+    color: #d4a843;
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.mechanism-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.4;
+}
+
+.mechanism-arrow {
+    color: rgba(212,168,67,0.3);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ---------- Research Applications ---------- */
+.research-applications {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.application-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+}
+
+.application-card svg {
+    color: #d4a843;
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+.application-card span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.6);
+}
+
+/* ---------- Community Box ---------- */
+.community-box {
+    background: rgba(255,255,255,0.02);
+    border-left: 3px solid rgba(212,168,67,0.3);
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.community-box h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 0.5rem;
+}
+
+.community-box p {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0;
+}
+
+/* ---------- Comparison Table ---------- */
+.comparison-table {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 1.5rem 0 2rem;
+}
+
+.comparison-header {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(3, 1fr);
+    background: rgba(212,168,67,0.08);
+    padding: 0.75rem 1rem;
+}
+
+.comparison-header span {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    color: #d4a843;
+    text-align: center;
+}
+
+.comparison-header span:first-child {
+    text-align: left;
+}
+
+.comparison-row {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(3, 1fr);
+    padding: 0.6rem 1rem;
+    border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.comparison-row:nth-child(even) {
+    background: rgba(255,255,255,0.02);
+}
+
+.comparison-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+}
+
+.comparison-row span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+}
+
+.comparison-row span:first-child {
+    text-align: left;
+}
+
+/* ---------- Mobile overrides for guide articles ---------- */
+@media (max-width: 768px) {
+    .mechanism-flow {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    .mechanism-arrow {
+        transform: rotate(90deg);
+        margin-bottom: 0;
+    }
+    .mechanism-step {
+        max-width: 200px;
+    }
+    .research-applications {
+        grid-template-columns: 1fr;
+    }
+    .comparison-header,
+    .comparison-row {
+        grid-template-columns: 1.4fr repeat(3, 1fr);
+        font-size: 0.7rem;
+    }
+    .comparison-header span,
+    .comparison-row span {
+        font-size: 0.68rem;
+    }
 }
 
 /* ---------- Glossary Tooltips ---------- */
