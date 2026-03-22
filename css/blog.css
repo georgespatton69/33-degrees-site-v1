@@ -333,6 +333,7 @@
 
 .related-products-grid .product-info .btn-secondary {
     margin-top: auto;
+    margin-bottom: 4px;
 }
 
 @media (max-width: 768px) {
