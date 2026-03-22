@@ -310,15 +310,23 @@
                     desc.innerHTML = product.dataset.desc;
                     img.src = product.dataset.img;
 
-                    // Update stats
+                    // Update stats with citation links
                     const statEls = stats.querySelectorAll('.cat-stat');
                     if (statEls[0]) {
                         statEls[0].querySelector('.cat-stat-num').innerHTML = product.dataset.stat1;
-                        statEls[0].querySelector('.cat-stat-label').innerHTML = product.dataset.stat1Label;
+                        let label1 = product.dataset.stat1Label;
+                        if (product.dataset.stat1Source) {
+                            label1 += ' <a href="' + product.dataset.stat1Source + '" target="_blank" rel="noopener" class="citation-link">Source</a>';
+                        }
+                        statEls[0].querySelector('.cat-stat-label').innerHTML = label1;
                     }
                     if (statEls[1]) {
                         statEls[1].querySelector('.cat-stat-num').innerHTML = product.dataset.stat2;
-                        statEls[1].querySelector('.cat-stat-label').innerHTML = product.dataset.stat2Label;
+                        let label2 = product.dataset.stat2Label;
+                        if (product.dataset.stat2Source) {
+                            label2 += ' <a href="' + product.dataset.stat2Source + '" target="_blank" rel="noopener" class="citation-link">Source</a>';
+                        }
+                        statEls[1].querySelector('.cat-stat-label').innerHTML = label2;
                     }
 
                     // Fade in
