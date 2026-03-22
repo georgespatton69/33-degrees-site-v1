@@ -1530,6 +1530,10 @@ img {
         display: none;
     }
 
+    .cat-section:first-of-type {
+        padding-top: 100px;
+    }
+
     .desktop-only { display: none !important; }
     .mobile-only { display: block !important; }
 
