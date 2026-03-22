@@ -32,7 +32,7 @@
             ]
         },
         longevity: {
-            desc: "These peptides modulate cellular aging pathways — mitochondrial function, NAD+ metabolism, telomere dynamics, and oxidative stress responses. Research investigates cellular repair and protective mechanisms in experimental models.",
+            desc: "These peptides modulate cellular aging pathways. mitochondrial function, NAD+ metabolism, telomere dynamics, and oxidative stress responses. Research investigates cellular repair and protective mechanisms in experimental models.",
             subtitle: "Most Popular for Longevity",
             peptides: [
                 {
@@ -43,7 +43,7 @@
                 {
                     name: "Epithalon",
                     tag: "Telomere Support",
-                    desc: "Investigated for effects on telomere dynamics — the protective chromosome structures relevant to cellular aging models. One of the most studied peptides in longevity research."
+                    desc: "Investigated for effects on telomere dynamics. the protective chromosome structures relevant to cellular aging models. One of the most studied peptides in longevity research."
                 },
                 {
                     name: "SS-31",
@@ -58,7 +58,7 @@
             ]
         },
         weight: {
-            desc: "These peptides modulate metabolic pathways — appetite signaling, lipid metabolism, visceral adiposity mechanisms, and metabolic efficiency. Including GLP-1 receptor agonists and lipid metabolism-targeted compounds.",
+            desc: "These peptides modulate metabolic pathways. appetite signaling, lipid metabolism, visceral adiposity mechanisms, and metabolic efficiency. Including GLP-1 receptor agonists and lipid metabolism-targeted compounds.",
             subtitle: "Most Popular for Weight Management",
             peptides: [
                 {
@@ -239,7 +239,7 @@
         renderPlaceholder();
     });
 
-    // Explore More — go back to selector with their category pre-selected and Learn More buttons
+    // Explore More. go back to selector with their category pre-selected and Learn More buttons
     btnExploreMore.addEventListener('click', () => {
         showLearnMore = true;
         switchView(viewSafety, viewSelector);
