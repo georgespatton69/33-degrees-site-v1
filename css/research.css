@@ -78,6 +78,10 @@
     color: #d4a843;
 }
 
+.hidden {
+    display: none !important;
+}
+
 /* ---------- Category Pills ---------- */
 .category-pills {
     display: flex;

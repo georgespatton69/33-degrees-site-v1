@@ -127,6 +127,7 @@
     const btnSafety = document.getElementById('btn-safety');
     const backTo2026 = document.getElementById('back-to-2026');
     const backToSelector3 = document.getElementById('back-to-selector-3');
+    const btnExploreMore = document.getElementById('btn-explore-more');
 
     // ---------- Category Selection ----------
     let selectedCategory = null;
@@ -140,6 +141,7 @@
                 pill.classList.remove('selected');
                 selectedCategory = null;
                 fadeResult(renderPlaceholder);
+                btnWhatPeptides.classList.add('hidden');
                 return;
             }
 
@@ -147,6 +149,9 @@
             pills.forEach(p => p.classList.remove('selected'));
             pill.classList.add('selected');
             selectedCategory = cat;
+
+            // Show What Are Peptides button
+            btnWhatPeptides.classList.remove('hidden');
 
             // Fade and render
             fadeResult(() => renderCategory(cat));
@@ -215,6 +220,7 @@
         switchView(view2026, viewSelector);
         pills.forEach(p => p.classList.remove('selected'));
         selectedCategory = null;
+        btnWhatPeptides.classList.add('hidden');
         renderPlaceholder();
     });
 
@@ -224,7 +230,25 @@
         switchView(viewSafety, viewSelector);
         pills.forEach(p => p.classList.remove('selected'));
         selectedCategory = null;
+        btnWhatPeptides.classList.add('hidden');
         renderPlaceholder();
+    });
+
+    // Explore More — go back to selector with their category pre-selected and results shown
+    btnExploreMore.addEventListener('click', () => {
+        switchView(viewSafety, viewSelector);
+        // Re-render their selected category
+        if (selectedCategory) {
+            pills.forEach(p => {
+                if (p.dataset.category === selectedCategory) {
+                    p.classList.add('selected');
+                } else {
+                    p.classList.remove('selected');
+                }
+            });
+            btnWhatPeptides.classList.remove('hidden');
+            renderCategory(selectedCategory);
+        }
     });
 
     // ---------- Mobile Menu ----------
