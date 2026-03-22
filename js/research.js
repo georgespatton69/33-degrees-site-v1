@@ -127,7 +127,7 @@
     const viewSelector = document.getElementById('view-selector');
     const viewPeptides = document.getElementById('view-peptides');
     const view2026 = document.getElementById('view-2026');
-    const btnWhatPeptides = document.getElementById('btn-what-peptides');
+    // btnWhatPeptides now rendered dynamically in renderCategory
     const btnPeptides2026 = document.getElementById('btn-peptides-2026');
     const backToSelector = document.getElementById('back-to-selector');
     const backToPeptides = document.getElementById('back-to-peptides');
@@ -150,7 +150,7 @@
                 pill.classList.remove('selected');
                 selectedCategory = null;
                 fadeResult(renderPlaceholder);
-                btnWhatPeptides.classList.add('hidden');
+                
                 return;
             }
 
@@ -160,7 +160,7 @@
             selectedCategory = cat;
 
             // Show What Are Peptides button
-            btnWhatPeptides.classList.remove('hidden');
+            
 
             // Update Browse Compound Library button with category name
             btnExploreMore.textContent = (categoryNames[cat] || cat) + ' Compound Library';
@@ -243,6 +243,7 @@
         resultArea.innerHTML = `
             <div class="result-content">
                 <p class="result-desc">${data.desc}</p>
+                <button class="btn-what-are-peptides" id="btn-what-peptides-dynamic">What Are Peptides?</button>
                 <h3 class="result-subtitle">${data.subtitle}</h3>
                 <div class="result-peptides">
                     ${peptidesHTML}
@@ -250,6 +251,12 @@
                 ${articlesHTML}
             </div>
         `;
+
+        // Re-bind the dynamic button
+        const dynamicBtn = document.getElementById('btn-what-peptides-dynamic');
+        if (dynamicBtn) {
+            dynamicBtn.addEventListener('click', () => switchView(viewSelector, viewPeptides));
+        }
     }
 
     // ---------- View Transitions ----------
@@ -267,7 +274,7 @@
         }, 500);
     }
 
-    btnWhatPeptides.addEventListener('click', () => switchView(viewSelector, viewPeptides));
+    
     btnPeptides2026.addEventListener('click', () => switchView(viewPeptides, view2026));
     backToSelector.addEventListener('click', () => switchView(viewPeptides, viewSelector));
     backToPeptides.addEventListener('click', () => switchView(view2026, viewPeptides));
@@ -276,7 +283,7 @@
         switchView(view2026, viewSelector);
         pills.forEach(p => p.classList.remove('selected'));
         selectedCategory = null;
-        btnWhatPeptides.classList.add('hidden');
+        
         renderPlaceholder();
     });
 
@@ -287,7 +294,7 @@
         switchView(viewSafety, viewSelector);
         pills.forEach(p => p.classList.remove('selected'));
         selectedCategory = null;
-        btnWhatPeptides.classList.add('hidden');
+        
         renderPlaceholder();
     });
 
@@ -303,7 +310,7 @@
                     p.classList.remove('selected');
                 }
             });
-            btnWhatPeptides.classList.remove('hidden');
+            
             renderCategory(selectedCategory);
             // Scroll to the result subtitle after transition completes
             setTimeout(() => {
