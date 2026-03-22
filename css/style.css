@@ -1530,7 +1530,7 @@ img {
         display: none;
     }
 
-    .cat-section:first-of-type {
+    #cat-recovery {
         padding-top: 120px;
     }
 
