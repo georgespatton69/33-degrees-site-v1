@@ -249,14 +249,13 @@
                     ${peptidesHTML}
                 </div>
                 ${articlesHTML}
+                <button class="btn-what-are-peptides" id="btn-what-peptides-bottom" style="margin-top: 2rem;">What Are Peptides?</button>
             </div>
         `;
 
-        // Re-bind the dynamic button
-        const dynamicBtn = document.getElementById('btn-what-peptides-dynamic');
-        if (dynamicBtn) {
-            dynamicBtn.addEventListener('click', () => switchView(viewSelector, viewPeptides));
-        }
+        // Re-bind both dynamic buttons
+        document.getElementById('btn-what-peptides-dynamic')?.addEventListener('click', () => switchView(viewSelector, viewPeptides));
+        document.getElementById('btn-what-peptides-bottom')?.addEventListener('click', () => switchView(viewSelector, viewPeptides));
     }
 
     // ---------- View Transitions ----------
