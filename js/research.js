@@ -183,6 +183,7 @@
                 <span class="peptide-tag">${p.tag}</span>
                 <h4>${p.name}</h4>
                 <p>${p.desc}</p>
+                <a href="compounds.html" class="btn-learn-more">Learn More</a>
             </div>
         `).join('');
 
