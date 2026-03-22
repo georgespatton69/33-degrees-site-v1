@@ -401,18 +401,18 @@
                             cards[0].classList.add('active');
 
                             if (desc && cards[0].dataset.desc) {
-                                desc.textContent = cards[0].dataset.desc;
+                                desc.innerHTML = cards[0].dataset.desc;
                                 desc.style.opacity = '1';
                             }
                             if (stats && cards[0].dataset.stat1) {
                                 const statEls = stats.querySelectorAll('.cat-stat');
                                 if (statEls[0]) {
                                     statEls[0].querySelector('.cat-stat-num').innerHTML = cards[0].dataset.stat1;
-                                    statEls[0].querySelector('.cat-stat-label').textContent = cards[0].dataset.stat1Label;
+                                    statEls[0].querySelector('.cat-stat-label').innerHTML = cards[0].dataset.stat1Label;
                                 }
                                 if (statEls[1]) {
                                     statEls[1].querySelector('.cat-stat-num').innerHTML = cards[0].dataset.stat2;
-                                    statEls[1].querySelector('.cat-stat-label').textContent = cards[0].dataset.stat2Label;
+                                    statEls[1].querySelector('.cat-stat-label').innerHTML = cards[0].dataset.stat2Label;
                                 }
                                 stats.style.opacity = '1';
                             }
@@ -453,16 +453,16 @@
                 stats.style.opacity = '0';
 
                 setTimeout(() => {
-                    desc.textContent = card.dataset.desc;
+                    desc.innerHTML = card.dataset.desc;
 
                     const statEls = stats.querySelectorAll('.cat-stat');
                     if (statEls[0]) {
                         statEls[0].querySelector('.cat-stat-num').innerHTML = card.dataset.stat1;
-                        statEls[0].querySelector('.cat-stat-label').textContent = card.dataset.stat1Label;
+                        statEls[0].querySelector('.cat-stat-label').innerHTML = card.dataset.stat1Label;
                     }
                     if (statEls[1]) {
                         statEls[1].querySelector('.cat-stat-num').innerHTML = card.dataset.stat2;
-                        statEls[1].querySelector('.cat-stat-label').textContent = card.dataset.stat2Label;
+                        statEls[1].querySelector('.cat-stat-label').innerHTML = card.dataset.stat2Label;
                     }
 
                     desc.style.opacity = '1';

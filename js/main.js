@@ -307,18 +307,18 @@
                     product.classList.add('active');
 
                     // Update content
-                    desc.textContent = product.dataset.desc;
+                    desc.innerHTML = product.dataset.desc;
                     img.src = product.dataset.img;
 
                     // Update stats
                     const statEls = stats.querySelectorAll('.cat-stat');
                     if (statEls[0]) {
                         statEls[0].querySelector('.cat-stat-num').innerHTML = product.dataset.stat1;
-                        statEls[0].querySelector('.cat-stat-label').textContent = product.dataset.stat1Label;
+                        statEls[0].querySelector('.cat-stat-label').innerHTML = product.dataset.stat1Label;
                     }
                     if (statEls[1]) {
                         statEls[1].querySelector('.cat-stat-num').innerHTML = product.dataset.stat2;
-                        statEls[1].querySelector('.cat-stat-label').textContent = product.dataset.stat2Label;
+                        statEls[1].querySelector('.cat-stat-label').innerHTML = product.dataset.stat2Label;
                     }
 
                     // Fade in
