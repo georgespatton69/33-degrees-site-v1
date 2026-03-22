@@ -112,6 +112,15 @@
         }
     };
 
+    // ---------- Category Display Names ----------
+    const categoryNames = {
+        recovery: 'Recovery & Repair',
+        longevity: 'Longevity & Anti-Aging',
+        weight: 'Weight Management',
+        skin: 'Skin & Rejuvenation',
+        performance: 'Performance & Vitality'
+    };
+
     // ---------- DOM Elements ----------
     const pills = document.querySelectorAll('.cat-pill');
     const resultArea = document.getElementById('category-result');
@@ -152,6 +161,9 @@
 
             // Show What Are Peptides button
             btnWhatPeptides.classList.remove('hidden');
+
+            // Update Browse Compound Library button with category name
+            btnExploreMore.textContent = (categoryNames[cat] || cat) + ' Compound Library';
 
             // Fade and render
             fadeResult(() => renderCategory(cat));
