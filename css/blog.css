@@ -299,11 +299,20 @@
     grid-template-columns: repeat(5, 1fr);
     gap: 1rem;
     margin: 1.25rem 0 2rem;
+    /* Break out of article-content max-width */
+    width: 100vw;
+    max-width: 1100px;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 @media (max-width: 768px) {
     .related-products-grid {
         grid-template-columns: repeat(2, 1fr);
+        width: calc(100% + 2rem);
+        margin-left: -1rem;
+        transform: none;
+        padding: 0 1rem;
     }
 }
 
