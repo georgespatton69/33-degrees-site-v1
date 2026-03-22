@@ -38,7 +38,7 @@
                 {
                     name: "NAD+",
                     tag: "Cellular Energy",
-                    desc: "NAD+ levels decline approximately 30% between ages 45–60. Research investigates NAD+ effects on mitochondrial function, DNA repair signaling, and cellular energy pathways."
+                    desc: "NAD+ levels decline approximately 30% between ages 45–60. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC7442590/\" target=\"_blank\" class=\"citation-link\">PMC Review</a> Research investigates NAD+ effects on mitochondrial function, DNA repair signaling, and cellular energy pathways."
                 },
                 {
                     name: "Epithalon",
@@ -64,12 +64,12 @@
                 {
                     name: "Retatrutide",
                     tag: "Most Effective",
-                    desc: "A potent GLP-1 receptor agonist. Phase 3 trials published in the New England Journal of Medicine documented 23.7% body weight changes in study participants."
+                    desc: "A potent GLP-1 receptor agonist. Phase 3 trials documented 23.7% body weight changes in study participants. <a href=\"https://clinicaltrials.gov/study/NCT05931367\" target=\"_blank\" class=\"citation-link\">ClinicalTrials.gov</a>"
                 },
                 {
                     name: "Tesamorelin",
                     tag: "Visceral Fat",
-                    desc: "Investigated for mechanisms in visceral adiposity. A 404-patient clinical trial documented 18% visceral fat changes. Influences growth hormone signaling."
+                    desc: "Investigated for mechanisms in visceral adiposity. A 404-patient clinical trial documented 18% visceral fat changes. <a href=\"https://pubmed.ncbi.nlm.nih.gov/20101189/\" target=\"_blank\" class=\"citation-link\">PubMed</a> Influences growth hormone signaling."
                 },
                 {
                     name: "AOD 9604",
@@ -85,7 +85,7 @@
                 {
                     name: "GHK-Cu",
                     tag: "Collagen & Anti-Aging",
-                    desc: "Copper peptide with collagen synthesis activity. Influences fibroblast signaling, hair follicle signaling, and wound repair mechanisms. GHK-Cu plasma levels decline from 200 ng/mL at age 20 to 80 ng/mL by age 60."
+                    desc: "Copper peptide with collagen synthesis activity. Influences fibroblast signaling, hair follicle signaling, and wound repair mechanisms. GHK-Cu plasma levels decline from 200 ng/mL at age 20 to 80 ng/mL by age 60. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC4508379/\" target=\"_blank\" class=\"citation-link\">PMC</a>"
                 },
                 {
                     name: "Glow Blend",

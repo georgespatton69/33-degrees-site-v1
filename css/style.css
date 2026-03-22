@@ -3,6 +3,19 @@
    Dark / Gold Premium Aesthetic
    ============================================ */
 
+/* Citation links */
+.citation-link {
+    color: #d4a843;
+    opacity: 0.6;
+    font-size: 0.75em;
+    text-decoration: none;
+    border-bottom: 1px dotted rgba(212, 168, 67, 0.4);
+    transition: opacity 0.3s ease;
+}
+.citation-link:hover {
+    opacity: 1;
+}
+
 /* ---------- CSS VARIABLES ---------- */
 :root {
     --gold: #d4a843;
