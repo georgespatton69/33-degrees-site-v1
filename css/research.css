@@ -233,8 +233,7 @@
 
 .btn-learn-more {
     display: inline-block;
-    margin-top: auto;
-    padding-top: 0.75rem;
+    margin-top: 1rem;
     padding: 0.4rem 1.2rem;
     border: 1px solid rgba(212, 168, 67, 0.3);
     border-radius: 50px;
