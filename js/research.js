@@ -243,7 +243,7 @@
         resultArea.innerHTML = `
             <div class="result-content">
                 <p class="result-desc">${data.desc}</p>
-                <button class="btn-what-are-peptides" id="btn-what-peptides-dynamic">What Are Peptides?</button>
+                <button class="btn-what-are-peptides" id="btn-what-peptides-dynamic" style="margin-bottom: 2rem;">What Are Peptides?</button>
                 <h3 class="result-subtitle">${data.subtitle}</h3>
                 <div class="result-peptides">
                     ${peptidesHTML}
