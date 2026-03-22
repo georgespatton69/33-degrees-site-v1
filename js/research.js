@@ -262,8 +262,8 @@
                 <div class="result-peptides">
                     ${peptidesHTML}
                 </div>
+                <button class="btn-what-are-peptides" id="btn-what-peptides-bottom" style="margin-top: 2rem; margin-bottom: 2rem;">What Are Peptides?</button>
                 ${articlesHTML}
-                <button class="btn-what-are-peptides" id="btn-what-peptides-bottom" style="margin-top: 2rem;">What Are Peptides?</button>
             </div>
         `;
 
