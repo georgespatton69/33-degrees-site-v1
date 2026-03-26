@@ -37,7 +37,7 @@
         },
         longevity: {
             desc: "These peptides modulate cellular aging pathways. mitochondrial function, NAD+ metabolism, telomere dynamics, and oxidative stress responses. Research investigates cellular repair and protective mechanisms in experimental models.",
-            subtitle: "Primary Compounds in Longevity Research",
+            subtitle: "Primary Compounds in Cellular Aging Research",
             peptides: [
                 {
                     name: "NAD+",
@@ -54,7 +54,7 @@
                 {
                     name: "SS-31",
                     slug: "ss-31",
-                    tag: "Mitochondrial",
+                    tag: "Cellular Energy",
                     desc: "Targets the inner mitochondrial membrane. Research investigates energy production mechanisms at the cellular level and oxidative stress response. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC11816484/\" target=\"_blank\" class=\"citation-link\">PMC</a>"
                 },
                 {
@@ -67,7 +67,7 @@
         },
         weight: {
             desc: "These peptides modulate metabolic pathways. appetite signaling, lipid metabolism, visceral adiposity mechanisms, and metabolic efficiency. Including GLP-1 receptor agonists and lipid metabolism-targeted compounds.",
-            subtitle: "Primary Compounds in Weight Management Research",
+            subtitle: "Primary Compounds in Metabolic Science Research",
             peptides: [
                 {
                     name: "Retatrutide",
@@ -91,12 +91,12 @@
         },
         skin: {
             desc: "These peptides influence collagen synthesis, wound healing signaling, and tissue repair mechanisms in cellular and tissue models.",
-            subtitle: "Primary Compounds in Skin & Rejuvenation Research",
+            subtitle: "Primary Compounds in Tissue Biology Research",
             peptides: [
                 {
                     name: "GHK-Cu",
                     slug: "ghk-cu",
-                    tag: "Collagen & Anti-Aging",
+                    tag: "Collagen & Cellular Aging",
                     desc: "Copper peptide with collagen synthesis activity. Influences fibroblast signaling, hair follicle signaling, and wound repair mechanisms. GHK-Cu plasma levels decline from 200 ng/mL at age 20 to 80 ng/mL by age 60. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC4508379/\" target=\"_blank\" class=\"citation-link\">PMC</a>"
                 },
                 {
@@ -109,7 +109,7 @@
         },
         performance: {
             desc: "These peptides modulate growth hormone signaling, influence recovery mechanisms, and affect metabolic efficiency in research models.",
-            subtitle: "Primary Compounds in Performance Research",
+            subtitle: "Primary Compounds in Cellular Energy Research",
             peptides: [
                 {
                     name: "Ipamorelin",
@@ -130,7 +130,7 @@
     // ---------- Category Display Names ----------
     const categoryNames = {
         recovery: 'Recovery & Repair',
-        longevity: 'Longevity & Anti-Aging',
+        longevity: 'Longevity & Cellular Aging',
         weight: 'Weight Management',
         skin: 'Skin & Rejuvenation',
         performance: 'Performance & Vitality'
