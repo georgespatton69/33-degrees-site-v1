@@ -23,7 +23,7 @@
     --gold-dark: #b8912e;
     --gold-glow: rgba(212, 168, 67, 0.3);
     --black: #000000;
-    --bg-primary: #0a0a0a;
+    --bg-primary: rgba(10, 10, 10, 0.88);
     --bg-card: #111111;
     --bg-card-hover: #1a1a1a;
     --text-primary: #ffffff;
@@ -50,9 +50,27 @@ html {
     font-size: 16px;
 }
 
+html {
+    background: #050505;
+}
+
+/* Semi-transparent sections so 3D chain shows through */
+.featured-products,
+.popular-bundles,
+.science-section,
+.all-products,
+.cat-section,
+.social-proof-section,
+.brand-story,
+.community-section,
+.site-footer {
+    position: relative;
+    background-color: rgba(10, 10, 10, 0.88);
+}
+
 body {
     font-family: var(--font-body);
-    background: var(--bg-primary);
+    background: transparent;
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
