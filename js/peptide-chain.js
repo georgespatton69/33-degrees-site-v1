@@ -192,6 +192,9 @@ function lerp(a, b, t) {
     return a + (b - a) * t;
 }
 
+let autoRotation = 0;
+const AUTO_ROTATE_SPEED = 0.003; // slow continuous spin
+
 function startAnimation() {
     if (isAnimating) return;
     isAnimating = true;
@@ -199,29 +202,22 @@ function startAnimation() {
 }
 
 function animate() {
-    const delta = Math.abs(targetScroll - currentScroll);
-    const timeSinceScroll = performance.now() - lastScrollTime;
-
-    // Idle stop
-    if (delta < IDLE_THRESHOLD && timeSinceScroll > IDLE_TIMEOUT) {
-        isAnimating = false;
-        return;
-    }
-
     currentScroll = lerp(currentScroll, targetScroll, LERP_FACTOR);
+    autoRotation += AUTO_ROTATE_SPEED;
 
-    // Update camera — start close, stay close
-    camera.position.z = lerp(18, 18, currentScroll);
+    // Camera — close in hero, pulls back slightly as you scroll
+    camera.position.z = lerp(14, 20, currentScroll);
     camera.position.x = lerp(0, -3, currentScroll);
+    camera.position.y = lerp(0, 1, currentScroll);
 
-    // Update chain
-    chainGroup.rotation.y = currentScroll * Math.PI * 4; // 720 degrees
-    chainGroup.rotation.x = -0.3 + currentScroll * 0.6;
-    chainGroup.position.y = lerp(2, -2, currentScroll);
+    // Chain — continuous auto-rotation + scroll-driven twist
+    chainGroup.rotation.y = autoRotation + currentScroll * Math.PI * 3;
+    chainGroup.rotation.x = -0.2 + currentScroll * 0.4;
+    chainGroup.position.y = lerp(0, -2, currentScroll);
 
     // Shift accent light color through scroll
     if (window.__accentLight) {
-        const hue = currentScroll * 0.15 + 0.58; // subtle shift in the steel blue range
+        const hue = currentScroll * 0.15 + 0.58;
         window.__accentLight.color.setHSL(hue % 1, 0.4, 0.5);
         window.__accentLight.position.y = lerp(-5, 5, currentScroll);
     }
@@ -269,19 +265,24 @@ function init() {
 
     // Camera
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.set(0, 0, 18);
+    camera.position.set(0, 0, 14);
 
     // Lights
-    const ambient = new THREE.AmbientLight(0xffffff, 0.1);
+    const ambient = new THREE.AmbientLight(0xffffff, 0.15);
     scene.add(ambient);
 
-    const dirLight = new THREE.DirectionalLight(0xd4a843, 1.2);
+    const dirLight = new THREE.DirectionalLight(0xd4a843, 1.5);
     dirLight.position.set(5, 8, 5);
     scene.add(dirLight);
 
-    const pointLight = new THREE.PointLight(0xe8c96a, 0.8, 60);
+    const pointLight = new THREE.PointLight(0xe8c96a, 1.0, 60);
     pointLight.position.set(-4, -3, 8);
     scene.add(pointLight);
+
+    // Back rim light for depth
+    const rimLight = new THREE.DirectionalLight(0x6a8fba, 0.6);
+    rimLight.position.set(-3, 2, -5);
+    scene.add(rimLight);
 
     // Accent light that shifts color as you scroll
     const accentLight = new THREE.PointLight(0x4488cc, 0.5, 50);

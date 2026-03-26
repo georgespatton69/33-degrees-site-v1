@@ -430,7 +430,7 @@ img {
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    background: radial-gradient(ellipse at center, rgba(26, 18, 0, 0.7) 0%, rgba(10, 10, 10, 0.85) 70%);
+    background: radial-gradient(ellipse at center, rgba(26, 18, 0, 0.45) 0%, rgba(10, 10, 10, 0.65) 70%);
 }
 
 #peptide-canvas {
@@ -458,6 +458,34 @@ img {
     position: relative;
     z-index: 2;
     padding: 0 24px;
+}
+
+.hero-vials {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0;
+    margin-top: 40px;
+}
+.hero-vial {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 24px rgba(212, 168, 67, 0.2));
+    transition: transform 0.4s ease;
+    margin: 0 -10px;
+}
+.hero-vial-center {
+    width: 120px;
+    transform: translateY(-12px);
+    z-index: 1;
+    filter: drop-shadow(0 12px 32px rgba(212, 168, 67, 0.3));
+}
+.hero-vial:hover {
+    transform: translateY(-8px);
+}
+.hero-vial-center:hover {
+    transform: translateY(-20px);
 }
 
 .hero-logo {
