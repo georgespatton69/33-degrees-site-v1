@@ -1,5 +1,5 @@
-/* D — Electric Navy: Bold modern */
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+/* D — Electric Navy: Scientific */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
     --gold: #f0c040;
@@ -13,8 +13,8 @@
     --text-muted: #6880a0;
     --border-subtle: rgba(240, 192, 64, 0.12);
     --border-gold: rgba(240, 192, 64, 0.4);
-    --font-heading: 'DM Serif Display', serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-heading: 'IBM Plex Serif', serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
 }
 
 html { background: #0a0e1a; }
@@ -22,6 +22,7 @@ body { font-family: var(--font-body); }
 .nav-logo-text, .section-title, .bundle-name, .product-name, .cat-heading,
 .story-content h2, .hero-subtitle, .bundle-price, .product-price,
 .cat-stat-num { font-family: var(--font-heading); }
+body { font-family: var(--font-body); }
 .hero { background: #0a0e1a; }
 .hero-logo { filter: brightness(1.3) saturate(1.2); }
 .section-title { font-size: 2.2rem; letter-spacing: -0.5px; }
