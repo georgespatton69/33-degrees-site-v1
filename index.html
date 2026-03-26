@@ -8,9 +8,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=80">
+    <link rel="stylesheet" href="css/style.css?v=81">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+        }
+    }
+    </script>
 </head>
 <body>
+    <canvas id="peptide-canvas"></canvas>
 
     <!-- ========== NAVIGATION ========== -->
     <header class="site-header">
@@ -974,5 +983,6 @@
     </footer>
 
     <script src="js/main.js?v=30"></script>
+    <script type="module" src="js/peptide-chain.js?v=1"></script>
 </body>
 </html>
