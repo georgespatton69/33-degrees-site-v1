@@ -29,21 +29,19 @@ const ANGLE_PER_RESIDUE = (100 * Math.PI) / 180; // 100 degrees
 
 // Colors (gold palette)
 const COLORS = {
-    carbon:   0xd4a843,
-    nitrogen: 0x4488cc,  // blue
-    oxygen:   0xcc4444,  // red
-    rGroup:   0x44bb88,  // teal/green
-    bond:     0x666666,
-    hydrogen: 0xe8c96a,  // light gold
+    carbon:   0xd4a843,   // gold
+    nitrogen: 0x6a8fba,   // subtle steel blue
+    oxygen:   0xe8c96a,   // light gold
+    rGroup:   0xb8912e,   // dark gold
+    bond:     0x555555,
 };
 
 const MATERIALS = {
     carbon:   new THREE.MeshStandardMaterial({ color: COLORS.carbon,   metalness: 0.4, roughness: 0.5, emissive: 0xd4a843, emissiveIntensity: 0.08 }),
-    nitrogen: new THREE.MeshStandardMaterial({ color: COLORS.nitrogen, metalness: 0.3, roughness: 0.5, emissive: 0x4488cc, emissiveIntensity: 0.1 }),
-    oxygen:   new THREE.MeshStandardMaterial({ color: COLORS.oxygen,   metalness: 0.3, roughness: 0.5, emissive: 0xcc4444, emissiveIntensity: 0.1 }),
-    rGroup:   new THREE.MeshStandardMaterial({ color: COLORS.rGroup,   metalness: 0.3, roughness: 0.5, emissive: 0x44bb88, emissiveIntensity: 0.08 }),
+    nitrogen: new THREE.MeshStandardMaterial({ color: COLORS.nitrogen, metalness: 0.35, roughness: 0.45, emissive: 0x6a8fba, emissiveIntensity: 0.08 }),
+    oxygen:   new THREE.MeshStandardMaterial({ color: COLORS.oxygen,   metalness: 0.4, roughness: 0.5, emissive: 0xe8c96a, emissiveIntensity: 0.06 }),
+    rGroup:   new THREE.MeshStandardMaterial({ color: COLORS.rGroup,   metalness: 0.3, roughness: 0.6, emissive: 0xb8912e, emissiveIntensity: 0.06 }),
     bond:     new THREE.MeshStandardMaterial({ color: COLORS.bond,     metalness: 0.1, roughness: 0.8 }),
-    hydrogen: new THREE.MeshStandardMaterial({ color: COLORS.hydrogen, metalness: 0.2, roughness: 0.6, emissive: 0xe8c96a, emissiveIntensity: 0.05 }),
 };
 
 // ---------- GEOMETRY BUILDERS ----------
@@ -223,8 +221,8 @@ function animate() {
 
     // Shift accent light color through scroll
     if (window.__accentLight) {
-        const hue = currentScroll * 0.6 + 0.55; // cycles from blue → teal → green
-        window.__accentLight.color.setHSL(hue % 1, 0.7, 0.5);
+        const hue = currentScroll * 0.15 + 0.58; // subtle shift in the steel blue range
+        window.__accentLight.color.setHSL(hue % 1, 0.4, 0.5);
         window.__accentLight.position.y = lerp(-5, 5, currentScroll);
     }
 
