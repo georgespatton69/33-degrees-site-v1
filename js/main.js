@@ -405,3 +405,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     revealElements.forEach(el => observer.observe(el));
 })();
+
+// ---------- BUNDLE CAROUSEL (Desktop) ----------
+(function initBundleCarousel() {
+    const cards = document.querySelectorAll('.bundle-card');
+    const dotsContainer = document.querySelector('.bundle-dots');
+    const prevBtn = document.querySelector('.bundle-prev');
+    const nextBtn = document.querySelector('.bundle-next');
+    if (!cards.length || !dotsContainer) return;
+
+    let current = 0;
+
+    // Build dots
+    cards.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'bundle-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+    });
+
+    function goTo(idx) {
+        cards[current].classList.remove('active');
+        dotsContainer.children[current].classList.remove('active');
+        current = (idx + cards.length) % cards.length;
+        cards[current].classList.add('active');
+        dotsContainer.children[current].classList.add('active');
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+})();

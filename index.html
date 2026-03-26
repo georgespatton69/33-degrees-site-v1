@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=79">
+    <link rel="stylesheet" href="css/style.css?v=80">
 </head>
 <body>
 
@@ -427,8 +427,9 @@
         <div class="container">
             <h2 class="section-title">Popular Research Bundles</h2>
             <p class="section-subtitle">Curated compound sets for targeted research pathways. Each bundle is third-party tested and ships with full documentation.</p>
+            <div class="bundles-carousel">
             <div class="bundles-grid">
-                <div class="bundle-card">
+                <div class="bundle-card active">
                     <div class="bundle-images">
                         <img src="assets/images/products/bpc-157.png" alt="BPC-157">
                         <img src="assets/images/products/tb-500.png" alt="TB-500">
@@ -524,6 +525,12 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="bundle-arrows">
+                <button class="bundle-arrow bundle-prev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <div class="bundle-dots"></div>
+                <button class="bundle-arrow bundle-next"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+            </div>
             </div>
         </div>
     </section>
@@ -966,6 +973,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js?v=35"></script>
+    <script src="js/main.js?v=30"></script>
 </body>
 </html>
