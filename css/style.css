@@ -430,7 +430,7 @@ img {
     justify-content: center;
     text-align: center;
     overflow: hidden;
-    background: radial-gradient(ellipse at center, rgba(26, 18, 0, 0.45) 0%, rgba(10, 10, 10, 0.65) 70%);
+    background: radial-gradient(ellipse at center, rgba(10, 10, 10, 0.55) 0%, rgba(10, 10, 10, 0.75) 70%);
 }
 
 #peptide-canvas {
