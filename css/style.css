@@ -465,27 +465,27 @@ img {
     justify-content: center;
     align-items: flex-end;
     gap: 0;
-    margin-top: 40px;
+    margin-bottom: 32px;
 }
 .hero-vial {
-    width: 100px;
+    width: 130px;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 8px 24px rgba(212, 168, 67, 0.2));
+    filter: drop-shadow(0 8px 24px rgba(212, 168, 67, 0.25));
     transition: transform 0.4s ease;
-    margin: 0 -10px;
+    margin: 0 -12px;
 }
 .hero-vial-center {
-    width: 120px;
-    transform: translateY(-12px);
+    width: 155px;
+    transform: translateY(-16px);
     z-index: 1;
-    filter: drop-shadow(0 12px 32px rgba(212, 168, 67, 0.3));
+    filter: drop-shadow(0 16px 40px rgba(212, 168, 67, 0.35));
 }
 .hero-vial:hover {
     transform: translateY(-8px);
 }
 .hero-vial-center:hover {
-    transform: translateY(-20px);
+    transform: translateY(-24px);
 }
 
 .hero-logo {
