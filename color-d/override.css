@@ -40,3 +40,18 @@ body { font-family: var(--font-body); }
 .popular-bundles { background: #080c16; }
 .featured-products { background: #0a0e1a; }
 .trust-badges { background: rgba(240, 192, 64, 0.04); border-bottom-color: rgba(240, 192, 64, 0.1); }
+
+/* Science section lab background */
+.science-section {
+    position: relative;
+    overflow: hidden;
+}
+.science-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../assets/images/lab-bg.png') center/cover no-repeat;
+    opacity: 0.08;
+    z-index: 0;
+}
+.science-section .container { position: relative; z-index: 1; }

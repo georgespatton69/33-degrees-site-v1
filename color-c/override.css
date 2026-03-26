@@ -31,3 +31,18 @@ body { font-family: var(--font-body); color: var(--text-primary); }
 .hero-subtitle { color: var(--gold-light); }
 .hero-tagline { color: rgba(245, 230, 200, 0.5); }
 .badge-item span { color: var(--text-secondary); }
+
+/* Science section lab background */
+.science-section {
+    position: relative;
+    overflow: hidden;
+}
+.science-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../assets/images/lab-bg.png') center/cover no-repeat;
+    opacity: 0.1;
+    z-index: 0;
+}
+.science-section .container { position: relative; z-index: 1; }
