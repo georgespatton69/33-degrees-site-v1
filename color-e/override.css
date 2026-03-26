@@ -1,0 +1,61 @@
+/* E — Monochrome: Minimal tech */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --gold: #d4a843;
+    --gold-light: #e8c96a;
+    --gold-dark: #b8912e;
+    --gold-glow: rgba(212, 168, 67, 0.2);
+    --bg-primary: #000000;
+    --bg-card: #0a0a0a;
+    --text-primary: #ffffff;
+    --text-secondary: #888888;
+    --text-muted: #555555;
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-gold: rgba(255, 255, 255, 0.15);
+    --font-heading: 'Space Grotesk', sans-serif;
+    --font-body: 'Space Grotesk', sans-serif;
+}
+
+html { background: #000; }
+body { font-family: var(--font-body); letter-spacing: -0.2px; }
+.nav-logo-text, .section-title, .bundle-name, .product-name, .cat-heading,
+.story-content h2, .hero-subtitle { font-family: var(--font-heading); }
+.hero { background: #000; }
+.hero-logo { filter: grayscale(0.8) brightness(1.2); }
+.nav-logo-text { font-family: var(--font-heading); font-weight: 500; letter-spacing: -0.5px; }
+.section-title { font-weight: 500; letter-spacing: -1px; font-size: 2.4rem; }
+.hero-subtitle { font-weight: 300; font-size: 1.3rem; letter-spacing: -0.3px; }
+.hero-tagline { letter-spacing: 5px; font-size: 0.7rem; color: rgba(255,255,255,0.35); }
+.carousel-tab { border-radius: 0; border: 1px solid rgba(255,255,255,0.1); color: #888; font-weight: 400; letter-spacing: 1px; font-size: 0.78rem; text-transform: uppercase; }
+.carousel-tab.active { background: #fff; border-color: #fff; color: #000; }
+.carousel-tab:hover { border-color: rgba(255,255,255,0.4); color: #fff; }
+.btn-primary { background: #fff; color: #000; border-radius: 0; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; font-size: 0.8rem; }
+.btn-primary:hover { background: #ddd; color: #000; }
+.btn-secondary { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: #fff; border-radius: 0; }
+.btn-secondary:hover { background: #fff; color: #000; border-color: #fff; }
+.btn-outline { border-radius: 0; }
+.product-card { background: #0a0a0a; border-color: rgba(255,255,255,0.06); border-radius: 0; }
+.product-card:hover { border-color: rgba(255,255,255,0.25); }
+.product-image { background: #050505; }
+.product-name { font-weight: 500; }
+.product-price { color: #fff; }
+.product-stars { color: var(--gold); }
+.product-badge { background: #fff; color: #000; border-radius: 0; font-weight: 600; }
+.bundle-card { background: #050505; border-color: rgba(255,255,255,0.06); border-radius: 0; }
+.bundle-name { color: #fff; font-weight: 500; }
+.bundle-price { color: #fff; }
+.bundle-includes span { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.08); color: #888; border-radius: 0; }
+.bundle-images { background: #030303; }
+.bundle-arrow { border-radius: 0; border-color: rgba(255,255,255,0.1); }
+.bundle-arrow svg { stroke: #fff; }
+.bundle-arrow:hover { background: #fff; }
+.bundle-arrow:hover svg { stroke: #000; }
+.bundle-dot { background: rgba(255,255,255,0.15); border-radius: 0; }
+.bundle-dot.active { background: #fff; border-radius: 0; }
+.popular-bundles { background: #000; }
+.featured-products { background: #000; }
+.trust-badges { background: #050505; border-bottom-color: rgba(255,255,255,0.05); }
+.badge-item svg { stroke: var(--gold); }
+.category-icon { border-color: rgba(255,255,255,0.06); border-radius: 0; }
+.testimonial-card { border-radius: 0; border-color: rgba(255,255,255,0.06); }

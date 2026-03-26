@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>33 Degrees of Healing. Advanced Research Compounds</title>
+    <meta name="description" content="Precision-Grade Research Compounds. Verified Purity. No Compromises.. Third-party lab tested, COA with every order.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css?v=87">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+        }
+    }
+    </script>
+    <link rel="stylesheet" href="override.css?v=1">
+</head>
+<body>
+    <canvas id="peptide-canvas"></canvas>
+
+    <!-- ========== NAVIGATION ========== -->
+    <header class="site-header">
+        <nav class="nav-container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a href="index.html" class="nav-logo">
+                <span class="nav-logo-text">33 Degrees<span class="nav-logo-sub">of Healing</span></span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active">Home</a></li>
+                <li><a href="#catalog" class="nav-link" data-mobile-href="../compounds.html">Research Compounds</a></li>
+                <li><a href="../research.html" class="nav-link">Research</a></li>
+                <li><a href="#brand-story" class="nav-link">Philosophy</a></li>
+                <li><a href="#" class="nav-link">Lab Testing</a></li>
+                <li><a href="../blog.html" class="nav-link">Blog</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-icon" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </button>
+                <button class="nav-icon cart-icon" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <!-- Mobile menu overlay (outside header to avoid backdrop-filter clipping) -->
+    <div class="mobile-menu-overlay">
+        <ul class="mobile-nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="../compounds.html">Research Compounds</a></li>
+            <li><a href="../research.html">Research</a></li>
+            <li><a href="#brand-story">Philosophy</a></li>
+            <li><a href="#">Lab Testing</a></li>
+            <li><a href="../blog.html">Blog</a></li>
+        </ul>
+    </div>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="hero">
+        <!-- <canvas id="particle-canvas"></canvas> -->
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="../assets/video/hero-bg.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <img src="../assets/images/logo-transparent.png" alt="33 Degrees of Healing" class="hero-logo">
+            <p class="hero-tagline">Third-Party Lab Tested &middot; Pharmaceutical-Grade Purity &middot; COA With Every Order</p>
+            <p class="hero-subtitle">Precision-Grade Research Compounds. Verified Purity. No Compromises.</p>
+            <a href="../research.html" class="btn btn-primary" data-mobile-href="../compounds.html">Explore All Compounds</a>
+        </div>
+    </section>
+
+    <!-- ========== TRUST BADGES. Desktop strip ========== -->
+    <section class="trust-badges desktop-only">
+        <div class="container">
+            <div class="badge-grid">
+                <div class="badge-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="m9 12 2 2 4-4"/>
+                    </svg>
+                    <span>Third-Party Lab Tested</span>
+                </div>
+                <div class="badge-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+                    </svg>
+                    <span>Premium Research Compounds</span>
+                </div>
+                <div class="badge-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+                    </svg>
+                    <span>Fast U.S. Shipping</span>
+                </div>
+                <div class="badge-item">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+                    </svg>
+                    <span>Trusted by Experts</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TRUST TICKER. Mobile marquee ========== -->
+    <div class="trust-ticker mobile-only">
+        <div class="ticker-track">
+            <span class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Third-Party Lab Tested</span>
+            <span class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Premium Research Compounds</span>
+            <span class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Fast U.S. Shipping</span>
+            <span class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Trusted by Experts</span>
+            <span class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Science-Driven Research</span>
+            <!-- Duplicate for seamless loop -->
+            <span class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Third-Party Lab Tested</span>
+            <span class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Premium Research Compounds</span>
+            <span class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Fast U.S. Shipping</span>
+            <span class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>Trusted by Experts</span>
+            <span class="ticker-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Science-Driven Research</span>
+        </div>
+    </div>
+
+    <!-- ========== FEATURED PRODUCTS CAROUSEL ========== -->
+    <section class="featured-products" id="products">
+        <div class="container">
+            <h2 class="section-title">Research Pathways</h2>
+            <p class="section-subtitle">Exploring protein-protein interactions, cell signaling, and metabolic studies. Guaranteed &gt;99% purity for unambiguous results.</p>
+
+            <!-- Category Tabs -->
+            <div class="carousel-tabs">
+                <button class="carousel-tab active" data-category="healing">Tissue Biology</button>
+                <button class="carousel-tab" data-category="muscle">Immunology &amp; Recovery</button>
+                <button class="carousel-tab" data-category="energy">Cellular Energy</button>
+                <button class="carousel-tab" data-category="weight">Metabolic Science</button>
+                <button class="carousel-tab" data-category="longevity">Cellular Aging</button>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="carousel-progress">
+                <div class="carousel-progress-bar"></div>
+            </div>
+
+            <!-- Category Panels -->
+            <div class="carousel-panels">
+
+                <!-- HEALING -->
+                <div class="carousel-panel active" data-category="healing">
+                    <div class="carousel-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/bpc-157.png" alt="BPC-157" class="product-bottle-img">
+                                <span class="product-badge">Popular</span>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">BPC-157</h3>
+                                <p class="product-desc">Tissue Biology Research</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$79.00</p>
+                                <a href="../products/bpc-157.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/tb-500.png" alt="TB-500" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">TB-500</h3>
+                                <p class="product-desc">Regeneration Research</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$89.00</p>
+                                <a href="../products/tb-500.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/tb-500.png" alt="TB-500" class="product-bottle-img">
+                                <span class="product-badge">Best Seller</span>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Wolverine Stack</h3>
+                                <p class="product-desc">BPC-157 &amp; TB-500 Blend 10mg</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$149.00</p>
+                                <a href="../products/wolverine-stack.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/wolverine-stack.png" alt="Wolverine Stack" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">GHK-CU</h3>
+                                <p class="product-desc">Collagen &amp; Repair Research</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$89.00</p>
+                                <a href="../products/ghk-cu.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MUSCLE GROWTH -->
+                <div class="carousel-panel" data-category="muscle">
+                    <div class="carousel-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/ghk-cu.png" alt="GHK-CU" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Ipamorelin</h3>
+                                <p class="product-desc">GH Signaling Research</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$69.00</p>
+                                <a href="../products/ipamorelin.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/glow-blend.png" alt="Glow Blend" class="product-bottle-img">
+                                <span class="product-badge">Best Seller</span>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Wolverine Stack</h3>
+                                <p class="product-desc">BPC-157 &amp; TB-500 Blend 10mg</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$149.00</p>
+                                <a href="../products/wolverine-stack.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/mots-c.png" alt="MOTS-c" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Glow Blend</h3>
+                                <p class="product-desc">BPC-157 + TB-500 + GHK-CU 50mg</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$199.00</p>
+                                <a href="../products/glow-blend.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/tesamorelin.png" alt="Tesamorelin" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">TB-500</h3>
+                                <p class="product-desc">Systemic Recovery Research</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$89.00</p>
+                                <a href="../products/tb-500.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ENERGY -->
+                <div class="carousel-panel" data-category="energy">
+                    <div class="carousel-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/nad-plus.png" alt="NAD+" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">MOTS-c</h3>
+                                <p class="product-desc">Cellular Energy Research</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">From $69.00</p>
+                                <a href="../products/mots-c.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/mots-c.png" alt="MOTS-c" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Tesamorelin</h3>
+                                <p class="product-desc">Metabolic Science Research</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$119.00</p>
+                                <a href="../products/tesamorelin.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/tesamorelin.png" alt="Tesamorelin" class="product-bottle-img">
+                                <span class="product-badge">New</span>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">NAD+</h3>
+                                <p class="product-desc">Cellular Energy 1000mg</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                                <p class="product-price">$199.00</p>
+                                <a href="../products/nad-plus.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/nad-plus.png" alt="NAD+" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">SS-31</h3>
+                                <p class="product-desc">Cellular Energy Research</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$79.00</p>
+                                <a href="../products/ss-31.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WEIGHT LOSS -->
+                <div class="carousel-panel" data-category="weight">
+                    <div class="carousel-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/ss-31.png" alt="SS-31" class="product-bottle-img">
+                                <span class="product-badge">Popular</span>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Retatrutide</h3>
+                                <p class="product-desc">Advanced GLP-1 Agonist</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">From $99.00</p>
+                                <a href="../products/retatrutide.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/aod-9604.png" alt="AOD 9604" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">AOD 9604</h3>
+                                <p class="product-desc">Fat Metabolism Research</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$69.00</p>
+                                <a href="../products/aod-9604.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/epithalon.png" alt="Epithalon" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Tesamorelin</h3>
+                                <p class="product-desc">Visceral Fat Research</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$119.00</p>
+                                <a href="../products/tesamorelin.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/mots-c.png" alt="MOTS-c" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">MOTS-c</h3>
+                                <p class="product-desc">Metabolic Science Research</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">From $69.00</p>
+                                <a href="../products/mots-c.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LONGEVITY & ANTI-AGING -->
+                <div class="carousel-panel" data-category="longevity">
+                    <div class="carousel-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/nad-plus.png" alt="NAD+" class="product-bottle-img">
+                                <span class="product-badge">New</span>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">NAD+</h3>
+                                <p class="product-desc">NAD+ Research 1000mg</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                                <p class="product-price">$199.00</p>
+                                <a href="../products/nad-plus.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/epithalon.png" alt="Epithalon" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Epithalon</h3>
+                                <p class="product-desc">Telomere Research 10mg</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$59.00</p>
+                                <a href="../products/epithalon.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/ss-31.png" alt="SS-31" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">SS-31</h3>
+                                <p class="product-desc">Cellular Energy Research</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$79.00</p>
+                                <a href="../products/ss-31.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="../assets/images/products/ghk-cu.png" alt="GHK-CU" class="product-bottle-img">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">GHK-CU</h3>
+                                <p class="product-desc">Skin &amp; Collagen Research</p>
+                                <div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                                <p class="product-price">$89.00</p>
+                                <a href="../products/ghk-cu.html" class="btn btn-secondary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== POPULAR BUNDLES ========== -->
+    <section class="popular-bundles">
+        <div class="container">
+            <h2 class="section-title">Popular Research Bundles</h2>
+            <p class="section-subtitle">Curated compound sets for targeted research pathways. Each bundle is third-party tested and ships with full documentation.</p>
+            <div class="bundles-carousel">
+            <div class="bundles-grid">
+                <div class="bundle-card active">
+                    <div class="bundle-images">
+                        <img src="../assets/images/products/bpc-157.png" alt="BPC-157">
+                        <img src="../assets/images/products/tb-500.png" alt="TB-500">
+                        <img src="../assets/images/products/wolverine-stack.png" alt="Wolverine Stack">
+                    </div>
+                    <div class="bundle-info">
+                        <h3 class="bundle-name">The Recovery Protocol</h3>
+                        <p class="bundle-desc">A comprehensive tissue biology research set combining BPC-157, TB-500, and the Wolverine Stack for multi-pathway regeneration studies.</p>
+                        <div class="bundle-includes">
+                            <span>BPC-157 10mg</span>
+                            <span>TB-500 10mg</span>
+                            <span>Wolverine Stack 20mg</span>
+                        </div>
+                        <div class="bundle-footer">
+                            <span class="bundle-price">$317.00</span>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bundle-card">
+                    <div class="bundle-images">
+                        <img src="../assets/images/products/nad-plus.png" alt="NAD+">
+                        <img src="../assets/images/products/epithalon.png" alt="Epithalon">
+                        <img src="../assets/images/products/ss-31.png" alt="SS-31">
+                    </div>
+                    <div class="bundle-info">
+                        <h3 class="bundle-name">The Longevity Stack</h3>
+                        <p class="bundle-desc">Targets cellular aging pathways through NAD+ metabolism, telomere dynamics, and mitochondrial membrane research.</p>
+                        <div class="bundle-includes">
+                            <span>NAD+ 1000mg</span>
+                            <span>Epithalon 50mg</span>
+                            <span>SS-31 50mg</span>
+                        </div>
+                        <div class="bundle-footer">
+                            <span class="bundle-price">$337.00</span>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bundle-card">
+                    <div class="bundle-images">
+                        <img src="../assets/images/products/retatrutide.png" alt="Retatrutide">
+                        <img src="../assets/images/products/aod-9604.png" alt="AOD 9604">
+                        <img src="../assets/images/products/tesamorelin.png" alt="Tesamorelin">
+                    </div>
+                    <div class="bundle-info">
+                        <h3 class="bundle-name">The Metabolic Trio</h3>
+                        <p class="bundle-desc">Three distinct metabolic research compounds targeting GLP-1 receptor signaling, lipolysis mechanisms, and visceral adiposity pathways.</p>
+                        <div class="bundle-includes">
+                            <span>Retatrutide 10mg</span>
+                            <span>AOD 9604 10mg</span>
+                            <span>Tesamorelin 10mg</span>
+                        </div>
+                        <div class="bundle-footer">
+                            <span class="bundle-price">$287.00</span>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bundle-card">
+                    <div class="bundle-images">
+                        <img src="../assets/images/products/glow-blend.png" alt="Glow Blend">
+                        <img src="../assets/images/products/ghk-cu.png" alt="GHK-Cu">
+                    </div>
+                    <div class="bundle-info">
+                        <h3 class="bundle-name">The Glow Protocol</h3>
+                        <p class="bundle-desc">Collagen synthesis and skin biology research. Combines the Glow Blend tri-peptide formulation with GHK-Cu copper peptide complex.</p>
+                        <div class="bundle-includes">
+                            <span>Glow Blend 50mg</span>
+                            <span>GHK-Cu 10mg</span>
+                        </div>
+                        <div class="bundle-footer">
+                            <span class="bundle-price">$288.00</span>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bundle-card">
+                    <div class="bundle-images">
+                        <img src="../assets/images/products/ipamorelin.png" alt="Ipamorelin">
+                        <img src="../assets/images/products/mots-c.png" alt="MOTS-c">
+                    </div>
+                    <div class="bundle-info">
+                        <h3 class="bundle-name">The Performance Stack</h3>
+                        <p class="bundle-desc">Growth hormone signaling paired with mitochondrial energy research. Ipamorelin for selective GH pathway studies alongside MOTS-c metabolic investigation.</p>
+                        <div class="bundle-includes">
+                            <span>Ipamorelin 10mg</span>
+                            <span>MOTS-c 10mg</span>
+                        </div>
+                        <div class="bundle-footer">
+                            <span class="bundle-price">$138.00</span>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bundle-arrows">
+                <button class="bundle-arrow bundle-prev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+                <div class="bundle-dots"></div>
+                <button class="bundle-arrow bundle-next"><svg viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg></button>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SCIENCE SECTION ========== -->
+    <section class="science-section" id="science">
+        <div class="container">
+            <h2 class="section-title">Science-Driven Research</h2>
+            <p class="science-process">Purification &middot; Synthesis &middot; Testing &middot; Verification</p>
+            <p class="science-text">Every compound undergoes rigorous multi-step quality assurance. Our peptides are synthesized to the highest purity standards and verified through independent third-party laboratory analysis. All products are intended for research purposes only.</p>
+            <div class="science-ctas">
+                <a href="#" class="btn btn-outline">View Lab Results</a>
+                <a href="../research.html" class="btn btn-outline">Learn About Peptides</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ALL PRODUCTS. MOBILE SWIPE ========== -->
+    <section class="all-products mobile-only">
+        <div class="container">
+            <h2 class="section-title">Research Compound Catalog</h2>
+            <p class="section-subtitle">Explore our complete line of research-grade research compounds</p>
+        </div>
+        <div class="mobile-swipe-row">
+            <div class="product-card">
+                <div class="product-image"><img src="../assets/images/products/bpc-157.png" alt="BPC-157" class="product-bottle-img"></div>
+                <div class="product-info"><h3 class="product-name">BPC-157</h3><p class="product-desc">Tissue Biology</p><div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="product-price">$79.00</p><a href="../products/bpc-157.html" class="btn btn-secondary">Learn More</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="../assets/images/products/tb-500.png" alt="TB-500" class="product-bottle-img"></div>
+                <div class="product-info"><h3 class="product-name">TB-500</h3><p class="product-desc">Regeneration Research</p><div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="product-price">$89.00</p><a href="../products/tb-500.html" class="btn btn-secondary">Learn More</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="../assets/images/products/wolverine-stack.png" alt="Wolverine Stack" class="product-bottle-img"></div>
+                <div class="product-info"><h3 class="product-name">Wolverine Stack</h3><p class="product-desc">BPC-157 &amp; TB-500 · 10mg</p><div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="product-price">$149.00</p><a href="../products/wolverine-stack.html" class="btn btn-secondary">Learn More</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="../assets/images/products/retatrutide.png" alt="Retatrutide" class="product-bottle-img"></div>
+                <div class="product-info"><h3 class="product-name">Retatrutide</h3><p class="product-desc">GLP-1 Agonist</p><div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="product-price">From $99.00</p><a href="../products/retatrutide.html" class="btn btn-secondary">Learn More</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="../assets/images/products/nad-plus.png" alt="NAD+" class="product-bottle-img"></div>
+                <div class="product-info"><h3 class="product-name">NAD+</h3><p class="product-desc">Cellular Energy · 1000mg</p><div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div><p class="product-price">$199.00</p><a href="../products/nad-plus.html" class="btn btn-secondary">Learn More</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="../assets/images/products/mots-c.png" alt="MOTS-c" class="product-bottle-img"></div>
+                <div class="product-info"><h3 class="product-name">MOTS-c</h3><p class="product-desc">Cellular Energy Research</p><div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="product-price">From $69.00</p><a href="../products/mots-c.html" class="btn btn-secondary">Learn More</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="../assets/images/products/tesamorelin.png" alt="Tesamorelin" class="product-bottle-img"></div>
+                <div class="product-info"><h3 class="product-name">Tesamorelin</h3><p class="product-desc">Visceral Fat Research</p><div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="product-price">$119.00</p><a href="../products/tesamorelin.html" class="btn btn-secondary">Learn More</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="../assets/images/products/ipamorelin.png" alt="Ipamorelin" class="product-bottle-img"></div>
+                <div class="product-info"><h3 class="product-name">Ipamorelin</h3><p class="product-desc">GH Secretagogue</p><div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="product-price">$69.00</p><a href="../products/ipamorelin.html" class="btn btn-secondary">Learn More</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="../assets/images/products/ghk-cu.png" alt="GHK-CU" class="product-bottle-img"></div>
+                <div class="product-info"><h3 class="product-name">GHK-CU</h3><p class="product-desc">Copper Peptide</p><div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="product-price">$89.00</p><a href="../products/ghk-cu.html" class="btn btn-secondary">Learn More</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="../assets/images/products/glow-blend.png" alt="Glow Blend" class="product-bottle-img"></div>
+                <div class="product-info"><h3 class="product-name">Glow Blend</h3><p class="product-desc">BPC + TB + GHK · 50mg</p><div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="product-price">$199.00</p><a href="../products/glow-blend.html" class="btn btn-secondary">Learn More</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="../assets/images/products/epithalon.png" alt="Epithalon" class="product-bottle-img"></div>
+                <div class="product-info"><h3 class="product-name">Epithalon</h3><p class="product-desc">Telomere Support</p><div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="product-price">$59.00</p><a href="../products/epithalon.html" class="btn btn-secondary">Learn More</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="../assets/images/products/ss-31.png" alt="SS-31" class="product-bottle-img"></div>
+                <div class="product-info"><h3 class="product-name">SS-31</h3><p class="product-desc">Cellular Energy Research</p><div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="product-price">$79.00</p><a href="../products/ss-31.html" class="btn btn-secondary">Learn More</a></div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"><img src="../assets/images/products/aod-9604.png" alt="AOD 9604" class="product-bottle-img"></div>
+                <div class="product-info"><h3 class="product-name">AOD 9604</h3><p class="product-desc">Fat Metabolism</p><div class="product-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="product-price">$69.00</p><a href="../products/aod-9604.html" class="btn btn-secondary">Learn More</a></div>
+            </div>
+        </div>
+        <div class="container" style="text-align:center; margin-top: 24px;">
+            <a href="../compounds.html" class="btn btn-outline shop-all-btn" style="display:inline-block;">Explore All Compounds</a>
+        </div>
+    </section>
+
+    <!-- ========== ALL PRODUCTS. CATEGORY STORYTELLING ========== -->
+
+    <!-- Recovery -->
+    <section class="cat-section desktop-only" id="catalog">
+        <div class="container cat-inner">
+            <div class="cat-text">
+                <span class="cat-tag">Tissue Biology</span>
+                <h2 class="cat-heading">Tissue Repair &amp; Recovery Research</h2>
+                <p class="cat-desc">Research investigates peptide mechanisms in tissue repair pathways, inflammatory response, and vascular function. BPC-157, derived from a gastric protein, is one of the most extensively studied peptides in preclinical models.</p>
+                <div class="cat-stats">
+                    <div class="cat-stat"><span class="cat-stat-num">&#10003;</span><span class="cat-stat-label">BPC-157 shown in clinical research to accelerate muscle, tendon, and ligament repair</span></div>
+                    <div class="cat-stat"><span class="cat-stat-num">&#10003;</span><span class="cat-stat-label">TB-500 investigated for cell migration &amp; tissue regeneration mechanisms</span></div>
+                </div>
+                <div class="cat-products">
+                    <div class="cat-product active"
+                         data-img="assets/images/products/bpc-157.png"
+                         data-desc="Extensively studied peptide derived from a gastric protein. Research investigates mechanisms in muscle, tendon, and ligament pathways, gastrointestinal function, and vascular signaling."
+                         data-stat1="&#10003;" data-stat1-label="Studied in research models for mechanisms in muscle, tendon, and ligament pathways" data-stat1-source="https://pubmed.ncbi.nlm.nih.gov/30915550/"
+                         data-stat2="&#10003;" data-stat2-label="Research examines mechanisms in injury response, inflammation, and gastrointestinal function">
+                        <h4>BPC-157</h4><p>Tissue repair &amp; gut healing</p><span class="cat-price">$79</span><a href="../products/bpc-157.html" class="btn btn-secondary">Learn More</a>
+</div>
+                    <div class="cat-product"
+                         data-img="assets/images/products/tb-500.png"
+                         data-desc="Research investigates systemic mechanisms in cell migration and tissue regeneration. Often combined with BPC-157 in research protocols examining comprehensive regenerative pathways."
+                         data-stat1="&#10003;" data-stat1-label="Investigated for cell migration and tissue regeneration mechanisms"
+                         data-stat2="&#10003;" data-stat2-label="Often combined with BPC-157 in research examining multi-pathway regenerative mechanisms">
+                        <h4>TB-500</h4><p>Cellular regeneration</p><span class="cat-price">$89</span><a href="../products/tb-500.html" class="btn btn-secondary">Learn More</a>
+</div>
+                    <div class="cat-product"
+                         data-img="assets/images/products/wolverine-stack.png"
+                         data-desc="Research formulation combining BPC-157 and TB-500. BPC-157 targets localized mechanisms while TB-500 operates systemically. together enabling dual-pathway investigation across regenerative pathways."
+                         data-stat1="&#10003;" data-stat1-label="Dual-pathway research: localized mechanisms (BPC-157) + systemic pathways (TB-500)"
+                         data-stat2="&#10003;" data-stat2-label="Most studied combination for multi-pathway regenerative mechanisms">
+                        <h4>Wolverine Stack</h4><p>BPC-157 + TB-500 dual-pathway</p><span class="cat-price">$149</span><a href="../products/wolverine-stack.html" class="btn btn-secondary">Learn More</a>
+</div>
+                    <div class="cat-product"
+                         data-img="assets/images/products/ghk-cu.png"
+                         data-desc="A naturally occurring copper peptide studied for mechanisms in collagen synthesis, hair follicle signaling, and wound repair pathways. GHK-CU levels decline with age in biological systems."
+                         data-stat1="40–50%" data-stat1-label="Wound closure mechanisms examined in research models vs. control" data-stat1-source="https://pmc.ncbi.nlm.nih.gov/articles/PMC6073405/"
+                         data-stat2="60%" data-stat2-label="GHK-CU plasma decline from age 20 to 60" data-stat2-source="https://pmc.ncbi.nlm.nih.gov/articles/PMC4508379/">
+                        <h4>GHK-CU</h4><p>Wound repair &amp; collagen</p><span class="cat-price">$89</span><a href="../products/ghk-cu.html" class="btn btn-secondary">Learn More</a>
+</div>
+                </div>
+                <a href="../blog/tissue-response-guide.html" class="btn btn-primary">Explore Recovery</a>
+            </div>
+            <div class="cat-img">
+                <img src="../assets/images/products/bpc-157.png" alt="Product bottle">
+            </div>
+        </div>
+    </section>
+
+    <!-- Longevity -->
+    <section class="cat-section cat-alt desktop-only">
+        <div class="container cat-inner cat-reverse">
+            <div class="cat-text">
+                <span class="cat-tag">Cellular Aging</span>
+                <h2 class="cat-heading">Cellular Aging &amp; Longevity Research</h2>
+                <p class="cat-desc">Research examines cellular health mechanisms, mitochondrial energy pathways, and age-related biological processes. NAD+ is a coenzyme critical for cellular energy production that declines significantly with age.</p>
+                <div class="cat-stats">
+                    <div class="cat-stat"><span class="cat-stat-num">~30%</span><span class="cat-stat-label">NAD+ decline between ages 45–60 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7442590/" target="_blank" rel="noopener" class="citation-link">Source</a></span></div>
+                    <div class="cat-stat"><span class="cat-stat-num">&#10003;</span><span class="cat-stat-label">Supports cellular energy production and DNA repair pathways</span></div>
+                </div>
+                <div class="cat-products">
+                    <div class="cat-product active"
+                         data-img="assets/images/products/nad-plus.png"
+                         data-desc="A critical coenzyme for cellular energy production and DNA repair pathways. NAD+ levels decline approximately 30% between ages 45–60, a change investigated in aging research models."
+                         data-stat1="~30%" data-stat1-label="NAD+ decline between ages 45–60 (review literature)"
+                         data-stat2="&#10003;" data-stat2-label="Supports cellular energy production and DNA repair pathways">
+                        <h4>NAD+ 1000mg</h4><p>Cellular energy &amp; DNA repair</p><span class="cat-price">$199</span><a href="../products/nad-plus.html" class="btn btn-secondary">Learn More</a>
+</div>
+                    <div class="cat-product"
+                         data-img="assets/images/products/mots-c.png"
+                         data-desc="Investigated at the mitochondrial level in cellular models. MOTS-c is studied for mechanisms in endurance, metabolic efficiency, and fatigue response at the cellular level."
+                         data-stat1="&#10003;" data-stat1-label="Mitochondrial-derived peptide investigated for metabolic efficiency mechanisms"
+                         data-stat2="&#10003;" data-stat2-label="Research examines endurance and fatigue resistance mechanisms">
+                        <h4>MOTS-c</h4><p>Mitochondrial exercise mimetic</p><span class="cat-price">From $69</span><a href="../products/mots-c.html" class="btn btn-secondary">Learn More</a>
+</div>
+                    <div class="cat-product"
+                         data-img="assets/images/products/epithalon.png"
+                         data-desc="Investigated for mechanisms affecting telomerase activity. the enzyme associated with telomere length, a biomarker studied in aging research. Epithalon represents emerging research in cellular aging investigations."
+                         data-stat1="&#10003;" data-stat1-label="Studied for telomerase activation in human cell models"
+                         data-stat2="&#10003;" data-stat2-label="Targets a key biomarker of cellular aging: telomere length">
+                        <h4>Epithalon</h4><p>Telomerase activator</p><span class="cat-price">$59</span><a href="../products/epithalon.html" class="btn btn-secondary">Learn More</a>
+</div>
+                    <div class="cat-product"
+                         data-img="assets/images/products/ss-31.png"
+                         data-desc="A mitochondria-targeting peptide that concentrates in the inner mitochondrial membrane. Research investigates mechanisms in oxidative stress response and cellular energy production."
+                         data-stat1="&#10003;" data-stat1-label="Targets the inner mitochondrial membrane directly"
+                         data-stat2="&#10003;" data-stat2-label="Investigated for oxidative stress response mechanisms at the cellular level">
+                        <h4>SS-31</h4><p>Mitochondria-targeting peptide</p><span class="cat-price">$79</span><a href="../products/ss-31.html" class="btn btn-secondary">Learn More</a>
+</div>
+                </div>
+                <a href="../blog/mitochondrial-function-guide.html" class="btn btn-primary">Explore Longevity</a>
+            </div>
+            <div class="cat-img">
+                <img src="../assets/images/products/nad-plus.png" alt="Product bottle">
+            </div>
+        </div>
+    </section>
+
+    <!-- Metabolic Science -->
+    <section class="cat-section desktop-only">
+        <div class="container cat-inner">
+            <div class="cat-text">
+                <span class="cat-tag">Metabolic Science</span>
+                <h2 class="cat-heading">Metabolic &amp; Weight Research</h2>
+                <p class="cat-desc">Retatrutide is a triple-receptor agonist (GLP-1/GIP/glucagon) studied in Phase 3 clinical trials for metabolic mechanisms. Research investigates effects on appetite signaling, digestion pathways, and glucose-insulin metabolism.</p>
+                <div class="cat-stats">
+                    <div class="cat-stat"><span class="cat-stat-num">23.7%</span><span class="cat-stat-label">Body weight changes observed with Retatrutide in Phase 3 trial <a href="https://clinicaltrials.gov/study/NCT05931367" target="_blank" rel="noopener" class="citation-link">Source</a></span></div>
+                    <div class="cat-stat"><span class="cat-stat-num">&#10003;</span><span class="cat-stat-label">Triple-receptor mechanism targets appetite, digestion, and metabolism simultaneously</span></div>
+                </div>
+                <div class="cat-products">
+                    <div class="cat-product active"
+                         data-img="assets/images/products/retatrutide.png"
+                         data-desc="A triple-receptor agonist (GLP-1/GIP/glucagon) studied in NEJM Phase 3 trials. Research examines mechanisms in appetite signaling, digestion pathways, and glucose-insulin metabolism."
+                         data-stat1="23.7%" data-stat1-label="Body weight changes observed in Phase 3 TRIUMPH-4 trial" data-stat1-source="https://clinicaltrials.gov/study/NCT05931367"
+                         data-stat2="&#10003;" data-stat2-label="Triple-receptor mechanism targets appetite, digestion, and metabolism simultaneously">
+                        <h4>Retatrutide</h4><p>Triple-receptor metabolic agonist</p><span class="cat-price">From $99</span><a href="../products/retatrutide.html" class="btn btn-secondary">Learn More</a>
+</div>
+                    <div class="cat-product"
+                         data-img="assets/images/products/tesamorelin.png"
+                         data-desc="A growth hormone-releasing peptide studied for mechanisms in metabolic pathways and visceral fat metabolism. Research investigates effects on abdominal fat distribution and cognitive function."
+                         data-stat1="18%" data-stat1-label="Visceral fat changes observed in 404-patient clinical trial" data-stat1-source="https://pubmed.ncbi.nlm.nih.gov/20101189/"
+                         data-stat2="&#10003;" data-stat2-label="Improves body composition and reduces stubborn abdominal fat">
+                        <h4>Tesamorelin</h4><p>Visceral fat reduction</p><span class="cat-price">$119</span><a href="../products/tesamorelin.html" class="btn btn-secondary">Learn More</a>
+</div>
+                    <div class="cat-product"
+                         data-img="assets/images/products/aod-9604.png"
+                         data-desc="Derived from growth hormone, AOD 9604 is investigated for mechanisms in fat metabolism through lipolysis. Research examines effects on lipid utilization and glucose homeostasis."
+                         data-stat1="&#10003;" data-stat1-label="Derived from growth hormone. targets fat burning directly (lipolysis)"
+                         data-stat2="&#10003;" data-stat2-label="Does not affect blood sugar levels, unlike many weight management compounds">
+                        <h4>AOD 9604</h4><p>HGH fat-burning fragment</p><span class="cat-price">$69</span><a href="../products/aod-9604.html" class="btn btn-secondary">Learn More</a>
+</div>
+                </div>
+                <a href="../blog/endocrine-pathways-guide.html" class="btn btn-primary">Explore Weight</a>
+            </div>
+            <div class="cat-img">
+                <img src="../assets/images/products/retatrutide.png" alt="Product bottle">
+            </div>
+        </div>
+    </section>
+
+    <!-- Immunology & Recovery -->
+    <section class="cat-section cat-alt desktop-only">
+        <div class="container cat-inner cat-reverse">
+            <div class="cat-text">
+                <span class="cat-tag">Immunology &amp; Recovery</span>
+                <h2 class="cat-heading">Skin &amp; Tissue Research</h2>
+                <p class="cat-desc">The Glow Blend combines three research peptides. BPC-157, TB-500, and GHK-CU. in a single formulation investigated for mechanisms in collagen synthesis, wound healing pathways, and skin cell function.</p>
+                <div class="cat-stats">
+                    <div class="cat-stat"><span class="cat-stat-num">40–50%</span><span class="cat-stat-label">Wound closure mechanisms examined in research models vs. control <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6073405/" target="_blank" rel="noopener" class="citation-link">Source</a></span></div>
+                    <div class="cat-stat"><span class="cat-stat-num">60%</span><span class="cat-stat-label">GHK-CU plasma decline from age 20 to 60 <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4508379/" target="_blank" rel="noopener" class="citation-link">Source</a></span></div>
+                </div>
+                <div class="cat-products">
+                    <div class="cat-product active"
+                         data-img="assets/images/products/glow-blend.png"
+                         data-desc="A triple-peptide research formulation combining BPC-157, TB-500, and GHK-CU in one vial. Investigated for mechanisms in tissue pathways, cell regeneration, and collagen synthesis."
+                         data-stat1="3-in-1" data-stat1-label="BPC-157 + TB-500 + GHK-CU combined in a single formulation"
+                         data-stat2="&#10003;" data-stat2-label="Targets tissue repair, regeneration, and collagen production simultaneously">
+                        <h4>Glow Blend</h4><p>BPC-157 + TB-500 + GHK-CU</p><span class="cat-price">$199</span><a href="../products/glow-blend.html" class="btn btn-secondary">Learn More</a>
+</div>
+                    <div class="cat-product"
+                         data-img="assets/images/products/ghk-cu.png"
+                         data-desc="A naturally occurring copper peptide investigated for mechanisms in skin, collagen, hair, and wound repair pathways. GHK-CU plasma levels decline from 200 ng/mL at age 20 to 80 ng/mL by age 60."
+                         data-stat1="40–50%" data-stat1-label="Wound closure mechanisms examined in research models vs. control" data-stat1-source="https://pmc.ncbi.nlm.nih.gov/articles/PMC6073405/"
+                         data-stat2="60%" data-stat2-label="GHK-CU plasma decline from age 20 to 60" data-stat2-source="https://pmc.ncbi.nlm.nih.gov/articles/PMC4508379/">
+                        <h4>GHK-CU</h4><p>Copper peptide complex</p><span class="cat-price">$89</span><a href="../products/ghk-cu.html" class="btn btn-secondary">Learn More</a>
+</div>
+                </div>
+                <a href="../blog/collagen-synthesis-guide.html" class="btn btn-primary">Explore Skin</a>
+            </div>
+            <div class="cat-img">
+                <img src="../assets/images/products/glow-blend.png" alt="Product bottle">
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance -->
+    <section class="cat-section desktop-only">
+        <div class="container cat-inner">
+            <div class="cat-text">
+                <span class="cat-tag">Cellular Energy</span>
+                <h2 class="cat-heading">Cellular Aging Research</h2>
+                <p class="cat-desc">Ipamorelin is one of the most selective growth hormone secretagogues studied. investigated for GH release mechanisms without cortisol or ACTH elevation. Research examines effects on recovery, muscle development, and sleep pathways."</p>
+                <div class="cat-stats">
+                    <div class="cat-stat"><span class="cat-stat-num">Selective</span><span class="cat-stat-label">Ipamorelin stimulates GH release without elevating cortisol or ACTH</span></div>
+                    <div class="cat-stat"><span class="cat-stat-num">&#10003;</span><span class="cat-stat-label">Published peer-reviewed research confirms selectivity over other GH secretagogues</span></div>
+                </div>
+                <div class="cat-products">
+                    <div class="cat-product active"
+                         data-img="assets/images/products/ipamorelin.png"
+                         data-desc="One of the most selective GH secretagogues studied. Research investigates Ipamorelin's mechanisms in growth hormone signaling without cortisol elevation. Examined for effects on muscle, recovery, sleep, and metabolic pathways."
+                         data-stat1="Selective" data-stat1-label="Investigated for GH release mechanisms without cortisol or ACTH elevation"
+                         data-stat2="&#10003;" data-stat2-label="Published peer-reviewed research confirms selectivity over other GH secretagogues">
+                        <h4>Ipamorelin</h4><p>Selective GH secretagogue</p><span class="cat-price">$69</span><a href="../products/ipamorelin.html" class="btn btn-secondary">Learn More</a>
+</div>
+                    <div class="cat-product"
+                         data-img="assets/images/products/mots-c.png"
+                         data-desc="A mitochondrial-derived peptide investigated at the cellular energy level. Research examines MOTS-c mechanisms in endurance, metabolic efficiency, and fatigue response."
+                         data-stat1="&#10003;" data-stat1-label="Investigated at the mitochondrial level for cellular energy production mechanisms"
+                         data-stat2="&#10003;" data-stat2-label="Research examines endurance and fatigue resistance mechanisms">
+                        <h4>MOTS-c</h4><p>Endurance &amp; fatigue resistance</p><span class="cat-price">From $69</span><a href="../products/mots-c.html" class="btn btn-secondary">Learn More</a>
+</div>
+                </div>
+                <a href="../blog/gh-signaling-guide.html" class="btn btn-primary">Explore Performance</a>
+            </div>
+            <div class="cat-img">
+                <img src="../assets/images/products/ipamorelin.png" alt="Product bottle">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CATEGORIES + TESTIMONIAL ========== -->
+    <section class="social-proof-section">
+        <div class="container">
+            <div class="category-grid">
+                <div class="category-item">
+                    <div class="category-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+                        </svg>
+                    </div>
+                    <span>Recovery</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <span>Cellular Aging</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <span>Immune Support</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2a7 7 0 017 7c0 5-7 13-7 13S5 14 5 9a7 7 0 017-7z"/>
+                            <circle cx="12" cy="9" r="2.5"/>
+                        </svg>
+                    </div>
+                    <span>Brain Health</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                        </svg>
+                    </div>
+                    <span>Hormone Balance</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.07-2.14-1.2-3.3-.5-4.5C11.5 6 12 7 12 8.5c.37-1 1.5-2.5 1-4 2.09.88 2.91 3.14 1.5 6-.5 1-.5 2 .5 3a2.5 2.5 0 002.5 2.5"/>
+                            <path d="M12 22c-4.97 0-9-2.24-9-5v-1c0-1.66 4.03-3 9-3s9 1.34 9 3v1c0 2.76-4.03 5-9 5z"/>
+                        </svg>
+                    </div>
+                    <span>Inflammation</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <blockquote>
+                    &ldquo;33 Degrees of Healing provides the highest quality compounds I've used in my clinic. The purity and consistency are unmatched.&rdquo;
+                </blockquote>
+                <cite>— Dr. A. Reynolds, Functional Medicine Specialist</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== BRAND STORY ========== -->
+    <section class="brand-story" id="brand-story">
+        <div class="container">
+            <h2 class="section-title">Why 33 Degrees?</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <p>33 represents the pursuit of scientific understanding and discovery. Just as the spine contains 33 vertebrae structuring the nervous system, our mission is to advance peptide research through rigorous science and natural compound investigation.</p>
+                    <p class="mission-statement">Our mission is to advance health by providing science-driven research compounds and knowledge that empower the natural ability to repair, regenerate, and thrive.</p>
+                </div>
+                <div class="story-image">
+                    <img src="../assets/images/logo-transparent.png" alt="33 Degrees of Healing. Tree of Life" class="story-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== NEWSLETTER / COMMUNITY CTA ========== -->
+    <section class="community-section">
+        <div class="container">
+            <h2 class="section-title">Join the Research Community</h2>
+            <p class="section-subtitle">Subscribe for exclusive research updates, new compound releases, and member-only pricing.</p>
+            <div class="community-actions">
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <a href="#" class="btn btn-outline community-btn">Join Community</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="../assets/images/logo-transparent.png" alt="33 Degrees of Healing" class="footer-logo">
+                    <p class="footer-tagline">Third-Party Lab Tested &middot; Pharmaceutical-Grade Purity &middot; COA With Every Order</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="../compounds.html">Research Compounds</a></li>
+                        <li><a href="../research.html">Research</a></li>
+                        <li><a href="#brand-story">Philosophy</a></li>
+                        <li><a href="#">Lab Testing</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Policies</h4>
+                    <ul>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="TikTok">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="disclaimer">For research purposes only. Not intended for consumption, clinical application, or diagnostic use. These products are not FDA-approved and are not intended to diagnose, treat, cure, or prevent any disease.</p>
+                <p class="copyright">&copy; 2026 33 Degrees of Healing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js?v=30"></script>
+    <script type="module" src="../js/peptide-chain.js?v=5"></script>
+</body>
+</html>

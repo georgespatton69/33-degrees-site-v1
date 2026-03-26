@@ -1,0 +1,28 @@
+/* B — Midnight Teal: Clinical elegance */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --gold: #0d9488;
+    --gold-light: #14b8a6;
+    --gold-dark: #0a7a70;
+    --gold-glow: rgba(13, 148, 136, 0.3);
+    --border-subtle: rgba(13, 148, 136, 0.15);
+    --border-gold: rgba(13, 148, 136, 0.4);
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+body { font-family: var(--font-body); }
+.hero-logo { filter: hue-rotate(160deg) saturate(0.7) brightness(1.2); }
+.nav-logo-text, .section-title, .bundle-name, .product-name, .cat-heading,
+.story-content h2 { font-family: var(--font-heading); }
+.carousel-tab.active { background: var(--gold); border-color: var(--gold); }
+.btn-primary { background: var(--gold); }
+.btn-primary:hover { background: var(--gold-dark); }
+.btn-secondary { background: var(--gold); border-color: var(--gold); }
+.btn-secondary:hover { background: var(--gold-light); border-color: var(--gold-light); }
+.bundle-dot.active { background: var(--gold); }
+.product-badge { background: var(--gold); }
+.product-stars { color: #c0c0c0; }
+.hero-tagline { letter-spacing: 4px; }
+.ticker-item svg { stroke: var(--gold-light); }

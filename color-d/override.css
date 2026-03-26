@@ -1,0 +1,41 @@
+/* D — Electric Navy: Bold modern */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --gold: #f0c040;
+    --gold-light: #f5d76e;
+    --gold-dark: #d4a020;
+    --gold-glow: rgba(240, 192, 64, 0.3);
+    --bg-primary: #0a0e1a;
+    --bg-card: #10152a;
+    --text-primary: #ffffff;
+    --text-secondary: #a0b0cc;
+    --text-muted: #6880a0;
+    --border-subtle: rgba(240, 192, 64, 0.12);
+    --border-gold: rgba(240, 192, 64, 0.4);
+    --font-heading: 'DM Serif Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+}
+
+html { background: #0a0e1a; }
+body { font-family: var(--font-body); }
+.nav-logo-text, .section-title, .bundle-name, .product-name, .cat-heading,
+.story-content h2, .hero-subtitle, .bundle-price, .product-price,
+.cat-stat-num { font-family: var(--font-heading); }
+.hero { background: #0a0e1a; }
+.hero-logo { filter: brightness(1.3) saturate(1.2); }
+.section-title { font-size: 2.2rem; letter-spacing: -0.5px; }
+.carousel-tab { border-radius: 6px; font-weight: 600; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 1.5px; }
+.carousel-tab.active { background: var(--gold); border-color: var(--gold); color: #0a0e1a; }
+.btn-primary { background: var(--gold); color: #0a0e1a; font-weight: 700; border-radius: 6px; }
+.btn-primary:hover { background: var(--gold-dark); color: #0a0e1a; }
+.btn-secondary { background: transparent; border: 1.5px solid var(--gold); color: var(--gold); }
+.btn-secondary:hover { background: var(--gold); color: #0a0e1a; }
+.product-card { background: var(--bg-card); border-color: rgba(240, 192, 64, 0.08); border-radius: 12px; }
+.product-card:hover { border-color: var(--gold); }
+.bundle-card { background: var(--bg-card); border-color: rgba(240, 192, 64, 0.1); }
+.bundle-includes span { background: rgba(240, 192, 64, 0.06); border-color: rgba(240, 192, 64, 0.15); }
+.product-image { background: rgba(240, 192, 64, 0.03); }
+.popular-bundles { background: #080c16; }
+.featured-products { background: #0a0e1a; }
+.trust-badges { background: rgba(240, 192, 64, 0.04); border-bottom-color: rgba(240, 192, 64, 0.1); }
