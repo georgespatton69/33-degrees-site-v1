@@ -1,0 +1,153 @@
+/* D-Light — Electric Navy on white/light backgrounds */
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:wght@400;500;600;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap');
+
+:root {
+    --gold: #c49520;
+    --gold-light: #f0c040;
+    --gold-dark: #a07a10;
+    --gold-glow: rgba(196, 149, 32, 0.15);
+    --bg-primary: #f7f8fc;
+    --bg-card: #ffffff;
+    --text-primary: #0a0e1a;
+    --text-secondary: #3a4060;
+    --text-muted: #6a7090;
+    --border-subtle: rgba(20, 38, 119, 0.08);
+    --border-gold: rgba(196, 149, 32, 0.3);
+    --font-heading: 'Newsreader', serif;
+    --font-body: 'Atkinson Hyperlegible', sans-serif;
+}
+
+html { background: #f7f8fc; }
+body { font-family: var(--font-body); color: var(--text-primary); }
+
+/* Nav */
+.site-header { background: rgba(247, 248, 252, 0.95) !important; backdrop-filter: blur(20px); border-bottom: 1px solid rgba(20, 38, 119, 0.08); }
+.nav-logo-text { color: #0a0e1a; font-family: var(--font-heading); }
+.nav-logo-sub { color: var(--text-muted); }
+.nav-link { color: var(--text-secondary); }
+.nav-link:hover, .nav-link.active { color: #142677; }
+.nav-icon { color: var(--text-secondary); }
+.mobile-menu-toggle span { background: #0a0e1a; }
+
+/* Fonts */
+.nav-logo-text, .section-title, .bundle-name, .product-name, .cat-heading,
+.story-content h2, .hero-subtitle, .bundle-price, .product-price,
+.cat-stat-num { font-family: var(--font-heading); }
+
+/* Hero — keep dark for video */
+.hero { background: #0a0e1a; }
+.hero-logo { filter: brightness(1.3) saturate(1.2); }
+.hero-subtitle { color: #fff; font-family: var(--font-heading); }
+.hero-tagline { color: rgba(255,255,255,0.45); }
+.hero .btn-primary { background: var(--gold-light); color: #0a0e1a; font-weight: 700; border-radius: 6px; }
+.hero .btn-primary:hover { background: var(--gold); color: #0a0e1a; }
+
+/* Trust badges */
+.trust-badges { background: #eef0f8 !important; border-bottom: 1px solid rgba(20, 38, 119, 0.06); }
+.badge-item span { color: var(--text-secondary); }
+.badge-item svg { stroke: #142677; }
+
+/* Ticker */
+.trust-ticker { background: #142677; }
+
+/* Section titles */
+.section-title { color: #0a0e1a; }
+.section-subtitle { color: var(--text-muted); }
+
+/* Featured products */
+.featured-products { background: #f7f8fc !important; }
+.carousel-tab { background: #eef0f8; border-color: rgba(20, 38, 119, 0.1); color: var(--text-secondary); border-radius: 6px; font-weight: 600; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 1.5px; }
+.carousel-tab:hover { border-color: #142677; color: #142677; }
+.carousel-tab.active { background: #142677; border-color: #142677; color: #fff; }
+.product-card { background: #fff; border-color: rgba(20, 38, 119, 0.06); border-radius: 12px; }
+.product-card:hover { box-shadow: 0 8px 30px rgba(20, 38, 119, 0.1); border-color: #142677; }
+.product-image { background: #f2f3f9; }
+.product-name { color: #0a0e1a; }
+.product-desc { color: var(--text-muted); }
+.product-price { color: #142677; }
+.product-stars { color: var(--gold); }
+.product-badge { background: #142677; color: #fff; border-radius: 4px; }
+.btn-secondary { background: transparent; border: 1.5px solid #142677; color: #142677; }
+.btn-secondary:hover { background: #142677; color: #fff; }
+
+/* Bundles */
+.popular-bundles { background: #eef0f8 !important; }
+.bundle-card { background: #fff; border-color: rgba(20, 38, 119, 0.06); border-radius: 12px; }
+.bundle-name { color: #0a0e1a; }
+.bundle-desc { color: var(--text-secondary); }
+.bundle-price { color: #142677; }
+.bundle-includes span { background: rgba(20, 38, 119, 0.04); border-color: rgba(20, 38, 119, 0.1); color: var(--text-secondary); }
+.bundle-images { background: #f2f3f9; }
+.bundle-arrow { border-color: rgba(20, 38, 119, 0.15); background: #fff; border-radius: 50%; }
+.bundle-arrow svg { stroke: #142677; }
+.bundle-arrow:hover { background: #142677; border-color: #142677; }
+.bundle-arrow:hover svg { stroke: #fff; }
+.bundle-dot { background: rgba(20, 38, 119, 0.15); }
+.bundle-dot.active { background: #142677; }
+
+/* Science section — dark with lab bg */
+.science-section { background: #0a0e1a !important; position: relative; overflow: hidden; }
+.science-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../assets/images/lab-bg.png') center/cover no-repeat;
+    opacity: 0.08;
+    z-index: 0;
+}
+.science-section .container { position: relative; z-index: 1; }
+.science-section .section-title { color: #fff; }
+.science-process { color: rgba(255,255,255,0.35); }
+.science-text { color: rgba(255,255,255,0.65); }
+.science-section .btn-outline { color: #fff; border-color: rgba(255,255,255,0.2); border-radius: 6px; }
+.science-section .btn-outline:hover { background: #fff; color: #0a0e1a; }
+
+/* Catalog sections */
+.cat-section { background: #f7f8fc !important; }
+.cat-section.cat-alt { background: #eef0f8 !important; }
+.cat-tag { color: #142677; }
+.cat-heading { color: #0a0e1a; }
+.cat-desc { color: var(--text-secondary); }
+.cat-stat-num { color: #142677; }
+.cat-stat-label { color: var(--text-muted); }
+.cat-product { background: #fff; border-color: rgba(20, 38, 119, 0.06); }
+.cat-product:hover, .cat-product.active { border-color: #142677; }
+.cat-product.active { background: rgba(20, 38, 119, 0.02); }
+.cat-product h4 { color: #0a0e1a; }
+.cat-product p { color: var(--text-muted); }
+.cat-price { color: #142677; }
+.cat-shop-btn { border-color: #142677; color: #142677; }
+.cat-shop-btn:hover { background: #142677; color: #fff; }
+
+/* Social proof */
+.social-proof-section { background: #eef0f8 !important; }
+.category-icon { background: #fff; border-color: rgba(20, 38, 119, 0.06); }
+.category-item span { color: var(--text-secondary); }
+.testimonial-card { background: #fff; border-color: rgba(20, 38, 119, 0.06); }
+.testimonial-card blockquote { color: #0a0e1a; }
+.testimonial-card cite { color: var(--text-muted); }
+.testimonial-stars { color: var(--gold); }
+
+/* Brand story */
+.brand-story { background: #f7f8fc !important; }
+.story-content h2 { color: #0a0e1a; }
+.story-text { color: var(--text-secondary); }
+.mission-statement { color: #142677; border-color: var(--gold); }
+
+/* Community / Newsletter */
+.community-section { background: #142677 !important; }
+.community-section .section-title { color: #fff; }
+.newsletter-input { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: #fff; border-radius: 6px; }
+.newsletter-form .btn { background: var(--gold-light); color: #0a0e1a; border-radius: 6px; }
+
+/* Footer */
+.site-footer { background: #070a14 !important; }
+.footer-logo { color: #fff; }
+
+/* Mobile overlay */
+.mobile-menu-overlay { background: rgba(10, 14, 26, 0.97); }
+
+/* All products mobile */
+.all-products { background: #f7f8fc !important; }
+.shop-all-btn { color: #142677 !important; border-color: #142677 !important; border-radius: 6px !important; }
+.btn-outline { border-radius: 6px; }
