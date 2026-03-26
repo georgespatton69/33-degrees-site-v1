@@ -799,6 +799,100 @@ img {
     line-height: 1.8;
 }
 
+/* ========== POPULAR BUNDLES ========== */
+.popular-bundles {
+    padding: 80px 0;
+    background: #0d0d0d;
+}
+.popular-bundles .section-subtitle {
+    color: rgba(255,255,255,0.6);
+    max-width: 600px;
+    margin: -10px auto 50px;
+    font-size: 0.95rem;
+}
+.bundles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.bundle-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(212,168,67,0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.bundle-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(212,168,67,0.08);
+    border-color: rgba(212,168,67,0.4);
+}
+.bundle-images {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 0;
+    padding: 24px 20px 0;
+    background: linear-gradient(180deg, rgba(212,168,67,0.03) 0%, transparent 100%);
+    min-height: 180px;
+}
+.bundle-images img {
+    width: 80px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 -8px;
+}
+.bundle-images img:nth-child(2) {
+    transform: translateY(-8px);
+    z-index: 1;
+    width: 90px;
+}
+.bundle-info {
+    padding: 20px 24px 24px;
+    display: flex;
+    flex-direction: column;
+}
+.bundle-name {
+    font-family: 'Cinzel', serif;
+    color: #d4a843;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+.bundle-desc {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+.bundle-includes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+.bundle-includes span {
+    background: rgba(212,168,67,0.1);
+    border: 1px solid rgba(212,168,67,0.2);
+    color: rgba(255,255,255,0.8);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+.bundle-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+.bundle-price {
+    font-family: 'Cinzel', serif;
+    color: #d4a843;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
 .peptides-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1525,6 +1619,41 @@ img {
     :root {
         --section-padding: 60px 0;
     }
+
+    /* Bundles mobile */
+    .bundles-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .bundle-card {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+    }
+    .bundle-images {
+        min-height: auto;
+        width: 120px;
+        min-width: 120px;
+        flex-direction: column;
+        padding: 16px 10px;
+        align-items: center;
+        justify-content: center;
+    }
+    .bundle-images img {
+        width: 55px;
+        margin: -4px 0;
+    }
+    .bundle-images img:nth-child(2) {
+        transform: none;
+        width: 55px;
+    }
+    .bundle-info {
+        padding: 16px;
+    }
+    .bundle-name { font-size: 1rem; }
+    .bundle-desc { font-size: 0.8rem; margin-bottom: 10px; }
+    .bundle-includes { margin-bottom: 12px; }
+    .bundle-footer .btn { font-size: 0.75rem; padding: 6px 14px; }
 
     .compounds-hero {
         display: none;
