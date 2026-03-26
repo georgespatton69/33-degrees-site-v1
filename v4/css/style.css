@@ -193,6 +193,13 @@ img { max-width: 100%; height: auto; display: block; }
     content: '';
     position: absolute;
     inset: 0;
+    background: url('../assets/lab-bg.png') center/cover no-repeat;
+    opacity: 0.12;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
     background: radial-gradient(ellipse at 30% 50%, rgba(13,148,136,0.15) 0%, transparent 60%),
                 radial-gradient(ellipse at 70% 50%, rgba(184,145,46,0.08) 0%, transparent 60%);
 }
