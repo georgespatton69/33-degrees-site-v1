@@ -212,8 +212,8 @@ function animate() {
 
     currentScroll = lerp(currentScroll, targetScroll, LERP_FACTOR);
 
-    // Update camera
-    camera.position.z = lerp(40, 18, currentScroll);
+    // Update camera — start close, stay close
+    camera.position.z = lerp(18, 18, currentScroll);
     camera.position.x = lerp(0, -3, currentScroll);
 
     // Update chain
@@ -271,7 +271,7 @@ function init() {
 
     // Camera
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.set(0, 0, 40);
+    camera.position.set(0, 0, 18);
 
     // Lights
     const ambient = new THREE.AmbientLight(0xffffff, 0.1);
