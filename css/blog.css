@@ -3,12 +3,12 @@
 /* ---------- Blog Hero ---------- */
 .blog-hero {
     padding: 140px 2rem 3rem;
-    background: #0a0a0a;
+    background: #faf6f0;
     text-align: center;
 }
 
 .blog-eyebrow {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.8rem;
     color: rgba(255,255,255,0.4);
     letter-spacing: 3px;
@@ -17,14 +17,14 @@
 }
 
 .blog-title {
-    font-family: 'Cinzel', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: clamp(1.8rem, 4vw, 2.8rem);
-    color: #d4a843;
+    color: #9a7b3f;
     margin-bottom: 1rem;
 }
 
 .blog-subtitle {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.95rem;
     color: rgba(255,255,255,0.5);
     max-width: 550px;
@@ -34,7 +34,7 @@
 
 /* ---------- Blog Grid ---------- */
 .blog-grid-section {
-    background: #0f0f0f;
+    background: #f3ede4;
     padding: 3rem 2rem 5rem;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .blog-card-icon {
-    color: #d4a843;
+    color: #9a7b3f;
     opacity: 0.5;
     margin-bottom: 1.25rem;
 }
@@ -79,11 +79,11 @@
 }
 
 .blog-card-tag {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #d4a843;
+    color: #9a7b3f;
     background: rgba(212,168,67,0.1);
     padding: 0.2rem 0.6rem;
     border-radius: 20px;
@@ -93,15 +93,15 @@
 }
 
 .blog-card h3 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: 1rem;
-    color: #fff;
+    color: #2c2416;
     line-height: 1.4;
     margin-bottom: 0.75rem;
 }
 
 .blog-card p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.8rem;
     line-height: 1.7;
     color: rgba(255,255,255,0.45);
@@ -109,9 +109,9 @@
 }
 
 .blog-card-cta {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.78rem;
-    color: #d4a843;
+    color: #9a7b3f;
     margin-top: 1.25rem;
     opacity: 0.6;
     transition: opacity 0.3s ease;
@@ -124,7 +124,7 @@
 /* ---------- Article Page ---------- */
 .article-hero {
     padding: 140px 2rem 2rem;
-    background: #0a0a0a;
+    background: #faf6f0;
     text-align: center;
 }
 
@@ -133,7 +133,7 @@
     align-items: center;
     gap: 0.5rem;
     color: rgba(255,255,255,0.4);
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.8rem;
     text-decoration: none;
     margin-bottom: 1.5rem;
@@ -141,16 +141,16 @@
 }
 
 .article-back:hover {
-    color: #d4a843;
+    color: #9a7b3f;
 }
 
 .article-tag {
     display: inline-block;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.6rem;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #d4a843;
+    color: #9a7b3f;
     background: rgba(212,168,67,0.1);
     padding: 0.25rem 0.75rem;
     border-radius: 20px;
@@ -158,9 +158,9 @@
 }
 
 .article-title {
-    font-family: 'Cinzel', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: clamp(1.5rem, 3.5vw, 2.4rem);
-    color: #d4a843;
+    color: #9a7b3f;
     margin-bottom: 1rem;
     max-width: 800px;
     margin-left: auto;
@@ -168,14 +168,14 @@
 }
 
 .article-meta {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.78rem;
     color: rgba(255,255,255,0.35);
 }
 
 /* ---------- Article Body ---------- */
 .article-body {
-    background: #0a0a0a;
+    background: #faf6f0;
     padding: 2rem 2rem 5rem;
 }
 
@@ -185,21 +185,21 @@
 }
 
 .article-content h2 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: 1.3rem;
-    color: #d4a843;
+    color: #9a7b3f;
     margin: 2.5rem 0 1rem;
 }
 
 .article-content h3 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: 1.05rem;
     color: rgba(255,255,255,0.9);
     margin: 2rem 0 0.75rem;
 }
 
 .article-content p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.9rem;
     line-height: 1.85;
     color: rgba(255,255,255,0.65);
@@ -207,7 +207,7 @@
 }
 
 .article-content ul, .article-content ol {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.88rem;
     line-height: 1.8;
     color: rgba(255,255,255,0.6);
@@ -224,7 +224,7 @@
 }
 
 .article-content a {
-    color: #d4a843;
+    color: #9a7b3f;
     text-decoration: none;
     border-bottom: 1px dotted rgba(212,168,67,0.4);
     transition: opacity 0.3s ease;
@@ -244,9 +244,9 @@
 }
 
 .article-takeaway h4 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: 0.95rem;
-    color: #d4a843;
+    color: #9a7b3f;
     margin-bottom: 0.75rem;
 }
 
@@ -263,7 +263,7 @@
 }
 
 .article-sources h3 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: 1rem;
     color: rgba(255,255,255,0.7);
     margin-bottom: 1rem;
@@ -276,14 +276,14 @@
 }
 
 .article-sources a {
-    color: #d4a843;
+    color: #9a7b3f;
     opacity: 0.6;
     font-size: 0.75rem;
 }
 
 /* Disclaimer */
 .article-disclaimer {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.72rem;
     color: rgba(255,255,255,0.3);
     font-style: italic;
@@ -332,8 +332,8 @@
 
 .related-products-grid .product-info .btn-secondary {
     margin-top: auto;
-    border-bottom: 2px solid var(--gold, #d4a843) !important;
-    box-shadow: 0 1px 0 0 #d4a843;
+    border-bottom: 2px solid var(--gold, #9a7b3f) !important;
+    box-shadow: 0 1px 0 0 #9a7b3f;
 }
 
 @media (max-width: 768px) {
@@ -381,9 +381,9 @@
 }
 
 .mechanism-title {
-    font-family: 'Cinzel', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: 0.9rem;
-    color: #d4a843;
+    color: #9a7b3f;
     text-align: center;
     margin-bottom: 1.25rem;
 }
@@ -410,8 +410,8 @@
     border-radius: 50%;
     background: rgba(212,168,67,0.15);
     border: 1px solid rgba(212,168,67,0.3);
-    color: #d4a843;
-    font-family: 'Cinzel', serif;
+    color: #9a7b3f;
+    font-family: 'Libre Baskerville', serif;
     font-size: 0.85rem;
     display: flex;
     align-items: center;
@@ -420,7 +420,7 @@
 }
 
 .mechanism-label {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.72rem;
     color: rgba(255,255,255,0.6);
     line-height: 1.4;
@@ -451,13 +451,13 @@
 }
 
 .application-card svg {
-    color: #d4a843;
+    color: #9a7b3f;
     opacity: 0.6;
     flex-shrink: 0;
 }
 
 .application-card span {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.78rem;
     color: rgba(255,255,255,0.6);
 }
@@ -472,7 +472,7 @@
 }
 
 .community-box h4 {
-    font-family: 'Cinzel', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: 0.9rem;
     color: rgba(255,255,255,0.8);
     margin-bottom: 0.5rem;
@@ -500,9 +500,9 @@
 }
 
 .comparison-header span {
-    font-family: 'Cinzel', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: 0.8rem;
-    color: #d4a843;
+    color: #9a7b3f;
     text-align: center;
 }
 
@@ -522,14 +522,14 @@
 }
 
 .comparison-label {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.78rem;
     color: rgba(255,255,255,0.7);
     font-weight: 500;
 }
 
 .comparison-row span {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.75rem;
     color: rgba(255,255,255,0.5);
     text-align: center;
@@ -568,7 +568,7 @@
 
 /* ---------- Glossary Tooltips ---------- */
 .glossary-term {
-    color: #d4a843;
+    color: #9a7b3f;
     border-bottom: 1px dotted rgba(212,168,67,0.4);
     cursor: help;
     position: relative;
@@ -576,7 +576,7 @@
 }
 
 .glossary-term:hover {
-    border-color: #d4a843;
+    border-color: #9a7b3f;
 }
 
 .glossary-tooltip {
@@ -584,7 +584,7 @@
     bottom: calc(100% + 10px);
     left: 50%;
     transform: translateX(-50%);
-    background: #1a1a1a;
+    background: #f3ede4;
     border: 1px solid rgba(212,168,67,0.3);
     border-radius: 10px;
     padding: 1rem 1.25rem;
@@ -612,15 +612,15 @@
 }
 
 .glossary-tooltip-term {
-    font-family: 'Cinzel', serif;
+    font-family: 'Libre Baskerville', serif;
     font-size: 0.8rem;
-    color: #d4a843;
+    color: #9a7b3f;
     margin-bottom: 0.4rem;
     display: block;
 }
 
 .glossary-tooltip-def {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
     font-size: 0.78rem;
     line-height: 1.6;
     color: rgba(255,255,255,0.7);
