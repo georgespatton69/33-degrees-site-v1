@@ -143,12 +143,12 @@ img {
 
 .btn-primary {
     background: var(--gold);
-    color: var(--black);
+    color: #fff;
 }
 
 .btn-primary:hover {
-    background: var(--gold-light);
-    color: var(--black);
+    background: var(--gold-dark);
+    color: #fff;
     box-shadow: 0 0 30px var(--gold-glow);
 }
 
