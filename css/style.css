@@ -1834,6 +1834,12 @@ img {
     .bundle-card.active .bundle-visual { order: 1; }
     .bundle-visual { padding: 30px 20px; min-height: 180px; }
     .bundle-total { font-size: 2.5rem; top: 16px; right: 16px; }
+    .bundle-compounds {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
     .bundle-compounds span { font-size: 0.75rem; padding: 6px 14px; }
     .bundle-info {
         padding: 24px 24px 32px;
