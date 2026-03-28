@@ -1801,6 +1801,8 @@ img {
         grid-template-columns: 1fr;
         min-height: auto;
     }
+    .bundle-card.active .bundle-info { order: -1; }
+    .bundle-card.active .bundle-visual { order: 1; }
     .bundle-visual { padding: 30px 20px; }
     .bundle-total { font-size: 2.5rem; top: 16px; right: 16px; }
     .bundle-compounds span { font-size: 0.75rem; padding: 6px 14px; }
