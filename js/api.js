@@ -6,21 +6,14 @@
 (function() {
     'use strict';
 
-    // API base URL — change to production domain when deployed
     const API_BASE = window.THIRTY3_API_BASE || 'http://localhost:8000/api/v1';
-
-    // Cache responses for 5 minutes
     const CACHE_TTL = 5 * 60 * 1000;
     const cache = {};
 
     async function apiFetch(endpoint) {
         const url = `${API_BASE}/${endpoint}`;
         const now = Date.now();
-
-        if (cache[url] && (now - cache[url].time) < CACHE_TTL) {
-            return cache[url].data;
-        }
-
+        if (cache[url] && (now - cache[url].time) < CACHE_TTL) return cache[url].data;
         try {
             const res = await fetch(url);
             if (!res.ok) return null;
@@ -33,7 +26,14 @@
         }
     }
 
-    // ---- Product Data Hydration ----
+    // Extract product slug from a link href like "products/bpc-157.html"
+    function slugFromHref(href) {
+        if (!href) return null;
+        const match = href.match(/products\/([^.]+)\.html/);
+        return match ? match[1] : null;
+    }
+
+    // ---- Product Card Hydration (homepage + compounds page) ----
 
     async function hydrateProductCards() {
         const data = await apiFetch('products/?page_size=100');
@@ -42,32 +42,52 @@
         const products = {};
         data.results.forEach(p => { products[p.slug] = p; });
 
-        // Update price displays and stock badges on product cards
-        document.querySelectorAll('[data-product-slug]').forEach(card => {
-            const slug = card.dataset.productSlug;
+        // Compounds page — .cat-product cards
+        document.querySelectorAll('.cat-product').forEach(card => {
+            const link = card.querySelector('a[href*="products/"]');
+            const slug = slugFromHref(link && link.getAttribute('href'));
+            if (!slug || !products[slug]) return;
             const product = products[slug];
-            if (!product) return;
 
             // Update price
-            const priceEl = card.querySelector('.product-price, .cat-price, .bundle-price');
-            if (priceEl && product.price_display) {
-                priceEl.textContent = product.price_display;
-            } else if (priceEl) {
-                priceEl.textContent = `$${parseFloat(product.price).toFixed(0)}`;
+            const priceEl = card.querySelector('.cat-price');
+            if (priceEl) {
+                priceEl.textContent = product.price_display || `$${parseFloat(product.price).toFixed(0)}`;
             }
 
-            // Add stock badge
-            const stockEl = card.querySelector('.stock-badge');
-            if (stockEl) {
-                if (product.in_stock) {
-                    stockEl.textContent = 'In Stock';
-                    stockEl.classList.add('in-stock');
-                    stockEl.classList.remove('out-of-stock');
-                } else {
-                    stockEl.textContent = 'Out of Stock';
-                    stockEl.classList.add('out-of-stock');
-                    stockEl.classList.remove('in-stock');
-                }
+            // Add stock indicator
+            if (!card.querySelector('.stock-dot')) {
+                const dot = document.createElement('span');
+                dot.className = 'stock-dot ' + (product.in_stock ? 'in-stock' : 'out-of-stock');
+                dot.title = product.in_stock ? 'In Stock' : 'Out of Stock';
+                const h4 = card.querySelector('h4');
+                if (h4) h4.appendChild(dot);
+            }
+        });
+
+        // Homepage — .product-card cards
+        document.querySelectorAll('.product-card').forEach(card => {
+            const link = card.querySelector('a[href*="products/"]');
+            const slug = slugFromHref(link && link.getAttribute('href'));
+            if (!slug || !products[slug]) return;
+            const product = products[slug];
+
+            const priceEl = card.querySelector('.product-price');
+            if (priceEl) {
+                priceEl.textContent = product.price_display || `$${parseFloat(product.price).toFixed(2)}`;
+            }
+        });
+
+        // Homepage — .cat-product in storytelling sections
+        document.querySelectorAll('.cat-section .cat-product').forEach(card => {
+            const link = card.querySelector('a[href*="products/"]');
+            const slug = slugFromHref(link && link.getAttribute('href'));
+            if (!slug || !products[slug]) return;
+            const product = products[slug];
+
+            const priceEl = card.querySelector('.cat-price');
+            if (priceEl) {
+                priceEl.textContent = product.price_display || `$${parseFloat(product.price).toFixed(0)}`;
             }
         });
     }
@@ -75,14 +95,22 @@
     // ---- Product Detail Page ----
 
     async function hydrateProductDetail() {
+        // Detect product slug from URL: /products/bpc-157.html
+        const pathSlug = slugFromHref(window.location.pathname);
         const slugEl = document.querySelector('[data-product-detail]');
-        if (!slugEl) return;
+        const slug = (slugEl && slugEl.dataset.productDetail) || pathSlug;
+        if (!slug) return;
 
-        const slug = slugEl.dataset.productDetail;
         const product = await apiFetch(`products/${slug}/`);
         if (!product) return;
 
-        // Update variants selector if present
+        // Update price
+        const priceEl = document.querySelector('.product-detail-price');
+        if (priceEl) {
+            priceEl.textContent = product.price_display || `$${parseFloat(product.price).toFixed(2)}`;
+        }
+
+        // Render variant selector
         const variantContainer = document.querySelector('.product-variants');
         if (variantContainer && product.variants.length > 0) {
             variantContainer.innerHTML = product.variants
@@ -97,17 +125,14 @@
                     </button>
                 `).join('');
 
-            // Variant click handler — update displayed price
             variantContainer.querySelectorAll('.variant-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     variantContainer.querySelectorAll('.variant-btn').forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
-                    const priceEl = document.querySelector('.product-detail-price');
                     if (priceEl) priceEl.textContent = `$${parseFloat(btn.dataset.price).toFixed(2)}`;
                 });
             });
 
-            // Auto-select first in-stock variant
             const firstAvailable = variantContainer.querySelector('.variant-btn:not([disabled])');
             if (firstAvailable) firstAvailable.click();
         }
@@ -175,6 +200,5 @@
         hydrateLabResults();
     });
 
-    // Expose for external use
     window.ThirtyThreeAPI = { apiFetch, hydrateProductCards, hydrateProductDetail, hydrateLabResults };
 })();

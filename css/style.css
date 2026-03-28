@@ -2368,3 +2368,121 @@ img {
     line-height: 1.6;
     color: #5c4f3a;
 }
+
+/* ---------- API Stock & Variant Indicators ---------- */
+.stock-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: 8px;
+    vertical-align: middle;
+}
+.stock-dot.in-stock { background: #4caf50; }
+.stock-dot.out-of-stock { background: #e53935; }
+
+/* Product detail variant buttons */
+.product-variants {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+.variant-btn {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 1px solid rgba(154, 123, 63, 0.3);
+    border-radius: 8px;
+    background: #f8f4ed;
+    color: #2c2416;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.variant-btn:hover { border-color: var(--gold); }
+.variant-btn.active {
+    background: var(--gold);
+    color: #fff;
+    border-color: var(--gold);
+}
+.variant-btn.out-of-stock {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.variant-oos {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: #e53935;
+    margin-top: 2px;
+}
+
+/* Lab result badges on product detail */
+.lab-result-badge {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 20px;
+    background: #f3ede4;
+    border: 1px solid rgba(154, 123, 63, 0.2);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+}
+.lab-batch { font-weight: 600; color: #2c2416; }
+.lab-purity { color: #4caf50; font-weight: 600; }
+.lab-lab { color: var(--text-muted); }
+.lab-coa-link {
+    color: var(--gold-dark);
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+/* Lab results page cards */
+.lab-card {
+    background: #fff;
+    border: 1px solid rgba(154, 123, 63, 0.15);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 16px;
+}
+.lab-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+}
+.lab-card-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: #2c2416;
+    margin: 0;
+}
+.lab-card-batch {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+.lab-card-body {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.lab-card-stat { text-align: center; }
+.lab-card-label {
+    display: block;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+}
+.lab-card-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c2416;
+}
+.lab-card-coa { display: inline-block; width: auto; }
