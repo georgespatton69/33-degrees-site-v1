@@ -3,11 +3,11 @@
 (function() {
     'use strict';
 
-    // ---------- Category Data (our 13 products only) ----------
+    // ---------- Category Data (23 SKU product lineup) ----------
     const categoryData = {
         recovery: {
             desc: "These peptides modulate tissue response signaling. Research investigates cell migration patterns, inflammatory response pathways, and regenerative signaling in muscle, tendon, ligament, and gastrointestinal tissue models.",
-            subtitle: "Primary Compounds in Recovery Research",
+            subtitle: "Primary Compounds in Tissue Biology Research",
             peptides: [
                 {
                     name: "BPC-157",
@@ -28,52 +28,46 @@
                     desc: "BPC-157 + TB-500 combined for research on synergistic tissue signaling mechanisms. Studied for comprehensive tissue regeneration pathways. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">BPC-157</a> <a href=\"https://pubmed.ncbi.nlm.nih.gov/10469335/\" target=\"_blank\" class=\"citation-link\">TB-500</a>"
                 },
                 {
-                    name: "GHK-Cu",
-                    slug: "ghk-cu",
-                    tag: "Wound Repair",
-                    desc: "Copper peptide with published data on wound closure mechanisms in research models. Influences collagen production signaling and tissue remodeling pathways. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC6073405/\" target=\"_blank\" class=\"citation-link\">PMC</a>"
+                    name: "Klow",
+                    slug: "klow",
+                    tag: "Super Blend",
+                    desc: "BPC-157 10mg + TB-500 10mg + KPV 10mg + GHK-CU 50mg (80mg total). A comprehensive multi-pathway recovery blend combining tissue repair, anti-inflammatory, and collagen signaling compounds. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">BPC-157</a> <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC6073405/\" target=\"_blank\" class=\"citation-link\">GHK-Cu</a>"
                 }
             ]
         },
         longevity: {
-            desc: "These peptides modulate cellular aging pathways. mitochondrial function, NAD+ metabolism, telomere dynamics, and oxidative stress responses. Research investigates cellular repair and protective mechanisms in experimental models.",
+            desc: "These peptides modulate cellular aging pathways — collagen decline, telomere dynamics, gene expression changes, and age-related tissue remodeling. Research investigates protective and restorative mechanisms in experimental models.",
             subtitle: "Primary Compounds in Cellular Aging Research",
             peptides: [
-                {
-                    name: "NAD+",
-                    slug: "nad-plus",
-                    tag: "Cellular Energy",
-                    desc: "NAD+ levels decline approximately 30% between ages 45–60. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC7442590/\" target=\"_blank\" class=\"citation-link\">PMC Review</a> Research investigates NAD+ effects on mitochondrial function, DNA repair signaling, and cellular energy pathways."
-                },
                 {
                     name: "Epithalon",
                     slug: "epithalon",
                     tag: "Telomere Support",
-                    desc: "Investigated for effects on telomere dynamics. the protective chromosome structures relevant to cellular aging models. One of the most studied peptides in longevity research. <a href=\"https://pubmed.ncbi.nlm.nih.gov/12937682/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
+                    desc: "Investigated for effects on telomere dynamics — the protective chromosome structures relevant to cellular aging models. One of the most studied peptides in longevity research. <a href=\"https://pubmed.ncbi.nlm.nih.gov/12937682/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 },
                 {
-                    name: "SS-31",
-                    slug: "ss-31",
-                    tag: "Cellular Energy",
-                    desc: "Targets the inner mitochondrial membrane. Research investigates energy production mechanisms at the cellular level and oxidative stress response. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC11816484/\" target=\"_blank\" class=\"citation-link\">PMC</a>"
+                    name: "GHK-Cu",
+                    slug: "ghk-cu",
+                    tag: "Collagen & Aging",
+                    desc: "Copper peptide researched for reversing age-related decline in collagen synthesis, wound healing, and gene expression. GHK-Cu plasma levels decline from 200 ng/mL at age 20 to 80 ng/mL by age 60. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC4508379/\" target=\"_blank\" class=\"citation-link\">PMC</a>"
                 },
                 {
-                    name: "MOTS-c",
-                    slug: "mots-c",
-                    tag: "Metabolic Aging",
-                    desc: "A mitochondrial-derived peptide that influences metabolic efficiency and exercise response in research models. Investigated at the cellular level for metabolic pathway mechanisms. <a href=\"https://pubmed.ncbi.nlm.nih.gov/25738459/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
+                    name: "Glow Blend",
+                    slug: "glow-blend",
+                    tag: "Age-Defense Blend",
+                    desc: "BPC-157 10mg + TB-500 10mg + GHK-Cu 50mg (70mg total). Combines tissue signaling peptides with collagen synthesis-influencing copper peptide for multi-pathway aging research. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">BPC-157</a> <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC4508379/\" target=\"_blank\" class=\"citation-link\">GHK-Cu</a>"
                 }
             ]
         },
         weight: {
-            desc: "These peptides modulate metabolic pathways. appetite signaling, lipid metabolism, visceral adiposity mechanisms, and metabolic efficiency. Including GLP-1 receptor agonists and lipid metabolism-targeted compounds.",
+            desc: "These peptides modulate metabolic pathways — appetite signaling, lipid metabolism, visceral adiposity mechanisms, and metabolic efficiency. Including GLP-1 receptor agonists and lipid metabolism-targeted compounds.",
             subtitle: "Primary Compounds in Metabolic Science Research",
             peptides: [
                 {
                     name: "Retatrutide",
                     slug: "retatrutide",
-                    tag: "Most Effective",
-                    desc: "A potent GLP-1 receptor agonist. The first tri-agonist peptide targeting GLP-1, GIP, and glucagon receptors simultaneously for multi-pathway metabolic research. <a href=\"https://clinicaltrials.gov/study/NCT05931367\" target=\"_blank\" class=\"citation-link\">ClinicalTrials.gov</a>"
+                    tag: "Tri-Agonist",
+                    desc: "The first tri-agonist peptide targeting GLP-1, GIP, and glucagon receptors simultaneously for multi-pathway metabolic research. <a href=\"https://clinicaltrials.gov/study/NCT05931367\" target=\"_blank\" class=\"citation-link\">ClinicalTrials.gov</a>"
                 },
                 {
                     name: "Tesamorelin",
@@ -90,38 +84,50 @@
             ]
         },
         skin: {
-            desc: "These peptides influence collagen synthesis, wound healing signaling, and tissue repair mechanisms in cellular and tissue models.",
-            subtitle: "Primary Compounds in Tissue Biology Research",
+            desc: "These peptides modulate immune cell activity, inflammatory response, and growth hormone signaling pathways. Research investigates recovery mechanisms, immune modulation, and adaptive immunity in experimental models.",
+            subtitle: "Primary Compounds in Immunology & Recovery Research",
             peptides: [
                 {
-                    name: "GHK-Cu",
-                    slug: "ghk-cu",
-                    tag: "Collagen & Cellular Aging",
-                    desc: "Copper peptide with collagen synthesis activity. Influences fibroblast signaling, hair follicle signaling, and wound repair mechanisms. GHK-Cu plasma levels decline from 200 ng/mL at age 20 to 80 ng/mL by age 60. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC4508379/\" target=\"_blank\" class=\"citation-link\">PMC</a>"
+                    name: "KPV",
+                    slug: "kpv",
+                    tag: "Anti-Inflammatory",
+                    desc: "A tripeptide derived from alpha-MSH with potent anti-inflammatory properties. Research investigates immune modulation, gut barrier integrity, and inflammatory signaling pathways. <a href=\"https://pubmed.ncbi.nlm.nih.gov/15837222/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 },
                 {
-                    name: "Glow Blend",
-                    slug: "glow-blend",
-                    tag: "Comprehensive Blend",
-                    desc: "Research blend of BPC-157 + TB-500 + GHK-Cu (50mg). Combines tissue signaling peptides with collagen synthesis-influencing copper peptide for multi-pathway tissue research. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">BPC-157</a> <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC4508379/\" target=\"_blank\" class=\"citation-link\">GHK-Cu</a>"
-                }
-            ]
-        },
-        performance: {
-            desc: "These peptides modulate growth hormone signaling, influence recovery mechanisms, and affect metabolic efficiency in research models.",
-            subtitle: "Primary Compounds in Cellular Energy Research",
-            peptides: [
+                    name: "CJC-1295 w/o DAC + Ipamorelin",
+                    slug: "cjc-1295",
+                    tag: "GH Signaling Blend",
+                    desc: "CJC-1295 5mg + Ipamorelin 5mg (10mg total). Combines two growth hormone secretagogues for synergistic GH pathway research. CJC-1295 extends GH release duration while Ipamorelin provides selective GH stimulation. <a href=\"https://pubmed.ncbi.nlm.nih.gov/9849822/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
+                },
                 {
                     name: "Ipamorelin",
                     slug: "ipamorelin",
                     tag: "GH Release",
                     desc: "Selectively influences growth hormone signaling without significant cortisol elevation. Research examines effects on muscle protein synthesis, recovery, sleep-related signaling, and lipid metabolism. <a href=\"https://pubmed.ncbi.nlm.nih.gov/9849822/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
-                },
+                }
+            ]
+        },
+        performance: {
+            desc: "These peptides modulate mitochondrial function, cellular energy production, and oxidative stress responses. Research investigates NAD+ metabolism, mitochondrial membrane integrity, and metabolic efficiency in experimental models.",
+            subtitle: "Primary Compounds in Cellular Energy Research",
+            peptides: [
                 {
                     name: "MOTS-c",
                     slug: "mots-c",
-                    tag: "Endurance",
-                    desc: "Investigated at the mitochondrial level for mechanisms in endurance, metabolic efficiency, and fatigue response. A significant mitochondrial function modulator in research. <a href=\"https://pubmed.ncbi.nlm.nih.gov/25738459/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
+                    tag: "Mitochondrial Peptide",
+                    desc: "A mitochondrial-derived peptide that influences metabolic efficiency and exercise response in research models. Investigated for endurance, cellular energy production, and fatigue response mechanisms. <a href=\"https://pubmed.ncbi.nlm.nih.gov/25738459/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
+                },
+                {
+                    name: "SS-31",
+                    slug: "ss-31",
+                    tag: "Cellular Energy",
+                    desc: "Targets the inner mitochondrial membrane. Research investigates energy production mechanisms at the cellular level and oxidative stress response. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC11816484/\" target=\"_blank\" class=\"citation-link\">PMC</a>"
+                },
+                {
+                    name: "NAD+",
+                    slug: "nad-plus",
+                    tag: "Cellular Fuel",
+                    desc: "NAD+ levels decline approximately 30% between ages 45–60. <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC7442590/\" target=\"_blank\" class=\"citation-link\">PMC Review</a> Research investigates NAD+ effects on mitochondrial function, DNA repair signaling, and cellular energy pathways."
                 }
             ]
         }
@@ -129,11 +135,11 @@
 
     // ---------- Category Display Names ----------
     const categoryNames = {
-        recovery: 'Recovery & Repair',
-        longevity: 'Longevity & Cellular Aging',
-        weight: 'Weight Management',
-        skin: 'Skin & Rejuvenation',
-        performance: 'Performance & Vitality'
+        recovery: 'Tissue Biology',
+        longevity: 'Cellular Aging',
+        weight: 'Metabolic Science',
+        skin: 'Immunology & Recovery',
+        performance: 'Cellular Energy'
     };
 
     // ---------- DOM Elements ----------
