@@ -13,7 +13,7 @@
                     name: "BPC-157",
                     slug: "bpc-157",
                     tag: "Primary Compound",
-                    desc: "Derived from a gastric protein. Research investigates mechanisms in muscle, tendon, and ligament pathways, gastrointestinal function, and vascular signaling. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
+                    desc: "A synthetic peptide based on a fragment of BPC (Body Protection Compound), a protein naturally present in human gastric fluid. Research investigates mechanisms in muscle, tendon, and ligament pathways, gastrointestinal function, and vascular signaling. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 },
                 {
                     name: "TB-500",
