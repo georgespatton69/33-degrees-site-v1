@@ -2205,6 +2205,8 @@ img {
 
 /* Ticker */
 .trust-ticker { background: var(--gold-dark); }
+.ticker-item { color: #fff; }
+.ticker-item svg { color: #fff; }
 
 /* Headings & fonts */
 .nav-logo-text, .section-title, .bundle-name, .product-name, .cat-heading,
