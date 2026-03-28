@@ -845,7 +845,7 @@ img {
 }
 
 /* ========== POPULAR BUNDLES ========== */
-/* ========== POPULAR BUNDLES — Full-width horizontal ========== */
+/* ========== POPULAR BUNDLES — Full-width split layout ========== */
 .popular-bundles {
     padding: 0;
     background: #fff;
@@ -860,58 +860,69 @@ img {
 }
 .bundle-card {
     display: none;
-    min-height: 420px;
+    min-height: 480px;
 }
 .bundle-card.active {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
+    grid-template-columns: 45% 55%;
+    align-items: stretch;
     animation: bundleFadeIn 0.5s ease;
 }
 @keyframes bundleFadeIn {
-    from { opacity: 0; transform: translateX(20px); }
-    to { opacity: 1; transform: translateX(0); }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 .bundle-images {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 40px;
-    background: transparent;
+    align-items: flex-end;
+    padding: 50px 30px 40px;
+    background: #2c2c2c;
     min-height: 100%;
 }
 .bundle-images img {
-    width: 280px;
+    width: 140px;
     height: auto;
     object-fit: contain;
-    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.15));
+    margin: 0 -16px;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.3));
+    position: relative;
+}
+.bundle-images img:nth-child(1) {
+    z-index: 1;
+    transform: rotate(-3deg) translateY(0);
+}
+.bundle-images img:only-child {
+    width: 200px;
+    margin: 0;
+    transform: none;
 }
 .bundle-info {
-    padding: 60px 80px 60px 40px;
+    padding: 60px 60px 60px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: var(--bg-primary);
+    background: #fff;
 }
 .bundle-eyebrow {
     font-family: var(--font-body);
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: var(--text-muted);
-    margin-bottom: 12px;
+    color: #999;
+    margin-bottom: 16px;
 }
 .bundle-name {
     font-family: var(--font-heading);
-    color: var(--text-primary);
-    font-size: 1.8rem;
+    color: #1a1a1a;
+    font-size: 2rem;
     margin-bottom: 16px;
-    line-height: 1.3;
+    line-height: 1.25;
 }
 .bundle-desc {
-    color: var(--text-secondary);
-    font-size: 0.92rem;
+    color: #555;
+    font-size: 0.88rem;
     line-height: 1.7;
     margin-bottom: 28px;
 }
@@ -922,24 +933,36 @@ img {
 }
 .bundle-price {
     font-family: var(--font-heading);
-    color: var(--text-primary);
-    font-size: 1.5rem;
+    color: #1a1a1a;
+    font-size: 1.6rem;
     font-weight: 700;
+}
+.bundle-footer .btn-secondary {
+    background: #2c2c2c;
+    border-color: #2c2c2c;
+    color: #fff;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 10px 24px;
+}
+.bundle-footer .btn-secondary:hover {
+    background: #444;
+    border-color: #444;
 }
 .bundle-arrows {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    margin-top: 0;
-    padding: 20px 0 40px;
-    background: var(--bg-primary);
+    gap: 16px;
+    padding: 24px 0 40px;
+    background: #fff;
 }
 .bundle-arrow {
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    border: 1px solid rgba(154,123,63,0.2);
+    border: 1px solid #ddd;
     background: #fff;
     cursor: pointer;
     display: flex;
@@ -948,32 +971,32 @@ img {
     transition: all 0.3s ease;
 }
 .bundle-arrow:hover {
-    background: var(--gold);
-    border-color: var(--gold);
+    background: #2c2c2c;
+    border-color: #2c2c2c;
 }
 .bundle-arrow:hover svg { stroke: #fff; }
 .bundle-arrow svg {
-    width: 20px;
-    height: 20px;
-    stroke: var(--gold-dark);
+    width: 16px;
+    height: 16px;
+    stroke: #333;
     fill: none;
     stroke-width: 2;
 }
 .bundle-dots {
     display: flex;
-    gap: 8px;
+    gap: 6px;
 }
 .bundle-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(154,123,63,0.2);
+    background: #ddd;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 .bundle-dot.active {
-    background: var(--gold);
-    width: 24px;
+    background: #2c2c2c;
+    width: 20px;
     border-radius: 4px;
 }
 .bundle-dots-nav { display: none; }
@@ -1743,15 +1766,20 @@ img {
         --section-padding: 60px 0;
     }
 
-    /* Bundles mobile — stacked single card */
+    /* Bundles mobile — stacked */
     .bundle-card.active {
         grid-template-columns: 1fr;
         min-height: auto;
     }
     .bundle-images {
-        padding: 24px 16px;
+        padding: 30px 20px;
+        min-height: 260px;
     }
-    .bundle-images img { width: 180px; }
+    .bundle-images img { width: 120px; margin: 0 -12px; }
+    .bundle-images img:only-child { width: 160px; margin: 0; }
+    .bundle-info { padding: 30px 24px 36px; }
+    .bundle-name { font-size: 1.5rem; }
+    .bundle-desc { font-size: 0.82rem; }
     .bundle-info {
         padding: 24px 24px 32px;
     }
@@ -2135,7 +2163,6 @@ img {
 
 /* Bundles */
 .popular-bundles { background: #fff !important; }
-.bundle-info { background: var(--bg-primary); }
 
 /* Science section — dark + lab bg */
 .science-section { background: #2c2416 !important; position: relative; overflow: hidden; }
