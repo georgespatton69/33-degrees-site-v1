@@ -55,11 +55,11 @@
                 priceEl.textContent = product.price_display || `$${parseFloat(product.price).toFixed(0)}`;
             }
 
-            // Add stock indicator
-            if (!card.querySelector('.stock-dot')) {
+            // Add green stock dot only when in stock
+            if (!card.querySelector('.stock-dot') && product.in_stock) {
                 const dot = document.createElement('span');
-                dot.className = 'stock-dot ' + (product.in_stock ? 'in-stock' : 'out-of-stock');
-                dot.title = product.in_stock ? 'In Stock' : 'Out of Stock';
+                dot.className = 'stock-dot in-stock';
+                dot.title = 'In Stock';
                 const h4 = card.querySelector('h4');
                 if (h4) h4.appendChild(dot);
             }
