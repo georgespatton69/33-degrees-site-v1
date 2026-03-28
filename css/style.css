@@ -1837,6 +1837,10 @@ img {
     .bundle-compounds span { font-size: 0.75rem; padding: 6px 14px; }
     .bundle-info {
         padding: 24px 24px 32px;
+        flex: 1;
+    }
+    .bundle-desc {
+        flex: 1;
     }
     .bundle-name { font-size: 1.3rem; }
     .bundle-desc { font-size: 0.85rem; margin-bottom: 20px; }
