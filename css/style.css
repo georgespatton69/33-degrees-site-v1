@@ -881,25 +881,11 @@ img {
     min-height: 100%;
 }
 .bundle-images img {
-    width: 120px;
+    width: 180px;
     height: auto;
+    max-height: 320px;
     object-fit: contain;
-    margin: 0 -18px;
-    filter: drop-shadow(0 4px 16px rgba(0,0,0,0.1));
-    position: relative;
-}
-.bundle-images img:nth-child(1) {
-    z-index: 1;
-    transform: rotate(-4deg);
-}
-.bundle-images img:nth-child(2) {
-    width: 140px;
-    z-index: 2;
-    transform: translateY(-8px);
-}
-.bundle-images img:nth-child(3) {
-    z-index: 1;
-    transform: rotate(4deg);
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12));
 }
 .bundle-info {
     padding: 60px 80px 60px 40px;
