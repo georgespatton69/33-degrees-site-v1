@@ -2244,10 +2244,17 @@ img {
 
 /* Science section — dark + lab bg */
 .science-section {
-    background: linear-gradient(rgba(44, 36, 22, 0.85), rgba(44, 36, 22, 0.85)), url('../assets/images/lab-bg.png') center center / cover no-repeat !important;
+    background: #2c2416 !important;
     position: relative; overflow: hidden; border: none !important;
 }
-.science-section::before { display: none; }
+.science-section::before {
+    content: '';
+    position: absolute;
+    top: -10%; left: -5%; width: 110%; height: 120%;
+    background: url('../assets/images/lab-bg.png') center center / cover no-repeat;
+    opacity: 0.15;
+    z-index: 0;
+}
 .science-section .container { position: relative; z-index: 1; }
 .science-section .section-title { color: #f5e6c8; }
 .science-process { color: rgba(245, 230, 200, 0.4); }
