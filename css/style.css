@@ -2250,7 +2250,7 @@ img {
 .science-section::before {
     content: '';
     position: absolute;
-    top: -10%; left: -5%; width: 110%; height: 120%;
+    top: -20%; left: -5%; width: 110%; height: 140%;
     background: url('../assets/images/lab-bg.png') center center / cover no-repeat;
     opacity: 0.15;
     z-index: 0;
