@@ -1796,22 +1796,41 @@ img {
         --section-padding: 60px 0;
     }
 
-    /* Bundles mobile — stacked single card */
+    /* Bundles mobile — horizontal swipe */
     .popular-bundles {
         background: #faf6f0 !important;
         padding: 40px 0;
     }
     .bundles-carousel {
-        padding: 0 16px;
+        padding: 0;
     }
+    .bundles-grid {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 0 24px 16px;
+        scrollbar-width: none;
+        touch-action: pan-x pan-y;
+    }
+    .bundles-grid::-webkit-scrollbar { display: none; }
+    .bundle-card,
     .bundle-card.active {
+        display: grid !important;
         grid-template-columns: 1fr;
+        flex: 0 0 80vw;
+        max-width: 320px;
         min-height: auto;
         border-radius: 16px;
         overflow: hidden;
         box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        scroll-snap-align: center;
     }
+    .bundle-card .bundle-info,
     .bundle-card.active .bundle-info { order: -1; }
+    .bundle-card .bundle-visual,
     .bundle-card.active .bundle-visual { order: 1; }
     .bundle-visual { padding: 30px 20px; }
     .bundle-total { font-size: 2.5rem; top: 16px; right: 16px; }
@@ -1822,8 +1841,8 @@ img {
     .bundle-name { font-size: 1.3rem; }
     .bundle-desc { font-size: 0.85rem; margin-bottom: 20px; }
     .bundle-footer .btn { font-size: 0.8rem; padding: 8px 20px; }
-    .bundle-dots-nav { background: transparent !important; }
-    .bundle-arrow { background: transparent; box-shadow: none; }
+    .bundle-dots-nav { display: none !important; }
+    .bundle-arrow { display: none !important; }
 
     .compounds-hero {
         display: none;
