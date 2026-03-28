@@ -875,17 +875,16 @@ img {
 .bundle-images {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
-    padding: 40px 20px;
+    align-items: center;
+    padding: 40px;
     background: transparent;
     min-height: 100%;
 }
 .bundle-images img {
-    width: 180px;
+    width: 280px;
     height: auto;
-    max-height: 320px;
     object-fit: contain;
-    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.12));
+    filter: drop-shadow(0 12px 32px rgba(0,0,0,0.15));
 }
 .bundle-info {
     padding: 60px 80px 60px 40px;
@@ -1752,8 +1751,7 @@ img {
     .bundle-images {
         padding: 24px 16px;
     }
-    .bundle-images img { width: 80px; margin: 0 -14px; }
-    .bundle-images img:nth-child(2) { width: 95px; }
+    .bundle-images img { width: 180px; }
     .bundle-info {
         padding: 24px 24px 32px;
     }
