@@ -211,20 +211,20 @@
     // Map categories to relevant blog articles
     const categoryArticles = {
         recovery: [
-            { tag: 'Tissue Biology', title: 'Recovery Peptides Explained: BPC-157, TB-500 & GHK-Cu', url: 'blog/tissue-response-guide.html', desc: 'Plain-language overview of how recovery peptides work, with visual diagrams and research applications.' },
-            { tag: 'Immunology', title: 'Immune & Recovery Peptides Explained: BPC-157 & TB-500', url: 'blog/immune-signaling-guide.html', desc: 'How BPC-157 and TB-500 modulate immune signaling and the science behind the Wolverine Stack.' }
+            { tag: 'Tissue Biology', title: 'Recovery Peptides: BPC-157, TB-500 & GHK-Cu', url: 'blog/tissue-response-guide.html', desc: 'Plain-language overview of how recovery peptides work, with visual diagrams and research applications.' },
+            { tag: 'Immunology', title: 'Immune & Recovery Peptides: BPC-157 & TB-500', url: 'blog/immune-signaling-guide.html', desc: 'How BPC-157 and TB-500 modulate immune signaling and the science behind the Wolverine Stack.' }
         ],
         longevity: [
-            { tag: 'Cell Biology', title: 'Longevity Peptides Explained: NAD+, SS-31, MOTS-c & Epithalon', url: 'blog/mitochondrial-function-guide.html', desc: 'An overview of mitochondrial peptides, cellular energy, and what researchers study them for in aging science.' }
+            { tag: 'Cell Biology', title: 'Longevity Peptides: NAD+, SS-31, MOTS-c & Epithalon', url: 'blog/mitochondrial-function-guide.html', desc: 'An overview of mitochondrial peptides, cellular energy, and what researchers study them for in aging science.' }
         ],
         weight: [
-            { tag: 'Endocrinology', title: 'Metabolic Peptides Explained: Retatrutide, Tesamorelin & AOD 9604', url: 'blog/endocrine-pathways-guide.html', desc: 'How GLP-1 agonists and metabolic peptides work, Phase 3 trial data, and common research applications.' }
+            { tag: 'Endocrinology', title: 'Metabolic Peptides: Retatrutide, Tesamorelin & AOD 9604', url: 'blog/endocrine-pathways-guide.html', desc: 'How GLP-1 agonists and metabolic peptides work, Phase 3 trial data, and common research applications.' }
         ],
         skin: [
-            { tag: 'Dermatology', title: 'Collagen & Skin Peptides Explained: GHK-Cu & Glow Blend', url: 'blog/collagen-synthesis-guide.html', desc: 'How copper peptides activate collagen production and the science behind multi-peptide blends.' }
+            { tag: 'Dermatology', title: 'Collagen & Skin Peptides: GHK-Cu & Glow Blend', url: 'blog/collagen-synthesis-guide.html', desc: 'How copper peptides activate collagen production and the science behind multi-peptide blends.' }
         ],
         performance: [
-            { tag: 'Endocrinology', title: 'Growth Hormone Peptides Explained: Ipamorelin & Tesamorelin', url: 'blog/gh-signaling-guide.html', desc: 'How GH secretagogues work, what sets Ipamorelin apart, and common research protocols.' }
+            { tag: 'Endocrinology', title: 'Growth Hormone Peptides: Ipamorelin & Tesamorelin', url: 'blog/gh-signaling-guide.html', desc: 'How GH secretagogues work, what sets Ipamorelin apart, and common research protocols.' }
         ]
     };
 
