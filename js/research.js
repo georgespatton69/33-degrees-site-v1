@@ -73,7 +73,7 @@
                     name: "Retatrutide",
                     slug: "retatrutide",
                     tag: "Most Effective",
-                    desc: "A potent GLP-1 receptor agonist. Phase 3 trials documented 23.7% body weight changes in study participants. <a href=\"https://clinicaltrials.gov/study/NCT05931367\" target=\"_blank\" class=\"citation-link\">ClinicalTrials.gov</a>"
+                    desc: "A potent GLP-1 receptor agonist. The first tri-agonist peptide targeting GLP-1, GIP, and glucagon receptors simultaneously for multi-pathway metabolic research. <a href=\"https://clinicaltrials.gov/study/NCT05931367\" target=\"_blank\" class=\"citation-link\">ClinicalTrials.gov</a>"
                 },
                 {
                     name: "Tesamorelin",
