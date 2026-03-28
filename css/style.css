@@ -850,7 +850,7 @@ img {
     background: #0d0d0d;
 }
 .popular-bundles .section-subtitle {
-    color: rgba(255,255,255,0.6);
+    color: var(--text-muted);
     max-width: 600px;
     margin: -10px auto 50px;
     font-size: 0.95rem;
@@ -924,8 +924,8 @@ img {
     border-radius: 4px;
 }
 .bundle-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(212,168,67,0.15);
+    background: var(--bg-card);
+    border: 1px solid rgba(154,123,63,0.1);
     border-radius: 12px;
     overflow: hidden;
 }
@@ -955,13 +955,13 @@ img {
     flex-direction: column;
 }
 .bundle-name {
-    font-family: 'Cinzel', serif;
-    color: #d4a843;
+    font-family: var(--font-heading);
+    color: var(--text-primary);
     font-size: 1.15rem;
     margin-bottom: 10px;
 }
 .bundle-desc {
-    color: rgba(255,255,255,0.65);
+    color: var(--text-secondary);
     font-size: 0.85rem;
     line-height: 1.6;
     margin-bottom: 16px;
@@ -973,9 +973,9 @@ img {
     margin-bottom: 20px;
 }
 .bundle-includes span {
-    background: rgba(212,168,67,0.1);
-    border: 1px solid rgba(212,168,67,0.2);
-    color: rgba(255,255,255,0.8);
+    background: rgba(154,123,63,0.06);
+    border: 1px solid rgba(154,123,63,0.12);
+    color: var(--text-secondary);
     font-size: 0.75rem;
     padding: 4px 10px;
     border-radius: 20px;
@@ -987,8 +987,8 @@ img {
     margin-top: auto;
 }
 .bundle-price {
-    font-family: 'Cinzel', serif;
-    color: #d4a843;
+    font-family: var(--font-heading);
+    color: var(--gold-dark);
     font-size: 1.3rem;
     font-weight: 600;
 }

@@ -10,7 +10,7 @@
 .blog-eyebrow {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.8rem;
-    color: rgba(255,255,255,0.4);
+    color: #8a7f6b;
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 0.75rem;
@@ -26,7 +26,7 @@
 .blog-subtitle {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.95rem;
-    color: rgba(255,255,255,0.5);
+    color: #8a7f6b;
     max-width: 550px;
     margin: 0 auto;
     line-height: 1.7;
@@ -47,8 +47,8 @@
 }
 
 .blog-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: #ffffff;
+    border: 1px solid rgba(154,123,63,0.1);
     border-radius: 12px;
     padding: 2rem 1.5rem;
     text-decoration: none;
@@ -104,7 +104,7 @@
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.8rem;
     line-height: 1.7;
-    color: rgba(255,255,255,0.45);
+    color: #8a7f6b;
     flex: 1;
 }
 
@@ -132,7 +132,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: rgba(255,255,255,0.4);
+    color: #8a7f6b;
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.8rem;
     text-decoration: none;
@@ -170,7 +170,7 @@
 .article-meta {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.78rem;
-    color: rgba(255,255,255,0.35);
+    color: #8a7f6b;
 }
 
 /* ---------- Article Body ---------- */
@@ -194,7 +194,7 @@
 .article-content h3 {
     font-family: 'Libre Baskerville', serif;
     font-size: 1.05rem;
-    color: rgba(255,255,255,0.9);
+    color: #2c2416;
     margin: 2rem 0 0.75rem;
 }
 
@@ -202,7 +202,7 @@
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.9rem;
     line-height: 1.85;
-    color: rgba(255,255,255,0.65);
+    color: #5c4f3a;
     margin-bottom: 1.25rem;
 }
 
@@ -210,7 +210,7 @@
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.88rem;
     line-height: 1.8;
-    color: rgba(255,255,255,0.6);
+    color: #8a7f6b;
     margin-bottom: 1.25rem;
     padding-left: 1.5rem;
 }
@@ -220,7 +220,7 @@
 }
 
 .article-content strong {
-    color: rgba(255,255,255,0.85);
+    color: #3a3020;
 }
 
 .article-content a {
@@ -252,12 +252,12 @@
 
 .article-takeaway p, .article-takeaway ul {
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.6);
+    color: #8a7f6b;
 }
 
 /* Sources Section */
 .article-sources {
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid rgba(154,123,63,0.1);
     margin-top: 3rem;
     padding-top: 2rem;
 }
@@ -265,13 +265,13 @@
 .article-sources h3 {
     font-family: 'Libre Baskerville', serif;
     font-size: 1rem;
-    color: rgba(255,255,255,0.7);
+    color: #5c4f3a;
     margin-bottom: 1rem;
 }
 
 .article-sources ol {
     font-size: 0.78rem;
-    color: rgba(255,255,255,0.4);
+    color: #8a7f6b;
     line-height: 1.8;
 }
 
@@ -285,12 +285,12 @@
 .article-disclaimer {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.72rem;
-    color: rgba(255,255,255,0.3);
+    color: #8a7f6b;
     font-style: italic;
     text-align: center;
     margin-top: 3rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(154,123,63,0.08);
 }
 
 /* ---------- Related Products (homepage card style) ---------- */
@@ -422,7 +422,7 @@
 .mechanism-label {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.72rem;
-    color: rgba(255,255,255,0.6);
+    color: #8a7f6b;
     line-height: 1.4;
 }
 
@@ -445,8 +445,8 @@
     align-items: center;
     gap: 0.75rem;
     padding: 0.75rem 1rem;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
+    background: #ffffff;
+    border: 1px solid rgba(154,123,63,0.1);
     border-radius: 8px;
 }
 
@@ -459,12 +459,12 @@
 .application-card span {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.78rem;
-    color: rgba(255,255,255,0.6);
+    color: #8a7f6b;
 }
 
 /* ---------- Community Box ---------- */
 .community-box {
-    background: rgba(255,255,255,0.02);
+    background: #f8f4ed;
     border-left: 3px solid rgba(212,168,67,0.3);
     padding: 1.25rem 1.5rem;
     margin: 1.5rem 0;
@@ -474,19 +474,19 @@
 .community-box h4 {
     font-family: 'Libre Baskerville', serif;
     font-size: 0.9rem;
-    color: rgba(255,255,255,0.8);
+    color: #3a3020;
     margin-bottom: 0.5rem;
 }
 
 .community-box p {
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.5);
+    color: #8a7f6b;
     margin-bottom: 0;
 }
 
 /* ---------- Comparison Table ---------- */
 .comparison-table {
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(154,123,63,0.12);
     border-radius: 12px;
     overflow: hidden;
     margin: 1.5rem 0 2rem;
@@ -514,24 +514,24 @@
     display: grid;
     grid-template-columns: 1.2fr repeat(3, 1fr);
     padding: 0.6rem 1rem;
-    border-top: 1px solid rgba(255,255,255,0.04);
+    border-top: 1px solid rgba(154,123,63,0.08);
 }
 
 .comparison-row:nth-child(even) {
-    background: rgba(255,255,255,0.02);
+    background: #f8f4ed;
 }
 
 .comparison-label {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.78rem;
-    color: rgba(255,255,255,0.7);
+    color: #5c4f3a;
     font-weight: 500;
 }
 
 .comparison-row span {
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.75rem;
-    color: rgba(255,255,255,0.5);
+    color: #8a7f6b;
     text-align: center;
 }
 
@@ -623,7 +623,7 @@
     font-family: 'Source Sans 3', sans-serif;
     font-size: 0.78rem;
     line-height: 1.6;
-    color: rgba(255,255,255,0.7);
+    color: #5c4f3a;
 }
 
 /* ---------- Mobile ---------- */
