@@ -2194,7 +2194,7 @@ img {
 .hero { background: #1a1812; }
 .hero-logo { filter: sepia(0.3) brightness(1.1); }
 .hero-subtitle { color: #f5e6c8; }
-.hero-tagline { color: rgba(245, 230, 200, 0.5); }
+.hero-tagline { color: rgba(245, 230, 200, 0.85); }
 .hero .btn-primary { background: var(--gold); color: #fff; }
 .hero .btn-primary:hover { background: var(--gold-dark); }
 
