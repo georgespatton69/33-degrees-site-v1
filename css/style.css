@@ -1404,6 +1404,7 @@ img {
     font-size: 0.7rem;
     color: var(--text-muted);
     margin-bottom: 6px;
+    flex: 1;
 }
 
 .cat-price {
