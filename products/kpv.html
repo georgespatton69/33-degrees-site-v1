@@ -58,6 +58,11 @@
             <!-- Variant Selector — populated by api.js -->
             <div class="product-variants"></div>
 
+            <button class="add-to-cart-btn" id="add-to-cart" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                Add to Cart
+            </button>
+
             <h2>Overview</h2>
             <p>KPV is a tripeptide derived from alpha-melanocyte-stimulating hormone (alpha-MSH) investigated for anti-inflammatory mechanisms. Research examines its effects on inflammatory signaling pathways and immune modulation.</p>
 
@@ -96,6 +101,32 @@
         });
     });
     </script>
-    <script src="../js/api.js?v=2"></script>
+    <script src="../js/cart.js?v=1"></script>
+    <script src="../js/api.js?v=3"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var btn = document.getElementById("add-to-cart");
+        if (!btn) return;
+        var check = setInterval(function() {
+            var active = document.querySelector(".variant-btn.active");
+            if (active) { clearInterval(check); btn.disabled = false; }
+        }, 200);
+        setTimeout(function() { clearInterval(check); btn.disabled = false; }, 5000);
+        btn.addEventListener("click", function() {
+            var active = document.querySelector(".variant-btn.active");
+            var slug = document.querySelector("[data-product-detail]").dataset.productDetail;
+            var name = document.querySelector(".article-title").textContent;
+            var img = document.querySelector(".article-body img");
+            var imgSrc = img ? img.getAttribute("src") : null;
+            if (active) {
+                ThirtyThreeCart.addToCart(slug, name, active.dataset.variantId, active.textContent.trim().split("—")[0].trim(), parseFloat(active.dataset.price), imgSrc);
+            } else {
+                var priceEl = document.querySelector(".product-detail-price");
+                var price = priceEl ? priceEl.textContent.replace("$","") : "0";
+                ThirtyThreeCart.addToCart(slug, name, null, null, parseFloat(price), imgSrc);
+            }
+        });
+    });
+    </script>
 </body>
 </html>
