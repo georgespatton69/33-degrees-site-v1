@@ -55,14 +55,6 @@
                 priceEl.textContent = product.price_display || `$${parseFloat(product.price).toFixed(0)}`;
             }
 
-            // Add green stock dot only when in stock
-            if (!card.querySelector('.stock-dot') && product.in_stock) {
-                const dot = document.createElement('span');
-                dot.className = 'stock-dot in-stock';
-                dot.title = 'In Stock';
-                const h4 = card.querySelector('h4');
-                if (h4) h4.appendChild(dot);
-            }
         });
 
         // Homepage — .product-card cards
