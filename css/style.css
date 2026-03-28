@@ -1797,9 +1797,15 @@ img {
     }
 
     /* Bundles mobile — stacked single card */
+    .bundles-carousel {
+        padding: 0 16px;
+    }
     .bundle-card.active {
         grid-template-columns: 1fr;
         min-height: auto;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
     .bundle-card.active .bundle-info { order: -1; }
     .bundle-card.active .bundle-visual { order: 1; }
