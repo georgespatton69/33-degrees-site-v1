@@ -1823,6 +1823,7 @@ img {
     .bundle-desc { font-size: 0.85rem; margin-bottom: 20px; }
     .bundle-footer .btn { font-size: 0.8rem; padding: 8px 20px; }
     .bundle-dots-nav { background: transparent !important; }
+    .bundle-arrow { background: transparent; box-shadow: none; }
 
     .compounds-hero {
         display: none;
