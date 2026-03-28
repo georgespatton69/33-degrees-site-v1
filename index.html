@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=105">
+    <link rel="stylesheet" href="css/style.css?v=106">
     <script type="importmap">
     {
         "imports": {
@@ -782,7 +782,7 @@
             <div class="cat-text">
                 <span class="cat-tag">Cellular Energy</span>
                 <h2 class="cat-heading">Cellular Aging Research</h2>
-                <p class="cat-desc">Ipamorelin is one of the most selective growth hormone secretagogues studied. investigated for GH release mechanisms without cortisol or ACTH elevation. Research examines effects on recovery, muscle development, and sleep pathways."</p>
+                <p class="cat-desc">Ipamorelin is one of the most selective growth hormone <span class="glossary-term" data-definition="Substances that stimulate the secretion of a specific hormone. In this context, GH secretagogues promote the release of growth hormone from the pituitary gland.">secretagogues</span> studied. investigated for GH release mechanisms without cortisol or ACTH elevation. Research examines effects on recovery, muscle development, and sleep pathways."</p>
                 <div class="cat-stats">
                     <div class="cat-stat"><span class="cat-stat-num">Selective</span><span class="cat-stat-label">Ipamorelin stimulates GH release without elevating cortisol or ACTH</span></div>
                     <div class="cat-stat"><span class="cat-stat-num">&#10003;</span><span class="cat-stat-label">Published peer-reviewed research confirms selectivity over other GH secretagogues</span></div>
@@ -961,5 +961,30 @@
 
     <script src="js/main.js?v=31"></script>
     <script type="module" src="js/peptide-chain.js?v=5"></script>
+    <script>
+    // Glossary tooltips
+    (function() {
+        var activeTooltip = null;
+        function closeTooltip() { if (activeTooltip) { activeTooltip.remove(); activeTooltip = null; } }
+        document.querySelectorAll('.glossary-term').forEach(term => {
+            term.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                closeTooltip();
+                const tooltip = document.createElement('div');
+                tooltip.className = 'glossary-tooltip';
+                tooltip.innerHTML = `<span class="glossary-tooltip-term">${term.textContent}</span><span class="glossary-tooltip-def">${term.dataset.definition}</span>`;
+                term.appendChild(tooltip);
+                const rect = tooltip.getBoundingClientRect();
+                if (rect.top < 0) { tooltip.style.bottom = 'auto'; tooltip.style.top = 'calc(100% + 10px)'; }
+                if (rect.left < 10) { tooltip.style.left = '0'; tooltip.style.transform = 'none'; }
+                else if (rect.right > window.innerWidth - 10) { tooltip.style.left = 'auto'; tooltip.style.right = '0'; tooltip.style.transform = 'none'; }
+                requestAnimationFrame(() => tooltip.classList.add('visible'));
+                activeTooltip = tooltip;
+            });
+        });
+        document.addEventListener('click', (e) => { if (!e.target.closest('.glossary-term')) closeTooltip(); });
+    })();
+    </script>
 </body>
 </html>
