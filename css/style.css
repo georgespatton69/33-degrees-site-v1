@@ -1797,6 +1797,10 @@ img {
     }
 
     /* Bundles mobile — stacked single card */
+    .popular-bundles {
+        background: #faf6f0 !important;
+        padding: 40px 0;
+    }
     .bundles-carousel {
         padding: 0 16px;
     }
