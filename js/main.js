@@ -409,27 +409,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // ---------- BUNDLE CAROUSEL (Desktop) ----------
 (function initBundleCarousel() {
     const cards = document.querySelectorAll('.bundle-card');
-    const dotsContainer = document.querySelector('.bundle-dots');
+    const dotsNav = document.querySelector('.bundle-dots-nav');
     const prevBtn = document.querySelector('.bundle-prev');
     const nextBtn = document.querySelector('.bundle-next');
-    if (!cards.length || !dotsContainer) return;
+    if (!cards.length || !dotsNav) return;
 
     let current = 0;
 
-    // Build dots
+    // Build dots in the bottom nav
     cards.forEach((_, i) => {
         const dot = document.createElement('span');
         dot.className = 'bundle-dot' + (i === 0 ? ' active' : '');
         dot.addEventListener('click', () => goTo(i));
-        dotsContainer.appendChild(dot);
+        dotsNav.appendChild(dot);
     });
 
     function goTo(idx) {
         cards[current].classList.remove('active');
-        dotsContainer.children[current].classList.remove('active');
+        dotsNav.children[current].classList.remove('active');
         current = (idx + cards.length) % cards.length;
         cards[current].classList.add('active');
-        dotsContainer.children[current].classList.add('active');
+        dotsNav.children[current].classList.add('active');
     }
 
     if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));

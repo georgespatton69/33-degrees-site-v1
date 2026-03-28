@@ -914,7 +914,7 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: var(--bg-primary);
+    background: #fff;
 }
 .bundle-eyebrow {
     font-family: var(--font-body);
@@ -950,37 +950,45 @@ img {
     font-weight: 700;
 }
 .bundle-arrows {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin-top: 0;
-    padding: 20px 0 40px;
-    background: var(--bg-primary);
+    display: none;
 }
 .bundle-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    border: 1px solid rgba(154,123,63,0.2);
+    border: 1px solid rgba(0,0,0,0.12);
     background: #fff;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    z-index: 5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
+.bundle-prev { left: 20px; }
+.bundle-next { right: 20px; }
 .bundle-arrow:hover {
-    background: var(--gold);
-    border-color: var(--gold);
+    background: #333;
+    border-color: #333;
 }
 .bundle-arrow:hover svg { stroke: #fff; }
 .bundle-arrow svg {
-    width: 20px;
-    height: 20px;
-    stroke: var(--gold-dark);
+    width: 18px;
+    height: 18px;
+    stroke: #333;
     fill: none;
     stroke-width: 2;
+}
+.bundle-dots-nav {
+    display: flex !important;
+    justify-content: center;
+    gap: 6px;
+    padding: 20px 0 40px;
+    background: #fff;
 }
 .bundle-dots {
     display: flex;
