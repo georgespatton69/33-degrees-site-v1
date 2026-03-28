@@ -1856,6 +1856,7 @@ img {
 
     .science-section { padding: 0 !important; }
     .science-section .container { padding: 40px 20px; }
+    .science-section::before { background-size: auto 100% !important; background-position: center center; }
 
     .compounds-hero {
         display: none;
