@@ -223,7 +223,7 @@
     color: #3a3020;
 }
 
-.article-content a {
+.article-content a:not(.btn) {
     color: #9a7b3f;
     text-decoration: none;
     border-bottom: 1px dotted rgba(212,168,67,0.4);
