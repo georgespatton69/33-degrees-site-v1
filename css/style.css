@@ -153,16 +153,16 @@ img {
 }
 
 .btn-secondary {
-    background: transparent;
-    color: var(--gold);
+    background: var(--gold);
+    color: #fff;
     border: 1px solid var(--gold);
     padding: 10px 24px;
     font-size: 0.75rem;
 }
 
 .btn-secondary:hover {
-    background: var(--gold);
-    color: var(--black);
+    background: var(--gold-dark);
+    color: #fff;
 }
 
 .btn-outline {
