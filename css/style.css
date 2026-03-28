@@ -55,10 +55,13 @@ html {
 }
 
 /* Opaque sections — chain hidden */
-.featured-products,
-.popular-bundles {
+.featured-products {
     position: relative;
     background-color: #0a0a0a;
+}
+.popular-bundles {
+    position: relative;
+    background-color: #fff;
 }
 
 /* Semi-transparent sections — 3D chain shows through */
@@ -2165,7 +2168,7 @@ img {
 
 /* Bundles */
 .popular-bundles { background: #fff !important; }
-.bundle-info { background: var(--bg-primary); }
+.bundle-info { background: #fff !important; }
 
 /* Science section — dark + lab bg */
 .science-section { background: #2c2416 !important; position: relative; overflow: hidden; }
