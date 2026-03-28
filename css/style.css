@@ -1854,6 +1854,9 @@ img {
     .bundle-dots-nav { display: none !important; }
     .bundle-arrow { display: none !important; }
 
+    .science-section { padding: 0 !important; }
+    .science-section .container { padding: 40px 20px; }
+
     .compounds-hero {
         display: none;
     }
