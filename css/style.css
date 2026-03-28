@@ -2240,7 +2240,7 @@ img {
 }
 
 /* Science section — dark + lab bg */
-.science-section { background: #2c2416 !important; position: relative; overflow: hidden; }
+.science-section { background: #2c2416 !important; position: relative; overflow: hidden; border: none !important; }
 .science-section::before {
     content: '';
     position: absolute;
