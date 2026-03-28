@@ -2486,3 +2486,33 @@ img {
     color: #2c2416;
 }
 .lab-card-coa { display: inline-block; width: auto; }
+
+/* Lab testing process steps */
+.lab-process {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 40px 0;
+}
+.lab-process-step {
+    text-align: center;
+    padding: 24px;
+    background: #f3ede4;
+    border-radius: 12px;
+    border: 1px solid rgba(154, 123, 63, 0.15);
+}
+.lab-process-step h3 {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: #2c2416;
+    margin: 12px 0 8px;
+}
+.lab-process-step p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .lab-process { grid-template-columns: 1fr; gap: 16px; }
+}

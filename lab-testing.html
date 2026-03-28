@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Lab Testing — 33 Degrees of Healing</title>
+    <meta name="description" content="Third-party lab tested research compounds. View Certificates of Analysis (COA), purity results, and batch verification for all 33 Degrees products.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=131">
+    <link rel="stylesheet" href="css/blog.css?v=15">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+            <a href="index.html" class="nav-logo"><span class="nav-logo-text">33 Degrees<span class="nav-logo-sub">of Healing</span></span></a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#catalog" class="nav-link" data-mobile-href="compounds.html">Research Compounds</a></li>
+                <li><a href="research.html" class="nav-link">Research</a></li>
+                <li><a href="index.html#brand-story" class="nav-link">Philosophy</a></li>
+                <li><a href="lab-testing.html" class="nav-link active">Lab Testing</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-icon" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+                <button class="nav-icon cart-icon" aria-label="Cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="cart-count">0</span></button>
+            </div>
+        </nav>
+    </header>
+    <div class="mobile-menu-overlay">
+        <ul class="mobile-nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="compounds.html">Research Compounds</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="index.html#brand-story">Philosophy</a></li>
+            <li><a href="lab-testing.html">Lab Testing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </div>
+
+    <section class="article-hero">
+        <div class="container">
+            <span class="article-tag">Transparency</span>
+            <h1 class="article-title">Lab Testing &amp; Verification</h1>
+            <p class="article-meta">Third-Party Tested &middot; COA With Every Batch &middot; Full Transparency</p>
+        </div>
+    </section>
+
+    <section class="article-body">
+        <div class="article-content">
+            <h2>Our Commitment to Purity</h2>
+            <p>Every batch of every compound is independently tested by accredited third-party laboratories before being made available. We publish full Certificates of Analysis (COA) so researchers can verify purity, identity, and quality for every product they receive.</p>
+
+            <div class="lab-process">
+                <div class="lab-process-step">
+                    <div class="mechanism-circle">1</div>
+                    <h3>Batch Received</h3>
+                    <p>Raw compound arrives from our manufacturing partners and is logged with a unique batch number.</p>
+                </div>
+                <div class="lab-process-step">
+                    <div class="mechanism-circle">2</div>
+                    <h3>Sent for Testing</h3>
+                    <p>Samples are sent to an independent, accredited laboratory for identity confirmation and purity analysis.</p>
+                </div>
+                <div class="lab-process-step">
+                    <div class="mechanism-circle">3</div>
+                    <h3>Results Published</h3>
+                    <p>Lab results and the full COA are published here and linked on each product page. Every unit ships with its batch number.</p>
+                </div>
+            </div>
+
+            <h2>Published Lab Results</h2>
+            <p>Below are all published Certificates of Analysis for our current inventory. Click any COA to download the full lab report.</p>
+
+            <!-- Populated by api.js from /api/v1/lab-results/ -->
+            <div id="lab-results-grid"></div>
+
+            <p class="article-disclaimer">For research purposes only. Not intended for consumption, clinical application, or diagnostic use.</p>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="nav-logo-text" style="font-size:1.2rem;">33 Degrees<span class="nav-logo-sub">of Healing</span></span>
+                <p class="footer-tagline">Scientific Innovation &middot; Rigorous Testing &middot; Research Excellence</p>
+            </div>
+            <div class="footer-links"><a href="index.html">Home</a><a href="compounds.html">Research Compounds</a><a href="research.html">Research</a><a href="blog.html">Blog</a><a href="#">Contact</a></div>
+            <div class="footer-disclaimer"><p>For research purposes only. Not intended for consumption, clinical application, or diagnostic use.</p></div>
+            <p class="footer-copy">&copy; 2026 33 Degrees of Healing. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+    const t=document.querySelector('.mobile-menu-toggle'),o=document.querySelector('.mobile-menu-overlay');
+    if(t&&o){t.addEventListener('click',()=>{t.classList.toggle('active');o.classList.toggle('active');document.body.style.overflow=o.classList.contains('active')?'hidden':'';});};
+    document.querySelectorAll('[data-mobile-href]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) { e.preventDefault(); window.location.href = this.dataset.mobileHref; }
+        });
+    });
+    </script>
+    <script src="js/api.js?v=2"></script>
+</body>
+</html>

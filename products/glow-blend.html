@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <title>Glow Blend. 33 Degrees Research Compounds</title>
+    <title>Glow Blend — 33 Degrees Research Compounds</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css?v=78">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css?v=131">
     <link rel="stylesheet" href="../css/blog.css?v=15">
 </head>
 <body>
@@ -20,7 +20,7 @@
                 <li><a href="../index.html#catalog" class="nav-link active" data-mobile-href="../compounds.html">Research Compounds</a></li>
                 <li><a href="../research.html" class="nav-link">Research</a></li>
                 <li><a href="../index.html#brand-story" class="nav-link">Philosophy</a></li>
-                <li><a href="#" class="nav-link">Lab Testing</a></li>
+                <li><a href="../lab-testing.html" class="nav-link">Lab Testing</a></li>
                 <li><a href="../blog.html" class="nav-link">Blog</a></li>
             </ul>
             <div class="nav-actions">
@@ -35,26 +35,44 @@
             <li><a href="../compounds.html">Research Compounds</a></li>
             <li><a href="../research.html">Research</a></li>
             <li><a href="../index.html#brand-story">Philosophy</a></li>
-            <li><a href="#">Lab Testing</a></li>
+            <li><a href="../lab-testing.html">Lab Testing</a></li>
             <li><a href="../blog.html">Blog</a></li>
         </ul>
     </div>
 
     <section class="article-hero">
         <div class="container">
-<span class="article-tag">Research Compound</span>
+            <span class="article-tag">Immunology &amp; Recovery</span>
             <h1 class="article-title">Glow Blend</h1>
-            <p class="article-meta">BPC-157 + TB-500 + GHK-Cu &middot; $199.00</p>
+            <p class="article-meta">TB-500 10mg, BPC-157 10mg &amp; GHK-CU 50mg &middot; <span class="product-detail-price"></span></p>
         </div>
     </section>
 
-    <section class="article-body">
-        <div class="article-content" style="text-align: center; padding: 4rem 0;">
-            <img src="../assets/images/products/glow-blend.png" alt="Glow Blend" style="max-width: 280px; margin-bottom: 2rem;">
-            <h2 style="color: #d4a843;">Coming Soon</h2>
-            <p>Full product details, research citations, and documentation for Glow Blend are currently being developed.</p>
-            <p style="margin-top: 2rem;"><a href="../compounds.html" style="color: #d4a843; text-decoration: none; border-bottom: 1px dotted rgba(212,168,67,0.4);">Browse All Research Compounds</a></p>
-            <p class="article-disclaimer" style="margin-top: 3rem;">For research purposes only. Not intended for consumption, clinical application, or diagnostic use.</p>
+    <section class="article-body" data-product-detail="glow-blend">
+        <div class="article-content">
+
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <img src="../assets/images/products/glow-blend.png" alt="Glow Blend" style="max-width: 280px;">
+            </div>
+
+            <!-- Variant Selector — populated by api.js -->
+            <div class="product-variants"></div>
+
+            <h2>Overview</h2>
+            <p>Glow Blend is a tri-peptide research formulation combining BPC-157, TB-500, and GHK-CU in a single vial. Investigated for mechanisms in tissue pathways, cell regeneration, and collagen synthesis.</p>
+
+            <h2>Research Mechanisms</h2>
+            <ul>
+                <li>Triple-peptide formulation in a single research vial</li>
+                <li>Combines tissue repair (BPC-157), regeneration (TB-500), and collagen (GHK-CU) pathways</li>
+                <li>Research examines synergistic multi-pathway mechanisms</li>
+                <li>Simplified protocol for comprehensive tissue biology research</li>
+            </ul>
+
+            <!-- Lab Results — populated by api.js -->
+            <div class="product-lab-results"></div>
+
+            <p class="article-disclaimer">For research purposes only. Not intended for consumption, clinical application, or diagnostic use.</p>
         </div>
     </section>
 
@@ -72,16 +90,12 @@
     <script>
     const t=document.querySelector('.mobile-menu-toggle'),o=document.querySelector('.mobile-menu-overlay');
     if(t&&o){t.addEventListener('click',()=>{t.classList.toggle('active');o.classList.toggle('active');document.body.style.overflow=o.classList.contains('active')?'hidden':'';});};
-    
-    // Mobile redirect for Research Compounds link
     document.querySelectorAll('[data-mobile-href]').forEach(link => {
         link.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                window.location.href = this.dataset.mobileHref;
-            }
+            if (window.innerWidth <= 768) { e.preventDefault(); window.location.href = this.dataset.mobileHref; }
         });
     });
     </script>
+    <script src="../js/api.js?v=2"></script>
 </body>
 </html>
