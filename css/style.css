@@ -2198,8 +2198,13 @@ img {
 .btn-secondary:hover { background: var(--gold-dark); border-color: var(--gold-dark); }
 
 /* Bundles */
-.popular-bundles { background: #fff !important; }
 .bundle-info { background: #fff !important; }
+@media (min-width: 769px) {
+    .popular-bundles { background: #fff !important; }
+}
+@media (max-width: 768px) {
+    .popular-bundles { background: #faf6f0 !important; }
+}
 
 /* Science section — dark + lab bg */
 .science-section { background: #2c2416 !important; position: relative; overflow: hidden; }
