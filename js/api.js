@@ -6,7 +6,7 @@
 (function() {
     'use strict';
 
-    const API_BASE = window.THIRTY3_API_BASE || 'http://localhost:8000/api/v1';
+    const API_BASE = window.THIRTY3_API_BASE || 'https://web-production-a7a6.up.railway.app/api/v1';
     const CACHE_TTL = 5 * 60 * 1000;
     const cache = {};
 
