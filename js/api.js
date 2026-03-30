@@ -7,6 +7,7 @@
     'use strict';
 
     const API_BASE = window.THIRTY3_API_BASE || 'https://web-production-a7a6.up.railway.app/api/v1';
+    // Future: swap to 'https://api.33degreesofhealing.com/api/v1' when custom domain is set up
     const CACHE_TTL = 5 * 60 * 1000;
     const cache = {};
 
