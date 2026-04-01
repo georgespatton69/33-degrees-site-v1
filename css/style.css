@@ -2910,6 +2910,84 @@ img {
     .pdp-related { padding: 40px 0 50px; }
 }
 
+/* ---------- Search Overlay ---------- */
+#search-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); z-index: 10000;
+    display: flex; align-items: flex-start; justify-content: center;
+    padding-top: 12vh;
+    opacity: 0; transition: opacity 0.2s ease;
+}
+#search-overlay.active { opacity: 1; }
+
+.search-modal {
+    background: #faf6f0;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 560px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+.search-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(154,123,63,0.15);
+}
+.search-icon { color: var(--gold); flex-shrink: 0; }
+#search-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    color: #2c2416;
+    outline: none;
+}
+#search-input::placeholder { color: rgba(44,36,22,0.35); }
+.search-close {
+    background: none; border: none;
+    font-size: 1.6rem; color: #999;
+    cursor: pointer; line-height: 1; padding: 0 4px;
+}
+.search-close:hover { color: #2c2416; }
+
+.search-results {
+    max-height: 400px;
+    overflow-y: auto;
+}
+.search-result {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(154,123,63,0.08);
+    transition: background 0.15s;
+}
+.search-result:hover { background: #f3ede4; }
+.search-result svg { color: var(--gold); flex-shrink: 0; opacity: 0; transition: opacity 0.15s; }
+.search-result:hover svg { opacity: 1; }
+.search-result-info { display: flex; flex-direction: column; gap: 2px; }
+.search-result-name {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #2c2416;
+}
+.search-result-meta {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+.search-empty {
+    padding: 30px 20px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
 /* Info section below */
 .pdp-info {
     background: #fff;
