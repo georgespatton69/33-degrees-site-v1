@@ -2628,6 +2628,13 @@ img {
     gap: 60px;
     align-items: start;
 }
+.pdp-image {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
 .pdp-image-wrap {
     background: #f3ede4;
     border-radius: 16px;
@@ -2635,8 +2642,69 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: sticky;
-    top: 100px;
+}
+
+/* Compound info card */
+.pdp-compound-card {
+    border-radius: 16px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    min-height: 160px;
+    justify-content: center;
+}
+.pdp-card-total {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.12);
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    line-height: 1;
+}
+.pdp-card-compounds {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+.pdp-card-compounds span {
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 8px 18px;
+    border-radius: 30px;
+    letter-spacing: 0.5px;
+    backdrop-filter: blur(4px);
+}
+.pdp-card-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    margin-top: 4px;
+}
+.pdp-card-label {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+}
+.pdp-card-purity {
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 1px;
 }
 .pdp-image-wrap img {
     max-width: 100%;
@@ -2777,8 +2845,10 @@ img {
         grid-template-columns: 1fr;
         gap: 32px;
     }
-    .pdp-image-wrap {
+    .pdp-image {
         position: static;
+    }
+    .pdp-image-wrap {
         padding: 30px;
     }
     .pdp-title { font-size: 1.8rem; }
