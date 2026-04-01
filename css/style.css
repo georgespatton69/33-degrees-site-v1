@@ -2302,6 +2302,8 @@ img {
 .site-footer { background: #1a1812 !important; }
 .footer-logo { color: #f5e6c8; }
 .site-footer,
+.site-footer p,
+.site-footer span,
 .site-footer a,
 .footer-tagline,
 .footer-links a,
@@ -2310,10 +2312,13 @@ img {
 .footer-copy,
 .footer-col ul a,
 .disclaimer,
-.copyright { color: rgba(245, 230, 200, 0.6) !important; }
+.copyright,
+.footer-brand .nav-logo-text,
+.footer-brand .nav-logo-sub { color: rgba(245, 230, 200, 0.7) !important; }
+.footer-brand .nav-logo-text { color: #f5e6c8 !important; font-size: 1.2rem; }
 .site-footer a:hover,
 .footer-links a:hover,
-.footer-col ul a:hover { color: #f5e6c8 !important; }
+.footer-col ul a:hover { color: #fff !important; }
 
 /* Mobile overlay */
 .mobile-menu-overlay { background: rgba(44, 36, 22, 0.97); }
