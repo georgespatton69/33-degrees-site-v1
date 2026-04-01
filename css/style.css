@@ -2322,6 +2322,8 @@ img {
 
 /* Mobile overlay */
 .mobile-menu-overlay { background: rgba(44, 36, 22, 0.97); }
+.mobile-nav-menu a { color: #f5e6c8 !important; }
+.mobile-nav-menu a:hover { color: var(--gold) !important; }
 
 /* All products mobile */
 .all-products { background: #faf6f0 !important; }
