@@ -2301,6 +2301,19 @@ img {
 /* Footer */
 .site-footer { background: #1a1812 !important; }
 .footer-logo { color: #f5e6c8; }
+.site-footer,
+.site-footer a,
+.footer-tagline,
+.footer-links a,
+.footer-disclaimer,
+.footer-disclaimer p,
+.footer-copy,
+.footer-col ul a,
+.disclaimer,
+.copyright { color: rgba(245, 230, 200, 0.6) !important; }
+.site-footer a:hover,
+.footer-links a:hover,
+.footer-col ul a:hover { color: #f5e6c8 !important; }
 
 /* Mobile overlay */
 .mobile-menu-overlay { background: rgba(44, 36, 22, 0.97); }
