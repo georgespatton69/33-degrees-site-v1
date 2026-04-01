@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Shipping Policy — 33 Degrees of Healing</title>
+    <meta name="description" content="Shipping policy for 33 Degrees of Healing research compounds. U.S. shipping, processing times, tracking, and delivery information.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=133">
+    <link rel="stylesheet" href="css/blog.css?v=18">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="nav-container">
+            <button class="mobile-menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+            <a href="index.html" class="nav-logo"><span class="nav-logo-text">33 Degrees<span class="nav-logo-sub">of Healing</span></span></a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#catalog" class="nav-link" data-mobile-href="compounds.html">Research Compounds</a></li>
+                <li><a href="research.html" class="nav-link">Research</a></li>
+                <li><a href="lab-testing.html" class="nav-link">Lab Testing</a></li>
+                <li><a href="blog.html" class="nav-link">Blog</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-icon" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+                <button class="nav-icon cart-icon" aria-label="Cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg><span class="cart-count">0</span></button>
+            </div>
+        </nav>
+    </header>
+    <div class="mobile-menu-overlay">
+        <ul class="mobile-nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="compounds.html">Research Compounds</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a href="lab-testing.html">Lab Testing</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </div>
+
+    <section class="article-hero">
+        <div class="container">
+            <span class="article-tag">Policies</span>
+            <h1 class="article-title">Shipping Policy</h1>
+            <p class="article-meta">33 Degrees of Healing &middot; Updated April 2026</p>
+        </div>
+    </section>
+
+    <section class="article-body">
+        <div class="article-content">
+
+            <h2>Shipping Coverage</h2>
+            <p>33 Degrees of Healing currently ships to addresses within the United States only. International shipping is not available at this time. As our operations expand, international options may be added in the future.</p>
+
+            <h2>Order Processing</h2>
+            <p>Orders are processed within 1&ndash;2 business days of being placed. Orders submitted on weekends or holidays will begin processing the next business day. You will receive a confirmation email once your order has been submitted and a second notification when it ships.</p>
+
+            <h2>Shipping Methods &amp; Delivery Times</h2>
+            <p>We offer two shipping options:</p>
+            <ul>
+                <li><strong>USPS Priority Mail</strong> &mdash; Estimated delivery in 2&ndash;3 business days</li>
+                <li><strong>USPS First Class</strong> &mdash; Estimated delivery in 3&ndash;5 business days</li>
+            </ul>
+            <p>Delivery times are estimates provided by USPS and are not guaranteed. Delays may occur due to carrier volume, weather, or other factors outside our control.</p>
+
+            <h2>Free Shipping</h2>
+            <p>Orders totaling $150 or more qualify for free standard shipping within the United States.</p>
+
+            <h2>Order Tracking</h2>
+            <p>A tracking number will be provided via email once your order has shipped. You can use this number to monitor your shipment's progress through the USPS tracking system.</p>
+
+            <h2>Signature Requirements</h2>
+            <p>Orders with a total value exceeding $200 may require a signature upon delivery. This measure helps ensure that high-value shipments are received securely.</p>
+
+            <h2>Regulatory Compliance</h2>
+            <p>All shipments are prepared and dispatched in compliance with applicable federal and state regulations governing the transport of research compounds.</p>
+
+            <p class="article-disclaimer">All products sold by 33 Degrees of Healing are intended for research purposes only. Not intended for consumption, clinical application, or diagnostic use.</p>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <span class="nav-logo-text" style="font-size:1.2rem;">33 Degrees<span class="nav-logo-sub">of Healing</span></span>
+                <p class="footer-tagline">Scientific Innovation &middot; Rigorous Testing &middot; Research Excellence</p>
+            </div>
+            <div class="footer-links"><a href="index.html">Home</a><a href="compounds.html">Research Compounds</a><a href="research.html">Research</a><a href="blog.html">Blog</a><a href="#">Contact</a></div>
+            <div class="footer-disclaimer"><p>For research purposes only. Not intended for consumption, clinical application, or diagnostic use.</p></div>
+            <p class="footer-copy">&copy; 2026 33 Degrees of Healing. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+    const t=document.querySelector('.mobile-menu-toggle'),o=document.querySelector('.mobile-menu-overlay');
+    if(t&&o){t.addEventListener('click',()=>{t.classList.toggle('active');o.classList.toggle('active');document.body.style.overflow=o.classList.contains('active')?'hidden':'';});}
+    document.querySelectorAll('[data-mobile-href]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) { e.preventDefault(); window.location.href = this.dataset.mobileHref; }
+        });
+    });
+    </script>
+    <script src="js/search.js?v=1"></script>
+</body>
+</html>
