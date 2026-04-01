@@ -95,22 +95,73 @@
         <div class="pdp-info-container">
 
             <div class="pdp-info-block">
-                <h2>Overview</h2>
-                <p>Ipamorelin is one of the most selective growth hormone secretagogues studied. Research investigates its mechanisms in growth hormone signaling without cortisol elevation, examining effects on muscle, recovery, sleep, and metabolic pathways.</p>
+                <h2>What It Is</h2>
+                <p>A selective five-amino-acid <span class="glossary-term" data-definition="A class of peptides that stimulate the pituitary gland to release growth hormone by mimicking the hunger hormone ghrelin and binding to the GHS-R1a receptor.">growth hormone secretagogue</span> that triggers natural GH release from the pituitary gland without significantly affecting cortisol or prolactin levels.</p>
+            </div>
+
+            <!-- How It Works Visual -->
+            <div class="pdp-info-block">
+                <div class="mechanism-visual">
+                    <h4 class="mechanism-title">How It Works</h4>
+                    <div class="mechanism-flow">
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">1</div>
+                            <span class="mechanism-label">Ipamorelin binds to <span class="glossary-term" data-definition="Growth Hormone Secretagogue Receptor type 1a. A receptor in the pituitary gland that, when activated, signals the release of stored growth hormone into the bloodstream.">GHS-R1a receptors</span> on the pituitary</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">2</div>
+                            <span class="mechanism-label">Pituitary somatotroph cells are activated</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">3</div>
+                            <span class="mechanism-label">Endogenous growth hormone is released in a pulse</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">4</div>
+                            <span class="mechanism-label">GH stimulates <span class="glossary-term" data-definition="Insulin-like Growth Factor 1. A hormone produced mainly by the liver in response to growth hormone. IGF-1 mediates many of GH's downstream effects on tissue growth and metabolism.">IGF-1</span> production in the liver</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="pdp-info-block">
-                <h2>Research Mechanisms</h2>
-                <ul>
-                    <li>One of the most selective growth hormone secretagogues identified</li>
-                    <li>Stimulates GH release without elevating cortisol, ACTH, or prolactin</li>
-                    <li>Investigated for mechanisms in muscle development and recovery pathways</li>
-                    <li>Research examines effects on sleep quality and metabolic function</li>
-                </ul>
+                <h2>What Researchers Study It For</h2>
+                <div class="research-applications">
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                        <span>GH pulse amplitude and frequency modeling</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        <span>Body composition and lean mass studies</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Age-related GH decline investigations</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>Selective secretagogue pathway research</span>
+                    </div>
+                </div>
             </div>
 
             <div class="pdp-info-block">
-                <h2>Key Research Data</h2>
+                <h2>Common Research Protocols</h2>
+                <p>In published research, Ipamorelin is supplied as a lyophilized powder and reconstituted with <span class="glossary-term" data-definition="Sterile water that has had bacteria-causing agents removed. Used to dissolve powdered peptides for research applications.">bacteriostatic water</span>. It is typically administered via subcutaneous injection.</p>
+            </div>
+
+            <div class="pdp-info-block">
+                <div class="community-box">
+                    <h4>Community Interest Areas</h4>
+                    <p>Ipamorelin has generated significant research interest due to its selectivity profile. Unlike earlier secretagogues, it does not appear to significantly elevate cortisol, ACTH, or prolactin in research settings. This makes it a preferred compound in studies investigating isolated GH signaling without confounding hormonal variables. It is frequently paired with CJC-1295 in combined protocols.</p>
+                </div>
+            </div>
+
+            <div class="pdp-info-block">
                 <div class="pdp-stats">
                     <div class="pdp-stat">
                         <span class="pdp-stat-value">Selective</span>
@@ -146,6 +197,29 @@
             if (window.innerWidth <= 768) { e.preventDefault(); window.location.href = this.dataset.mobileHref; }
         });
     });
+    </script>
+    <script>
+    // Glossary tooltips
+    (function() {
+        var activeTooltip = null;
+        function closeTooltip() { if (activeTooltip) { activeTooltip.remove(); activeTooltip = null; } }
+        document.querySelectorAll('.glossary-term').forEach(function(term) {
+            term.addEventListener('click', function(e) {
+                e.preventDefault(); e.stopPropagation(); closeTooltip();
+                var tooltip = document.createElement('div');
+                tooltip.className = 'glossary-tooltip';
+                tooltip.innerHTML = '<span class="glossary-tooltip-term">' + term.textContent + '</span><span class="glossary-tooltip-def">' + term.dataset.definition + '</span>';
+                term.appendChild(tooltip);
+                var rect = tooltip.getBoundingClientRect();
+                if (rect.top < 0) { tooltip.style.bottom = 'auto'; tooltip.style.top = 'calc(100% + 10px)'; }
+                if (rect.left < 10) { tooltip.style.left = '0'; tooltip.style.transform = 'none'; }
+                else if (rect.right > window.innerWidth - 10) { tooltip.style.left = 'auto'; tooltip.style.right = '0'; tooltip.style.transform = 'none'; }
+                requestAnimationFrame(function() { tooltip.classList.add('visible'); });
+                activeTooltip = tooltip;
+            });
+        });
+        document.addEventListener('click', function(e) { if (!e.target.closest('.glossary-term')) closeTooltip(); });
+    })();
     </script>
     <script src="../js/cart.js?v=1"></script>
     <script src="../js/api.js?v=3"></script>
