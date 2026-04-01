@@ -2822,6 +2822,76 @@ img {
 .pdp-share-opt:hover { background: #f3ede4; }
 .pdp-share-opt svg { color: var(--gold); flex-shrink: 0; }
 
+/* Related articles section on PDP */
+.pdp-related {
+    background: #f3ede4;
+    padding: 60px 0 70px;
+}
+.pdp-related-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+.pdp-related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+.pdp-related-card {
+    background: #fff;
+    border: 1px solid rgba(154,123,63,0.12);
+    border-radius: 14px;
+    padding: 28px 24px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+.pdp-related-card:hover {
+    border-color: var(--gold);
+    box-shadow: 0 6px 24px rgba(154,123,63,0.1);
+    transform: translateY(-3px);
+}
+.pdp-related-tag {
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+}
+.pdp-related-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: #2c2416;
+    margin: 0 0 10px;
+    line-height: 1.3;
+}
+.pdp-related-card p {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+    flex: 1;
+}
+.pdp-related-cta {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gold-dark);
+    margin-top: 16px;
+}
+.pdp-related-action {
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .pdp-related-grid { grid-template-columns: 1fr; }
+    .pdp-related { padding: 40px 0 50px; }
+}
+
 /* Info section below */
 .pdp-info {
     background: #fff;
