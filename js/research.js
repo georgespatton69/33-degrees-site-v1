@@ -6,7 +6,7 @@
     // ---------- Category Data (23 SKU product lineup) ----------
     const categoryData = {
         recovery: {
-            desc: "These peptides modulate tissue response signaling. Research investigates cell migration patterns, inflammatory response pathways, and regenerative signaling in muscle, tendon, ligament, and gastrointestinal tissue models.",
+            desc: "Peptides that modulate tissue response signaling. Research investigates cell migration patterns, inflammatory response pathways, and regenerative signaling in muscle, tendon, ligament, and gastrointestinal tissue models.",
             subtitle: "Primary Compounds in Tissue Biology Research",
             peptides: [
                 {
@@ -36,7 +36,7 @@
             ]
         },
         longevity: {
-            desc: "These peptides modulate cellular aging pathways — collagen decline, telomere dynamics, gene expression changes, and age-related tissue remodeling. Research investigates protective and restorative mechanisms in experimental models.",
+            desc: "Peptides that modulate cellular aging pathways — collagen decline, telomere dynamics, gene expression changes, and age-related tissue remodeling. Research investigates protective and restorative mechanisms in experimental models.",
             subtitle: "Primary Compounds in Cellular Aging Research",
             peptides: [
                 {
@@ -60,7 +60,7 @@
             ]
         },
         weight: {
-            desc: "These peptides modulate metabolic pathways — appetite signaling, lipid metabolism, visceral adiposity mechanisms, and metabolic efficiency. Including GLP-1 receptor agonists and lipid metabolism-targeted compounds.",
+            desc: "Peptides that modulate metabolic pathways — appetite signaling, lipid metabolism, visceral adiposity mechanisms, and metabolic efficiency. Including GLP-1 receptor agonists and lipid metabolism-targeted compounds.",
             subtitle: "Primary Compounds in Metabolic Science Research",
             peptides: [
                 {
@@ -84,7 +84,7 @@
             ]
         },
         skin: {
-            desc: "These peptides modulate immune cell activity, inflammatory response, and growth hormone signaling pathways. Research investigates recovery mechanisms, immune modulation, and adaptive immunity in experimental models.",
+            desc: "Peptides that modulate immune cell activity, inflammatory response, and growth hormone signaling pathways. Research investigates recovery mechanisms, immune modulation, and adaptive immunity in experimental models.",
             subtitle: "Primary Compounds in Immunology & Recovery Research",
             peptides: [
                 {
@@ -108,7 +108,7 @@
             ]
         },
         performance: {
-            desc: "These peptides modulate mitochondrial function, cellular energy production, and oxidative stress responses. Research investigates NAD+ metabolism, mitochondrial membrane integrity, and metabolic efficiency in experimental models.",
+            desc: "Peptides that modulate mitochondrial function, cellular energy production, and oxidative stress responses. Research investigates NAD+ metabolism, mitochondrial membrane integrity, and metabolic efficiency in experimental models.",
             subtitle: "Primary Compounds in Cellular Energy Research",
             peptides: [
                 {
