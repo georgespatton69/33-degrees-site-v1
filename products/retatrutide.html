@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css?v=131">
+    <link rel="stylesheet" href="../css/style.css?v=133">
     <link rel="stylesheet" href="../css/blog.css?v=15">
 </head>
 <body>
@@ -40,42 +40,139 @@
         </ul>
     </div>
 
-    <section class="article-hero">
-        <div class="container">
-            <span class="article-tag">Metabolic Science</span>
-            <h1 class="article-title">Retatrutide</h1>
-            <p class="article-meta">Triple-Receptor Metabolic Agonist &middot; <span class="product-detail-price"></span></p>
+    <!-- Product Detail Section -->
+    <section class="pdp-section" data-product-detail="retatrutide">
+        <div class="pdp-container">
+
+            <!-- Left: Image -->
+            <div class="pdp-image">
+                <div class="pdp-image-wrap">
+                    <img src="../assets/images/products/retatrutide.png" alt="Retatrutide">
+                </div>
+            </div>
+
+            <!-- Right: Details -->
+            <div class="pdp-details">
+                <span class="pdp-tag">Metabolic Science</span>
+                <h1 class="pdp-title">Retatrutide</h1>
+                <p class="pdp-subtitle">Triple-Receptor Metabolic Agonist</p>
+                <div class="pdp-price-row">
+                    <span class="product-detail-price pdp-price">$69.00</span>
+                </div>
+
+                <!-- Variant Selector -->
+                <div class="product-variants"></div>
+
+                <button class="add-to-cart-btn" id="add-to-cart" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    Add to Cart
+                </button>
+
+                <!-- Trust badges -->
+                <div class="pdp-trust">
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                        <span>Third-Party Lab Tested</span>
+                    </div>
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                        <span>COA With Every Order</span>
+                    </div>
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        <span>Fast U.S. Shipping</span>
+                    </div>
+                </div>
+
+                <!-- Lab Results -->
+                <div class="product-lab-results"></div>
+            </div>
         </div>
     </section>
 
-    <section class="article-body" data-product-detail="retatrutide">
-        <div class="article-content">
+    <!-- Product Info Section -->
+    <section class="pdp-info">
+        <div class="pdp-info-container">
 
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <img src="../assets/images/products/retatrutide.png" alt="Retatrutide" style="max-width: 280px;">
+            <div class="pdp-info-block">
+                <h2>What It Is</h2>
+                <p>A triple-receptor agonist that activates <span class="glossary-term" data-definition="Glucagon-Like Peptide-1. A hormone released by the gut after eating that signals the brain to reduce appetite and the pancreas to release insulin.">GLP-1</span>, <span class="glossary-term" data-definition="Glucose-dependent Insulinotropic Polypeptide. A gut hormone that enhances insulin secretion and influences fat metabolism.">GIP</span>, and <span class="glossary-term" data-definition="A hormone produced by the pancreas that raises blood sugar by stimulating the liver to release stored glucose. It also increases energy expenditure and promotes fat breakdown.">glucagon</span> receptors simultaneously. Retatrutide is currently in Phase 3 clinical trials.</p>
             </div>
 
-            <!-- Variant Selector — populated by api.js -->
-            <div class="product-variants"></div>
+            <!-- How It Works Visual -->
+            <div class="pdp-info-block">
+                <div class="mechanism-visual">
+                    <h4 class="mechanism-title">How It Works</h4>
+                    <div class="mechanism-flow">
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">1</div>
+                            <span class="mechanism-label">Retatrutide binds to three <span class="glossary-term" data-definition="Proteins on cell surfaces that detect specific hormones or signaling molecules. When activated, they trigger a chain of events inside the cell that changes its behavior.">receptors</span> simultaneously</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">2</div>
+                            <span class="mechanism-label">GLP-1 and GIP pathways reduce appetite signaling</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">3</div>
+                            <span class="mechanism-label">Glucagon receptor activation increases energy expenditure</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">4</div>
+                            <span class="mechanism-label">Combined effect on metabolic rate and fat oxidation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <button class="add-to-cart-btn" id="add-to-cart" disabled>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-                Add to Cart
-            </button>
+            <div class="pdp-info-block">
+                <h2>What Researchers Study It For</h2>
+                <div class="research-applications">
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
+                        <span>Body weight and composition models</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        <span>Glycemic control and insulin sensitivity</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <span>Energy expenditure and metabolic rate</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>Multi-receptor agonism mechanisms</span>
+                    </div>
+                </div>
+            </div>
 
-            <h2>Overview</h2>
-            <p>Retatrutide is a triple-receptor agonist targeting GLP-1, GIP, and glucagon pathways simultaneously — the first compound studied across all three receptors. Research examines mechanisms in appetite signaling, digestion pathways, and glucose-insulin metabolism.</p>
+            <div class="pdp-info-block">
+                <h2>Common Research Protocols</h2>
+                <p>Retatrutide is currently under clinical investigation as a subcutaneous injection. Research protocols are defined within the context of ongoing clinical trials.</p>
+            </div>
 
-            <h2>Research Mechanisms</h2>
-            <ul>
-                <li>Triple-receptor agonist: GLP-1, GIP, and glucagon receptor activation</li>
-                <li>First compound studied across all three metabolic receptor pathways simultaneously</li>
-                <li>Research examines mechanisms in appetite signaling and satiety</li>
-                <li>Investigated for effects on glucose-insulin metabolism and energy expenditure</li>
-            </ul>
+            <div class="pdp-info-block">
+                <div class="community-box">
+                    <h4>Community Interest Areas</h4>
+                    <p>The research community has shown intense interest in Retatrutide due to its triple-agonist mechanism, which distinguishes it from dual-agonist compounds like tirzepatide. Its ability to engage the glucagon receptor in addition to GLP-1 and GIP pathways has generated particular attention in metabolic research circles focused on energy expenditure.</p>
+                </div>
+            </div>
 
-            <!-- Lab Results — populated by api.js -->
-            <div class="product-lab-results"></div>
+            <div class="pdp-info-block">
+                <div class="pdp-stats">
+                    <div class="pdp-stat">
+                        <span class="pdp-stat-value">Triple Agonist</span>
+                        <span class="pdp-stat-label">Simultaneously activates GLP-1, GIP, and glucagon receptors</span>
+                    </div>
+                    <div class="pdp-stat">
+                        <span class="pdp-stat-value">Phase 3</span>
+                        <span class="pdp-stat-label">Currently under clinical trial investigation (NCT05931367)</span>
+                    </div>
+                </div>
+            </div>
 
             <p class="article-disclaimer">For research purposes only. Not intended for consumption, clinical application, or diagnostic use.</p>
         </div>
@@ -101,28 +198,51 @@
         });
     });
     </script>
+    <script>
+    // Glossary tooltips
+    (function() {
+        var activeTooltip = null;
+        function closeTooltip() { if (activeTooltip) { activeTooltip.remove(); activeTooltip = null; } }
+        document.querySelectorAll('.glossary-term').forEach(function(term) {
+            term.addEventListener('click', function(e) {
+                e.preventDefault(); e.stopPropagation(); closeTooltip();
+                var tooltip = document.createElement('div');
+                tooltip.className = 'glossary-tooltip';
+                tooltip.innerHTML = '<span class="glossary-tooltip-term">' + term.textContent + '</span><span class="glossary-tooltip-def">' + term.dataset.definition + '</span>';
+                term.appendChild(tooltip);
+                var rect = tooltip.getBoundingClientRect();
+                if (rect.top < 0) { tooltip.style.bottom = 'auto'; tooltip.style.top = 'calc(100% + 10px)'; }
+                if (rect.left < 10) { tooltip.style.left = '0'; tooltip.style.transform = 'none'; }
+                else if (rect.right > window.innerWidth - 10) { tooltip.style.left = 'auto'; tooltip.style.right = '0'; tooltip.style.transform = 'none'; }
+                requestAnimationFrame(function() { tooltip.classList.add('visible'); });
+                activeTooltip = tooltip;
+            });
+        });
+        document.addEventListener('click', function(e) { if (!e.target.closest('.glossary-term')) closeTooltip(); });
+    })();
+    </script>
     <script src="../js/cart.js?v=1"></script>
     <script src="../js/api.js?v=3"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var btn = document.getElementById("add-to-cart");
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('add-to-cart');
         if (!btn) return;
         var check = setInterval(function() {
-            var active = document.querySelector(".variant-btn.active");
+            var active = document.querySelector('.variant-btn.active');
             if (active) { clearInterval(check); btn.disabled = false; }
         }, 200);
         setTimeout(function() { clearInterval(check); btn.disabled = false; }, 5000);
-        btn.addEventListener("click", function() {
-            var active = document.querySelector(".variant-btn.active");
-            var slug = document.querySelector("[data-product-detail]").dataset.productDetail;
-            var name = document.querySelector(".article-title").textContent;
-            var img = document.querySelector(".article-body img");
-            var imgSrc = img ? img.getAttribute("src") : null;
+        btn.addEventListener('click', function() {
+            var active = document.querySelector('.variant-btn.active');
+            var slug = document.querySelector('[data-product-detail]').dataset.productDetail;
+            var name = document.querySelector('.pdp-title').textContent;
+            var img = document.querySelector('.pdp-image img');
+            var imgSrc = img ? img.getAttribute('src') : null;
             if (active) {
-                ThirtyThreeCart.addToCart(slug, name, active.dataset.variantId, active.textContent.trim().split("—")[0].trim(), parseFloat(active.dataset.price), imgSrc);
+                ThirtyThreeCart.addToCart(slug, name, active.dataset.variantId, active.textContent.trim().split('—')[0].trim(), parseFloat(active.dataset.price), imgSrc);
             } else {
-                var priceEl = document.querySelector(".product-detail-price");
-                var price = priceEl ? priceEl.textContent.replace("$","") : "0";
+                var priceEl = document.querySelector('.product-detail-price');
+                var price = priceEl ? priceEl.textContent.replace('$','') : '0';
                 ThirtyThreeCart.addToCart(slug, name, null, null, parseFloat(price), imgSrc);
             }
         });

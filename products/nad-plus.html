@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css?v=131">
+    <link rel="stylesheet" href="../css/style.css?v=133">
     <link rel="stylesheet" href="../css/blog.css?v=15">
 </head>
 <body>
@@ -40,42 +40,139 @@
         </ul>
     </div>
 
-    <section class="article-hero">
-        <div class="container">
-            <span class="article-tag">Cellular Aging</span>
-            <h1 class="article-title">NAD+</h1>
-            <p class="article-meta">Cellular Energy &amp; DNA Repair &middot; <span class="product-detail-price"></span></p>
+    <!-- Product Detail Section -->
+    <section class="pdp-section" data-product-detail="nad-plus">
+        <div class="pdp-container">
+
+            <!-- Left: Image -->
+            <div class="pdp-image">
+                <div class="pdp-image-wrap">
+                    <img src="../assets/images/products/nad-plus.png" alt="NAD+">
+                </div>
+            </div>
+
+            <!-- Right: Details -->
+            <div class="pdp-details">
+                <span class="pdp-tag">Cellular Aging</span>
+                <h1 class="pdp-title">NAD+</h1>
+                <p class="pdp-subtitle">Cellular Energy &amp; DNA Repair</p>
+                <div class="pdp-price-row">
+                    <span class="product-detail-price pdp-price">$69.00</span>
+                </div>
+
+                <!-- Variant Selector -->
+                <div class="product-variants"></div>
+
+                <button class="add-to-cart-btn" id="add-to-cart" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    Add to Cart
+                </button>
+
+                <!-- Trust badges -->
+                <div class="pdp-trust">
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                        <span>Third-Party Lab Tested</span>
+                    </div>
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                        <span>COA With Every Order</span>
+                    </div>
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        <span>Fast U.S. Shipping</span>
+                    </div>
+                </div>
+
+                <!-- Lab Results -->
+                <div class="product-lab-results"></div>
+            </div>
         </div>
     </section>
 
-    <section class="article-body" data-product-detail="nad-plus">
-        <div class="article-content">
+    <!-- Product Info Section -->
+    <section class="pdp-info">
+        <div class="pdp-info-container">
 
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <img src="../assets/images/products/nad-plus.png" alt="NAD+" style="max-width: 280px;">
+            <div class="pdp-info-block">
+                <h2>What It Is</h2>
+                <p>Nicotinamide adenine dinucleotide — a coenzyme found in every living cell. NAD+ is essential for converting food into cellular energy and regulating key repair processes. Research indicates that NAD+ levels decline by approximately 30% between the ages of 45 and 60.</p>
             </div>
 
-            <!-- Variant Selector — populated by api.js -->
-            <div class="product-variants"></div>
+            <!-- How It Works Visual -->
+            <div class="pdp-info-block">
+                <div class="mechanism-visual">
+                    <h4 class="mechanism-title">How It Works</h4>
+                    <div class="mechanism-flow">
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">1</div>
+                            <span class="mechanism-label">NAD+ enters the cellular environment</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">2</div>
+                            <span class="mechanism-label">Activates <span class="glossary-term" data-definition="A family of seven proteins (SIRT1-SIRT7) that regulate cellular health by removing chemical tags from other proteins. They depend on NAD+ to function and influence DNA repair, inflammation, and metabolism.">sirtuins</span> (SIRT1-SIRT7)</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">3</div>
+                            <span class="mechanism-label">Sirtuins trigger DNA repair and metabolic regulation</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">4</div>
+                            <span class="mechanism-label">Mitochondrial energy output is restored</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <button class="add-to-cart-btn" id="add-to-cart" disabled>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-                Add to Cart
-            </button>
+            <div class="pdp-info-block">
+                <h2>What Researchers Study It For</h2>
+                <div class="research-applications">
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <span>Cellular energy metabolism and ATP production</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>DNA damage repair pathways</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Age-related metabolic decline</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        <span>Sirtuin activation and cellular stress response</span>
+                    </div>
+                </div>
+            </div>
 
-            <h2>Overview</h2>
-            <p>NAD+ (Nicotinamide Adenine Dinucleotide) is a critical coenzyme for cellular energy production and DNA repair pathways. NAD+ levels decline approximately 30% between ages 45-60, a change investigated extensively in aging research models.</p>
+            <div class="pdp-info-block">
+                <h2>Common Research Protocols</h2>
+                <p>In published research, NAD+ is typically studied through direct supplementation or via precursors such as NMN and NR. Preclinical studies commonly evaluate its effects on mitochondrial respiration, sirtuin activity, and markers of cellular aging. Dosing varies widely by model system and research objective.</p>
+            </div>
 
-            <h2>Research Mechanisms</h2>
-            <ul>
-                <li>Essential coenzyme for mitochondrial energy production (ATP synthesis)</li>
-                <li>Research examines role in SIRT1-mediated DNA repair pathways</li>
-                <li>Investigated for mechanisms in cellular aging and senescence</li>
-                <li>Studied for effects on metabolic efficiency and oxidative stress response</li>
-            </ul>
+            <div class="pdp-info-block">
+                <div class="community-box">
+                    <h4>Community Interest Areas</h4>
+                    <p>NAD+ has become one of the most widely discussed compounds in the longevity research community. Interest centers on its role as a central metabolic regulator, with researchers exploring how restoring NAD+ levels may influence aging trajectories across multiple organ systems simultaneously.</p>
+                </div>
+            </div>
 
-            <!-- Lab Results — populated by api.js -->
-            <div class="product-lab-results"></div>
+            <div class="pdp-info-block">
+                <div class="pdp-stats">
+                    <div class="pdp-stat">
+                        <span class="pdp-stat-value">~30% Decline</span>
+                        <span class="pdp-stat-label">NAD+ levels decrease between ages 45 and 60</span>
+                    </div>
+                    <div class="pdp-stat">
+                        <span class="pdp-stat-value">Peer-Reviewed</span>
+                        <span class="pdp-stat-label">Studied across energy metabolism, DNA repair, and sirtuin activation models</span>
+                    </div>
+                </div>
+            </div>
 
             <p class="article-disclaimer">For research purposes only. Not intended for consumption, clinical application, or diagnostic use.</p>
         </div>
@@ -101,28 +198,51 @@
         });
     });
     </script>
+    <script>
+    // Glossary tooltips
+    (function() {
+        var activeTooltip = null;
+        function closeTooltip() { if (activeTooltip) { activeTooltip.remove(); activeTooltip = null; } }
+        document.querySelectorAll('.glossary-term').forEach(function(term) {
+            term.addEventListener('click', function(e) {
+                e.preventDefault(); e.stopPropagation(); closeTooltip();
+                var tooltip = document.createElement('div');
+                tooltip.className = 'glossary-tooltip';
+                tooltip.innerHTML = '<span class="glossary-tooltip-term">' + term.textContent + '</span><span class="glossary-tooltip-def">' + term.dataset.definition + '</span>';
+                term.appendChild(tooltip);
+                var rect = tooltip.getBoundingClientRect();
+                if (rect.top < 0) { tooltip.style.bottom = 'auto'; tooltip.style.top = 'calc(100% + 10px)'; }
+                if (rect.left < 10) { tooltip.style.left = '0'; tooltip.style.transform = 'none'; }
+                else if (rect.right > window.innerWidth - 10) { tooltip.style.left = 'auto'; tooltip.style.right = '0'; tooltip.style.transform = 'none'; }
+                requestAnimationFrame(function() { tooltip.classList.add('visible'); });
+                activeTooltip = tooltip;
+            });
+        });
+        document.addEventListener('click', function(e) { if (!e.target.closest('.glossary-term')) closeTooltip(); });
+    })();
+    </script>
     <script src="../js/cart.js?v=1"></script>
     <script src="../js/api.js?v=3"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var btn = document.getElementById("add-to-cart");
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('add-to-cart');
         if (!btn) return;
         var check = setInterval(function() {
-            var active = document.querySelector(".variant-btn.active");
+            var active = document.querySelector('.variant-btn.active');
             if (active) { clearInterval(check); btn.disabled = false; }
         }, 200);
         setTimeout(function() { clearInterval(check); btn.disabled = false; }, 5000);
-        btn.addEventListener("click", function() {
-            var active = document.querySelector(".variant-btn.active");
-            var slug = document.querySelector("[data-product-detail]").dataset.productDetail;
-            var name = document.querySelector(".article-title").textContent;
-            var img = document.querySelector(".article-body img");
-            var imgSrc = img ? img.getAttribute("src") : null;
+        btn.addEventListener('click', function() {
+            var active = document.querySelector('.variant-btn.active');
+            var slug = document.querySelector('[data-product-detail]').dataset.productDetail;
+            var name = document.querySelector('.pdp-title').textContent;
+            var img = document.querySelector('.pdp-image img');
+            var imgSrc = img ? img.getAttribute('src') : null;
             if (active) {
-                ThirtyThreeCart.addToCart(slug, name, active.dataset.variantId, active.textContent.trim().split("—")[0].trim(), parseFloat(active.dataset.price), imgSrc);
+                ThirtyThreeCart.addToCart(slug, name, active.dataset.variantId, active.textContent.trim().split('—')[0].trim(), parseFloat(active.dataset.price), imgSrc);
             } else {
-                var priceEl = document.querySelector(".product-detail-price");
-                var price = priceEl ? priceEl.textContent.replace("$","") : "0";
+                var priceEl = document.querySelector('.product-detail-price');
+                var price = priceEl ? priceEl.textContent.replace('$','') : '0';
                 ThirtyThreeCart.addToCart(slug, name, null, null, parseFloat(price), imgSrc);
             }
         });

@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css?v=131">
+    <link rel="stylesheet" href="../css/style.css?v=133">
     <link rel="stylesheet" href="../css/blog.css?v=15">
 </head>
 <body>
@@ -40,42 +40,139 @@
         </ul>
     </div>
 
-    <section class="article-hero">
-        <div class="container">
-            <span class="article-tag">Immunology &amp; Recovery</span>
-            <h1 class="article-title">Klow</h1>
-            <p class="article-meta">TB-500, BPC-157, KPV &amp; GHK-CU &middot; <span class="product-detail-price"></span></p>
+    <!-- Product Detail Section -->
+    <section class="pdp-section" data-product-detail="klow">
+        <div class="pdp-container">
+
+            <!-- Left: Image -->
+            <div class="pdp-image">
+                <div class="pdp-image-wrap">
+                    <img src="../assets/images/products/klow.png" alt="Klow">
+                </div>
+            </div>
+
+            <!-- Right: Details -->
+            <div class="pdp-details">
+                <span class="pdp-tag">Immunology &amp; Recovery</span>
+                <h1 class="pdp-title">Klow</h1>
+                <p class="pdp-subtitle">TB-500, BPC-157, KPV &amp; GHK-CU</p>
+                <div class="pdp-price-row">
+                    <span class="product-detail-price pdp-price">$69.00</span>
+                </div>
+
+                <!-- Variant Selector -->
+                <div class="product-variants"></div>
+
+                <button class="add-to-cart-btn" id="add-to-cart" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    Add to Cart
+                </button>
+
+                <!-- Trust badges -->
+                <div class="pdp-trust">
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                        <span>Third-Party Lab Tested</span>
+                    </div>
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                        <span>COA With Every Order</span>
+                    </div>
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        <span>Fast U.S. Shipping</span>
+                    </div>
+                </div>
+
+                <!-- Lab Results -->
+                <div class="product-lab-results"></div>
+            </div>
         </div>
     </section>
 
-    <section class="article-body" data-product-detail="klow">
-        <div class="article-content">
+    <!-- Product Info Section -->
+    <section class="pdp-info">
+        <div class="pdp-info-container">
 
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <img src="../assets/images/products/klow.png" alt="Klow" style="max-width: 280px;">
+            <div class="pdp-info-block">
+                <h2>What It Is</h2>
+                <p>A quad-peptide formulation combining TB-500 (a systemic cell migration peptide), BPC-157 (a localized tissue repair peptide), KPV (an anti-inflammatory tripeptide from <span class="glossary-term" data-definition="Alpha-melanocyte-stimulating hormone. A peptide hormone produced from the precursor protein POMC that regulates melanin production, immune responses, and inflammatory signaling.">alpha-MSH</span>), and GHK-Cu (a copper peptide that activates collagen synthesis). Klow engages four distinct signaling pathways — tissue repair, cell migration, inflammatory modulation, and matrix remodeling — within a single formulation.</p>
             </div>
 
-            <!-- Variant Selector — populated by api.js -->
-            <div class="product-variants"></div>
+            <!-- How It Works Visual -->
+            <div class="pdp-info-block">
+                <div class="mechanism-visual">
+                    <h4 class="mechanism-title">How It Works</h4>
+                    <div class="mechanism-flow">
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">1</div>
+                            <span class="mechanism-label">TB-500 promotes systemic cell migration via <span class="glossary-term" data-definition="A protein that forms the internal 'skeleton' of cells. It assembles into filaments that give cells their shape and enable movement.">actin</span> regulation</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">2</div>
+                            <span class="mechanism-label">BPC-157 activates localized tissue repair signaling</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">3</div>
+                            <span class="mechanism-label">KPV inhibits <span class="glossary-term" data-definition="Nuclear Factor kappa-light-chain-enhancer of activated B cells. A protein complex that controls the transcription of genes involved in inflammation.">NF-kB</span> to reduce inflammatory signaling</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">4</div>
+                            <span class="mechanism-label">GHK-Cu delivers copper to activate matrix remodeling enzymes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <button class="add-to-cart-btn" id="add-to-cart" disabled>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-                Add to Cart
-            </button>
+            <div class="pdp-info-block">
+                <h2>What Researchers Study It For</h2>
+                <div class="research-applications">
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>Multi-pathway tissue repair and recovery models</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        <span>Combined anti-inflammatory and regenerative research</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/></svg>
+                        <span>Skin and connective tissue remodeling</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <span>Immune modulation alongside tissue signaling</span>
+                    </div>
+                </div>
+            </div>
 
-            <h2>Overview</h2>
-            <p>Klow is a quad-peptide research formulation adding anti-inflammatory KPV to the Glow Blend foundation. Combines tissue repair, regeneration, collagen synthesis, and immune modulation pathways in a single vial.</p>
+            <div class="pdp-info-block">
+                <h2>Common Research Protocols</h2>
+                <p>Klow is supplied as a lyophilized powder and reconstituted with <span class="glossary-term" data-definition="Sterile water that has had bacteria-causing agents removed. Used to dissolve powdered peptides for research applications.">bacteriostatic water</span>. In research settings, it is administered via subcutaneous injection. The quad-peptide formulation reduces the complexity of multi-vial protocols by combining four individually studied compounds into a single reconstitution.</p>
+            </div>
 
-            <h2>Research Mechanisms</h2>
-            <ul>
-                <li>Quad-peptide formulation building on the Glow Blend foundation</li>
-                <li>Adds KPV anti-inflammatory pathway to tissue repair mechanisms</li>
-                <li>Research examines four simultaneous signaling pathways</li>
-                <li>Most comprehensive multi-peptide formulation in the catalog</li>
-            </ul>
+            <div class="pdp-info-block">
+                <div class="community-box">
+                    <h4>Community Interest Areas</h4>
+                    <p>Klow represents one of the most comprehensive multi-peptide formulations in the research peptide space, combining tissue repair (BPC-157), systemic cell motility (TB-500), inflammatory modulation (KPV), and matrix remodeling (GHK-Cu) into a single protocol. Researchers are interested in whether four-pathway engagement produces effects beyond what individual peptides or smaller combinations achieve. It builds on the foundation established by the Wolverine Stack (BPC-157 + TB-500) and the Glow Blend (BPC-157 + TB-500 + GHK-Cu) by adding the KPV anti-inflammatory component.</p>
+                </div>
+            </div>
 
-            <!-- Lab Results — populated by api.js -->
-            <div class="product-lab-results"></div>
+            <div class="pdp-info-block">
+                <div class="pdp-stats">
+                    <div class="pdp-stat">
+                        <span class="pdp-stat-value">4 Peptides</span>
+                        <span class="pdp-stat-label">TB-500, BPC-157, KPV, and GHK-Cu in a single formulation</span>
+                    </div>
+                    <div class="pdp-stat">
+                        <span class="pdp-stat-value">Multi-Pathway</span>
+                        <span class="pdp-stat-label">Repair, migration, anti-inflammatory, and matrix remodeling</span>
+                    </div>
+                </div>
+            </div>
 
             <p class="article-disclaimer">For research purposes only. Not intended for consumption, clinical application, or diagnostic use.</p>
         </div>
@@ -101,28 +198,51 @@
         });
     });
     </script>
+    <script>
+    // Glossary tooltips
+    (function() {
+        var activeTooltip = null;
+        function closeTooltip() { if (activeTooltip) { activeTooltip.remove(); activeTooltip = null; } }
+        document.querySelectorAll('.glossary-term').forEach(function(term) {
+            term.addEventListener('click', function(e) {
+                e.preventDefault(); e.stopPropagation(); closeTooltip();
+                var tooltip = document.createElement('div');
+                tooltip.className = 'glossary-tooltip';
+                tooltip.innerHTML = '<span class="glossary-tooltip-term">' + term.textContent + '</span><span class="glossary-tooltip-def">' + term.dataset.definition + '</span>';
+                term.appendChild(tooltip);
+                var rect = tooltip.getBoundingClientRect();
+                if (rect.top < 0) { tooltip.style.bottom = 'auto'; tooltip.style.top = 'calc(100% + 10px)'; }
+                if (rect.left < 10) { tooltip.style.left = '0'; tooltip.style.transform = 'none'; }
+                else if (rect.right > window.innerWidth - 10) { tooltip.style.left = 'auto'; tooltip.style.right = '0'; tooltip.style.transform = 'none'; }
+                requestAnimationFrame(function() { tooltip.classList.add('visible'); });
+                activeTooltip = tooltip;
+            });
+        });
+        document.addEventListener('click', function(e) { if (!e.target.closest('.glossary-term')) closeTooltip(); });
+    })();
+    </script>
     <script src="../js/cart.js?v=1"></script>
     <script src="../js/api.js?v=3"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var btn = document.getElementById("add-to-cart");
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('add-to-cart');
         if (!btn) return;
         var check = setInterval(function() {
-            var active = document.querySelector(".variant-btn.active");
+            var active = document.querySelector('.variant-btn.active');
             if (active) { clearInterval(check); btn.disabled = false; }
         }, 200);
         setTimeout(function() { clearInterval(check); btn.disabled = false; }, 5000);
-        btn.addEventListener("click", function() {
-            var active = document.querySelector(".variant-btn.active");
-            var slug = document.querySelector("[data-product-detail]").dataset.productDetail;
-            var name = document.querySelector(".article-title").textContent;
-            var img = document.querySelector(".article-body img");
-            var imgSrc = img ? img.getAttribute("src") : null;
+        btn.addEventListener('click', function() {
+            var active = document.querySelector('.variant-btn.active');
+            var slug = document.querySelector('[data-product-detail]').dataset.productDetail;
+            var name = document.querySelector('.pdp-title').textContent;
+            var img = document.querySelector('.pdp-image img');
+            var imgSrc = img ? img.getAttribute('src') : null;
             if (active) {
-                ThirtyThreeCart.addToCart(slug, name, active.dataset.variantId, active.textContent.trim().split("—")[0].trim(), parseFloat(active.dataset.price), imgSrc);
+                ThirtyThreeCart.addToCart(slug, name, active.dataset.variantId, active.textContent.trim().split('—')[0].trim(), parseFloat(active.dataset.price), imgSrc);
             } else {
-                var priceEl = document.querySelector(".product-detail-price");
-                var price = priceEl ? priceEl.textContent.replace("$","") : "0";
+                var priceEl = document.querySelector('.product-detail-price');
+                var price = priceEl ? priceEl.textContent.replace('$','') : '0';
                 ThirtyThreeCart.addToCart(slug, name, null, null, parseFloat(price), imgSrc);
             }
         });

@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css?v=131">
+    <link rel="stylesheet" href="../css/style.css?v=133">
     <link rel="stylesheet" href="../css/blog.css?v=15">
 </head>
 <body>
@@ -40,42 +40,139 @@
         </ul>
     </div>
 
-    <section class="article-hero">
-        <div class="container">
-            <span class="article-tag">Tissue Biology</span>
-            <h1 class="article-title">Wolverine Stack</h1>
-            <p class="article-meta">BPC-157 10mg &amp; TB-500 10mg &middot; <span class="product-detail-price"></span></p>
+    <!-- Product Detail Section -->
+    <section class="pdp-section" data-product-detail="wolverine-stack">
+        <div class="pdp-container">
+
+            <!-- Left: Image -->
+            <div class="pdp-image">
+                <div class="pdp-image-wrap">
+                    <img src="../assets/images/products/wolverine-stack.png" alt="Wolverine Stack">
+                </div>
+            </div>
+
+            <!-- Right: Details -->
+            <div class="pdp-details">
+                <span class="pdp-tag">Tissue Biology</span>
+                <h1 class="pdp-title">Wolverine Stack</h1>
+                <p class="pdp-subtitle">BPC-157 10mg &amp; TB-500 10mg</p>
+                <div class="pdp-price-row">
+                    <span class="product-detail-price pdp-price">$69.00</span>
+                </div>
+
+                <!-- Variant Selector -->
+                <div class="product-variants"></div>
+
+                <button class="add-to-cart-btn" id="add-to-cart" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    Add to Cart
+                </button>
+
+                <!-- Trust badges -->
+                <div class="pdp-trust">
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                        <span>Third-Party Lab Tested</span>
+                    </div>
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                        <span>COA With Every Order</span>
+                    </div>
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        <span>Fast U.S. Shipping</span>
+                    </div>
+                </div>
+
+                <!-- Lab Results -->
+                <div class="product-lab-results"></div>
+            </div>
         </div>
     </section>
 
-    <section class="article-body" data-product-detail="wolverine-stack">
-        <div class="article-content">
+    <!-- Product Info Section -->
+    <section class="pdp-info">
+        <div class="pdp-info-container">
 
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <img src="../assets/images/products/wolverine-stack.png" alt="Wolverine Stack" style="max-width: 280px;">
+            <div class="pdp-info-block">
+                <h2>What It Is</h2>
+                <p>A dual-peptide research bundle pairing BPC-157 (10mg) with TB-500 (10mg). BPC-157 is a 15-amino-acid synthetic fragment of gastric Body Protection Compound that acts locally via <span class="glossary-term" data-definition="A signaling system that controls how cells attach to surfaces and move. It creates the 'grip' cells need to crawl toward an injury.">FAK-paxillin signaling</span>. TB-500 is a fragment of Thymosin Beta-4 that operates systemically by regulating <span class="glossary-term" data-definition="A protein that forms the internal 'skeleton' of cells. It assembles into filaments that give cells their shape and enable movement.">actin</span> polymerization. The two peptides address tissue repair through complementary localized and systemic pathways.</p>
             </div>
 
-            <!-- Variant Selector — populated by api.js -->
-            <div class="product-variants"></div>
+            <!-- How It Works Visual -->
+            <div class="pdp-info-block">
+                <div class="mechanism-visual">
+                    <h4 class="mechanism-title">How It Works</h4>
+                    <div class="mechanism-flow">
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">1</div>
+                            <span class="mechanism-label">BPC-157 activates localized repair signaling at the target site</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">2</div>
+                            <span class="mechanism-label">TB-500 promotes systemic cell migration via actin regulation</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">3</div>
+                            <span class="mechanism-label">Local and systemic pathways converge on the tissue area</span>
+                        </div>
+                        <div class="mechanism-arrow">&rarr;</div>
+                        <div class="mechanism-step">
+                            <div class="mechanism-circle">4</div>
+                            <span class="mechanism-label">Dual-pathway engagement supports comprehensive tissue response</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <button class="add-to-cart-btn" id="add-to-cart" disabled>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-                Add to Cart
-            </button>
+            <div class="pdp-info-block">
+                <h2>What Researchers Study It For</h2>
+                <div class="research-applications">
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        <span>Combined local and systemic tissue repair models</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>Tendon, ligament, and connective tissue research</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/></svg>
+                        <span>Multi-peptide synergy investigations</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <span>Post-exercise recovery and cell migration studies</span>
+                    </div>
+                </div>
+            </div>
 
-            <h2>Overview</h2>
-            <p>The Wolverine Stack combines BPC-157 and TB-500 in a single research formulation. BPC-157 targets localized tissue mechanisms while TB-500 operates systemically, enabling dual-pathway investigation across regenerative pathways.</p>
+            <div class="pdp-info-block">
+                <h2>Common Research Protocols</h2>
+                <p>Both peptides are supplied as lyophilized powders and reconstituted with <span class="glossary-term" data-definition="Sterile water that has had bacteria-causing agents removed. Used to dissolve powdered peptides for research applications.">bacteriostatic water</span>. In preclinical studies, BPC-157 and TB-500 are typically administered via subcutaneous injection. Many published protocols use loading phases followed by maintenance schedules. The bundle format provides both compounds for dual-pathway research without requiring separate sourcing.</p>
+            </div>
 
-            <h2>Research Mechanisms</h2>
-            <ul>
-                <li>Dual-pathway research: localized mechanisms (BPC-157) + systemic pathways (TB-500)</li>
-                <li>Most studied combination for multi-pathway regenerative mechanisms</li>
-                <li>Research examines synergistic effects on tissue repair timelines</li>
-                <li>Single-vial formulation simplifies multi-compound research protocols</li>
-            </ul>
+            <div class="pdp-info-block">
+                <div class="community-box">
+                    <h4>Community Interest Areas</h4>
+                    <p>The BPC-157 and TB-500 combination — commonly referred to as the "Wolverine Stack" — represents one of the most frequently studied multi-peptide protocols in the tissue repair research space. BPC-157 tends to act locally near the site of interest, while TB-500 operates systemically throughout the body. Researchers studying this pairing are interested in whether the complementary mechanisms produce additive or synergistic tissue responses compared to either peptide alone.</p>
+                </div>
+            </div>
 
-            <!-- Lab Results — populated by api.js -->
-            <div class="product-lab-results"></div>
+            <div class="pdp-info-block">
+                <div class="pdp-stats">
+                    <div class="pdp-stat">
+                        <span class="pdp-stat-value">Dual Pathway</span>
+                        <span class="pdp-stat-label">Local (BPC-157) and systemic (TB-500) tissue repair mechanisms</span>
+                    </div>
+                    <div class="pdp-stat">
+                        <span class="pdp-stat-value">Peer-Reviewed</span>
+                        <span class="pdp-stat-label">Both peptides individually studied across multiple tissue models</span>
+                    </div>
+                </div>
+            </div>
 
             <p class="article-disclaimer">For research purposes only. Not intended for consumption, clinical application, or diagnostic use.</p>
         </div>
@@ -101,28 +198,51 @@
         });
     });
     </script>
+    <script>
+    // Glossary tooltips
+    (function() {
+        var activeTooltip = null;
+        function closeTooltip() { if (activeTooltip) { activeTooltip.remove(); activeTooltip = null; } }
+        document.querySelectorAll('.glossary-term').forEach(function(term) {
+            term.addEventListener('click', function(e) {
+                e.preventDefault(); e.stopPropagation(); closeTooltip();
+                var tooltip = document.createElement('div');
+                tooltip.className = 'glossary-tooltip';
+                tooltip.innerHTML = '<span class="glossary-tooltip-term">' + term.textContent + '</span><span class="glossary-tooltip-def">' + term.dataset.definition + '</span>';
+                term.appendChild(tooltip);
+                var rect = tooltip.getBoundingClientRect();
+                if (rect.top < 0) { tooltip.style.bottom = 'auto'; tooltip.style.top = 'calc(100% + 10px)'; }
+                if (rect.left < 10) { tooltip.style.left = '0'; tooltip.style.transform = 'none'; }
+                else if (rect.right > window.innerWidth - 10) { tooltip.style.left = 'auto'; tooltip.style.right = '0'; tooltip.style.transform = 'none'; }
+                requestAnimationFrame(function() { tooltip.classList.add('visible'); });
+                activeTooltip = tooltip;
+            });
+        });
+        document.addEventListener('click', function(e) { if (!e.target.closest('.glossary-term')) closeTooltip(); });
+    })();
+    </script>
     <script src="../js/cart.js?v=1"></script>
     <script src="../js/api.js?v=3"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var btn = document.getElementById("add-to-cart");
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('add-to-cart');
         if (!btn) return;
         var check = setInterval(function() {
-            var active = document.querySelector(".variant-btn.active");
+            var active = document.querySelector('.variant-btn.active');
             if (active) { clearInterval(check); btn.disabled = false; }
         }, 200);
         setTimeout(function() { clearInterval(check); btn.disabled = false; }, 5000);
-        btn.addEventListener("click", function() {
-            var active = document.querySelector(".variant-btn.active");
-            var slug = document.querySelector("[data-product-detail]").dataset.productDetail;
-            var name = document.querySelector(".article-title").textContent;
-            var img = document.querySelector(".article-body img");
-            var imgSrc = img ? img.getAttribute("src") : null;
+        btn.addEventListener('click', function() {
+            var active = document.querySelector('.variant-btn.active');
+            var slug = document.querySelector('[data-product-detail]').dataset.productDetail;
+            var name = document.querySelector('.pdp-title').textContent;
+            var img = document.querySelector('.pdp-image img');
+            var imgSrc = img ? img.getAttribute('src') : null;
             if (active) {
-                ThirtyThreeCart.addToCart(slug, name, active.dataset.variantId, active.textContent.trim().split("—")[0].trim(), parseFloat(active.dataset.price), imgSrc);
+                ThirtyThreeCart.addToCart(slug, name, active.dataset.variantId, active.textContent.trim().split('—')[0].trim(), parseFloat(active.dataset.price), imgSrc);
             } else {
-                var priceEl = document.querySelector(".product-detail-price");
-                var price = priceEl ? priceEl.textContent.replace("$","") : "0";
+                var priceEl = document.querySelector('.product-detail-price');
+                var price = priceEl ? priceEl.textContent.replace('$','') : '0';
                 ThirtyThreeCart.addToCart(slug, name, null, null, parseFloat(price), imgSrc);
             }
         });

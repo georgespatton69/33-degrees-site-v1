@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css?v=131">
+    <link rel="stylesheet" href="../css/style.css?v=133">
     <link rel="stylesheet" href="../css/blog.css?v=15">
 </head>
 <body>
@@ -40,42 +40,111 @@
         </ul>
     </div>
 
-    <section class="article-hero">
-        <div class="container">
-            <span class="article-tag">Accessories</span>
-            <h1 class="article-title">Bacteriostatic Water</h1>
-            <p class="article-meta">Reconstitution Solvent &middot; <span class="product-detail-price"></span></p>
+    <!-- Product Detail Section -->
+    <section class="pdp-section" data-product-detail="bac-water">
+        <div class="pdp-container">
+
+            <!-- Left: Image -->
+            <div class="pdp-image">
+                <div class="pdp-image-wrap">
+                    <img src="../assets/images/products/bac-water.png" alt="Bacteriostatic Water">
+                </div>
+            </div>
+
+            <!-- Right: Details -->
+            <div class="pdp-details">
+                <span class="pdp-tag">Accessories</span>
+                <h1 class="pdp-title">Bacteriostatic Water</h1>
+                <p class="pdp-subtitle">Reconstitution Solvent</p>
+                <div class="pdp-price-row">
+                    <span class="product-detail-price pdp-price">$12.00</span>
+                </div>
+
+                <!-- Variant Selector -->
+                <div class="product-variants"></div>
+
+                <button class="add-to-cart-btn" id="add-to-cart" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    Add to Cart
+                </button>
+
+                <!-- Trust badges -->
+                <div class="pdp-trust">
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                        <span>USP Grade</span>
+                    </div>
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                        <span>Sterile &amp; Sealed</span>
+                    </div>
+                    <div class="pdp-trust-item">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        <span>Fast U.S. Shipping</span>
+                    </div>
+                </div>
+
+                <!-- Lab Results -->
+                <div class="product-lab-results"></div>
+            </div>
         </div>
     </section>
 
-    <section class="article-body" data-product-detail="bac-water">
-        <div class="article-content">
+    <!-- Product Info Section -->
+    <section class="pdp-info">
+        <div class="pdp-info-container">
 
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <img src="../assets/images/products/bac-water.png" alt="Bacteriostatic Water" style="max-width: 280px;">
+            <div class="pdp-info-block">
+                <h2>What It Is</h2>
+                <p>Sterile water containing 0.9% benzyl alcohol as a bacteriostatic preservative. Bacteriostatic water is the standard reconstitution solvent for lyophilized (freeze-dried) peptides in research settings. The benzyl alcohol prevents bacterial growth, allowing the reconstituted solution to be used over multiple research sessions without contamination.</p>
             </div>
 
-            <!-- Variant Selector — populated by api.js -->
-            <div class="product-variants"></div>
+            <div class="pdp-info-block">
+                <h2>How It Is Used</h2>
+                <p>In peptide research, lyophilized compounds are dissolved by adding bacteriostatic water to the vial. The water is drawn into a syringe and injected slowly along the inner wall of the peptide vial, allowing the powder to dissolve without agitation. Once reconstituted, the peptide solution is typically stored refrigerated (2-8&deg;C) and remains stable for multiple uses due to the bacteriostatic preservative.</p>
+            </div>
 
-            <button class="add-to-cart-btn" id="add-to-cart" disabled>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
-                Add to Cart
-            </button>
+            <div class="pdp-info-block">
+                <h2>Key Specifications</h2>
+                <div class="research-applications">
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        <span>0.9% benzyl alcohol preservative</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                        <span>USP-grade sterile water</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <span>Multi-use vial with sealed stopper</span>
+                    </div>
+                    <div class="application-card">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        <span>Store refrigerated after opening (2-8&deg;C)</span>
+                    </div>
+                </div>
+            </div>
 
-            <h2>Overview</h2>
-            <p>Bacteriostatic water is sterile water containing 0.9% benzyl alcohol as a preservative. It is used as a reconstitution solvent for lyophilized peptide research compounds.</p>
+            <div class="pdp-info-block">
+                <div class="community-box">
+                    <h4>Essential Research Accessory</h4>
+                    <p>Bacteriostatic water is required for reconstituting all lyophilized peptides sold by 33 Degrees. Unlike sterile water (which contains no preservative and must be used in a single session), bacteriostatic water allows repeated withdrawals from a reconstituted peptide vial while maintaining sterility. It is recommended to have at least one vial of bacteriostatic water for every two to three peptide vials in a research protocol.</p>
+                </div>
+            </div>
 
-            <h2>Research Mechanisms</h2>
-            <ul>
-                <li>Sterile water with 0.9% benzyl alcohol preservative</li>
-                <li>Standard reconstitution solvent for lyophilized peptides</li>
-                <li>Multi-use vial — preservative prevents bacterial growth after opening</li>
-                <li>Required accessory for peptide research protocols</li>
-            </ul>
-
-            <!-- Lab Results — populated by api.js -->
-            <div class="product-lab-results"></div>
+            <div class="pdp-info-block">
+                <div class="pdp-stats">
+                    <div class="pdp-stat">
+                        <span class="pdp-stat-value">USP Grade</span>
+                        <span class="pdp-stat-label">Meets United States Pharmacopeia standards for purity</span>
+                    </div>
+                    <div class="pdp-stat">
+                        <span class="pdp-stat-value">Multi-Use</span>
+                        <span class="pdp-stat-label">Bacteriostatic preservative allows repeated withdrawals</span>
+                    </div>
+                </div>
+            </div>
 
             <p class="article-disclaimer">For research purposes only. Not intended for consumption, clinical application, or diagnostic use.</p>
         </div>
@@ -104,25 +173,25 @@
     <script src="../js/cart.js?v=1"></script>
     <script src="../js/api.js?v=3"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var btn = document.getElementById("add-to-cart");
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('add-to-cart');
         if (!btn) return;
         var check = setInterval(function() {
-            var active = document.querySelector(".variant-btn.active");
+            var active = document.querySelector('.variant-btn.active');
             if (active) { clearInterval(check); btn.disabled = false; }
         }, 200);
         setTimeout(function() { clearInterval(check); btn.disabled = false; }, 5000);
-        btn.addEventListener("click", function() {
-            var active = document.querySelector(".variant-btn.active");
-            var slug = document.querySelector("[data-product-detail]").dataset.productDetail;
-            var name = document.querySelector(".article-title").textContent;
-            var img = document.querySelector(".article-body img");
-            var imgSrc = img ? img.getAttribute("src") : null;
+        btn.addEventListener('click', function() {
+            var active = document.querySelector('.variant-btn.active');
+            var slug = document.querySelector('[data-product-detail]').dataset.productDetail;
+            var name = document.querySelector('.pdp-title').textContent;
+            var img = document.querySelector('.pdp-image img');
+            var imgSrc = img ? img.getAttribute('src') : null;
             if (active) {
-                ThirtyThreeCart.addToCart(slug, name, active.dataset.variantId, active.textContent.trim().split("—")[0].trim(), parseFloat(active.dataset.price), imgSrc);
+                ThirtyThreeCart.addToCart(slug, name, active.dataset.variantId, active.textContent.trim().split('—')[0].trim(), parseFloat(active.dataset.price), imgSrc);
             } else {
-                var priceEl = document.querySelector(".product-detail-price");
-                var price = priceEl ? priceEl.textContent.replace("$","") : "0";
+                var priceEl = document.querySelector('.product-detail-price');
+                var price = priceEl ? priceEl.textContent.replace('$','') : '0';
                 ThirtyThreeCart.addToCart(slug, name, null, null, parseFloat(price), imgSrc);
             }
         });
