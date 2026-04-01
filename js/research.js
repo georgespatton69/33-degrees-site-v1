@@ -268,14 +268,12 @@
                 <div class="result-peptides">
                     ${peptidesHTML}
                 </div>
-                <button class="btn-what-are-peptides" id="btn-what-peptides-bottom" style="margin-top: 2rem; margin-bottom: 2rem;">What Are Peptides?</button>
                 ${articlesHTML}
             </div>
         `;
 
         // Re-bind both dynamic buttons
         document.getElementById('btn-what-peptides-dynamic')?.addEventListener('click', () => switchView(viewSelector, viewPeptides));
-        document.getElementById('btn-what-peptides-bottom')?.addEventListener('click', () => switchView(viewSelector, viewPeptides));
     }
 
     // ---------- View Transitions ----------
