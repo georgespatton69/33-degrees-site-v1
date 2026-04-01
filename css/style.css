@@ -2763,6 +2763,65 @@ img {
     flex-shrink: 0;
 }
 
+/* Share button */
+.pdp-share {
+    position: relative;
+    margin-top: 16px;
+}
+.pdp-share-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 1px solid rgba(154,123,63,0.25);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.pdp-share-toggle:hover {
+    border-color: var(--gold);
+    color: var(--gold-dark);
+}
+.pdp-share-toggle svg { color: var(--gold); }
+.pdp-share-options {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: #fff;
+    border: 1px solid rgba(154,123,63,0.15);
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    padding: 8px;
+    z-index: 100;
+    min-width: 160px;
+}
+.pdp-share-options.active { display: block; }
+.pdp-share-opt {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: #2c2416;
+    cursor: pointer;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+.pdp-share-opt:hover { background: #f3ede4; }
+.pdp-share-opt svg { color: var(--gold); flex-shrink: 0; }
+
 /* Info section below */
 .pdp-info {
     background: #fff;
