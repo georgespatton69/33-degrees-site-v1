@@ -8,43 +8,41 @@
     // All searchable items — products and articles
     const items = [
         // Products
-        { name: 'BPC-157', type: 'Product', category: 'Tissue Biology', url: 'products/bpc-157.html', keywords: 'tissue repair gut healing gastric' },
-        { name: 'TB-500', type: 'Product', category: 'Tissue Biology', url: 'products/tb-500.html', keywords: 'regeneration thymosin cell migration' },
-        { name: 'Wolverine Stack', type: 'Product', category: 'Tissue Biology', url: 'products/wolverine-stack.html', keywords: 'bpc tb combo bundle dual pathway' },
-        { name: 'GHK-CU', type: 'Product', category: 'Tissue Biology', url: 'products/ghk-cu.html', keywords: 'copper peptide collagen skin wound hair' },
-        { name: 'NAD+', type: 'Product', category: 'Cellular Aging', url: 'products/nad-plus.html', keywords: 'nad nicotinamide cellular energy dna repair aging' },
-        { name: 'MOTS-c', type: 'Product', category: 'Cellular Energy', url: 'products/mots-c.html', keywords: 'mitochondrial endurance exercise metabolic' },
-        { name: 'Epithalon', type: 'Product', category: 'Cellular Aging', url: 'products/epithalon.html', keywords: 'telomere telomerase longevity aging pineal' },
-        { name: 'SS-31', type: 'Product', category: 'Cellular Aging', url: 'products/ss-31.html', keywords: 'mitochondria elamipretide oxidative stress cardiolipin' },
-        { name: 'Retatrutide', type: 'Product', category: 'Metabolic Science', url: 'products/retatrutide.html', keywords: 'glp-1 gip glucagon triple agonist weight metabolic appetite' },
-        { name: 'Tesamorelin', type: 'Product', category: 'Metabolic Science', url: 'products/tesamorelin.html', keywords: 'growth hormone ghrh visceral fat' },
-        { name: 'AOD 9604', type: 'Product', category: 'Metabolic Science', url: 'products/aod-9604.html', keywords: 'hgh fat burning fragment lipolysis' },
-        { name: 'Ipamorelin', type: 'Product', category: 'Cellular Energy', url: 'products/ipamorelin.html', keywords: 'growth hormone secretagogue gh selective cortisol' },
-        { name: 'Glow Blend', type: 'Product', category: 'Immunology & Recovery', url: 'products/glow-blend.html', keywords: 'bpc tb ghk collagen skin bundle' },
-        { name: 'KPV', type: 'Product', category: 'Immunology & Recovery', url: 'products/kpv.html', keywords: 'anti-inflammatory immune nf-kb alpha-msh' },
-        { name: 'Klow', type: 'Product', category: 'Immunology & Recovery', url: 'products/klow.html', keywords: 'quad peptide bpc tb kpv ghk bundle' },
-        { name: 'CJC-1295 + Ipamorelin', type: 'Product', category: 'Cellular Energy', url: 'products/cjc-ipamorelin.html', keywords: 'growth hormone dual secretagogue ghrh' },
-        { name: 'Bacteriostatic Water', type: 'Product', category: 'Accessories', url: 'products/bac-water.html', keywords: 'bac water reconstitution solvent sterile' },
+        { name: 'BPC-157', type: 'Product', category: 'Tissue Biology', url: '/products/bpc-157/', keywords: 'tissue repair gut healing gastric' },
+        { name: 'TB-500', type: 'Product', category: 'Tissue Biology', url: '/products/tb-500/', keywords: 'regeneration thymosin cell migration' },
+        { name: 'Wolverine Stack', type: 'Product', category: 'Tissue Biology', url: '/products/wolverine-stack/', keywords: 'bpc tb combo bundle dual pathway' },
+        { name: 'GHK-CU', type: 'Product', category: 'Tissue Biology', url: '/products/ghk-cu/', keywords: 'copper peptide collagen skin wound hair' },
+        { name: 'NAD+', type: 'Product', category: 'Cellular Aging', url: '/products/nad-plus/', keywords: 'nad nicotinamide cellular energy dna repair aging' },
+        { name: 'MOTS-c', type: 'Product', category: 'Cellular Energy', url: '/products/mots-c/', keywords: 'mitochondrial endurance exercise metabolic' },
+        { name: 'Epithalon', type: 'Product', category: 'Cellular Aging', url: '/products/epithalon/', keywords: 'telomere telomerase longevity aging pineal' },
+        { name: 'SS-31', type: 'Product', category: 'Cellular Aging', url: '/products/ss-31/', keywords: 'mitochondria elamipretide oxidative stress cardiolipin' },
+        { name: 'Retatrutide', type: 'Product', category: 'Metabolic Science', url: '/products/retatrutide/', keywords: 'glp-1 gip glucagon triple agonist weight metabolic appetite' },
+        { name: 'Tesamorelin', type: 'Product', category: 'Metabolic Science', url: '/products/tesamorelin/', keywords: 'growth hormone ghrh visceral fat' },
+        { name: 'AOD 9604', type: 'Product', category: 'Metabolic Science', url: '/products/aod-9604/', keywords: 'hgh fat burning fragment lipolysis' },
+        { name: 'Ipamorelin', type: 'Product', category: 'Cellular Energy', url: '/products/ipamorelin/', keywords: 'growth hormone secretagogue gh selective cortisol' },
+        { name: 'Glow Blend', type: 'Product', category: 'Immunology & Recovery', url: '/products/glow-blend/', keywords: 'bpc tb ghk collagen skin bundle' },
+        { name: 'KPV', type: 'Product', category: 'Immunology & Recovery', url: '/products/kpv/', keywords: 'anti-inflammatory immune nf-kb alpha-msh' },
+        { name: 'Klow', type: 'Product', category: 'Immunology & Recovery', url: '/products/klow/', keywords: 'quad peptide bpc tb kpv ghk bundle' },
+        { name: 'CJC-1295 + Ipamorelin', type: 'Product', category: 'Cellular Energy', url: '/products/cjc-ipamorelin/', keywords: 'growth hormone dual secretagogue ghrh' },
+        { name: 'Bacteriostatic Water', type: 'Product', category: 'Accessories', url: '/products/bac-water/', keywords: 'bac water reconstitution solvent sterile' },
         // Articles
-        { name: 'What Are Peptides?', type: 'Article', category: 'Research', url: 'blog/what-are-peptides.html', keywords: 'peptide basics fundamentals amino acids' },
-        { name: 'Peptides in 2026', type: 'Article', category: 'Research', url: 'blog/peptides-in-2026.html', keywords: 'industry regulatory fda clinical' },
-        { name: 'Are Peptides Safe?', type: 'Article', category: 'Research', url: 'blog/are-peptides-safe.html', keywords: 'safety side effects fda compliance' },
-        { name: 'Tissue Response & Repair', type: 'Article', category: 'Research', url: 'blog/tissue-response-guide.html', keywords: 'bpc tb ghk tissue repair cell migration' },
-        { name: 'Growth Hormone Peptides', type: 'Article', category: 'Research', url: 'blog/gh-signaling-guide.html', keywords: 'ipamorelin tesamorelin growth hormone gh' },
-        { name: 'Metabolic Peptides', type: 'Article', category: 'Research', url: 'blog/endocrine-pathways-guide.html', keywords: 'retatrutide tesamorelin aod metabolic' },
-        { name: 'Mitochondrial Function', type: 'Article', category: 'Research', url: 'blog/mitochondrial-function-guide.html', keywords: 'nad ss-31 mots-c epithalon aging longevity' },
-        { name: 'Collagen & Skin', type: 'Article', category: 'Research', url: 'blog/collagen-synthesis-guide.html', keywords: 'ghk-cu glow blend collagen skin' },
-        { name: 'Immune Signaling', type: 'Article', category: 'Research', url: 'blog/immune-signaling-guide.html', keywords: 'bpc tb immune inflammation recovery' },
+        { name: 'What Are Peptides?', type: 'Article', category: 'Research', url: '/blog/what-are-peptides/', keywords: 'peptide basics fundamentals amino acids' },
+        { name: 'Peptides in 2026', type: 'Article', category: 'Research', url: '/blog/peptides-in-2026/', keywords: 'industry regulatory fda clinical' },
+        { name: 'Are Peptides Safe?', type: 'Article', category: 'Research', url: '/blog/are-peptides-safe/', keywords: 'safety side effects fda compliance' },
+        { name: 'Tissue Response & Repair', type: 'Article', category: 'Research', url: '/blog/tissue-response-guide/', keywords: 'bpc tb ghk tissue repair cell migration' },
+        { name: 'Growth Hormone Peptides', type: 'Article', category: 'Research', url: '/blog/gh-signaling-guide/', keywords: 'ipamorelin tesamorelin growth hormone gh' },
+        { name: 'Metabolic Peptides', type: 'Article', category: 'Research', url: '/blog/endocrine-pathways-guide/', keywords: 'retatrutide tesamorelin aod metabolic' },
+        { name: 'Mitochondrial Function', type: 'Article', category: 'Research', url: '/blog/mitochondrial-function-guide/', keywords: 'nad ss-31 mots-c epithalon aging longevity' },
+        { name: 'Collagen & Skin', type: 'Article', category: 'Research', url: '/blog/collagen-synthesis-guide/', keywords: 'ghk-cu glow blend collagen skin' },
+        { name: 'Immune Signaling', type: 'Article', category: 'Research', url: '/blog/immune-signaling-guide/', keywords: 'bpc tb immune inflammation recovery' },
         // Pages
-        { name: 'Lab Testing Results', type: 'Page', category: '', url: 'lab-testing.html', keywords: 'lab testing coa certificate purity batch' },
-        { name: 'Research Library', type: 'Page', category: '', url: 'research.html', keywords: 'research peptides learn' },
-        { name: 'All Compounds', type: 'Page', category: '', url: 'compounds.html', keywords: 'products compounds catalog all shop' },
+        { name: 'Lab Testing Results', type: 'Page', category: '', url: '/lab-testing/', keywords: 'lab testing coa certificate purity batch' },
+        { name: 'Research Library', type: 'Page', category: '', url: '/research/', keywords: 'research peptides learn' },
+        { name: 'All Compounds', type: 'Page', category: '', url: '/compounds/', keywords: 'products compounds catalog all shop' },
     ];
 
-    // Detect if we're in a subdirectory
+    // All URLs are now absolute, no base path needed
     function getBasePath() {
-        var path = window.location.pathname;
-        if (path.includes('/products/') || path.includes('/blog/')) return '../';
         return '';
     }
 

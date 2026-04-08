@@ -27,11 +27,15 @@
         }
     }
 
-    // Extract product slug from a link href like "products/bpc-157.html"
+    // Extract product slug from a link href like "/products/bpc-157/" or legacy "products/bpc-157.html"
     function slugFromHref(href) {
         if (!href) return null;
-        const match = href.match(/products\/([^.]+)\.html/);
-        return match ? match[1] : null;
+        // Match clean URL format: /products/bpc-157/ or products/bpc-157/
+        const cleanMatch = href.match(/products\/([^/]+)\/?$/);
+        if (cleanMatch) return cleanMatch[1];
+        // Legacy fallback: products/bpc-157.html
+        const legacyMatch = href.match(/products\/([^.]+)\.html/);
+        return legacyMatch ? legacyMatch[1] : null;
     }
 
     // ---- Product Card Hydration (homepage + compounds page) ----
@@ -88,7 +92,7 @@
     // ---- Product Detail Page ----
 
     async function hydrateProductDetail() {
-        // Detect product slug from URL: /products/bpc-157.html
+        // Detect product slug from URL: /products/bpc-157/
         const pathSlug = slugFromHref(window.location.pathname);
         const slugEl = document.querySelector('[data-product-detail]');
         const slug = (slugEl && slugEl.dataset.productDetail) || pathSlug;
