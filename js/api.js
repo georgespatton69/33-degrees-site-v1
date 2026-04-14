@@ -134,17 +134,12 @@
             if (firstAvailable) firstAvailable.click();
         }
 
-        // Show lab results / batch info
+        // Show a single "Lab Results" button linking to the lab testing page
         const labContainer = document.querySelector('.product-lab-results');
         if (labContainer && product.lab_results && product.lab_results.length > 0) {
-            labContainer.innerHTML = product.lab_results.map(lr => `
-                <div class="lab-result-badge">
-                    <span class="lab-batch">Batch ${lr.batch_number}</span>
-                    <span class="lab-purity">${lr.purity_percentage}% Pure</span>
-                    <span class="lab-lab">${lr.testing_lab}</span>
-                    ${lr.coa_url ? `<a href="${lr.coa_url}" target="_blank" class="lab-coa-link">View COA</a>` : ''}
-                </div>
-            `).join('');
+            labContainer.innerHTML = `
+                <a href="/lab-testing/" class="btn btn-outline lab-results-btn">Lab Results</a>
+            `;
         }
     }
 
