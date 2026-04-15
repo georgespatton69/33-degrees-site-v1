@@ -28,7 +28,11 @@ PRODUCTS = [
     ("tesamorelin", "Tesamorelin 10MG"),
     ("ss-31", "SS-31 10MG"),
     ("aod-9604", "AOD 9604 10MG"),
+    ("kpv", "KPV 10MG"),
 ]
+
+# Only generate new/missing products (set to None to regenerate all)
+ONLY_GENERATE = ["kpv"]
 
 # Load label reference
 label_img = Image.open(LABEL_PATH)
@@ -91,9 +95,14 @@ if __name__ == "__main__":
     print("Generating product bottles via Nano Banana Pro...")
     print(f"Using label reference: {LABEL_PATH}\n")
 
+    # Filter if ONLY_GENERATE is set
+    products_to_run = PRODUCTS
+    if ONLY_GENERATE:
+        products_to_run = [(pid, name) for pid, name in PRODUCTS if pid in ONLY_GENERATE]
+
     successes = 0
-    for i, (pid, name) in enumerate(PRODUCTS):
-        print(f"[{i+1}/{len(PRODUCTS)}] Generating {name}...")
+    for i, (pid, name) in enumerate(products_to_run):
+        print(f"[{i+1}/{len(products_to_run)}] Generating {name}...")
         try:
             success = generate_bottle(pid, name)
             if success:
@@ -107,7 +116,7 @@ if __name__ == "__main__":
             print(f"  ERROR: {e}")
 
         # Rate limiting
-        if i < len(PRODUCTS) - 1:
+        if i < len(products_to_run) - 1:
             time.sleep(4)
 
-    print(f"\nDone! {successes}/{len(PRODUCTS)} bottles generated.")
+    print(f"\nDone! {successes}/{len(products_to_run)} bottles generated.")
