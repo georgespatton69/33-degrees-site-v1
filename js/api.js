@@ -142,9 +142,9 @@
             if (firstAvailable) firstAvailable.click();
         }
 
-        // Always show "Lab Results" button linking to the lab testing page
+        // Show "Lab Results" button only when product has published lab results
         const labContainer = document.querySelector('.product-lab-results');
-        if (labContainer) {
+        if (labContainer && product.lab_results && product.lab_results.length > 0) {
             labContainer.innerHTML = `
                 <a href="/lab-testing/" class="btn btn-outline lab-results-btn">Lab Results</a>
             `;
