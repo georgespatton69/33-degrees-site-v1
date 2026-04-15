@@ -142,9 +142,9 @@
             if (firstAvailable) firstAvailable.click();
         }
 
-        // Show a single "Lab Results" button linking to the lab testing page
+        // Always show "Lab Results" button linking to the lab testing page
         const labContainer = document.querySelector('.product-lab-results');
-        if (labContainer && product.lab_results && product.lab_results.length > 0) {
+        if (labContainer) {
             labContainer.innerHTML = `
                 <a href="/lab-testing/" class="btn btn-outline lab-results-btn">Lab Results</a>
             `;
