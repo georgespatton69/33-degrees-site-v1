@@ -20,6 +20,7 @@ PRODUCTS = [
     ("tesamorelin", "Tesamorelin", "10MG"),
     ("ss-31", "SS-31", "10MG"),
     ("aod-9604", "AOD 9604", "10MG"),
+    ("kpv", "KPV", "10MG"),
 ]
 
 W, H = 400, 560
