@@ -109,6 +109,7 @@
 
         // Render variant selector
         const variantContainer = document.querySelector('.product-variants');
+        const variantImage = document.querySelector('img[data-variant-image]');
         if (variantContainer && product.variants.length > 0) {
             variantContainer.innerHTML = product.variants
                 .filter(v => v.is_active)
@@ -116,6 +117,7 @@
                     <button class="variant-btn ${v.in_stock ? '' : 'out-of-stock'}"
                             data-variant-id="${v.id}"
                             data-price="${v.price}"
+                            data-size="${v.size}"
                             ${v.in_stock ? '' : 'disabled'}>
                         ${v.size} — $${parseFloat(v.price).toFixed(0)}
                         ${v.in_stock ? '' : '<span class="variant-oos">Out of Stock</span>'}
@@ -127,6 +129,12 @@
                     variantContainer.querySelectorAll('.variant-btn').forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                     if (priceEl) priceEl.textContent = `$${parseFloat(btn.dataset.price).toFixed(2)}`;
+                    // Swap product image based on selected variant size
+                    if (variantImage && btn.dataset.size) {
+                        const sizeKey = 'size' + btn.dataset.size.replace(/\s+/g, '').toLowerCase();
+                        const newSrc = variantImage.dataset[sizeKey];
+                        if (newSrc) variantImage.src = newSrc;
+                    }
                 });
             });
 
