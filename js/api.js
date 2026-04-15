@@ -131,8 +131,8 @@
                     if (priceEl) priceEl.textContent = `$${parseFloat(btn.dataset.price).toFixed(2)}`;
                     // Swap product image based on selected variant size
                     if (variantImage && btn.dataset.size) {
-                        const sizeKey = 'size' + btn.dataset.size.replace(/\s+/g, '').toLowerCase();
-                        const newSrc = variantImage.dataset[sizeKey];
+                        const size = btn.dataset.size.replace(/\s+/g, '').toLowerCase();
+                        const newSrc = variantImage.getAttribute('data-size-' + size);
                         if (newSrc) variantImage.src = newSrc;
                     }
                 });
