@@ -60,14 +60,14 @@
             ]
         },
         weight: {
-            desc: "Peptides that modulate metabolic pathways — appetite signaling, lipid metabolism, visceral adiposity mechanisms, and metabolic efficiency. Including GLP-1 receptor agonists and lipid metabolism-targeted compounds.",
+            desc: "Peptides that modulate metabolic pathways — appetite signaling, lipid metabolism, visceral adiposity mechanisms, and metabolic efficiency. Including metabolic receptor agonists and lipid metabolism-targeted compounds.",
             subtitle: "Primary Compounds in Metabolic Science Research",
             peptides: [
                 {
                     name: "Retatrutide",
                     slug: "retatrutide",
                     tag: "Tri-Agonist",
-                    desc: "The first tri-agonist peptide targeting GLP-1, GIP, and glucagon receptors simultaneously for multi-pathway metabolic research. <a href=\"https://clinicaltrials.gov/study/NCT05931367\" target=\"_blank\" class=\"citation-link\">ClinicalTrials.gov</a>"
+                    desc: "The first tri-agonist peptide targeting multiple metabolic receptor pathways simultaneously for multi-pathway metabolic research. <a href=\"https://clinicaltrials.gov/study/NCT05931367\" target=\"_blank\" class=\"citation-link\">ClinicalTrials.gov</a>"
                 },
                 {
                     name: "Tesamorelin",
@@ -218,7 +218,7 @@
             { tag: 'Cell Biology', title: 'Longevity Peptides: NAD+, SS-31, MOTS-c & Epithalon', url: '/blog/mitochondrial-function-guide/', desc: 'An overview of mitochondrial peptides, cellular energy, and what researchers study them for in aging science.' }
         ],
         weight: [
-            { tag: 'Endocrinology', title: 'Metabolic Peptides: Retatrutide, Tesamorelin & AOD 9604', url: '/blog/endocrine-pathways-guide/', desc: 'How GLP-1 agonists and metabolic peptides work, Phase 3 trial data, and common research applications.' }
+            { tag: 'Endocrinology', title: 'Metabolic Peptides: Retatrutide, Tesamorelin & AOD 9604', url: '/blog/endocrine-pathways-guide/', desc: 'How metabolic agonists and metabolic peptides work, Phase 3 trial data, and common research applications.' }
         ],
         skin: [
             { tag: 'Dermatology', title: 'Collagen & Skin Peptides: GHK-Cu & Glow Blend', url: '/blog/collagen-synthesis-guide/', desc: 'How copper peptides activate collagen production and the science behind multi-peptide blends.' }

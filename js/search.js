@@ -16,7 +16,7 @@
         { name: 'MOTS-c', type: 'Product', category: 'Cellular Energy', url: '/products/mots-c/', keywords: 'mitochondrial endurance exercise metabolic' },
         { name: 'Epithalon', type: 'Product', category: 'Cellular Aging', url: '/products/epithalon/', keywords: 'telomere telomerase longevity aging pineal' },
         { name: 'SS-31', type: 'Product', category: 'Cellular Aging', url: '/products/ss-31/', keywords: 'mitochondria elamipretide oxidative stress cardiolipin' },
-        { name: 'Retatrutide', type: 'Product', category: 'Metabolic Science', url: '/products/retatrutide/', keywords: 'glp-1 gip glucagon triple agonist weight metabolic appetite' },
+        { name: 'Retatrutide', type: 'Product', category: 'Metabolic Science', url: '/products/retatrutide/', keywords: 'tri-agonist triple receptor metabolic appetite incretin' },
         { name: 'Tesamorelin', type: 'Product', category: 'Metabolic Science', url: '/products/tesamorelin/', keywords: 'growth hormone ghrh visceral fat' },
         { name: 'AOD 9604', type: 'Product', category: 'Metabolic Science', url: '/products/aod-9604/', keywords: 'hgh fat burning fragment lipolysis' },
         { name: 'Ipamorelin', type: 'Product', category: 'Cellular Energy', url: '/products/ipamorelin/', keywords: 'growth hormone secretagogue gh selective cortisol' },
