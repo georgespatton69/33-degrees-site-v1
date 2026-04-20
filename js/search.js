@@ -25,6 +25,16 @@
         { name: 'Klow', type: 'Product', category: 'Immunology & Recovery', url: '/products/klow/', keywords: 'quad peptide bpc tb kpv ghk bundle' },
         { name: 'CJC-1295 + Ipamorelin', type: 'Product', category: 'Cellular Energy', url: '/products/cjc-ipamorelin/', keywords: 'growth hormone dual secretagogue ghrh' },
         { name: 'Bacteriostatic Water', type: 'Product', category: 'Accessories', url: '/products/bac-water/', keywords: 'bac water reconstitution solvent sterile' },
+        // New Releases
+        { name: '5-Amino-1MQ', type: 'Product', category: 'New Releases', url: '/products/5-amino-1mq/', keywords: 'nnmt inhibitor nad salvage methyl donor adipocyte 5-amino' },
+        { name: 'SLU-PP-332', type: 'Product', category: 'New Releases', url: '/products/slu-pp-332/', keywords: 'err agonist exercise mimetic mitochondrial biogenesis oxidative' },
+        { name: 'Sermorelin', type: 'Product', category: 'New Releases', url: '/products/sermorelin/', keywords: 'ghrh analog growth hormone pulsatile pituitary somatotroph' },
+        { name: 'DSIP', type: 'Product', category: 'New Releases', url: '/products/dsip/', keywords: 'delta sleep inducing peptide slow wave hpa neuropeptide' },
+        { name: 'PT-141', type: 'Product', category: 'New Releases', url: '/products/pt-141/', keywords: 'bremelanotide melanocortin mc4r cyclic peptide hypothalamic' },
+        { name: 'Kisspeptin', type: 'Product', category: 'New Releases', url: '/products/kisspeptin/', keywords: 'kiss1 gnrh hpg hypothalamic gpr54 reproductive' },
+        { name: 'Selank', type: 'Product', category: 'New Releases', url: '/products/selank/', keywords: 'tuftsin analog gabaergic intranasal anxiolytic russian peptide' },
+        { name: 'Semax', type: 'Product', category: 'New Releases', url: '/products/semax/', keywords: 'acth nootropic bdnf ngf nootropic russian intranasal' },
+        { name: 'MT-2', type: 'Product', category: 'New Releases', url: '/products/mt-2/', keywords: 'melanotan ii melanocortin mc1r pigmentation eumelanin' },
         // Articles
         { name: 'What Are Peptides?', type: 'Article', category: 'Research', url: '/blog/what-are-peptides/', keywords: 'peptide basics fundamentals amino acids' },
         { name: 'Peptides in 2026', type: 'Article', category: 'Research', url: '/blog/peptides-in-2026/', keywords: 'industry regulatory fda clinical' },

@@ -3182,3 +3182,40 @@ img {
     .age-gate-logo img { max-width: 140px; }
     .age-gate-title { font-size: 0.8rem; }
 }
+
+/* ---------- All Products Section (below Cellular Aging on desktop) ---------- */
+.all-products-grid {
+    background: #faf6f0;
+    padding: 80px 0;
+}
+.all-products-grid .section-title {
+    text-align: center;
+    color: #2c2416;
+    margin-bottom: 12px;
+}
+.all-products-grid .section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+    font-size: 0.95rem;
+}
+.all-products-list {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.all-products-list .product-card {
+    background: #fff;
+    border: 1px solid rgba(154,123,63,0.12);
+}
+.all-products-list .product-badge {
+    background: var(--gold);
+    color: #fff;
+}
+@media (max-width: 1024px) {
+    .all-products-grid { padding: 60px 0; }
+}
+@media (max-width: 768px) {
+    .all-products-grid { padding: 40px 0; }
+    .all-products-grid .section-title { font-size: 1.6rem; }
+    .all-products-grid .section-subtitle { margin-bottom: 28px; }
+}
