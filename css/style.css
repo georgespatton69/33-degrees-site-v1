@@ -3083,3 +3083,102 @@ img {
     .pdp-stats { grid-template-columns: 1fr; }
     .pdp-info { padding: 50px 0; }
 }
+
+/* ---------- Age Verification Gate ---------- */
+#age-gate {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+#age-gate.fading-out { opacity: 0; }
+
+.age-gate-modal {
+    background: #faf6f0;
+    border-radius: 12px;
+    padding: 40px 32px 32px;
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.age-gate-logo {
+    background: #1a1812;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.age-gate-logo img {
+    max-width: 180px;
+    width: 100%;
+    height: auto;
+}
+
+.age-gate-title {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #2c2416;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+}
+
+.age-gate-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.age-gate-btn {
+    padding: 14px 28px;
+    border: 1px solid #2c2416;
+    background: #fff;
+    color: #2c2416;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+.age-gate-btn:hover {
+    background: #2c2416;
+    color: #faf6f0;
+}
+
+.age-gate-disclaimer {
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+    text-align: center;
+}
+.age-gate-disclaimer strong {
+    color: #2c2416;
+}
+
+@media (max-width: 480px) {
+    .age-gate-modal {
+        padding: 28px 20px 24px;
+    }
+    .age-gate-logo img { max-width: 140px; }
+    .age-gate-title { font-size: 0.8rem; }
+}
