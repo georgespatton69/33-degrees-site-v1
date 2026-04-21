@@ -110,8 +110,8 @@
 
         drawer.querySelector('.cart-drawer-close').addEventListener('click', closeCartDrawer);
         drawer.querySelector('.cart-checkout-btn').addEventListener('click', () => {
-            // TODO: Redirect to checkout when payment is live
-            alert('Checkout coming soon — payment integration in progress.');
+            if (getCart().length === 0) return;
+            window.location.href = '/checkout/';
         });
     }
 
