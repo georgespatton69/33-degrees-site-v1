@@ -137,9 +137,27 @@
 
             try {
                 const result = await submitOrder(data, items);
-                // Clear cart and redirect to confirmation
-                localStorage.removeItem(CART_KEY);
                 const order = (result && result.order_number) || '';
+                const total = (result && result.total) || '0.00';
+                // Snapshot order details so the confirmation page can render them
+                // after the cart is cleared
+                try {
+                    sessionStorage.setItem('33d_last_order', JSON.stringify({
+                        order_number: order,
+                        total: total,
+                        email: data.email,
+                        first_name: data.first_name,
+                        last_name: data.last_name,
+                        phone: data.phone,
+                        address_line1: data.address_line1,
+                        address_line2: data.address_line2,
+                        city: data.city,
+                        state: data.state,
+                        zip_code: data.zip_code,
+                        items: getCart(),
+                    }));
+                } catch {}
+                localStorage.removeItem(CART_KEY);
                 window.location.href = '/order-confirmation/?order=' + encodeURIComponent(order);
             } catch (err) {
                 console.error(err);

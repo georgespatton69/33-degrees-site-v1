@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Order Received — 33 Degrees of Healing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css?v=135">
+    <link rel="stylesheet" href="/css/checkout.css?v=1">
+    <link rel="stylesheet" href="/css/order-confirmation.css?v=1">
+</head>
+<body class="checkout-body">
+    <header class="checkout-header">
+        <a href="/" class="nav-logo">
+            <span class="nav-logo-text">33 Degrees<span class="nav-logo-sub">of Healing</span></span>
+        </a>
+    </header>
+
+    <main class="checkout-main">
+        <div class="confirmation-container">
+
+            <div class="confirmation-hero">
+                <div class="confirmation-check" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <p class="confirmation-order-label">Order <span id="confirmation-order-number">—</span></p>
+                <h1 class="confirmation-title">Thank you, <span id="confirmation-first-name">friend</span>.</h1>
+                <p class="confirmation-subtitle">Your order has been received.</p>
+            </div>
+
+            <section class="confirmation-card">
+                <h2>What happens next</h2>
+                <ol class="confirmation-steps">
+                    <li>
+                        <strong>We review your order.</strong>
+                        <span>Our team verifies availability and prepares your secure invoice.</span>
+                    </li>
+                    <li>
+                        <strong>You receive an invoice by email.</strong>
+                        <span>A separate email with your official invoice and a secure payment link will arrive at <span id="confirmation-email" class="confirmation-email-inline">your email</span>.</span>
+                    </li>
+                    <li>
+                        <strong>Pay the invoice, and we ship.</strong>
+                        <span>Once payment is received, your order is dispatched and you'll get tracking information.</span>
+                    </li>
+                </ol>
+            </section>
+
+            <section class="confirmation-card" id="confirmation-details-card">
+                <div class="confirmation-grid">
+                    <div>
+                        <h3>Shipping to</h3>
+                        <p id="confirmation-shipping" class="confirmation-muted-block">—</p>
+                    </div>
+                    <div>
+                        <h3>Contact</h3>
+                        <p id="confirmation-contact" class="confirmation-muted-block">—</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="confirmation-card" id="confirmation-items-card">
+                <h2>Order summary</h2>
+                <div class="summary-items" id="confirmation-items"></div>
+                <div class="summary-total">
+                    <span>Total</span>
+                    <span><span class="total-currency">USD</span> <span id="confirmation-total">$0.00</span></span>
+                </div>
+            </section>
+
+            <div class="confirmation-actions">
+                <a href="/compounds/" class="confirmation-link">Continue browsing</a>
+                <a href="/" class="confirmation-link-muted">Return home</a>
+            </div>
+
+            <p class="confirmation-support">
+                Questions about your order? Email <a href="mailto:support@33degreesofhealing.com">support@33degreesofhealing.com</a> and reference order <span id="confirmation-order-number-inline">—</span>.
+            </p>
+
+        </div>
+    </main>
+
+    <script src="/js/order-confirmation.js?v=1"></script>
+</body>
+</html>
