@@ -7,6 +7,15 @@
 
     const CART_KEY = '33d_cart';
 
+    // Suggested add-on shown in the drawer when not already in cart
+    const ADDON_SUGGESTION = {
+        productSlug: 'bac-water',
+        productName: 'Bacteriostatic Water',
+        blurb: 'Reconstitution solvent — often needed with peptides.',
+        price: 12.00,
+        image: '/assets/images/products/bac-water.webp',
+    };
+
     // ---- Cart Data ----
 
     function getCart() {
@@ -95,6 +104,7 @@
                 <button class="cart-drawer-close" aria-label="Close cart">&times;</button>
             </div>
             <div class="cart-drawer-items"></div>
+            <div class="cart-drawer-suggestion"></div>
             <div class="cart-drawer-footer">
                 <div class="cart-drawer-total">
                     <span>Subtotal</span>
@@ -158,6 +168,42 @@
 
         const totalEl = document.querySelector('.cart-total-amount');
         if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+
+        renderSuggestion(cart);
+    }
+
+    function renderSuggestion(cart) {
+        const container = document.querySelector('.cart-drawer-suggestion');
+        if (!container) return;
+
+        const alreadyInCart = cart.some(i => i.productSlug === ADDON_SUGGESTION.productSlug);
+        if (cart.length === 0 || alreadyInCart) {
+            container.innerHTML = '';
+            return;
+        }
+
+        const s = ADDON_SUGGESTION;
+        container.innerHTML = `
+            <div class="cart-suggestion">
+                <p class="cart-suggestion-label">You may also need</p>
+                <div class="cart-suggestion-row">
+                    <img src="${s.image}" alt="${s.productName}" class="cart-suggestion-img">
+                    <div class="cart-suggestion-info">
+                        <div class="cart-suggestion-name">${s.productName}</div>
+                        <div class="cart-suggestion-blurb">${s.blurb}</div>
+                        <div class="cart-suggestion-price">$${s.price.toFixed(2)}</div>
+                    </div>
+                    <button class="cart-suggestion-add" aria-label="Add ${s.productName} to cart">+ Add</button>
+                </div>
+            </div>
+        `;
+
+        const addBtn = container.querySelector('.cart-suggestion-add');
+        if (addBtn) {
+            addBtn.addEventListener('click', () => {
+                addToCart(s.productSlug, s.productName, null, null, s.price, s.image);
+            });
+        }
     }
 
     function openCartDrawer() {
