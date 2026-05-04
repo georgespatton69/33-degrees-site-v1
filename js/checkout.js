@@ -90,7 +90,7 @@
     async function submitOrder(data, items) {
         const payload = Object.assign({}, data, {
             items: items,
-            processor: 'invoice',
+            processor: 'quickbooks',
         });
         const res = await fetch(API_BASE + '/checkout/create-session/', {
             method: 'POST',
