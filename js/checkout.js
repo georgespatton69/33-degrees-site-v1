@@ -10,6 +10,10 @@
     const API_BASE = window.THIRTY3_API_BASE || 'https://web-production-a7a6.up.railway.app/api/v1';
     const CART_KEY = '33d_cart';
 
+    // Set when the user successfully applies a coupon. Cleared on remove.
+    // Shape: { code, discount_amount, new_subtotal, ... }
+    let appliedCoupon = null;
+
     function getCart() {
         try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
         catch { return []; }
@@ -17,6 +21,12 @@
 
     function formatMoney(n) {
         return '$' + Number(n).toFixed(2);
+    }
+
+    function cartSubtotal() {
+        return getCart().reduce(function(sum, item) {
+            return sum + (item.price * item.quantity);
+        }, 0);
     }
 
     function renderSummary() {
@@ -31,6 +41,7 @@
             totalEl.textContent = '$0.00';
             const btn = document.getElementById('complete-order');
             if (btn) btn.disabled = true;
+            renderDiscountLine(0);
             return;
         }
 
@@ -53,8 +64,66 @@
             '</div>';
         }).join('');
 
+        const discount = appliedCoupon ? Number(appliedCoupon.discount_amount) : 0;
         subtotalEl.textContent = formatMoney(subtotal);
-        totalEl.textContent = formatMoney(subtotal);
+        totalEl.textContent = formatMoney(Math.max(0, subtotal - discount));
+        renderDiscountLine(discount);
+    }
+
+    function renderDiscountLine(discountAmount) {
+        // Inject (or remove) a "Discount" line above the existing Shipping line
+        const shippingLine = document.getElementById('summary-shipping');
+        if (!shippingLine) return;
+        const shippingRow = shippingLine.closest('.summary-line');
+        if (!shippingRow) return;
+        let row = document.getElementById('summary-discount-row');
+        if (discountAmount > 0 && appliedCoupon) {
+            if (!row) {
+                row = document.createElement('div');
+                row.className = 'summary-line';
+                row.id = 'summary-discount-row';
+                shippingRow.parentNode.insertBefore(row, shippingRow);
+            }
+            row.innerHTML =
+                '<span>Discount (<button type="button" id="remove-coupon" ' +
+                'style="background:none;border:none;color:#c9a759;cursor:pointer;text-decoration:underline;padding:0;font:inherit;">' +
+                appliedCoupon.code + ' ✕</button>)</span>' +
+                '<span style="color:#7ec288;">−' + formatMoney(discountAmount) + '</span>';
+            const removeBtn = document.getElementById('remove-coupon');
+            if (removeBtn) removeBtn.addEventListener('click', removeCoupon);
+        } else if (row) {
+            row.remove();
+        }
+    }
+
+    async function applyCoupon(code) {
+        const errEl = document.getElementById('discount-error');
+        if (errEl) errEl.textContent = '';
+        try {
+            const res = await fetch(API_BASE + '/coupon/apply/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code: code, subtotal: cartSubtotal().toFixed(2) }),
+            });
+            const data = await res.json();
+            if (!res.ok) {
+                if (errEl) errEl.textContent = data.error || 'Invalid coupon code.';
+                return;
+            }
+            appliedCoupon = data;
+            renderSummary();
+        } catch (err) {
+            if (errEl) errEl.textContent = 'Could not validate coupon. Try again.';
+        }
+    }
+
+    function removeCoupon() {
+        appliedCoupon = null;
+        const input = document.getElementById('discount-code');
+        if (input) input.value = '';
+        const errEl = document.getElementById('discount-error');
+        if (errEl) errEl.textContent = '';
+        renderSummary();
     }
 
     function collectFormData(form) {
@@ -91,6 +160,7 @@
         const payload = Object.assign({}, data, {
             items: items,
             processor: 'quickbooks',
+            coupon_code: appliedCoupon ? appliedCoupon.code : '',
         });
         const res = await fetch(API_BASE + '/checkout/create-session/', {
             method: 'POST',
@@ -107,12 +177,23 @@
     document.addEventListener('DOMContentLoaded', function() {
         renderSummary();
 
-        // Discount code — placeholder for now
-        document.getElementById('apply-discount').addEventListener('click', function() {
-            const code = document.getElementById('discount-code').value.trim();
-            if (!code) return;
-            alert('Discount code functionality coming soon.');
-        });
+        // Discount / coupon code
+        const applyBtn = document.getElementById('apply-discount');
+        const codeInput = document.getElementById('discount-code');
+        if (applyBtn && codeInput) {
+            applyBtn.addEventListener('click', function() {
+                const code = codeInput.value.trim();
+                if (!code) return;
+                applyCoupon(code);
+            });
+            // Apply on Enter key in the input field
+            codeInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    applyBtn.click();
+                }
+            });
+        }
 
         // Submit handler
         const form = document.getElementById('checkout-form');
