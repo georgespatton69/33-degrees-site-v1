@@ -87,6 +87,19 @@
                 priceEl.textContent = product.price_display || `$${parseFloat(product.price).toFixed(0)}`;
             }
         });
+
+        // Homepage — .bundle-card in Popular Combos section
+        document.querySelectorAll('.bundle-card').forEach(card => {
+            const link = card.querySelector('a[href*="products/"]');
+            const slug = slugFromHref(link && link.getAttribute('href'));
+            if (!slug || !products[slug]) return;
+            const product = products[slug];
+
+            const priceEl = card.querySelector('.bundle-price');
+            if (priceEl) {
+                priceEl.textContent = product.price_display || `$${parseFloat(product.price).toFixed(2)}`;
+            }
+        });
     }
 
     // ---- Product Detail Page ----

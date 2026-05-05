@@ -3,10 +3,20 @@
     "allow": [
       "Bash(python3 .tmp/generate_images.py)",
       "Bash(python3 tools/generate_bottles_ai.py)",
-      "Read(//Users/georges.patton/Desktop/**)"
+      "Read(//Users/georges.patton/Desktop/**)",
+      "Bash(python3)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Read(//Users/georges.patton/33degrees-backend/apps/**)",
+      "Bash(grep -n '\\\\$249' index.html)",
+      "Bash(grep -E \"\\\\\\\\\\\\$|price\")",
+      "Bash(grep -i \"price\\\\|\\\\\\\\\\\\$\")",
+      "Bash(grep -n \"pdp-price\\\\|\\\\\\\\\\\\$69\" products/klow/index.html)"
     ],
     "additionalDirectories": [
-      "/Users/georges.patton/33degrees-backend/apps/products"
+      "/Users/georges.patton/33degrees-backend/apps/products",
+      "/Users/georges.patton/33degrees-backend/apps/orders"
     ]
   }
 }
