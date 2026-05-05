@@ -2627,14 +2627,21 @@ img {
 .cart-suggestion-price {
     font-size: 0.82rem; color: var(--gold-dark); font-weight: 600; margin-top: 3px;
 }
+.cart-suggestion-variants {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px;
+}
 .cart-suggestion-add {
     background: #2c2416; color: #f5ecd8; border: none;
     font-size: 0.78rem; font-weight: 600; letter-spacing: 0.5px;
     padding: 8px 14px; border-radius: 20px; cursor: pointer;
-    white-space: nowrap; flex-shrink: 0;
+    white-space: nowrap; flex: 1 1 auto;
     transition: background 0.15s ease;
 }
-.cart-suggestion-add:hover { background: var(--gold-dark); color: #fff; }
+.cart-suggestion-add:hover:not(:disabled) { background: var(--gold-dark); color: #fff; }
+.cart-suggestion-add:disabled {
+    background: rgba(154,123,63,0.2); color: rgba(44,36,22,0.55);
+    cursor: not-allowed;
+}
 
 .cart-drawer-footer {
     padding: 20px 24px; border-top: 1px solid rgba(154,123,63,0.15);

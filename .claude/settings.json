@@ -18,7 +18,11 @@
       "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(f'KLOW: price={d.get\\(\\\\\"price\\\\\"\\)} display=\\\\\"{d.get\\(\\\\\"price_display\\\\\"\\)}\\\\\"'\\)\")",
       "Bash(curl -sH \"Cache-Control: no-cache\" \"https://web-production-a7a6.up.railway.app/api/v1/products/klow/?nocache=$\\(date +%s\\)\")",
       "Bash(python3 -m json.tool)",
-      "Bash(python3 tools/sync_static_prices.py)"
+      "Bash(python3 tools/sync_static_prices.py)",
+      "Bash(grep -E \"price|\\\\\\\\\\\\$\")",
+      "Bash(curl -s \"https://web-production-a7a6.up.railway.app/api/v1/products/aod-9604/\")",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s \"https://web-production-a7a6.up.railway.app/api/v1/products/?page_size=100\")"
     ],
     "additionalDirectories": [
       "/Users/georges.patton/33degrees-backend/apps/products",
