@@ -156,11 +156,19 @@
         });
     }
 
+    function getAffiliateRef() {
+        const cookie = document.cookie
+            .split('; ')
+            .find(function(c) { return c.startsWith('affiliate_ref='); });
+        return cookie ? decodeURIComponent(cookie.split('=')[1]) : '';
+    }
+
     async function submitOrder(data, items) {
         const payload = Object.assign({}, data, {
             items: items,
             processor: 'quickbooks',
             coupon_code: appliedCoupon ? appliedCoupon.code : '',
+            ref: getAffiliateRef(),
         });
         const res = await fetch(API_BASE + '/checkout/create-session/', {
             method: 'POST',
