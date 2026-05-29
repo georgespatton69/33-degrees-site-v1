@@ -35,6 +35,8 @@
         { name: 'Selank', type: 'Product', category: 'New Releases', url: '/products/selank/', keywords: 'tuftsin analog gabaergic intranasal anxiolytic russian peptide' },
         { name: 'Semax', type: 'Product', category: 'New Releases', url: '/products/semax/', keywords: 'acth nootropic bdnf ngf nootropic russian intranasal' },
         { name: 'MT-2', type: 'Product', category: 'New Releases', url: '/products/mt-2/', keywords: 'melanotan ii melanocortin mc1r pigmentation eumelanin' },
+        { name: 'Methylene Blue', type: 'Product', category: 'New Releases', url: '/products/methylene-blue/', keywords: 'methylene blue mitochondrial electron carrier nootropic phenothiazine cytochrome capsule' },
+        { name: 'Tesofensine', type: 'Product', category: 'New Releases', url: '/products/tesofensine/', keywords: 'tesofensine monoamine reuptake dat net sert dopamine norepinephrine appetite obesity capsule' },
         // Articles
         { name: 'What Are Peptides?', type: 'Article', category: 'Research', url: '/blog/what-are-peptides/', keywords: 'peptide basics fundamentals amino acids' },
         { name: 'Peptides in 2026', type: 'Article', category: 'Research', url: '/blog/peptides-in-2026/', keywords: 'industry regulatory fda clinical' },
