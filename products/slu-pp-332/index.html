@@ -48,7 +48,7 @@
                 <div class="pdp-image-wrap">
                     <img src="/assets/images/products/slu-pp-332.webp" alt="SLU-PP-332" loading="lazy">
                 </div>
-                <div class="pdp-compound-card" style="background: linear-gradient(135deg, #3a2a1a 0%, #7a5f2e 50%, #c49a65 100%);">
+                <div class="pdp-compound-card" id="slu-compound-card" style="background: linear-gradient(135deg, #3a2a1a 0%, #7a5f2e 50%, #c49a65 100%); transition: background 0.35s ease;">
                     <span class="pdp-card-total">10mg</span>
                     <div class="pdp-card-compounds">
                         <span>SLU-PP-332 10mg</span>
@@ -333,6 +333,48 @@
             }
         });
     });
+    </script>
+    <script>
+    // Compound-card swap on variant change.
+    // SLU-PP-332 has two forms: 10mg lyophilized powder vs 100mg capsule × 60.
+    // The static compound card is hardcoded to the powder; this updates it
+    // when a different variant is selected.
+    (function() {
+        var CARD_BY_VARIANT = {
+            '10mg powder': {
+                total: '10mg',
+                compound: 'SLU-PP-332 10mg',
+                form: 'Lyophilized Powder',
+                bg: 'linear-gradient(135deg, #3a2a1a 0%, #7a5f2e 50%, #c49a65 100%)'
+            },
+            '100mg capsules × 60': {
+                total: '100mg',
+                compound: 'SLU-PP-332 100mg',
+                form: '60 Capsules',
+                bg: 'linear-gradient(135deg, #1a2a3a 0%, #2e5f7a 50%, #65a9c4 100%)'
+            }
+        };
+        var card = document.getElementById('slu-compound-card');
+        if (!card) return;
+        var total = card.querySelector('.pdp-card-total');
+        var compound = card.querySelector('.pdp-card-compounds span');
+        var purity = card.querySelector('.pdp-card-purity');
+
+        function applyVariant(sizeRaw) {
+            var key = (sizeRaw || '').trim().toLowerCase();
+            var data = CARD_BY_VARIANT[key];
+            if (!data) return;
+            if (total) total.textContent = data.total;
+            if (compound) compound.textContent = data.compound;
+            if (purity) purity.textContent = data.form;
+            card.style.background = data.bg;
+        }
+
+        document.addEventListener('click', function(e) {
+            var btn = e.target.closest('.variant-btn');
+            if (btn) applyVariant(btn.dataset.size);
+        });
+    })();
     </script>
     <script src="/js/search.js?v=4"></script>
     <script src="/js/age-gate.js?v=1"></script>
