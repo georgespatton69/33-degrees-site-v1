@@ -22,7 +22,7 @@
                     desc: "Modulates cell migration signaling across tissue systems. Investigated for tissue regeneration mechanisms. Often studied in combination with BPC-157. <a href=\"https://pubmed.ncbi.nlm.nih.gov/10469335/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 },
                 {
-                    name: "Wolverine Stack",
+                    name: "BPC-157 + TB-500 Bundle",
                     slug: "wolverine-stack",
                     tag: "Best Combo",
                     desc: "BPC-157 + TB-500 combined for research on synergistic tissue signaling mechanisms. Studied for comprehensive tissue regeneration pathways. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">BPC-157</a> <a href=\"https://pubmed.ncbi.nlm.nih.gov/10469335/\" target=\"_blank\" class=\"citation-link\">TB-500</a>"
@@ -212,7 +212,7 @@
     const categoryArticles = {
         recovery: [
             { tag: 'Tissue Biology', title: 'Recovery Peptides: BPC-157, TB-500 & GHK-Cu', url: '/blog/tissue-response-guide/', desc: 'Plain-language overview of how recovery peptides work, with visual diagrams and research applications.' },
-            { tag: 'Immunology', title: 'Immune & Recovery Peptides: BPC-157 & TB-500', url: '/blog/immune-signaling-guide/', desc: 'How BPC-157 and TB-500 modulate immune signaling and the science behind the Wolverine Stack.' }
+            { tag: 'Immunology', title: 'Immune & Recovery Peptides: BPC-157 & TB-500', url: '/blog/immune-signaling-guide/', desc: 'How BPC-157 and TB-500 modulate immune signaling and the science behind this combination.' }
         ],
         longevity: [
             { tag: 'Cell Biology', title: 'Longevity Peptides: NAD+, SS-31, MOTS-c & Epithalon', url: '/blog/mitochondrial-function-guide/', desc: 'An overview of mitochondrial peptides, cellular energy, and what researchers study them for in aging science.' }

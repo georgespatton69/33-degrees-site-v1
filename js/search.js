@@ -8,9 +8,9 @@
     // All searchable items — products and articles
     const items = [
         // Products
-        { name: 'BPC-157', type: 'Product', category: 'Tissue Biology', url: '/products/bpc-157/', keywords: 'tissue repair gut healing gastric' },
+        { name: 'BPC-157', type: 'Product', category: 'Tissue Biology', url: '/products/bpc-157/', keywords: 'tissue repair gastric pentadecapeptide research' },
         { name: 'TB-500', type: 'Product', category: 'Tissue Biology', url: '/products/tb-500/', keywords: 'regeneration thymosin cell migration' },
-        { name: 'Wolverine Stack', type: 'Product', category: 'Tissue Biology', url: '/products/wolverine-stack/', keywords: 'bpc tb combo bundle dual pathway' },
+        { name: 'BPC-157 + TB-500 Bundle', type: 'Product', category: 'Tissue Biology', url: '/products/wolverine-stack/', keywords: 'bpc tb combo bundle dual pathway' },
         { name: 'GHK-CU', type: 'Product', category: 'Tissue Biology', url: '/products/ghk-cu/', keywords: 'copper peptide collagen skin wound hair' },
         { name: 'NAD+', type: 'Product', category: 'Cellular Aging', url: '/products/nad-plus/', keywords: 'nad nicotinamide cellular energy dna repair aging' },
         { name: 'MOTS-c', type: 'Product', category: 'Cellular Energy', url: '/products/mots-c/', keywords: 'mitochondrial endurance exercise metabolic' },
