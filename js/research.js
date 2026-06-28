@@ -31,7 +31,7 @@
                     name: "Klow",
                     slug: "klow",
                     tag: "Super Blend",
-                    desc: "BPC-157 10mg + TB-500 10mg + KPV 10mg + GHK-CU 50mg (80mg total). A comprehensive multi-pathway recovery blend combining tissue repair, anti-inflammatory, and collagen signaling compounds. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">BPC-157</a> <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC6073405/\" target=\"_blank\" class=\"citation-link\">GHK-Cu</a>"
+                    desc: "BPC-157 10mg + TB-500 10mg + KPV 10mg + GHK-CU 50mg (80mg total). A comprehensive multi-pathway recovery blend combining tissue repair, inflammatory-modulation, and collagen signaling compounds. <a href=\"https://pubmed.ncbi.nlm.nih.gov/30915550/\" target=\"_blank\" class=\"citation-link\">BPC-157</a> <a href=\"https://pmc.ncbi.nlm.nih.gov/articles/PMC6073405/\" target=\"_blank\" class=\"citation-link\">GHK-Cu</a>"
                 }
             ]
         },
@@ -90,8 +90,8 @@
                 {
                     name: "KPV",
                     slug: "kpv",
-                    tag: "Anti-Inflammatory",
-                    desc: "A tripeptide derived from alpha-MSH with potent anti-inflammatory properties. Research investigates immune modulation, gut barrier integrity, and inflammatory signaling pathways. <a href=\"https://pubmed.ncbi.nlm.nih.gov/15837222/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
+                    tag: "Alpha-MSH Fragment",
+                    desc: "A tripeptide (Lys-Pro-Val) derived from alpha-MSH. Research investigates immune modulation, gut barrier integrity, and inflammatory signaling pathways. <a href=\"https://pubmed.ncbi.nlm.nih.gov/15837222/\" target=\"_blank\" class=\"citation-link\">PubMed</a>"
                 },
                 {
                     name: "CJC-1295 w/o DAC + Ipamorelin",
