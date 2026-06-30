@@ -25,21 +25,33 @@ client = genai.Client(api_key=API_KEY)
 
 
 def generate():
-    prompt = """Generate a photorealistic product image of a premium amber glass pharmaceutical vial/bottle for a research compound company called "33 Degrees of Healing".
+    prompt = """Generate a photorealistic product image of a small amber glass PEPTIDE INJECTION VIAL for a research compound company called "33 Degrees of Healing". This must visually match a lineup of existing peptide vials (PT-141, Kisspeptin, Selank, Semax) shown alongside it on the website.
 
-Use the attached label image as reference for the brand design — golden tree of life logo, gold-on-black typography.
+CRITICAL SHAPE & PROPORTION REQUIREMENTS:
+- Small pharmaceutical-style amber/brown glass injection vial, NOT a supplement bottle
+- TALLER than wide — roughly 2.5x taller than its diameter
+- Has a distinct neck and shoulder (narrower at the top where the stopper sits)
+- Small GOLD ALUMINUM FLIP-OFF CAP — the kind on injectable medication vials (small, rounded crown shape, NOT a flat screw-top)
+- The vial is small enough to hold in two fingers
 
-The bottle should:
-- Be an amber/brown glass pharmaceutical vial with a gold aluminum flip-off cap
-- Have a black label with the golden tree of life logo (from reference), the text "33 DEGREES OF HEALING" in small gold serif at top, then "LIPO-C BLEND" as the prominent product name in large gold text, then "526MG/ML" in smaller gold text below
-- Be sitting on a dark reflective surface like black marble or dark wood
-- Have dramatic studio lighting with warm golden rim lighting
-- Dark moody background with subtle golden bokeh/particles
-- Premium, medical-grade, luxurious look
-- High-end supplement product photography style
-- Single bottle, centered, with slight reflection on surface below
+LABEL LAYOUT (must match the existing lineup exactly):
+- Black rectangular label wrapping the middle of the vial body (does NOT cover the entire body)
+- At the TOP of the label: the golden tree of life logo (from attached reference) — prominent and centered
+- Below the logo: "33 DEGREES OF HEALING" in SMALL gold serif text (subtle, decorative)
+- Below the brand: "LIPO-C BLEND" as the product name in MEDIUM-SIZED gold serif text (NOT huge — same scale as "PT-141" or "Kisspeptin" would be on a peptide vial)
+- At the BOTTOM of the label: "526MG/ML" in tiny gold text
+- The label should NOT have huge oversized product-name text
 
-Overall aesthetic: dark, premium, scientific with gold accents — should match a series of other peptide vials in the same lineup."""
+STAGING (match other vials — CRITICAL):
+- FULL-BLEED DARK SCENE — entire image frame must be dark/black background, NO white borders, NO white margins, NO bright frame around the composition
+- Vial sits on dark reflective marble surface that extends to the edges of the image
+- Dramatic studio lighting with warm golden rim lighting along the vial edges
+- Dark moody background with subtle gold bokeh particles
+- Single vial, centered, with subtle reflection on the marble surface below
+- Premium medical-grade injection-vial photography
+- The composition should look like a tight close-up product shot, NOT a render of a vial on a podium with empty space around it
+
+Use the attached label image strictly as brand-design reference for the tree logo and gold-on-black typography styling. The OUTPUT vial must look like a small pharmaceutical injection vial in the same family as the other research peptide vials, NOT a wider supplement bottle."""
 
     with open(LABEL_PATH, "rb") as f:
         label_bytes = f.read()
