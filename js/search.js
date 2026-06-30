@@ -37,6 +37,7 @@
         { name: 'MT-2', type: 'Product', category: 'New Releases', url: '/products/mt-2/', keywords: 'melanotan ii melanocortin mc1r pigmentation eumelanin' },
         { name: 'Methylene Blue', type: 'Product', category: 'New Releases', url: '/products/methylene-blue/', keywords: 'methylene blue mitochondrial electron carrier nootropic phenothiazine cytochrome capsule' },
         { name: 'Tesofensine', type: 'Product', category: 'New Releases', url: '/products/tesofensine/', keywords: 'tesofensine monoamine reuptake dat net sert dopamine norepinephrine appetite obesity capsule' },
+        { name: 'LIPO-C Blend', type: 'Product', category: 'New Releases', url: '/products/lipo-c/', keywords: 'lipo-c lipotropic l-carnitine methionine inositol choline b12 b6 nadh blend vial metabolic mitochondrial' },
         // Articles
         { name: 'What Are Peptides?', type: 'Article', category: 'Research', url: '/blog/what-are-peptides/', keywords: 'peptide basics fundamentals amino acids' },
         { name: 'Peptides in 2026', type: 'Article', category: 'Research', url: '/blog/peptides-in-2026/', keywords: 'industry regulatory fda clinical' },
