@@ -41,7 +41,7 @@
         // Articles
         { name: 'What Are Peptides?', type: 'Article', category: 'Research', url: '/blog/what-are-peptides/', keywords: 'peptide basics fundamentals amino acids' },
         { name: 'Peptides in 2026', type: 'Article', category: 'Research', url: '/blog/peptides-in-2026/', keywords: 'industry regulatory fda clinical' },
-        { name: 'Are Peptides Safe?', type: 'Article', category: 'Research', url: '/blog/are-peptides-safe/', keywords: 'safety side effects fda compliance' },
+        { name: 'How Peptide Safety Is Studied', type: 'Article', category: 'Research', url: '/blog/are-peptides-safe/', keywords: 'safety adverse events fda compounding immunogenicity research evaluation' },
         { name: 'Tissue Response & Repair', type: 'Article', category: 'Research', url: '/blog/tissue-response-guide/', keywords: 'bpc tb ghk tissue repair cell migration' },
         { name: 'Growth Hormone Peptides', type: 'Article', category: 'Research', url: '/blog/gh-signaling-guide/', keywords: 'ipamorelin tesamorelin growth hormone gh' },
         { name: 'Metabolic Peptides', type: 'Article', category: 'Research', url: '/blog/endocrine-pathways-guide/', keywords: 'retatrutide tesamorelin aod metabolic' },
