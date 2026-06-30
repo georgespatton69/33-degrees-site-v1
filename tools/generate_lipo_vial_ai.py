@@ -28,11 +28,12 @@ def generate():
     prompt = """Generate a photorealistic product image of a small amber glass PEPTIDE INJECTION VIAL for a research compound company called "33 Degrees of Healing". This must visually match a lineup of existing peptide vials (PT-141, Kisspeptin, Selank, Semax) shown alongside it on the website.
 
 CRITICAL SHAPE & PROPORTION REQUIREMENTS:
-- Small pharmaceutical-style amber/brown glass injection vial, NOT a supplement bottle
-- TALLER than wide — roughly 2.5x taller than its diameter
-- Has a distinct neck and shoulder (narrower at the top where the stopper sits)
-- Small GOLD ALUMINUM FLIP-OFF CAP — the kind on injectable medication vials (small, rounded crown shape, NOT a flat screw-top)
-- The vial is small enough to hold in two fingers
+- Standard 10mL pharmaceutical lyophilization vial / peptide vial
+- STOCKY proportions — only about 1.4-1.6x taller than wide (NOT a tall thin test tube)
+- Wide cylindrical body with a short neck at the top
+- LARGE GOLD ALUMINUM FLIP-OFF CAP — almost the full diameter of the vial body, distinctive crown shape with a smooth dome top
+- Body diameter and cap diameter should be nearly the same
+- Think: classic peptide research vial like BPC-157 or TB-500 packaging
 
 LABEL LAYOUT (must match the existing lineup exactly):
 - Black rectangular label wrapping the middle of the vial body (does NOT cover the entire body)
