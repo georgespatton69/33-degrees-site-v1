@@ -1,4 +1,9 @@
-"""Generate LIPO-C vial image — amber glass peptide-style vial (NOT capsule)."""
+"""Generate LIPO-C vial image by cloning the Semax vial and swapping label text.
+
+Uses the existing semax.webp as the reference image — keeps shape,
+proportions, cap, lighting, marble surface, bokeh background identical.
+Only the label text changes.
+"""
 from google import genai
 from google.genai import types
 from PIL import Image
@@ -19,48 +24,36 @@ def _load_env_key():
 API_KEY = _load_env_key()
 MODEL = "nano-banana-pro-preview"
 OUTPUT_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets/images/products")
-LABEL_PATH = os.path.expanduser("~/Desktop/33 degrees/Reta Label.png")
+REFERENCE_PATH = os.path.join(OUTPUT_DIR, "semax.webp")
 
 client = genai.Client(api_key=API_KEY)
 
 
 def generate():
-    prompt = """Generate a photorealistic product image of a small amber glass PEPTIDE INJECTION VIAL for a research compound company called "33 Degrees of Healing". This must visually match a lineup of existing peptide vials (PT-141, Kisspeptin, Selank, Semax) shown alongside it on the website.
+    prompt = """Take the attached product image (a 33 Degrees of Healing amber glass peptide vial) and produce a new image that is IDENTICAL in every visual respect EXCEPT for two text changes on the label:
 
-CRITICAL SHAPE & PROPORTION REQUIREMENTS:
-- Standard 10mL pharmaceutical lyophilization vial / peptide vial
-- STOCKY proportions — only about 1.4-1.6x taller than wide (NOT a tall thin test tube)
-- Wide cylindrical body with a short neck at the top
-- LARGE GOLD ALUMINUM FLIP-OFF CAP — almost the full diameter of the vial body, distinctive crown shape with a smooth dome top
-- Body diameter and cap diameter should be nearly the same
-- Think: classic peptide research vial like BPC-157 or TB-500 packaging
+CHANGE THESE TWO STRINGS ONLY:
+1. Where the label currently says "Semax" — change it to "LIPO-C Blend"
+2. Where the label currently shows "11MG" (the dose) — change it to "526MG/ML"
 
-LABEL LAYOUT (must match the existing lineup exactly):
-- Black rectangular label wrapping the middle of the vial body (does NOT cover the entire body)
-- At the TOP of the label: the golden tree of life logo (from attached reference) — prominent and centered
-- Below the logo: "33 DEGREES OF HEALING" in SMALL gold serif text (subtle, decorative)
-- Below the brand: "LIPO-C BLEND" as the product name in MEDIUM-SIZED gold serif text (NOT huge — same scale as "PT-141" or "Kisspeptin" would be on a peptide vial)
-- At the BOTTOM of the label: "526MG/ML" in tiny gold text
-- The label should NOT have huge oversized product-name text
+KEEP IDENTICAL:
+- The vial shape, size, proportions, glass color (amber)
+- The gold flip-off cap (same shape, size, color, finish)
+- The black label position, size, and rounded edges
+- The golden tree of life logo (unchanged, same position)
+- The "33 DEGREES OF HEALING" text (unchanged, same font, size, position)
+- The exact dark marble surface, golden bokeh background, lighting, rim glow, reflection
+- The camera angle and framing
 
-STAGING (match other vials — CRITICAL):
-- FULL-BLEED DARK SCENE — entire image frame must be dark/black background, NO white borders, NO white margins, NO bright frame around the composition
-- Vial sits on dark reflective marble surface that extends to the edges of the image
-- Dramatic studio lighting with warm golden rim lighting along the vial edges
-- Dark moody background with subtle gold bokeh particles
-- Single vial, centered, with subtle reflection on the marble surface below
-- Premium medical-grade injection-vial photography
-- The composition should look like a tight close-up product shot, NOT a render of a vial on a podium with empty space around it
+The only edits should be the two text strings on the label. Everything else must be a near-perfect visual match to the reference image."""
 
-Use the attached label image strictly as brand-design reference for the tree logo and gold-on-black typography styling. The OUTPUT vial must look like a small pharmaceutical injection vial in the same family as the other research peptide vials, NOT a wider supplement bottle."""
-
-    with open(LABEL_PATH, "rb") as f:
-        label_bytes = f.read()
+    with open(REFERENCE_PATH, "rb") as f:
+        ref_bytes = f.read()
 
     response = client.models.generate_content(
         model=MODEL,
         contents=[
-            types.Part.from_bytes(data=label_bytes, mime_type="image/png"),
+            types.Part.from_bytes(data=ref_bytes, mime_type="image/webp"),
             prompt,
         ],
         config=types.GenerateContentConfig(response_modalities=["IMAGE", "TEXT"]),
@@ -75,10 +68,13 @@ Use the attached label image strictly as brand-design reference for the tree log
                 print(f"Created: lipo-c.webp ({img.size[0]}x{img.size[1]})")
                 return True
     print("FAILED — no image in response")
+    if response.candidates:
+        for part in response.candidates[0].content.parts:
+            if part.text:
+                print(f"Response text: {part.text[:300]}")
     return False
 
 
 if __name__ == "__main__":
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    print("Generating LIPO-C vial via Nano Banana Pro...")
+    print(f"Cloning {REFERENCE_PATH} with label text swap...")
     generate()
