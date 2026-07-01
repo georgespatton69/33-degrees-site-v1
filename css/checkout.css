@@ -131,7 +131,7 @@
     border-color: rgba(245, 230, 200, 0.5);
 }
 
-/* Shipping placeholder */
+/* Shipping placeholder (legacy) */
 .shipping-placeholder {
     background: rgba(245, 230, 200, 0.03);
     border: 1px solid rgba(245, 230, 200, 0.12);
@@ -139,6 +139,58 @@
     padding: 18px;
     color: rgba(245, 230, 200, 0.6);
     font-size: 0.9rem;
+}
+
+/* Shipping method radio rows */
+.shipping-methods-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.shipping-method-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border: 1px solid rgba(245, 230, 200, 0.18);
+    border-radius: 6px;
+    background: rgba(245, 230, 200, 0.02);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+.shipping-method-row input[type="radio"] {
+    margin: 0;
+    accent-color: var(--gold, #c9a86a);
+    flex: 0 0 auto;
+}
+.shipping-method-row.selected,
+.shipping-method-row:has(input:checked) {
+    border-color: rgba(245, 230, 200, 0.5);
+    background: rgba(245, 230, 200, 0.05);
+}
+.shipping-method-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2px;
+}
+.shipping-method-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: rgba(245, 230, 200, 0.92);
+}
+.shipping-method-eta {
+    font-size: 0.82rem;
+    color: rgba(245, 230, 200, 0.55);
+}
+.shipping-method-price {
+    font-weight: 600;
+    color: rgba(245, 230, 200, 0.92);
+}
+.summary-shipping-method-label {
+    color: rgba(245, 230, 200, 0.55);
+    font-size: 0.82rem;
+    font-weight: 400;
 }
 
 /* Payment */

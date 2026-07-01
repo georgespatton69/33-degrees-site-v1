@@ -14,6 +14,19 @@
     // Shape: { code, discount_amount, new_subtotal, ... }
     let appliedCoupon = null;
 
+    // Read current shipping method + cost from the checked radio row.
+    // Data attributes on .shipping-method-row are the source of truth.
+    function getSelectedShipping() {
+        const row = document.querySelector('.shipping-method-row input[type="radio"]:checked');
+        const label = row ? row.closest('.shipping-method-row') : document.querySelector('.shipping-method-row');
+        if (!label) return { method: 'standard', cost: 8.95, name: 'Standard' };
+        return {
+            method: label.dataset.method || 'standard',
+            cost: Number(label.dataset.cost || '8.95'),
+            name: label.querySelector('.shipping-method-name') ? label.querySelector('.shipping-method-name').textContent : 'Standard',
+        };
+    }
+
     function getCart() {
         try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
         catch { return []; }
@@ -65,8 +78,13 @@
         }).join('');
 
         const discount = appliedCoupon ? Number(appliedCoupon.discount_amount) : 0;
+        const shipping = getSelectedShipping();
         subtotalEl.textContent = formatMoney(subtotal);
-        totalEl.textContent = formatMoney(Math.max(0, subtotal - discount));
+        const shippingEl = document.getElementById('summary-shipping');
+        const shippingLabelEl = document.getElementById('summary-shipping-method');
+        if (shippingEl) shippingEl.textContent = formatMoney(shipping.cost);
+        if (shippingLabelEl) shippingLabelEl.textContent = '(' + shipping.name + ')';
+        totalEl.textContent = formatMoney(Math.max(0, subtotal - discount + shipping.cost));
         renderDiscountLine(discount);
     }
 
@@ -169,6 +187,7 @@
             processor: 'quickbooks',
             coupon_code: appliedCoupon ? appliedCoupon.code : '',
             ref: getAffiliateRef(),
+            shipping_method: getSelectedShipping().method,
         });
         const res = await fetch(API_BASE + '/checkout/create-session/', {
             method: 'POST',
@@ -184,6 +203,20 @@
 
     document.addEventListener('DOMContentLoaded', function() {
         renderSummary();
+
+        // Shipping method radio toggle → update summary total live.
+        // Also updates .selected class on rows so the border highlight tracks
+        // the actual checked radio (matches the CSS :has(input:checked) fallback).
+        document.querySelectorAll('.shipping-method-row input[type="radio"]').forEach(function(r) {
+            r.addEventListener('change', function() {
+                document.querySelectorAll('.shipping-method-row').forEach(function(row) {
+                    row.classList.remove('selected');
+                });
+                const row = r.closest('.shipping-method-row');
+                if (row) row.classList.add('selected');
+                renderSummary();
+            });
+        });
 
         // Discount / coupon code
         const applyBtn = document.getElementById('apply-discount');
