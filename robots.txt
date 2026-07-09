@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /checkout/
+Disallow: /order-confirmation/
+
+Sitemap: https://33degreesofhealing.com/sitemap.xml
