@@ -8,6 +8,21 @@
     const CART_KEY = '33d_cart';
     const API_BASE = window.THIRTY3_API_BASE || 'https://web-production-a7a6.up.railway.app/api/v1';
 
+    const ADDON_SLUG = 'bac-water';
+    const ADDON_BLURB = 'Reconstitution solvent — often needed with peptides.';
+    let addonProduct = null;
+
+    async function fetchAddonProduct() {
+        if (addonProduct !== null) return addonProduct;
+        try {
+            const res = await fetch(`${API_BASE}/products/${ADDON_SLUG}/`);
+            addonProduct = res.ok ? await res.json() : false;
+        } catch {
+            addonProduct = false;
+        }
+        return addonProduct;
+    }
+
     // ---- Cart Data ----
 
     function getCart() {
@@ -160,6 +175,79 @@
 
         const totalEl = document.querySelector('.cart-total-amount');
         if (totalEl) totalEl.textContent = `$${total.toFixed(2)}`;
+
+        renderSuggestion(cart);
+    }
+
+    async function renderSuggestion(cart) {
+        const container = document.querySelector('.cart-drawer-suggestion');
+        if (!container) return;
+
+        if (cart.length === 0) {
+            container.innerHTML = '';
+            return;
+        }
+
+        const product = await fetchAddonProduct();
+        if (!product) {
+            container.innerHTML = '';
+            return;
+        }
+
+        const alreadyInCart = cart.some(i => i.productSlug === product.slug);
+        if (alreadyInCart) {
+            container.innerHTML = '';
+            return;
+        }
+
+        const activeVariants = (product.variants || [])
+            .filter(v => v.is_active)
+            .sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+        if (activeVariants.length === 0) {
+            container.innerHTML = '';
+            return;
+        }
+
+        const image = `/assets/images/products/${product.slug}.webp`;
+        const variantBtns = activeVariants.map(v => {
+            const oos = !v.in_stock;
+            return `<button class="cart-suggestion-add"
+                            data-variant-id="${v.id}"
+                            data-variant-size="${v.size}"
+                            data-price="${v.price}"
+                            ${oos ? 'disabled' : ''}
+                            aria-label="Add ${v.size} ${product.name} to cart">
+                + ${v.size} — $${parseFloat(v.price).toFixed(0)}${oos ? ' (Out of stock)' : ''}
+            </button>`;
+        }).join('');
+
+        container.innerHTML = `
+            <div class="cart-suggestion">
+                <p class="cart-suggestion-label">You may also need</p>
+                <div class="cart-suggestion-row">
+                    <img src="${image}" alt="${product.name}" class="cart-suggestion-img">
+                    <div class="cart-suggestion-info">
+                        <div class="cart-suggestion-name">${product.name}</div>
+                        <div class="cart-suggestion-blurb">${ADDON_BLURB}</div>
+                    </div>
+                </div>
+                <div class="cart-suggestion-variants">${variantBtns}</div>
+            </div>
+        `;
+
+        container.querySelectorAll('.cart-suggestion-add').forEach(btn => {
+            if (btn.disabled) return;
+            btn.addEventListener('click', () => {
+                addToCart(
+                    product.slug,
+                    product.name,
+                    btn.dataset.variantId,
+                    btn.dataset.variantSize,
+                    btn.dataset.price,
+                    image,
+                );
+            });
+        });
     }
 
     function openCartDrawer() {
