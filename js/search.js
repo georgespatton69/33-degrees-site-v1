@@ -20,9 +20,9 @@
         { name: 'Tesamorelin', type: 'Product', category: 'Metabolic Science', url: '/products/tesamorelin/', keywords: 'growth hormone ghrh visceral fat' },
         { name: 'AOD 9604', type: 'Product', category: 'Metabolic Science', url: '/products/aod-9604/', keywords: 'hgh fat burning fragment lipolysis' },
         { name: 'Ipamorelin', type: 'Product', category: 'Cellular Energy', url: '/products/ipamorelin/', keywords: 'growth hormone secretagogue gh selective cortisol' },
-        { name: 'Glow Blend', type: 'Product', category: 'Immunology & Recovery', url: '/products/glow-blend/', keywords: 'bpc tb ghk collagen skin bundle' },
-        { name: 'KPV', type: 'Product', category: 'Immunology & Recovery', url: '/products/kpv/', keywords: 'alpha-msh nf-kb immune inflammatory tripeptide' },
-        { name: 'Klow', type: 'Product', category: 'Immunology & Recovery', url: '/products/klow/', keywords: 'quad peptide bpc tb kpv ghk bundle' },
+        { name: 'Glow Blend', type: 'Product', category: 'Immune Signaling', url: '/products/glow-blend/', keywords: 'bpc tb ghk collagen skin bundle' },
+        { name: 'KPV', type: 'Product', category: 'Immune Signaling', url: '/products/kpv/', keywords: 'alpha-msh nf-kb immune inflammatory tripeptide' },
+        { name: 'Klow', type: 'Product', category: 'Immune Signaling', url: '/products/klow/', keywords: 'quad peptide bpc tb kpv ghk bundle' },
         { name: 'CJC-1295 + Ipamorelin', type: 'Product', category: 'Cellular Energy', url: '/products/cjc-ipamorelin/', keywords: 'growth hormone dual secretagogue ghrh' },
         { name: 'Bacteriostatic Water', type: 'Product', category: 'Accessories', url: '/products/bac-water/', keywords: 'bac water reconstitution solvent sterile' },
         // New Releases

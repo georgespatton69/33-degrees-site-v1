@@ -85,7 +85,7 @@
         },
         skin: {
             desc: "Peptides that modulate immune cell activity, inflammatory response, and growth hormone signaling pathways. Research investigates recovery mechanisms, immune modulation, and adaptive immunity in experimental models.",
-            subtitle: "Primary Compounds in Immunology & Recovery Research",
+            subtitle: "Primary Compounds in Immune Signaling Research",
             peptides: [
                 {
                     name: "KPV",
@@ -138,7 +138,7 @@
         recovery: 'Tissue Biology',
         longevity: 'Cellular Aging',
         weight: 'Metabolic Science',
-        skin: 'Immunology & Recovery',
+        skin: 'Immune Signaling',
         performance: 'Cellular Energy'
     };
 
