@@ -12,7 +12,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Pinealon for Sale | Neuronal Peptide Research | 33 Degrees</title>
     <meta name="description" content="Pinealon for sale — research-grade Glu-Asp-Arg tripeptide for neuronal oxidative-stress and bioregulator research. 99% purity, COA. Research use only.">
-    <meta name="robots" content="noindex, follow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -97,8 +96,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h1 class="pdp-title">Pinealon</h1>
                 <p class="pdp-subtitle"><span class="glossary-term" data-definition="A short peptide studied for its ability to regulate gene expression and cellular function — a class of peptides first characterized in pineal-gland research.">Bioregulator</span> Research</p>
                 <div class="pdp-price-row">
-                    <span class="product-detail-price pdp-price">Coming Soon</span>
+                    <span class="product-detail-price pdp-price">$49.00</span>
                 </div>
+
+
+                <!-- Variant Selector -->
+                <div class="product-variants"></div>
+
+                <button class="add-to-cart-btn" id="add-to-cart" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    Add to Cart
+                </button>
 
                 <!-- Trust badges -->
                 <div class="pdp-trust">
@@ -137,6 +145,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </a>
                     </div>
                 </div>
+
+                <!-- Lab Results -->
+                <div class="product-lab-results"></div>
 
             </div>
         </div>
@@ -332,6 +343,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </script>
     <script src="/js/cart.js?v=6"></script>
     <script src="/js/api.js?v=8"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var btn = document.getElementById('add-to-cart');
+        if (!btn) return;
+        var check = setInterval(function() {
+            var active = document.querySelector('.variant-btn.active');
+            if (active) { clearInterval(check); btn.disabled = false; }
+        }, 200);
+        setTimeout(function() { clearInterval(check); btn.disabled = false; }, 5000);
+        btn.addEventListener('click', function() {
+            var active = document.querySelector('.variant-btn.active');
+            var slug = document.querySelector('[data-product-detail]').dataset.productDetail;
+            var name = document.querySelector('.pdp-title').textContent;
+            var img = document.querySelector('.pdp-image img');
+            var imgSrc = img ? img.getAttribute('src') : null;
+            if (active) {
+                ThirtyThreeCart.addToCart(slug, name, active.dataset.variantId, active.textContent.trim().split('\u2014')[0].trim(), parseFloat(active.dataset.price), imgSrc);
+            } else {
+                var priceEl = document.querySelector('.product-detail-price');
+                var price = priceEl ? priceEl.textContent.replace('$','') : '0';
+                ThirtyThreeCart.addToCart(slug, name, null, null, parseFloat(price), imgSrc);
+            }
+        });
+    });
+    </script>
     <script src="/js/search.js?v=8"></script>
     <script src="/js/age-gate.js?v=1"></script>
     <script src="/js/schema.js?v=1"></script>
