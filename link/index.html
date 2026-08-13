@@ -203,6 +203,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: grid;
             gap: 14px;
         }
+        /* Just Added — 2x2 grid of stacked (vertical) cards */
+        #new-products {
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        #new-products .product-card {
+            grid-template-columns: 1fr;
+            text-align: center;
+            padding: 14px;
+            gap: 10px;
+        }
+        #new-products .product-img {
+            width: 100%;
+            height: 140px;
+        }
+        #new-products .product-info {
+            align-items: center;
+        }
+        #new-products .price-row {
+            justify-content: center;
+        }
         .product-card {
             background: #fff;
             border: 1px solid var(--cream-dark);
@@ -543,6 +564,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <svg class="website-btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
 
+        <!-- ========== JUST ADDED (new products) ========== -->
+        <section class="section">
+            <div class="section-label">Just Added</div>
+            <div class="products" id="new-products"></div>
+        </section>
+
         <!-- ========== TOP 3 PRODUCTS ========== -->
         <section class="section">
             <div class="section-label">Featured Compounds</div>
@@ -630,6 +657,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             },
         ];
 
+        // ============================================================
+        // Just Added — newest compounds (display order)
+        // ============================================================
+        const NEW_PRODUCTS = [
+            {
+                slug: 'glutathione',
+                name: 'Glutathione',
+                desc: 'Tripeptide antioxidant studied for cellular redox-balance research.',
+                image: '/assets/images/products/glutathione.webp',
+            },
+            {
+                slug: 'pinealon',
+                name: 'Pinealon',
+                desc: 'Short-peptide bioregulator studied in neuronal-model research.',
+                image: '/assets/images/products/pinealon.webp',
+            },
+            {
+                slug: 'thymosin-alpha-1',
+                name: 'Thymosin Alpha-1',
+                desc: 'Immunomodulatory peptide studied for immune-signaling research.',
+                image: '/assets/images/products/thymosin-alpha-1.webp',
+            },
+            {
+                slug: 'oxytocin',
+                name: 'Oxytocin',
+                desc: 'Neuropeptide studied for oxytocin-receptor signaling research.',
+                image: '/assets/images/products/oxytocin.webp',
+            },
+        ];
+
         const API_BASE = 'https://web-production-a7a6.up.railway.app/api/v1';
 
         function isDiscountActive(discount) {
@@ -683,9 +740,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             `;
         }
 
-        async function renderProducts() {
-            const container = document.getElementById('products');
-            const cards = await Promise.all(FEATURED.map(async (p) => {
+        async function renderProducts(containerId, list) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            const cards = await Promise.all(list.map(async (p) => {
                 const price = await fetchProductPrice(p.slug);
                 const discount = DISCOUNTS[p.slug];
                 const activeDiscount = isDiscountActive(discount);
@@ -723,7 +781,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             });
         }
 
-        renderProducts();
+        renderProducts('new-products', NEW_PRODUCTS);
+        renderProducts('products', FEATURED);
     })();
     </script>
     <script src="/js/age-gate.js?v=1"></script>
