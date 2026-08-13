@@ -766,6 +766,16 @@ img {
     box-shadow: 0 12px 40px rgba(212, 168, 67, 0.1);
 }
 
+/* Just Added — whole card is a link to the product page */
+.new-card-link {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+}
+.new-card-link .product-card {
+    width: 100%;
+}
+
 .product-image {
     position: relative;
     height: 240px;
