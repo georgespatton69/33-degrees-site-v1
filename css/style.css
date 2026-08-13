@@ -1365,9 +1365,7 @@ img {
     border: 1px solid var(--border-subtle);
     border-radius: 4px;
     padding: 14px 18px;
-    flex: 1 0 auto;
-    min-width: 150px;
-    max-width: 220px;
+    flex: 0 0 calc((100% - 24px) / 3);
     scroll-snap-align: start;
     transition: all var(--transition);
     cursor: pointer;
