@@ -1347,9 +1347,17 @@ img {
 
 .cat-products {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 12px;
     margin-bottom: 28px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+}
+
+.cat-products::-webkit-scrollbar {
+    display: none;
 }
 
 .cat-product {
@@ -1357,12 +1365,70 @@ img {
     border: 1px solid var(--border-subtle);
     border-radius: 4px;
     padding: 14px 18px;
-    flex: 1;
-    min-width: 140px;
+    flex: 1 0 auto;
+    min-width: 150px;
+    max-width: 220px;
+    scroll-snap-align: start;
     transition: all var(--transition);
     cursor: pointer;
     display: flex;
     flex-direction: column;
+}
+
+/* Desktop horizontal-scroll arrows for category product rows */
+.cat-products-wrap {
+    position: relative;
+}
+
+.cat-scroll-btn {
+    position: absolute;
+    top: 0;
+    bottom: 28px;
+    margin: auto 0;
+    width: 38px;
+    height: 38px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-gold);
+    border-radius: 50%;
+    color: var(--gold);
+    cursor: pointer;
+    z-index: 4;
+    box-shadow: 0 2px 12px rgba(44, 36, 22, 0.12);
+    transition: all var(--transition);
+}
+
+.cat-scroll-btn:hover {
+    border-color: var(--gold);
+    background: rgba(154, 123, 63, 0.08);
+    color: var(--gold-dark);
+}
+
+.cat-scroll-btn.prev {
+    left: -14px;
+}
+
+.cat-scroll-btn.next {
+    right: -14px;
+}
+
+.cat-products-wrap.has-overflow .cat-scroll-btn {
+    display: flex;
+}
+
+.cat-scroll-btn:disabled {
+    opacity: 0.25;
+    cursor: default;
+    box-shadow: none;
+}
+
+/* Mobile keeps its swipe carousel — hide desktop arrows */
+@media (max-width: 768px) {
+    .cat-scroll-btn {
+        display: none !important;
+    }
 }
 
 .cat-product:hover {
