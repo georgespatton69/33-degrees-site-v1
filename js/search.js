@@ -16,7 +16,7 @@
         { name: 'MOTS-c', type: 'Product', category: 'Cellular Energy', url: '/products/mots-c/', keywords: 'mitochondrial endurance exercise metabolic' },
         { name: 'Epithalon', type: 'Product', category: 'Cellular Aging', url: '/products/epithalon/', keywords: 'telomere telomerase longevity aging pineal' },
         { name: 'SS-31', type: 'Product', category: 'Cellular Aging', url: '/products/ss-31/', keywords: 'mitochondria elamipretide oxidative stress cardiolipin' },
-        { name: 'Retatrutide', type: 'Product', category: 'Metabolic Science', url: '/products/retatrutide/', keywords: 'tri-agonist triple receptor metabolic appetite incretin' },
+        { name: 'Gold 33', type: 'Product', category: 'Metabolic Science', url: '/products/gold-33/', keywords: 'gold 33 retatrutide tri-agonist triple receptor metabolic appetite incretin glp-1 gip glucagon' },
         { name: 'Tesamorelin', type: 'Product', category: 'Metabolic Science', url: '/products/tesamorelin/', keywords: 'growth hormone ghrh visceral fat' },
         { name: 'AOD 9604', type: 'Product', category: 'Metabolic Science', url: '/products/aod-9604/', keywords: 'hgh fragment 176-191 lipolysis aod-9604' },
         { name: 'Ipamorelin', type: 'Product', category: 'Cellular Energy', url: '/products/ipamorelin/', keywords: 'growth hormone secretagogue gh selective cortisol' },
@@ -38,6 +38,10 @@
         { name: 'Methylene Blue', type: 'Product', category: 'New Releases', url: '/products/methylene-blue/', keywords: 'methylene blue mitochondrial electron carrier nootropic phenothiazine cytochrome capsule' },
         { name: 'Tesofensine', type: 'Product', category: 'New Releases', url: '/products/tesofensine/', keywords: 'tesofensine monoamine reuptake dat net sert dopamine norepinephrine appetite obesity capsule' },
         { name: 'LIPO-C Blend', type: 'Product', category: 'New Releases', url: '/products/lipo-c/', keywords: 'lipo-c lipotropic l-carnitine methionine inositol choline b12 b6 nadh blend vial metabolic mitochondrial' },
+        { name: 'Glutathione', type: 'Product', category: 'Cellular Aging', url: '/products/glutathione/', keywords: 'glutathione tripeptide antioxidant redox oxidative detox gsh glutamate cysteine glycine' },
+        { name: 'Pinealon', type: 'Product', category: 'Neuro & Cognitive', url: '/products/pinealon/', keywords: 'pinealon peptide bioregulator neuronal glu-asp-arg neuro cognitive khavinson' },
+        { name: 'Thymosin Alpha-1', type: 'Product', category: 'Immune Signaling', url: '/products/thymosin-alpha-1/', keywords: 'thymosin alpha-1 immune t-cell prothymosin immunomodulatory tlr' },
+        { name: 'Oxytocin', type: 'Product', category: 'Neuro & Cognitive', url: '/products/oxytocin/', keywords: 'oxytocin acetate neuropeptide receptor neuroendocrine nonapeptide oxtr social' },
         // Articles
         { name: 'What Are Peptides?', type: 'Article', category: 'Research', url: '/blog/what-are-peptides/', keywords: 'peptide basics fundamentals amino acids' },
         { name: 'Peptides in 2026', type: 'Article', category: 'Research', url: '/blog/peptides-in-2026/', keywords: 'industry regulatory fda clinical' },
@@ -60,13 +64,21 @@
     }
 
     function search(query) {
-        if (!query || query.length < 2) return [];
-        var q = query.toLowerCase();
-        return items.filter(function(item) {
-            return item.name.toLowerCase().includes(q) ||
-                   item.keywords.toLowerCase().includes(q) ||
-                   item.category.toLowerCase().includes(q);
-        }).slice(0, 8);
+        var q = (query || '').toLowerCase().trim();
+        if (!q) return [];
+        return items.map(function(item) {
+            var name = item.name.toLowerCase();
+            var score = 0;
+            if (name === q) score = 100;
+            else if (name.indexOf(q) === 0) score = 80;          // name starts with query
+            else if (name.indexOf(q) !== -1) score = 60;         // name contains query
+            else if (item.keywords.toLowerCase().indexOf(q) !== -1) score = 30;
+            else if (item.category.toLowerCase().indexOf(q) !== -1) score = 20;
+            return { item: item, score: score };
+        }).filter(function(r) { return r.score > 0; })
+          .sort(function(a, b) { return b.score - a.score; })
+          .slice(0, 8)
+          .map(function(r) { return r.item; });
     }
 
     function createOverlay() {
@@ -91,7 +103,7 @@
 
         input.addEventListener('input', function() {
             var matches = search(this.value);
-            if (matches.length === 0 && this.value.length >= 2) {
+            if (matches.length === 0 && this.value.trim().length >= 1) {
                 results.innerHTML = '<div class="search-empty">No results found</div>';
             } else if (matches.length === 0) {
                 results.innerHTML = '';
