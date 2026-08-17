@@ -198,6 +198,36 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-align: center;
         }
 
+        /* ============ RESTOCKED ============ */
+        #restocked-products .product-card {
+            border: 1px solid rgba(154, 123, 63, 0.4);
+            box-shadow: 0 8px 24px rgba(154, 123, 63, 0.18);
+        }
+        .restocked-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--text-primary);
+            color: var(--gold-light);
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+        }
+        .restocked-badge::before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background: #6bcf7f;
+            border-radius: 50%;
+            margin-right: 6px;
+            vertical-align: middle;
+            box-shadow: 0 0 8px #6bcf7f;
+        }
+
         /* ============ PRODUCT CARDS ============ */
         .products {
             display: grid;
@@ -564,6 +594,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <svg class="website-btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
 
+        <!-- ========== RESTOCKED (top priority — matches current IG post) ========== -->
+        <section class="section">
+            <div class="section-label">Back in Stock</div>
+            <div class="products" id="restocked-products"></div>
+        </section>
+
         <!-- ========== JUST ADDED (new products) ========== -->
         <section class="section">
             <div class="section-label">Just Added</div>
@@ -632,6 +668,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             'retatrutide': null,
             'ghk-cu':      null,
         };
+
+        // ============================================================
+        // Restocked — tied to current IG post announcement.
+        // Set to [] to hide the "Back in Stock" section entirely.
+        // ============================================================
+        const RESTOCKED = [
+            {
+                slug: 'pt-141',
+                name: 'PT-141',
+                desc: 'Melanocortin-receptor agonist studied for sexual-function pathway research.',
+                image: '/assets/images/products/pt-141.webp',
+            },
+        ];
 
         // ============================================================
         // Featured product list — order = display order
@@ -740,15 +789,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             `;
         }
 
-        async function renderProducts(containerId, list) {
+        async function renderProducts(containerId, list, opts = {}) {
             const container = document.getElementById(containerId);
             if (!container) return;
+            if (list.length === 0) {
+                container.closest('section').style.display = 'none';
+                return;
+            }
             const cards = await Promise.all(list.map(async (p) => {
                 const price = await fetchProductPrice(p.slug);
                 const discount = DISCOUNTS[p.slug];
                 const activeDiscount = isDiscountActive(discount);
+                const badge = opts.badge ? `<span class="restocked-badge">${opts.badge}</span>` : '';
                 return `
                     <a href="/products/${p.slug}/" class="product-card ${activeDiscount ? 'has-discount' : ''}">
+                        ${badge}
                         <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy">
                         <div class="product-info">
                             <div class="product-name">${p.name}</div>
@@ -781,6 +836,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             });
         }
 
+        renderProducts('restocked-products', RESTOCKED, { badge: 'Restocked' });
         renderProducts('new-products', NEW_PRODUCTS);
         renderProducts('products', FEATURED);
     })();
