@@ -121,7 +121,11 @@
             const res = await fetch(API_BASE + '/coupon/apply/', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ code: code, subtotal: cartSubtotal().toFixed(2) }),
+                body: JSON.stringify({
+                    code: code,
+                    items: cartToItems(),
+                    subtotal: cartSubtotal().toFixed(2),
+                }),
             });
             const data = await res.json();
             if (!res.ok) {
