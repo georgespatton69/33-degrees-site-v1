@@ -228,6 +228,32 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             box-shadow: 0 0 8px #6bcf7f;
         }
 
+        /* ============ BOGO (Buy 4, Get 2 Free) ============ */
+        .section-sub {
+            font-size: 0.78rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            text-align: center;
+            margin: -6px 0 16px;
+        }
+        #bogo-products .product-card {
+            border: 1px solid rgba(154, 123, 63, 0.5);
+            box-shadow: 0 8px 24px rgba(154, 123, 63, 0.2);
+        }
+        .bogo-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--gold);
+            color: var(--text-primary);
+            font-size: 0.65rem;
+            font-weight: 800;
+            padding: 5px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
         /* ============ PRODUCT CARDS ============ */
         .products {
             display: grid;
@@ -594,6 +620,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <svg class="website-btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
 
+        <!-- ========== BUY 4 GET 2 FREE (BOGO promo — matches current IG carousel) ========== -->
+        <section class="section">
+            <div class="section-label">Buy 4, Get 2 Free</div>
+            <div class="section-sub">Add 6 of one product to your cart, enter its code — pay for 4.</div>
+            <div class="products" id="bogo-products"></div>
+        </section>
+
         <!-- ========== RESTOCKED (top priority — matches current IG post) ========== -->
         <section class="section">
             <div class="section-label">Back in Stock</div>
@@ -679,6 +712,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 name: 'PT-141',
                 desc: 'Melanocortin-receptor agonist studied for sexual-function pathway research.',
                 image: '/assets/images/products/pt-141.webp',
+            },
+        ];
+
+        // ============================================================
+        // Buy 4, Get 2 Free — BOGO codes (one per product).
+        // Mechanic: add 6 of one product, enter its code, pay for 4.
+        // Set to [] to hide the section.
+        // ============================================================
+        const BOGO = [
+            {
+                slug: 'tesamorelin',
+                name: 'Tesamorelin',
+                desc: 'GHRH analog studied in growth-hormone-axis research.',
+                image: '/assets/images/products/tesamorelin.webp',
+                code: 'TESA426',
+            },
+            {
+                slug: 'cjc-ipamorelin',
+                name: 'CJC-1295 + Ipamorelin',
+                desc: 'Dual growth-hormone-secretagogue blend studied in GH-pathway research.',
+                image: '/assets/images/products/cjc-ipamorelin.webp',
+                code: 'CJC426',
+            },
+            {
+                slug: 'ipamorelin',
+                name: 'Ipamorelin',
+                desc: 'Selective growth-hormone secretagogue studied in GH-pathway research.',
+                image: '/assets/images/products/ipamorelin.webp',
+                code: 'IPA426',
             },
         ];
 
@@ -789,6 +851,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             `;
         }
 
+        function renderBogoBlock(price, code) {
+            const priceLine = price === null
+                ? `<span class="price">View</span>`
+                : `<span class="price">From $${price.toFixed(0)}</span>`;
+            return `
+                <div class="price-row">${priceLine}</div>
+                <div class="discount-meta">
+                    <button class="discount-code" data-code="${code}" aria-label="Copy code ${code}">
+                        CODE: ${code}
+                    </button>
+                    <span class="discount-expires">Buy 4, get 2 free</span>
+                </div>
+            `;
+        }
+
         async function renderProducts(containerId, list, opts = {}) {
             const container = document.getElementById(containerId);
             if (!container) return;
@@ -800,7 +877,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 const price = await fetchProductPrice(p.slug);
                 const discount = DISCOUNTS[p.slug];
                 const activeDiscount = isDiscountActive(discount);
-                const badge = opts.badge ? `<span class="restocked-badge">${opts.badge}</span>` : '';
+                const badgeClass = opts.bogo ? 'bogo-badge' : 'restocked-badge';
+                const badge = opts.badge ? `<span class="${badgeClass}">${opts.badge}</span>` : '';
+                const priceBlock = opts.bogo ? renderBogoBlock(price, p.code) : renderPriceBlock(price, discount);
                 return `
                     <a href="/products/${p.slug}/" class="product-card ${activeDiscount ? 'has-discount' : ''}">
                         ${badge}
@@ -808,7 +887,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="product-info">
                             <div class="product-name">${p.name}</div>
                             <div class="product-desc">${p.desc}</div>
-                            ${renderPriceBlock(price, discount)}
+                            ${priceBlock}
                         </div>
                     </a>
                 `;
@@ -836,6 +915,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             });
         }
 
+        renderProducts('bogo-products', BOGO, { badge: '2 Free', bogo: true });
         renderProducts('restocked-products', RESTOCKED, { badge: 'Restocked' });
         renderProducts('new-products', NEW_PRODUCTS);
         renderProducts('products', FEATURED);
