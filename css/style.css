@@ -868,26 +868,37 @@ img {
 /* ========== POPULAR BUNDLES ========== */
 /* ========== POPULAR BUNDLES — Full-width horizontal ========== */
 .popular-bundles {
-    padding: 0;
+    padding: 60px 0;
     background: #fff;
 }
 .bundles-carousel {
     position: relative;
-    max-width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 24px;
 }
 .bundles-grid {
     position: relative;
+    display: flex;
+    gap: 24px;
     overflow: hidden;
-}
-.bundle-card {
-    display: none;
-    min-height: 420px;
-}
-.bundle-card.active {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
     align-items: stretch;
+    transition: opacity 0.18s ease;
 }
+/* Desktop: compact vertical cards (info on top, gradient below), 3 across */
+.bundle-card {
+    flex: 0 0 calc((100% - 48px) / 3);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;   /* info natural height; gradient absorbs extra so footers align */
+    min-height: auto;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+.bundle-card .bundle-info { order: -1; }
+.bundle-card .bundle-visual { order: 1; }
 .bundle-card.active .bundle-visual {
     animation: slideInLeft 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
@@ -908,18 +919,18 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 50px 40px;
-    min-height: 100%;
+    padding: 36px 24px;
+    min-height: 190px;
     position: relative;
 }
 .bundle-total {
     font-family: var(--font-heading);
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     color: rgba(255,255,255,0.12);
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 20px;
+    right: 22px;
     line-height: 1;
 }
 .bundle-compounds {
@@ -941,10 +952,10 @@ img {
     backdrop-filter: blur(4px);
 }
 .bundle-info {
-    padding: 60px 80px 60px 40px;
+    padding: 28px 28px 32px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     background: #fff;
 }
 .bundle-eyebrow {
@@ -1000,8 +1011,8 @@ img {
     z-index: 5;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
-.bundle-prev { left: 20px; }
-.bundle-next { right: 20px; }
+.bundle-prev { left: 34px; }
+.bundle-next { right: 34px; }
 .bundle-arrow:hover {
     background: #333;
     border-color: #333;
@@ -1050,6 +1061,22 @@ img {
     font-size: 0.85rem;
     line-height: 1.6;
     margin-bottom: 16px;
+}
+/* Desktop 3-card row: reserve the description height (names are one line each) so
+   the price/button row lands at the same spot on every card and in every shuffle state. */
+@media (min-width: 769px) {
+    .bundle-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .bundle-desc {
+        min-height: 4.4em;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 }
 .bundle-includes {
     display: flex;

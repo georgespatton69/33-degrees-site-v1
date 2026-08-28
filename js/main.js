@@ -406,32 +406,61 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     revealElements.forEach(el => observer.observe(el));
 })();
 
-// ---------- BUNDLE CAROUSEL (Desktop) ----------
+// ---------- BUNDLE CAROUSEL (Desktop: 3-card rotating window) ----------
 (function initBundleCarousel() {
-    const cards = document.querySelectorAll('.bundle-card');
+    const grid = document.querySelector('.bundles-grid');
+    const cards = Array.from(document.querySelectorAll('.bundle-card'));
     const dotsNav = document.querySelector('.bundle-dots-nav');
     const prevBtn = document.querySelector('.bundle-prev');
     const nextBtn = document.querySelector('.bundle-next');
-    if (!cards.length || !dotsNav) return;
+    if (!grid || !cards.length) return;
 
+    const VISIBLE = 3;
+    const n = cards.length;
+    const desktop = window.matchMedia('(min-width: 769px)');
     let current = 0;
 
-    // Build dots in the bottom nav
-    cards.forEach((_, i) => {
-        const dot = document.createElement('span');
-        dot.className = 'bundle-dot' + (i === 0 ? ' active' : '');
-        dot.addEventListener('click', () => goTo(i));
-        dotsNav.appendChild(dot);
-    });
-
-    function goTo(idx) {
-        cards[current].classList.remove('active');
-        dotsNav.children[current].classList.remove('active');
-        current = (idx + cards.length) % cards.length;
-        cards[current].classList.add('active');
-        dotsNav.children[current].classList.add('active');
+    // One dot per starting position (desktop only; hidden on mobile via CSS)
+    if (dotsNav) {
+        dotsNav.innerHTML = '';
+        cards.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'bundle-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => go(i));
+            dotsNav.appendChild(dot);
+        });
     }
 
-    if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
-    if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
+    // Show VISIBLE cards starting at `current`, wrapping around; hide the rest.
+    function paint() {
+        cards.forEach((c) => { c.style.display = 'none'; c.style.order = ''; });
+        for (let p = 0; p < Math.min(VISIBLE, n); p++) {
+            const c = cards[(current + p) % n];
+            c.style.display = '';
+            c.style.order = p;
+        }
+        if (dotsNav) Array.from(dotsNav.children)
+            .forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    // On mobile, clear inline overrides so the native swipe-scroll row shows all cards.
+    function reset() {
+        cards.forEach((c) => { c.style.display = ''; c.style.order = ''; });
+        grid.style.opacity = '';
+    }
+
+    function apply() { desktop.matches ? paint() : reset(); }
+
+    function go(idx) {
+        if (!desktop.matches) return;
+        const next = ((idx % n) + n) % n;
+        if (next === current) return;
+        grid.style.opacity = '0';
+        setTimeout(() => { current = next; paint(); grid.style.opacity = '1'; }, 170);
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => go(current - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => go(current + 1));
+    desktop.addEventListener('change', () => { current = 0; apply(); });
+    apply();
 })();
