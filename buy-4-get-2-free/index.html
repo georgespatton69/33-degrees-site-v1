@@ -64,8 +64,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .bogo-code:hover { filter: brightness(1.05); }
         .bogo-code.copied { background: #4a7c4a; color: #fff; }
         .bogo-code-note { color: var(--text-secondary); font-weight: 600; font-size: 0.9rem; }
+
+        /* Grid areas: desktop = image left, title+buy right; mobile = title, image, buy */
+        .bogo-block .pdp-container {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "image header" "image details";
+            gap: 16px 60px;
+            align-items: start;
+        }
+        .bogo-block .pdp-image { grid-area: image; }
+        .bogo-block .pdp-header { grid-area: header; display: flex; flex-direction: column; }
+        .bogo-block .pdp-details { grid-area: details; }
         @media (max-width: 768px) {
             .bogo-hero { padding: 48px 20px 42px; }
+            .bogo-block .pdp-container {
+                grid-template-columns: 1fr;
+                grid-template-areas: "header" "image" "details";
+                gap: 20px;
+            }
         }
     </style>
 </head>
@@ -112,6 +128,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ========== TESAMORELIN ========== -->
     <section class="pdp-section bogo-block" data-bogo-product="tesamorelin">
         <div class="pdp-container">
+            <div class="pdp-header">
+                <span class="pdp-tag">Metabolic Science</span>
+                <h2 class="pdp-title">Tesamorelin</h2>
+                <p class="pdp-subtitle">GHRH analog studied in growth-hormone-axis research</p>
+            </div>
             <div class="pdp-image">
                 <div class="pdp-image-wrap">
                     <img src="/assets/images/products/tesamorelin.webp" alt="Tesamorelin" loading="lazy">
@@ -123,9 +144,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
             <div class="pdp-details">
-                <span class="pdp-tag">Metabolic Science</span>
-                <h2 class="pdp-title">Tesamorelin</h2>
-                <p class="pdp-subtitle">GHRH analog studied in growth-hormone-axis research</p>
                 <div class="pdp-price-row"><span class="product-detail-price pdp-price">$85.00</span></div>
                 <div class="bogo-code-row">
                     <button class="bogo-code" data-code="TESA426" aria-label="Copy code TESA426">CODE: TESA426</button>
@@ -148,6 +166,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ========== CJC-1295 + IPAMORELIN ========== -->
     <section class="pdp-section bogo-block" data-bogo-product="cjc-ipamorelin">
         <div class="pdp-container">
+            <div class="pdp-header">
+                <span class="pdp-tag">Cellular Energy</span>
+                <h2 class="pdp-title">CJC-1295 + Ipamorelin</h2>
+                <p class="pdp-subtitle">Dual growth-hormone-secretagogue blend</p>
+            </div>
             <div class="pdp-image">
                 <div class="pdp-image-wrap">
                     <img src="/assets/images/products/cjc-ipamorelin.webp" alt="CJC-1295 + Ipamorelin" loading="lazy">
@@ -159,9 +182,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
             <div class="pdp-details">
-                <span class="pdp-tag">Cellular Energy</span>
-                <h2 class="pdp-title">CJC-1295 + Ipamorelin</h2>
-                <p class="pdp-subtitle">Dual growth-hormone-secretagogue blend</p>
                 <div class="pdp-price-row"><span class="product-detail-price pdp-price">$75.00</span></div>
                 <div class="bogo-code-row">
                     <button class="bogo-code" data-code="CJC426" aria-label="Copy code CJC426">CODE: CJC426</button>
@@ -184,6 +204,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ========== IPAMORELIN ========== -->
     <section class="pdp-section bogo-block" data-bogo-product="ipamorelin">
         <div class="pdp-container">
+            <div class="pdp-header">
+                <span class="pdp-tag">Cellular Energy</span>
+                <h2 class="pdp-title">Ipamorelin</h2>
+                <p class="pdp-subtitle">Selective growth-hormone secretagogue</p>
+            </div>
             <div class="pdp-image">
                 <div class="pdp-image-wrap">
                     <img src="/assets/images/products/ipamorelin.webp" alt="Ipamorelin" loading="lazy">
@@ -195,9 +220,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
             <div class="pdp-details">
-                <span class="pdp-tag">Cellular Energy</span>
-                <h2 class="pdp-title">Ipamorelin</h2>
-                <p class="pdp-subtitle">Selective growth-hormone secretagogue</p>
                 <div class="pdp-price-row"><span class="product-detail-price pdp-price">$69.00</span></div>
                 <div class="bogo-code-row">
                     <button class="bogo-code" data-code="IPA426" aria-label="Copy code IPA426">CODE: IPA426</button>
