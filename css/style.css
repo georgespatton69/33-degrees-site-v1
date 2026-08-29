@@ -871,6 +871,31 @@ img {
     padding: 60px 0;
     background: #fff;
 }
+/* Buy-4-Get-2-Free promo image: desktop = full 3-card width; mobile = one card wide.
+   Transparent section so the site's own background shows behind the banner (no box
+   to clash with the differing desktop/mobile page colors). */
+.bogo-promo {
+    padding: 16px 24px 20px;   /* 24px matches .bundles-carousel so the banner aligns with the cards */
+    background: transparent;
+}
+.bogo-promo-link {
+    display: block;
+    max-width: 1112px;       /* = the 3-card row width (1160 container - 48 padding) */
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.bogo-promo-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.16);
+}
+.bogo-promo-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
 .bundles-carousel {
     position: relative;
     max-width: 1160px;
@@ -1954,6 +1979,17 @@ img {
     .bundle-footer .btn { font-size: 0.8rem; padding: 8px 20px; }
     .bundle-dots-nav { display: none !important; }
     .bundle-arrow { display: none !important; }
+
+    /* promo image: match one popular-combo card's footprint; transparent section */
+    .bogo-promo {
+        padding: 12px 0 16px;
+        background: transparent;
+    }
+    .bogo-promo-link {
+        width: 80vw;
+        max-width: 320px;
+        margin: 0 auto;
+    }
 
     .science-section { padding: 0 !important; }
     .science-section .container { padding: 40px 20px; }
