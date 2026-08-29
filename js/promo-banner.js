@@ -10,7 +10,7 @@
 
     // ===================== CONFIG =====================
     var ENABLED = true;
-    var HREF = '/products/tesamorelin/';   // click target
+    var HREF = '/buy-4-get-2-free/';   // click target
     var CODES = 'TESA426 · CJC426 · IPA426';
     // ==================================================
     if (!ENABLED) return;
