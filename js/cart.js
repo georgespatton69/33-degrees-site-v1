@@ -25,9 +25,35 @@
 
     // ---- Cart Data ----
 
+    // Heal one stored item into a clean, renderable shape. Returns null for
+    // anything unusable (junk left by older versions of this file, or corrupt
+    // entries) so it gets filtered out instead of crashing the drawer.
+    function normalizeCartItem(raw) {
+        if (!raw || typeof raw !== 'object') return null;
+        const price = Number(raw.price);
+        const productName = raw.productName != null ? String(raw.productName) : '';
+        if (!productName || !isFinite(price)) return null;
+        const quantity = Math.max(1, Math.floor(Number(raw.quantity)) || 1);
+        return {
+            productSlug: raw.productSlug != null ? String(raw.productSlug) : null,
+            productName,
+            variantId: raw.variantId != null ? raw.variantId : null,
+            variantSize: raw.variantSize != null ? String(raw.variantSize) : null,
+            price,
+            image: raw.image != null ? String(raw.image) : null,
+            quantity,
+        };
+    }
+
+    // Always returns an array of clean items. Legacy/corrupt storage (e.g. an
+    // object instead of an array, or items with a stringified price) can no
+    // longer crash callers like updateCartCount() or renderCartDrawer().
     function getCart() {
-        try { return JSON.parse(localStorage.getItem(CART_KEY)) || []; }
+        let raw;
+        try { raw = JSON.parse(localStorage.getItem(CART_KEY)); }
         catch { return []; }
+        if (!Array.isArray(raw)) return [];
+        return raw.map(normalizeCartItem).filter(Boolean);
     }
 
     function saveCart(cart) {
@@ -150,7 +176,7 @@
                     <div class="cart-item-info">
                         <div class="cart-item-name">${item.productName}</div>
                         ${item.variantSize ? `<div class="cart-item-variant">${item.variantSize}</div>` : ''}
-                        <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                        <div class="cart-item-price">$${Number(item.price).toFixed(2)}</div>
                     </div>
                     <div class="cart-item-qty">
                         <button class="qty-btn qty-minus" data-index="${i}">-</button>
@@ -252,9 +278,14 @@
 
     function openCartDrawer() {
         createCartDrawer();
-        renderCartDrawer();
-        document.getElementById('cart-overlay').classList.add('active');
-        document.getElementById('cart-drawer').classList.add('active');
+        // Render must never block the drawer from opening — if a bad item
+        // somehow slips through, log it but still show the drawer so the
+        // customer can see/clear their cart.
+        try { renderCartDrawer(); } catch (e) { console.error('Cart render failed:', e); }
+        const overlay = document.getElementById('cart-overlay');
+        const drawer = document.getElementById('cart-drawer');
+        if (overlay) overlay.classList.add('active');
+        if (drawer) drawer.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
@@ -269,15 +300,24 @@
     // ---- Initialize ----
 
     document.addEventListener('DOMContentLoaded', () => {
-        updateCartCount();
-
-        // Cart icon opens drawer
+        // Wire the cart icon FIRST so nothing below can leave it dead.
         document.querySelectorAll('.cart-icon').forEach(icon => {
             icon.addEventListener('click', (e) => {
                 e.preventDefault();
                 openCartDrawer();
             });
         });
+
+        // Heal legacy/corrupt storage once: rewrite it with the normalized
+        // cart so stale shapes are gone for good (getCart() already sanitizes
+        // on read, so this only cleans up what's persisted).
+        try {
+            if (localStorage.getItem(CART_KEY) != null) {
+                localStorage.setItem(CART_KEY, JSON.stringify(getCart()));
+            }
+        } catch (e) { /* storage unavailable — ignore */ }
+
+        updateCartCount();
     });
 
     // Expose globally
