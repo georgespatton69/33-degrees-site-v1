@@ -52,6 +52,12 @@
         { name: 'Mitochondrial Cofactor Research', type: 'Article', category: 'Research', url: '/blog/mitochondrial-function-guide/', keywords: 'nad ss-31 mots-c epithalon aging longevity' },
         { name: 'Collagen Synthesis Pathway', type: 'Article', category: 'Research', url: '/blog/collagen-synthesis-guide/', keywords: 'ghk-cu glow blend collagen skin' },
         { name: 'Immune Signaling', type: 'Article', category: 'Research', url: '/blog/immune-signaling-guide/', keywords: 'bpc tb immune inflammation recovery' },
+        { name: 'Neuro Signaling Research', type: 'Article', category: 'Research', url: '/blog/neuro-signaling-guide/', keywords: 'semax selank dsip neuro cognitive brain nootropic signaling' },
+        { name: 'What Is NAD+?', type: 'Article', category: 'Research', url: '/blog/what-is-nad-plus/', keywords: 'nad nicotinamide sirtuins coenzyme longevity nmn nr energy metabolism' },
+        { name: 'What Is Epithalon?', type: 'Article', category: 'Research', url: '/blog/what-is-epithalon/', keywords: 'epithalon epitalon telomerase telomere pineal longevity aging tetrapeptide' },
+        { name: 'What Is Pinealon?', type: 'Article', category: 'Research', url: '/blog/what-is-pinealon/', keywords: 'pinealon edr glu-asp-arg neuronal bioregulator oxidative stress khavinson tripeptide' },
+        { name: 'What Is SS-31?', type: 'Article', category: 'Research', url: '/blog/what-is-ss-31/', keywords: 'ss-31 elamipretide mitochondria cardiolipin membrane atp oxidative' },
+        { name: 'What Is MOTS-c?', type: 'Article', category: 'Research', url: '/blog/what-is-mots-c/', keywords: 'mots-c ampk mitochondrial peptide exercise mimetic metabolic amino acid' },
         // Pages
         { name: 'Lab Testing Results', type: 'Page', category: '', url: '/lab-testing/', keywords: 'lab testing coa certificate purity batch' },
         { name: 'Research Library', type: 'Page', category: '', url: '/research/', keywords: 'research peptides learn' },
