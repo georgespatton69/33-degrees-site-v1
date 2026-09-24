@@ -19,10 +19,10 @@
     function getSelectedShipping() {
         const row = document.querySelector('.shipping-method-row input[type="radio"]:checked');
         const label = row ? row.closest('.shipping-method-row') : document.querySelector('.shipping-method-row');
-        if (!label) return { method: 'standard', cost: 8.95, name: 'Standard' };
+        if (!label) return { method: 'standard', cost: 9.50, name: 'Standard' };
         return {
             method: label.dataset.method || 'standard',
-            cost: Number(label.dataset.cost || '8.95'),
+            cost: Number(label.dataset.cost || '9.50'),
             name: label.querySelector('.shipping-method-name') ? label.querySelector('.shipping-method-name').textContent : 'Standard',
         };
     }
