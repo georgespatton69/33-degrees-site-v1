@@ -17,6 +17,7 @@
         { name: 'Epithalon', type: 'Product', category: 'Cellular Aging', url: '/products/epithalon/', keywords: 'telomere telomerase longevity aging pineal' },
         { name: 'SS-31', type: 'Product', category: 'Cellular Aging', url: '/products/ss-31/', keywords: 'mitochondria elamipretide oxidative stress cardiolipin' },
         { name: 'Gold 33', type: 'Product', category: 'Metabolic Science', url: '/products/gold-33/', keywords: 'gold 33 retatrutide tri-agonist triple receptor metabolic appetite incretin glp-1 gip glucagon' },
+        { name: 'Triz 33', type: 'Product', category: 'Metabolic Science', url: '/products/triz-33/', keywords: 'triz 33 tirzepatide dual agonist twincretin gip glp-1 incretin metabolic appetite glucose weight' },
         { name: 'Tesamorelin', type: 'Product', category: 'Metabolic Science', url: '/products/tesamorelin/', keywords: 'growth hormone ghrh visceral fat' },
         { name: 'AOD 9604', type: 'Product', category: 'Metabolic Science', url: '/products/aod-9604/', keywords: 'hgh fragment 176-191 lipolysis aod-9604' },
         { name: 'Ipamorelin', type: 'Product', category: 'Cellular Energy', url: '/products/ipamorelin/', keywords: 'growth hormone secretagogue gh selective cortisol' },
