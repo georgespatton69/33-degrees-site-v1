@@ -188,7 +188,7 @@
     async function submitOrder(data, items) {
         const payload = Object.assign({}, data, {
             items: items,
-            processor: 'quickbooks',
+            processor: 'invoice',
             coupon_code: appliedCoupon ? appliedCoupon.code : '',
             ref: getAffiliateRef(),
             shipping_method: getSelectedShipping().method,
