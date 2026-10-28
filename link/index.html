@@ -546,6 +546,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .about-graphic { font-size: 3.6rem; }
         }
 
+        /* ============ HALLOWEEN PROMO ============ */
+        .halloween-alert {
+            display: flex; align-items: center; justify-content: center;
+            gap: 10px; flex-wrap: wrap;
+            margin-bottom: 22px; padding: 12px 18px;
+            background: linear-gradient(135deg, #1a0f06 0%, #3a1c08 100%);
+            border: 1px solid rgba(232, 100, 26, 0.5);
+            border-radius: 14px; text-decoration: none;
+            box-shadow: 0 8px 24px rgba(232, 100, 26, 0.18);
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .halloween-alert:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(232,100,26,0.28); }
+        .halloween-alert-tag {
+            font-size: 0.72rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+            color: #0e0d0a; background: #ff7c1a; padding: 4px 10px; border-radius: 999px; white-space: nowrap;
+        }
+        .halloween-alert-text { font-size: 0.88rem; color: #f5e6c8; }
+        .halloween-alert-text strong { color: #ff9a3c; font-weight: 800; }
+        #halloween-section .section-label { color: #e8641a; }
+        #halloween-section .product-card {
+            border: 1px solid rgba(232, 100, 26, 0.5);
+            box-shadow: 0 8px 24px rgba(232, 100, 26, 0.18);
+            background: linear-gradient(180deg, #fff 0%, #fff6ee 100%);
+        }
+        .halloween-badge {
+            position: absolute; top: 12px; right: 12px;
+            background: #ff7c1a; color: #0e0d0a;
+            font-size: 0.65rem; font-weight: 800; padding: 5px 10px; border-radius: 20px;
+            letter-spacing: 0.1em; text-transform: uppercase;
+        }
+
         /* ============ AGE GATE (mirrors main site's style.css) ============ */
         #age-gate {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -601,6 +632,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <div class="page-wrap">
 
+        <!-- ========== HALLOWEEN ALERT ========== -->
+        <a href="/products/wolverine-stack/" class="halloween-alert">
+            <span class="halloween-alert-tag">🎃 Halloween</span>
+            <span class="halloween-alert-text"><strong>20% OFF</strong> with code <strong>SPOOKY20</strong> &middot; ends Oct 31</span>
+        </a>
+
         <!-- ========== HERO ========== -->
         <div class="hero">
             <div class="hero-logo">
@@ -619,6 +656,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <svg class="website-btn-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
+
+        <!-- ========== HALLOWEEN DEAL (Wolverine Stack 20% off) ========== -->
+        <section class="section" id="halloween-section">
+            <div class="section-label">🎃 Halloween Deal &middot; 20% Off</div>
+            <div class="products" id="halloween-products"></div>
+        </section>
 
         <!-- ========== BUY 4 GET 2 FREE (BOGO promo — matches current IG carousel) ========== -->
         <section class="section">
@@ -697,10 +740,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // Set to null to disable a discount. Expiration = YYYY-MM-DD (end of day).
         // ============================================================
         const DISCOUNTS = {
+            'wolverine-stack': { code: 'SPOOKY20', percent: 20, expires: '2026-10-31' },  // Halloween
             'bpc-157':     null,   // e.g. { code: 'BPC20',  percent: 20, expires: '2026-08-31' }
             'gold-33':     null,
             'ghk-cu':      null,
         };
+
+        // ============================================================
+        // Halloween Deal — Wolverine Stack 20% off (SPOOKY20, ends Oct 31).
+        // Set to [] to hide the section. Discount wired via DISCOUNTS above.
+        // ============================================================
+        const HALLOWEEN = [
+            {
+                slug: 'wolverine-stack',
+                name: 'Wolverine Stack',
+                desc: 'BPC-157 + TB-500 dual-pathway tissue-repair research bundle.',
+                image: '/assets/images/products/wolverine-stack.webp',
+            },
+        ];
 
         // ============================================================
         // Restocked — tied to current IG post announcement.
@@ -877,7 +934,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 const price = await fetchProductPrice(p.slug);
                 const discount = DISCOUNTS[p.slug];
                 const activeDiscount = isDiscountActive(discount);
-                const badgeClass = opts.bogo ? 'bogo-badge' : 'restocked-badge';
+                const badgeClass = opts.badgeClass || (opts.bogo ? 'bogo-badge' : 'restocked-badge');
                 const badge = opts.badge ? `<span class="${badgeClass}">${opts.badge}</span>` : '';
                 const priceBlock = opts.bogo ? renderBogoBlock(price, p.code) : renderPriceBlock(price, discount);
                 return `
@@ -915,6 +972,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             });
         }
 
+        renderProducts('halloween-products', HALLOWEEN, { badge: '20% Off', badgeClass: 'halloween-badge' });
         renderProducts('bogo-products', BOGO, { badge: '2 Free', bogo: true });
         renderProducts('restocked-products', RESTOCKED, { badge: 'Restocked' });
         renderProducts('new-products', NEW_PRODUCTS);
