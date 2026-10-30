@@ -43,6 +43,9 @@
         { name: 'Pinealon', type: 'Product', category: 'Neuro & Cognitive', url: '/products/pinealon/', keywords: 'pinealon peptide bioregulator neuronal glu-asp-arg neuro cognitive khavinson' },
         { name: 'Thymosin Alpha-1', type: 'Product', category: 'Immune Signaling', url: '/products/thymosin-alpha-1/', keywords: 'thymosin alpha-1 immune t-cell prothymosin immunomodulatory tlr' },
         { name: 'Oxytocin', type: 'Product', category: 'Neuro & Cognitive', url: '/products/oxytocin/', keywords: 'oxytocin acetate neuropeptide receptor neuroendocrine nonapeptide oxtr social' },
+        { name: 'AHK-Cu', type: 'Product', category: 'New Releases', url: '/products/ahk-cu/', keywords: 'ahk-cu copper tripeptide-3 ala-his-lys hair follicle dermal papilla vegf fgf wnt collagen ghk' },
+        { name: 'ARA-290', type: 'Product', category: 'New Releases', url: '/products/ara-290/', keywords: 'ara-290 cibinetide erythropoietin epo innate repair receptor anti-inflammatory tissue protection neuropathy' },
+        { name: 'RA Water', type: 'Product', category: 'Accessories', url: '/products/ra-water/', keywords: 'ra water reconstitution diluent ara-290 solvent sterile' },
         // Articles
         { name: 'What Are Peptides?', type: 'Article', category: 'Research', url: '/blog/what-are-peptides/', keywords: 'peptide basics fundamentals amino acids' },
         { name: 'Peptides in 2026', type: 'Article', category: 'Research', url: '/blog/peptides-in-2026/', keywords: 'industry regulatory fda clinical' },
