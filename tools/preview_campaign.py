@@ -64,12 +64,17 @@ def main():
     if leftover:
         print("WARNING: unstubbed directives: " + ", ".join(sorted(leftover)))
 
-    html = (
-        "<!doctype html>\n<html><head><meta charset=\"utf-8\">"
-        "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">"
-        f"<title>Preview: {a.content.stem}</title></head><body "
-        "style=\"margin:0;background:#dfe9e5;\">\n" + html + "\n</body></html>\n"
-    )
+    # A template that already declares <html> is a complete document (the
+    # editorial wrapper is, so it can carry colour-scheme meta tags). Wrapping
+    # it again would nest documents and drop its <head>, silently discarding
+    # the dark-mode rules this preview exists to check.
+    if "<html" not in html.lower():
+        html = (
+            "<!doctype html>\n<html><head><meta charset=\"utf-8\">"
+            "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">"
+            f"<title>Preview: {a.content.stem}</title></head><body "
+            "style=\"margin:0;background:#dfe9e5;\">\n" + html + "\n</body></html>\n"
+        )
 
     a.output.parent.mkdir(parents=True, exist_ok=True)
     a.output.write_text(html)
