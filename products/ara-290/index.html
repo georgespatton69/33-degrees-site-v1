@@ -84,7 +84,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span style="display:block; font-family:'Libre Baskerville',Georgia,serif; font-weight:700; font-size:0.95rem; line-height:1.2;">RA Water &middot; 3 ml</span>
                         <span style="display:block; font-size:0.76rem; color:var(--gold-dark); line-height:1.35; margin-top:2px;">Required diluent for ARA-290</span>
                     </span>
-                    <span style="margin-left:auto; flex:none; font-size:0.72rem; font-weight:700; color:var(--gold); white-space:nowrap;">View &rarr;</span>
+                    <span style="margin-left:auto; flex:none; text-align:right; white-space:nowrap;">
+                        <span style="display:block; font-weight:700; font-size:0.95rem; color:var(--text-primary);">$10.00</span>
+                        <span style="display:block; font-size:0.72rem; font-weight:700; color:var(--gold);">View &rarr;</span>
+                    </span>
                 </a>
             </div>
 
@@ -94,11 +97,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h1 class="pdp-title">ARA-290</h1>
                 <p class="pdp-subtitle">Erythropoietin-Derived Innate Repair Receptor Peptide</p>
                 <div class="pdp-price-row">
-                    <span class="pdp-price" style="font-size:1.15rem;opacity:0.85;">Coming November 1</span>
+                    <span class="product-detail-price pdp-price">$55.00</span>
                 </div>
 
-                <button class="add-to-cart-btn" disabled style="opacity:0.6;cursor:not-allowed;">
-                    Coming November 1
+                <!-- Variant Selector -->
+                <div class="product-variants"></div>
+
+                <button class="add-to-cart-btn" id="add-to-cart" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    Add to Cart
                 </button>
 
                 <!-- Bundle option (Complete the Set) -->
@@ -111,10 +118,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span style="margin-left:auto; text-align:right;">
                             <span style="display:block; font-size:0.68rem; color:var(--gold-dark); text-transform:uppercase; letter-spacing:0.06em;">Buy Together</span>
                             <span style="display:block; font-weight:700; font-size:0.95rem; line-height:1.25;">ARA-290 + RA Water</span>
+                            <span style="display:block; font-weight:700; font-size:0.95rem; color:var(--gold-dark);">$65.00</span>
                         </span>
                     </div>
-                    <button class="add-to-cart-btn" disabled style="width:100%; opacity:0.6; cursor:not-allowed;">
-                        Add Bundle &middot; Coming November 1
+                    <button class="add-to-cart-btn" id="add-bundle" disabled style="width:100%;">
+                        Add Bundle &middot; $65.00
                     </button>
                 </div>
 
@@ -360,7 +368,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             var active = document.querySelector('.variant-btn.active');
             if (active) { clearInterval(check); btn.disabled = false; }
         }, 200);
-        setTimeout(function() { clearInterval(check); btn.disabled = false; }, 5000);
+        setTimeout(function() {
+            clearInterval(check);
+            // Only fall back to enabling when variants never rendered at all
+            // (API slow or down). If they rendered and none are in stock, stay
+            // disabled -- otherwise a sold-out product silently becomes
+            // purchasable five seconds after load.
+            var rendered = document.querySelectorAll('.variant-btn').length > 0;
+            if (rendered && !document.querySelector('.variant-btn:not([disabled])')) {
+                btn.innerHTML = 'Out of Stock';
+                return;
+            }
+            btn.disabled = false;
+        }, 5000);
         btn.addEventListener('click', function() {
             var active = document.querySelector('.variant-btn.active');
             var slug = document.querySelector('[data-product-detail]').dataset.productDetail;
@@ -376,6 +396,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         });
     });
+    </script>
+    <script>
+    // "Complete the Set" adds both SKUs in one click. Inline and page-scoped
+    // because ARA-290 is the only product with a paired diluent, so a shared
+    // bundle module would be one caller wide.
+    (function () {
+        var btn = document.getElementById('add-bundle');
+        if (!btn) return;
+        var API = window.THIRTY3_API_BASE || 'https://web-production-a7a6.up.railway.app/api/v1';
+
+        function firstStocked(p) {
+            return (p.variants || []).filter(function (v) { return v.is_active && v.in_stock; })[0];
+        }
+        function unavailable() { btn.textContent = 'Bundle Unavailable'; }
+
+        Promise.all([
+            fetch(API + '/products/ara-290/').then(function (r) { return r.json(); }),
+            fetch(API + '/products/ra-water/').then(function (r) { return r.json(); })
+        ]).then(function (res) {
+            var ara = firstStocked(res[0]), water = firstStocked(res[1]);
+            // Both must be in stock. Half a bundle in the cart is worse than a
+            // button that plainly says it cannot be bought.
+            if (!ara || !water) return unavailable();
+            btn.disabled = false;
+            btn.addEventListener('click', function () {
+                var C = window.ThirtyThreeCart;
+                if (!C) return;
+                C.addToCart('ara-290', 'ARA-290', ara.id, ara.size, ara.price,
+                            '/assets/images/products/kpv.webp');
+                C.addToCart('ra-water', 'RA Water', water.id, water.size, water.price,
+                            '/assets/images/products/bac-water.webp');
+                C.openCartDrawer();
+            });
+        }).catch(unavailable);
+    })();
     </script>
     <script src="/js/search.js?v=12"></script>
     <script src="/js/age-gate.js?v=2"></script>

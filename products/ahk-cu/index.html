@@ -96,11 +96,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h1 class="pdp-title">AHK-Cu</h1>
                 <p class="pdp-subtitle">Copper Tripeptide-3 (Ala-His-Lys &middot; Cu<sup>2+</sup>)</p>
                 <div class="pdp-price-row">
-                    <span class="pdp-price" style="font-size:1.15rem;opacity:0.85;">Coming November 1</span>
+                    <span class="product-detail-price pdp-price">$75.00</span>
                 </div>
 
-                <button class="add-to-cart-btn" disabled style="opacity:0.6;cursor:not-allowed;">
-                    Coming November 1
+                <!-- Variant Selector -->
+                <div class="product-variants"></div>
+
+                <button class="add-to-cart-btn" id="add-to-cart" disabled>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    Add to Cart
                 </button>
 
                 <!-- Trust badges -->
@@ -345,7 +349,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             var active = document.querySelector('.variant-btn.active');
             if (active) { clearInterval(check); btn.disabled = false; }
         }, 200);
-        setTimeout(function() { clearInterval(check); btn.disabled = false; }, 5000);
+        setTimeout(function() {
+            clearInterval(check);
+            // Only fall back to enabling when variants never rendered at all
+            // (API slow or down). If they rendered and none are in stock, stay
+            // disabled -- otherwise a sold-out product silently becomes
+            // purchasable five seconds after load.
+            var rendered = document.querySelectorAll('.variant-btn').length > 0;
+            if (rendered && !document.querySelector('.variant-btn:not([disabled])')) {
+                btn.innerHTML = 'Out of Stock';
+                return;
+            }
+            btn.disabled = false;
+        }, 5000);
         btn.addEventListener('click', function() {
             var active = document.querySelector('.variant-btn.active');
             var slug = document.querySelector('[data-product-detail]').dataset.productDetail;
