@@ -406,6 +406,72 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     revealElements.forEach(el => observer.observe(el));
 })();
 
+// ---------- JUST ADDED CAROUSEL (Desktop: 4-card rotating window) ----------
+(function initNewArrivalsCarousel() {
+    const grid = document.querySelector('.na-grid');
+    const slider = document.querySelector('.na-slider');
+    if (!grid || !slider) return;
+
+    const cards = Array.from(grid.querySelectorAll('.new-card-link'));
+    const dotsNav = slider.querySelector('.na-dots-nav');
+    const prevBtn = slider.querySelector('.na-prev');
+    const nextBtn = slider.querySelector('.na-next');
+
+    const VISIBLE = 4;
+    const n = cards.length;
+    const desktop = window.matchMedia('(min-width: 769px)');
+    let current = 0;
+
+    // Nothing to rotate through — leave the grid alone and drop the controls.
+    if (n <= VISIBLE) {
+        [prevBtn, nextBtn, dotsNav].forEach(el => el && el.remove());
+        return;
+    }
+
+    if (dotsNav) {
+        dotsNav.innerHTML = '';
+        cards.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'na-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => go(i));
+            dotsNav.appendChild(dot);
+        });
+    }
+
+    // Show VISIBLE cards starting at `current`, wrapping around; hide the rest.
+    function paint() {
+        cards.forEach(c => { c.style.display = 'none'; c.style.order = ''; });
+        for (let p = 0; p < VISIBLE; p++) {
+            const c = cards[(current + p) % n];
+            c.style.display = '';
+            c.style.order = p;
+        }
+        if (dotsNav) Array.from(dotsNav.children)
+            .forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    // On mobile the grid is two columns and scrolls, so show every card.
+    function reset() {
+        cards.forEach(c => { c.style.display = ''; c.style.order = ''; });
+        grid.style.opacity = '';
+    }
+
+    function apply() { desktop.matches ? paint() : reset(); }
+
+    function go(idx) {
+        if (!desktop.matches) return;
+        const next = ((idx % n) + n) % n;
+        if (next === current) return;
+        grid.style.opacity = '0';
+        setTimeout(() => { current = next; paint(); grid.style.opacity = '1'; }, 170);
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', () => go(current - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => go(current + 1));
+    desktop.addEventListener('change', () => { current = 0; apply(); });
+    apply();
+})();
+
 // ---------- BUNDLE CAROUSEL (Desktop: 3-card rotating window) ----------
 (function initBundleCarousel() {
     const grid = document.querySelector('.bundles-grid');

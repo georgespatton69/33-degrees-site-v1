@@ -789,6 +789,82 @@ img {
     width: 100%;
 }
 
+/* Just Added slider — six cards, four on screen at a time.
+   Same rotating-window approach as the bundles carousel: JS hides all but
+   VISIBLE cards and reorders them, rather than translating a track, so the
+   grid keeps its own column sizing. Arrows and dots are desktop-only; on
+   mobile the grid drops to two columns and simply shows every card. */
+.na-slider {
+    position: relative;
+}
+
+.na-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.na-prev { left: -22px; }
+.na-next { right: -22px; }
+
+.na-arrow:hover {
+    background: #333;
+    border-color: #333;
+}
+
+.na-arrow:hover svg { stroke: #fff; }
+
+.na-arrow svg {
+    width: 18px;
+    height: 18px;
+    stroke: #333;
+    fill: none;
+    stroke-width: 2;
+}
+
+.na-dots-nav {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 24px 0 0;
+}
+
+.na-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(154, 123, 63, 0.25);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.na-dot.active {
+    background: var(--gold);
+    width: 24px;
+    border-radius: 4px;
+}
+
+.na-grid {
+    transition: opacity 0.17s ease;
+}
+
+@media (max-width: 768px) {
+    .na-arrow,
+    .na-dots-nav { display: none; }
+}
+
 .product-image {
     position: relative;
     height: 240px;
