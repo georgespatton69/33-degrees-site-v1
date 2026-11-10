@@ -715,15 +715,27 @@ img {
     z-index: 1;
 }
 
-/* Panels — use grid stacking so active panel always holds height */
+/* Panels — only the visible panel holds height.
+   These were stacked in one grid cell, which sizes the row to the TALLEST
+   panel, so every category reserved two rows of space even though only
+   Tissue Biology (6 cards) and Weight (5) need them. The four-card panels
+   left a card-row of dead space above Popular Combos.
+   Switching is sequential, not a crossfade: fadeOutCurrent() adds
+   .fading-out while the panel keeps .active, and switchTo() only swaps at
+   the dimmest point, once opacity has already reached 0. So exactly one
+   panel is ever visible, and the inactive ones can leave the flow entirely.
+   Absolute rather than display:none, so the active panel's opacity
+   transition still runs (display changes do not animate). */
 .carousel-panels {
-    display: grid;
+    position: relative;
     margin-top: 40px;
 }
 
 .carousel-panel {
-    grid-row: 1;
-    grid-column: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     opacity: 0;
     transition: opacity 1s ease;
     pointer-events: none;
@@ -731,6 +743,7 @@ img {
 }
 
 .carousel-panel.active {
+    position: relative; /* in flow, so the container takes its height */
     opacity: 1;
     pointer-events: auto;
     visibility: visible;
