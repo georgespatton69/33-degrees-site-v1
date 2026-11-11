@@ -8,19 +8,31 @@
     const CART_KEY = '33d_cart';
     const API_BASE = window.THIRTY3_API_BASE || 'https://web-production-a7a6.up.railway.app/api/v1';
 
-    const ADDON_SLUG = 'bac-water';
-    const ADDON_BLURB = 'Reconstitution solvent — often needed with peptides.';
-    let addonProduct = null;
+    // Diluents are offered here in the drawer only -- they have no pages of their
+    // own. Which one depends on what is in the cart: ARA-290 ships with its own
+    // matched diluent, everything else takes bacteriostatic water.
+    const ADDON_BLURBS = {
+        'bac-water': 'Reconstitution solvent — often needed with lyophilized powders.',
+        'ra-water': 'The matched diluent for ARA-290.',
+    };
+    const ADDON_BY_PRODUCT = { 'ara-290': 'ra-water' };
+    const DEFAULT_ADDON = 'bac-water';
+    const addonCache = {};
 
-    async function fetchAddonProduct() {
-        if (addonProduct !== null) return addonProduct;
+    function addonSlugFor(cart) {
+        const match = cart.find(i => ADDON_BY_PRODUCT[i.productSlug]);
+        return match ? ADDON_BY_PRODUCT[match.productSlug] : DEFAULT_ADDON;
+    }
+
+    async function fetchAddonProduct(slug) {
+        if (slug in addonCache) return addonCache[slug];
         try {
-            const res = await fetch(`${API_BASE}/products/${ADDON_SLUG}/`);
-            addonProduct = res.ok ? await res.json() : false;
+            const res = await fetch(`${API_BASE}/products/${slug}/`);
+            addonCache[slug] = res.ok ? await res.json() : false;
         } catch {
-            addonProduct = false;
+            addonCache[slug] = false;
         }
-        return addonProduct;
+        return addonCache[slug];
     }
 
     // ---- Cart Data ----
@@ -214,7 +226,8 @@
             return;
         }
 
-        const product = await fetchAddonProduct();
+        const addonSlug = addonSlugFor(cart);
+        const product = await fetchAddonProduct(addonSlug);
         if (!product) {
             container.innerHTML = '';
             return;
@@ -254,7 +267,7 @@
                     <img src="${image}" alt="${product.name}" class="cart-suggestion-img">
                     <div class="cart-suggestion-info">
                         <div class="cart-suggestion-name">${product.name}</div>
-                        <div class="cart-suggestion-blurb">${ADDON_BLURB}</div>
+                        <div class="cart-suggestion-blurb">${ADDON_BLURBS[addonSlug]}</div>
                     </div>
                 </div>
                 <div class="cart-suggestion-variants">${variantBtns}</div>

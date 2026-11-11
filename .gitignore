@@ -4,3 +4,6 @@ token.json
 .tmp/
 __pycache__/
 *.pyc
+
+# Internal SOPs — local only, never deploy to public Pages
+workflows/

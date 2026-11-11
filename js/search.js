@@ -25,7 +25,6 @@
         { name: 'KPV', type: 'Product', category: 'Immune Signaling', url: '/products/kpv/', keywords: 'alpha-msh nf-kb immune inflammatory tripeptide' },
         { name: 'Klow', type: 'Product', category: 'Immune Signaling', url: '/products/klow/', keywords: 'quad peptide bpc tb kpv ghk bundle' },
         { name: 'CJC-1295 + Ipamorelin', type: 'Product', category: 'Cellular Energy', url: '/products/cjc-ipamorelin/', keywords: 'growth hormone dual secretagogue ghrh' },
-        { name: 'Bacteriostatic Water', type: 'Product', category: 'Accessories', url: '/products/bac-water/', keywords: 'bac water reconstitution solvent sterile' },
         // New Releases
         { name: '5-Amino-1MQ', type: 'Product', category: 'New Releases', url: '/products/5-amino-1mq/', keywords: 'nnmt inhibitor nad salvage methyl donor adipocyte 5-amino' },
         { name: 'SLU-PP-332', type: 'Product', category: 'New Releases', url: '/products/slu-pp-332/', keywords: 'err agonist exercise mimetic mitochondrial biogenesis oxidative' },
@@ -45,7 +44,6 @@
         { name: 'Oxytocin', type: 'Product', category: 'Neuro & Cognitive', url: '/products/oxytocin/', keywords: 'oxytocin acetate neuropeptide receptor neuroendocrine nonapeptide oxtr social' },
         { name: 'AHK-Cu', type: 'Product', category: 'New Releases', url: '/products/ahk-cu/', keywords: 'ahk-cu copper tripeptide-3 ala-his-lys hair follicle dermal papilla vegf fgf wnt collagen ghk' },
         { name: 'ARA-290', type: 'Product', category: 'New Releases', url: '/products/ara-290/', keywords: 'ara-290 cibinetide erythropoietin epo innate repair receptor anti-inflammatory tissue protection neuropathy' },
-        { name: 'RA Water', type: 'Product', category: 'Accessories', url: '/products/ra-water/', keywords: 'ra water reconstitution diluent ara-290 solvent sterile' },
         // Articles
         { name: 'What Are Peptides?', type: 'Article', category: 'Research', url: '/blog/what-are-peptides/', keywords: 'peptide basics fundamentals amino acids' },
         { name: 'Peptides in 2026', type: 'Article', category: 'Research', url: '/blog/peptides-in-2026/', keywords: 'industry regulatory fda clinical' },
