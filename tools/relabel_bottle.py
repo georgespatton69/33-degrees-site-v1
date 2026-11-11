@@ -66,21 +66,49 @@ def find_reflection_band(a, h, lo=316, hi=None):
     return r0, r1
 
 
-def gold_text(text, font, w, h, cx, baseline_y, arc):
-    """Draw `text` centred at cx with a gold vertical ramp and a slight arc."""
-    layer = Image.new("L", (w, h), 0)
+def gold_text(text, font_path, font_px, w, h, cx, baseline_y, arc,
+              tracking, condense, ss=4):
+    """Draw `text` the way the camera saw the original label.
+
+    Drawing glyphs straight into the output at final size gives hard vector
+    edges that read as pasted-on next to the rest of the photograph. The
+    original name is a lens image: softly bloomed, letter-spaced, slightly
+    condensed on the curve of the glass, and dimmer toward the label's edges.
+    So render oversized, letter-space and condense it, then downsample -- the
+    resample does the optical softening for free.
+    """
+    W, H = w * ss, h * ss
+    font = ImageFont.truetype(font_path, int(font_px * ss), index=BOLD)
+    layer = Image.new("L", (W, H), 0)
     d = ImageDraw.Draw(layer)
-    # measure, then place each glyph so we can bend the line
+
+    track = tracking * ss
     widths = [d.textlength(ch, font=font) for ch in text]
-    total = sum(widths)
-    x = cx - total / 2
+    total = sum(widths) + track * (len(text) - 1)
+    x = cx * ss - total / 2
+    base = baseline_y * ss
     for ch, cw in zip(text, widths):
-        # normalised -1..1 across the line; edges dip on a cylinder
-        t = ((x + cw / 2) - cx) / max(total / 2, 1)
-        dy = arc * (t * t)
-        d.text((x, baseline_y + dy), ch, font=font, fill=255, anchor="ls")
-        x += cw
-    return layer
+        t = ((x + cw / 2) - cx * ss) / max(total / 2, 1)
+        d.text((x, base + arc * ss * (t * t)), ch, font=font, fill=255, anchor="ls")
+        x += cw + track
+
+    if condense != 1.0:
+        # Squeeze the whole line, then shift it back so cx stays put: a point at
+        # X lands at X*condense, so the line needs cx*ss*(1-condense) back.
+        sq = layer.resize((max(int(W * condense), 1), H), Image.LANCZOS)
+        layer = Image.new("L", (W, H), 0)
+        layer.paste(sq, (int(cx * ss * (1 - condense)), 0))
+
+    return layer.resize((w, h), Image.LANCZOS)
+
+
+def shade_across(mask, cx, span, floor):
+    """Dim the line toward the label's edges, the way the cylinder does."""
+    a = np.array(mask).astype(float)
+    xs = np.arange(a.shape[1])
+    t = np.clip(np.abs(xs - cx) / max(span, 1), 0, 1)
+    a *= (floor + (1 - floor) * (1 - t ** 2))[None, :]
+    return Image.fromarray(a.astype(np.uint8))
 
 
 def main():
@@ -96,6 +124,17 @@ def main():
     p.add_argument("--reflect-alpha", type=float, default=0.42)
     p.add_argument("--reflect-blur", type=float, default=0.6)
     p.add_argument("--reflect-pad", type=int, default=2)
+    p.add_argument("--gain", type=float, default=0.72,
+                   help="overall brightness of the gold vs the original ink")
+    p.add_argument("--ink-gamma", type=float, default=1.0,
+                   help=">1 thins the glyph edges")
+    p.add_argument("--tracking", type=float, default=0.55, help="extra px between letters")
+    p.add_argument("--condense", type=float, default=0.94, help="horizontal squeeze")
+    p.add_argument("--bloom", type=float, default=0.42)
+    p.add_argument("--bloom-radius", type=float, default=1.15)
+    p.add_argument("--shadow", type=float, default=0.55)
+    p.add_argument("--edge-floor", type=float, default=0.66,
+                   help="how far the line dims toward the label edges")
     p.add_argument("--fit", type=float, default=0.95,
                    help="max name width as a fraction of the '33 DEGREES' line")
     args = p.parse_args()
@@ -147,12 +186,24 @@ def main():
     max_w = (br - bl) * args.fit
 
     probe = ImageDraw.Draw(Image.new("L", (1, 1)))
-    while size > 6 and probe.textlength(args.text, font=font) > max_w:
-        size -= 1
-        font = ImageFont.truetype(TIMES, size, index=BOLD)
-    text_w = probe.textlength(args.text, font=font)
 
-    mask = gold_text(args.text, font, w, h, cx, y1 + 1, args.arc)
+    def line_w(px):
+        f = ImageFont.truetype(TIMES, px, index=BOLD)
+        glyphs = probe.textlength(args.text, font=f)
+        return (glyphs + args.tracking * (len(args.text) - 1)) * args.condense
+
+    while size > 6 and line_w(size) > max_w:
+        size -= 1
+    text_w = line_w(size)
+
+    mask = gold_text(args.text, TIMES, size, w, h, cx, y1 + 1, args.arc,
+                     args.tracking, args.condense)
+    mask = shade_across(mask, cx, max_w / 2 * 1.2, args.edge_floor)
+    # Thin the strokes. Raising the coverage mask to a power >1 pulls the
+    # antialiased skirt of each glyph down without touching its solid core,
+    # which is what separates a typeset look from the finer original ink.
+    if args.ink_gamma != 1.0:
+        mask = mask.point(lambda v: int(255 * (v / 255.0) ** args.ink_gamma))
 
     # gold ramp: brighter through the middle of the glyph, warmer at the feet
     grad = Image.new("RGB", (w, h))
@@ -160,14 +211,28 @@ def main():
     for y in range(h):
         t = np.clip((y - y0) / max(cap_h, 1), 0, 1)
         g[y] = (
-            int(201 + 30 * (1 - t)),
-            int(166 + 33 * (1 - t)),
-            int(86 + 24 * (1 - t)),
+            int((201 + 30 * (1 - t)) * args.gain),
+            int((166 + 33 * (1 - t)) * args.gain),
+            int((86 + 24 * (1 - t)) * args.gain),
         )
     grad = Image.fromarray(g)
 
     out = clean.copy()
+
+    # A little shadow under the glyphs seats them on the label instead of
+    # leaving them floating above it.
+    shadow = mask.filter(ImageFilter.GaussianBlur(0.7)).point(
+        lambda v: int(v * args.shadow))
+    out.paste(Image.new("RGB", (w, h), (0, 0, 0)), (0, 1), shadow)
     out.paste(grad, (0, 0), mask)
+
+    # Bloom. On the original the gold bleeds a little into the label around each
+    # letter -- that halo is most of what makes it read as photographed rather
+    # than typeset, so add it back additively.
+    bloom = mask.filter(ImageFilter.GaussianBlur(args.bloom_radius))
+    base = np.array(out).astype(float)
+    base += np.array(grad).astype(float) * (np.array(bloom).astype(float) / 255.0)[..., None] * args.bloom
+    out = Image.fromarray(np.clip(base, 0, 255).astype(np.uint8))
 
     # --- the mirrored name in the marble reflection --------------------------
     # The vial stands on polished stone, so the label is mirrored below it and
